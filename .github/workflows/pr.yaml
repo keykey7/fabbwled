@@ -1,0 +1,37 @@
+name: Run Gradle on PRs
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Fetch Project
+        uses: actions/checkout@v3
+      - name: ♨️ Java Setup
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 17
+      - name: 🐘 Gradle Build
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
+          build-root-directory: fabbwled-backend
+          dependency-graph: generate-and-submit
+      - name: 🔧 Node Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: fabbwled-frontend/package-lock.json
+      - name: 🤖 npm install
+        run: npm ci
+        working-directory: fabbwled-frontend
+      - name: 🚧 npm test
+        run: npm test
+        working-directory: fabbwled-frontend
