@@ -1,0 +1,26 @@
+package ch.bbw.fabbwled.lands.controller;
+
+import ch.bbw.fabbwled.lands.book.FabledSection;
+import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.service.SectionService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@Validated
+@RestController
+@RequiredArgsConstructor
+public class SectionController {
+
+	private final SectionService sectionService;
+
+	/**
+	 * Peek at a book section without actually going there.
+	 */
+	@GetMapping("/api/section/{bookId}/{sectionId}")
+	public FabledSection byId(@PathVariable int bookId, @PathVariable int sectionId) {
+		return sectionService.byId(new SectionId(bookId, sectionId));
+	}
+}
