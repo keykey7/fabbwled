@@ -1,1 +1,23 @@
-
+logging:
+  level:
+    ch.bbw.fabbwled: debug
+    root: info
+  pattern:
+    dateformat: HH:mm:ss
+server:
+  error:
+    include-stacktrace: on_param
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: true
+spring:
+  application:
+    name: faBBWled lands
+  jackson:
+    serialization:
+      indent-output: true
+  output:
+    ansi:
+      enabled: ALWAYS
