@@ -1,6 +1,6 @@
 logging:
   level:
-    ch.bbw.ch.bbw.fabbwled: debug
+    ch.bbw.fabbwled: debug
     root: info
   pattern:
     dateformat: HH:mm:ss

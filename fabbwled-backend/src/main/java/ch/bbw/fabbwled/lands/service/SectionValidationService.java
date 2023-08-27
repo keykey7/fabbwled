@@ -1,6 +1,6 @@
 package ch.bbw.fabbwled.lands.service;
 
-import ch.bbw.fabbwled.lands.book.FabledSection;
+import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,11 +17,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SectionValidationService {
 
-	final Set<FabledSection> allSections;
+	final Set<SectionHandler> allSections;
 
 	@EventListener(ContextRefreshedEvent.class)
 	void validateUniqueId() {
-		var ids = allSections.stream().map(FabledSection::getId).toList();
+		var ids = allSections.stream().map(SectionHandler::getId).toList();
 		var duplicates = ids.stream().filter(i -> Collections.frequency(ids, i) > 1)
 				.collect(Collectors.toSet());
 		if (!duplicates.isEmpty()) {

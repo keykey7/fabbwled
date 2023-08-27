@@ -1,9 +1,9 @@
 package ch.bbw.fabbwled.lands.service;
 
-import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
-import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
-import ch.bbw.fabbwled.lands.book.FabledSection;
+import ch.bbw.fabbwled.lands.book.SectionDto;
+import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,25 +18,31 @@ public class SectionService {
 
 	final PlayerSession playerSession;
 
-	final Set<FabledSection> allSections;
+	final Set<SectionHandler> allSections;
 
-	public FabledSection byId(@NonNull SectionId id) {
+	public SectionHandler getSectionHandler(@NonNull SectionId id) {
 		return allSections.stream()
 				.filter(x -> id.equals(x.getId()))
 				.findAny()
 				.orElseThrow(() -> new FabledTechnicalException("unknown section " + id));
 	}
 
-	public boolean isValidTarget(@NonNull SectionId newId) {
-		return byId(playerSession.getCurrentSection()).getGoto().stream().anyMatch(x -> newId.equals(x.target()));
+	public SectionDto byId(@NonNull SectionId id) {
+		var handler = getSectionHandler(id);
+		var sectionDto = new SectionDto(handler.getId(), handler.getTicks(), handler.getBody());
+		if (log.isDebugEnabled()) { // because it's expensive
+			log.debug("returning {}: {}", sectionDto.id(), sectionDto.body().asPlainText());
+			log.debug("available clickIds: {}", sectionDto.body().allClickIds());
+		}
+		return sectionDto;
 	}
 
-	public FabledSection moveTo(@NonNull SectionId nextId) {
-		if (!isValidTarget(nextId)) {
-			throw new FabledBusinessException("cannot move to section " + nextId);
-		}
-		log.info("transitioning player from {} to {}", playerSession.getCurrentSection(), nextId);
-		playerSession.setCurrentSection(nextId);
-		return byId(nextId);
+	public SectionDto onClick(int clickId) {
+		var activeSectionId = playerSession.getPlayer().currentSection();
+		var handler = getSectionHandler(activeSectionId);
+		log.info("handling clickId={} on {}", clickId, activeSectionId);
+		handler.onClick(clickId);
+		// we have to re-render as we changed state
+		return byId(playerSession.getPlayer().currentSection());
 	}
 }
