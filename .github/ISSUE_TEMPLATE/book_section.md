@@ -2,7 +2,7 @@
 name: New Book Section
 about: Describe a missing section
 title: 'Section X Book 1'
-labels: section
+labels: section,region-backend
 assignees: ''
 
 ---
