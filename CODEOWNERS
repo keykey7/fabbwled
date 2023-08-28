@@ -1,23 +1,23 @@
 # Section Responsibles (from, to, who)
-# 1   36  @Lion-alt
-# 37  72  @Desi7
-# 73  108 @kimberlymo
-# 109 144 @adrsch04
-# 145 180 @miolmi
-# 181 216 @Rwael
-# 217 252 @MagischerWolf05
-# 253 288 @elion004
-# 289 324 @tamer545
-# 325 360 @stevan04
-# 361 396 @dbabvwid
-# 397 432 @lucasmillanm
-# 433 468 @corsin-lehre
-# 469 504 @Nilstrieb
-# 505 540 @Noeelll
-# 541 576 @nnikolajj
-# 577 612 @JJoeey
-# 613 648 @Oliver-was-taken
-# 649 680 @kaibria
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s001_036/ @Lion-alt
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s037_072/ @Desi7
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s073_108/ @kimberlymo
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s109_144/ @adrsch04
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s145_180/ @miolmi
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s181_216/ @Rwael
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s217_252/ @MagischerWolf05
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s253_288/ @elion004
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s289_324/ @tamer545
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s325_360/ @stevan04
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s361_396/ @dbabvwid
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s397_432/ @lucasmillanm
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s433_468/ @corsin-lehre
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s469_504/ @Nilstrieb
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s505_540/ @Noeelll
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s541_576/ @nnikolajj
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s577_612/ @JJoeey
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s613_648/ @Oliver-was-taken
+fabbwled-backend/src/main/java/ch/bbw/fabbwled/lands/book/book1/s649_680/ @kaibria
 
 .github/workflows/ @dbabvwid
 fabbwled-frontend/ @corsin-lehre
