@@ -4,7 +4,6 @@ about: Describe an initial feature
 title: ''
 labels: enhancement
 assignees: ''
-
 ---
 
 # Description
