@@ -18,7 +18,7 @@ import java.util.function.UnaryOperator;
 @SessionScope
 public class PlayerSession {
 
-	private PlayerDto player = new PlayerDto("Johanna Doe", SectionId.book1(15), Collections.emptySet());
+	private PlayerDto player = new PlayerDto("Johanna Doe", SectionId.book1(15), Collections.emptySet(),new ShardSystem(16));
 
 	public void update(UnaryOperator<PlayerDto> modifier) {
 		player = modifier.apply(player);
@@ -27,6 +27,6 @@ public class PlayerSession {
 	@With
 	public record PlayerDto(String name,
 							SectionId currentSection,
-							Set<String> titlesAndHonours) {
+							Set<String> titlesAndHonours,ShardSystem shards) {
 	}
 }
