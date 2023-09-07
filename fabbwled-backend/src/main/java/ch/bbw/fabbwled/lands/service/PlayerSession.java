@@ -1,8 +1,8 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.character.CharacterDto;
 import lombok.Getter;
-import lombok.With;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -18,7 +18,7 @@ import java.util.function.UnaryOperator;
 @SessionScope
 public class PlayerSession {
 
-	private PlayerDto player = new PlayerDto("Johanna Doe", SectionId.book1(15), Collections.emptySet());
+	private PlayerDto player = new PlayerDto("Johanna Doe", SectionId.book1(15), Collections.emptySet(),new CharacterDto());
 
 	public void update(UnaryOperator<PlayerDto> modifier) {
 		player = modifier.apply(player);
@@ -27,6 +27,8 @@ public class PlayerSession {
 	@With
 	public record PlayerDto(String name,
 							SectionId currentSection,
-							Set<String> titlesAndHonours) {
+							Set<String> titlesAndHonours,
+							CharacterDto characterDto) {
 	}
+
 }
