@@ -28,7 +28,10 @@ public class PlayerSession {
 	public record PlayerDto(String name,
 							SectionId currentSection,
 							Set<String> titlesAndHonours,
-							CharacterDto characterDto) {
+							CharacterDto character) {
+		public int defence() {
+			return this.character().rank() + this.character().baseStats().combat(); // TODO add modifier for adding defence and combat (item perks) https://github.com/keykey7/fabbwled/issues/193
+		}
 	}
 
 }

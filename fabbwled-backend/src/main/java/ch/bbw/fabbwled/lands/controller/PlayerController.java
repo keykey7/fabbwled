@@ -32,10 +32,20 @@ public class PlayerController {
 		return characterService.getAllCharacters(bookId);
 	}
 
+	@GetMapping("/api/player/getCharacter")
+	public PlayerSession.PlayerDto getCharacter() {
+		return playerSession.getPlayer().character();
+	}
+
 	@PostMapping("/api/player/setCharacter")
 	public PlayerSession.PlayerDto setCharacter(@RequestBody Character.CharacterDto character) {
-		UnaryOperator<PlayerSession.PlayerDto> unaryOperator = player -> player.character(character)
-		playerSession.update(unaryOperator); // TODO find out how to update character here
+		// TODO Enforce rules for character creation (how many posessions, rank ...)
+		playerSession.update( player -> {
+			player.character(character);
+			return player;
+	    });
 		return playerSession.getPlayer();
 	}
+
+
 }

@@ -15,9 +15,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CharacterService {
 
+    public int calculateDefence() {
+
+    }
+
     public List<Character.CharacterDto> getAllCharacters(int bookId) {
         if(bookId == 1) {
-            return List.of(new Character.CharacterDto("Liana The Swift", RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9, 8,
+            return List.of(new Character.CharacterDto("Liana The Swift", RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,
                             new Character.StatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),
                             """
                                     Liana prefers to make her home in mountain grottos
@@ -27,7 +31,7 @@ public class CharacterService {
                                     City of Trees, deep within the forest of the Isle of 
                                     "Druids."""
                     ),
-                    new Character.CharacterDto("Andriel The Hammer", RankEnum.OUTCAST, ProfessionEnum.WARRIOR, 9, 9,
+                    new Character.CharacterDto("Andriel The Hammer", RankEnum.OUTCAST, ProfessionEnum.WARRIOR, 9,
                             new Character.StatsDto(3, 6, 2, 4, 3, 2),
                             List.of("battle-axe", "leather jerkin (Defence +1)", "map"),
                             """
@@ -37,7 +41,7 @@ public class CharacterService {
                                     but scrupulously follows the warrior’s code. He knows the
                                     merchants’ guild in Yellowport needs assistance."""
                     ,
-                    new Character.CharacterDto("Chalor The Exiled One", RankEnum.OUTCAST, ProfesionEnum.Mage, 9, 5,
+                    new Character.CharacterDto("Chalor The Exiled One", RankEnum.OUTCAST, ProfesionEnum.Mage, 9,
                             new Character.StatsDto(2, 2, 6, 1, 5, 3),
                             List.of("staff, leather jerkin (Defence +1), map"),
                             """
@@ -47,7 +51,7 @@ public class CharacterService {
                                     of the mightiest wizards of the world, and nothing will 
                                     stand in his way. For now, he is looking for the Gold
                                     Dust Tavern in Yellowport, where adventure awaits.""",
-                    new Character.CharacterDto("Marana Fireheart", RankEnum.OUTCAST, ProfessionEnum.ROGUE, 9, 7,
+                    new Character.CharacterDto("Marana Fireheart", RankEnum.OUTCAST, ProfessionEnum.ROGUE, 9,
                             new Character.StatsDto(5, 4, 4, 1, 2, 6),
                             List.of("sword", "leather jerkin (Defence +1)", "map"),
                             """
@@ -57,7 +61,7 @@ public class CharacterService {
                                     lands to seek her fortune. Devious and resourceful, she can
                                     break in almost anywhere. She has heard that the temple of
                                     Sig in Marlock City needs the service of a rogue.""",
-                    new Character.CharacterDto("Ignatius The Devout", RankEnum.OUTCAST, ProfessionEnu.PRIEST, 9, 5,
+                    new Character.CharacterDto("Ignatius The Devout", RankEnum.OUTCAST, ProfessionEnu.PRIEST, 9,
                             new Character.StatsDto(4, 2, 3, 6, 4, 2),
                             List.of("mace", "leather jerkin (Defence +1)", "map"),
                             """
@@ -66,7 +70,7 @@ public class CharacterService {
                                     give his sermons added zest, and he has enthralled many
                                     a crowd with his impassioned speeches. He is looking for
                                     the House of Priests in Marlock City""",
-                    new Character.CharacterDto("Astariel Skysong",RankEnum.OUTCAST,9,6,
+                    new Character.CharacterDto("Astariel Skysong",RankEnum.OUTCAST,9,
                             new Character.StatsDto(6,3,4,3,2,4),
                             List.of( "sword", "leather jerkin (Defence +1)", "map"),
                             """

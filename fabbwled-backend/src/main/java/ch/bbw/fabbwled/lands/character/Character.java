@@ -9,8 +9,7 @@ public class Character {
                                RankEnum rank
 							ProfessionEnum profession,
                                int stamina,
-                               int defence,
-                               StatsDto fightingStats,
+                               StatsDto baseStats,
                                List<String> posessions,
                                String description) {
     }
