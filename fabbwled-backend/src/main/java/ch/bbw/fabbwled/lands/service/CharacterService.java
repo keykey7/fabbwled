@@ -15,10 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CharacterService {
 
-    public int calculateDefence() {
-
-    }
-
     public List<Character.CharacterDto> getAllCharacters(int bookId) {
         if(bookId == 1) {
             return List.of(new Character.CharacterDto("Liana The Swift", RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,
