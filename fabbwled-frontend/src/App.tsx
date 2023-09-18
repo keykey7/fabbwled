@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router";
-import Create from "./routes/create/Create.tsx";
 import Game from "./routes/game/Game.tsx";
+import ChooseCreate from "./routes/create/ChooseCreate.tsx";
+import './app.scss'
 
 function App() {
   return (
     <Routes>
-      <Route path="/create" element={<Create />} />
+      <Route path="/create" element={<ChooseCreate />} />
       <Route path="/game" element={<Game />} />
     </Routes>
   );
