@@ -17,87 +17,9 @@
     display: flex;
     justify-content: space-between;
 
+
     .page {
       width: 45%;
-    }
-  }
-
-  .side {
-    font-size: 12px;
-    height: fit-content;
-    width: fit-content;
-    display: flex;
-    position: absolute;
-    left: 0;
-    top: 70%;
-    translate: 0 -50%;
-    justify-content: space-between;
-    padding-left: 1%;
-
-    .buttons {
-      font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2vh;
-
-      .eraser {
-        all: unset;
-        height: fit-content;
-        width: fit-content;
-        position: relative;
-        cursor: pointer;
-
-        img {
-          height: 6vh;
-        }
-
-        &:after {
-          content: "EXIT";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          translate: -50% -50%;
-        }
-      }
-      .pencil {
-        all: unset;
-        height: fit-content;
-        width: fit-content;
-        position: relative;
-        cursor: pointer;
-
-        img {
-          height: 4vh;
-        }
-
-        &:after {
-          content: "NEW GAME";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          translate: -50% -50%;
-        }
-      }
-    }
-  }
-}
-
-.statsDisplay {
-  border: 1px solid black;
-  padding: 0 5%;
-
-  .stats {
-    display: flex;
-    justify-content: space-between;
-
-    ul {
-      padding: 0;
-
-      li {
-        list-style: none;
-      }
     }
   }
 }
