@@ -1,0 +1,32 @@
+.desk {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("desk.jpg");
+  background-size: cover;
+  display: grid;
+  place-items: center;
+
+  .book {
+    font-size: 12px;
+    background-image: url("book.png");
+    height: 100vh;
+    width: 70vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 7.5% 15% 7.5% 12%;
+    display: flex;
+    justify-content: space-between;
+
+
+    .page {
+      width: 45%;
+    }
+  }
+}
+
+.pageIndicator {
+  text-align: center;
+  margin-top: 0;
+  font-weight: bold;
+  margin-bottom: 0;
+}
