@@ -1,0 +1,16 @@
+- number: 253
+  content:
+    - text: >
+            To renounce the worship of Lacuna, you must pass an ordeal of
+            judgment. This entails the high priestess throwing several silver
+            daggers at you, while you remain motionless.
+            ‘If Lacuna sees it in her heart to forgive you, the daggers will
+            all miss,’ she claims.
+    - choice:
+        - text: Submit to the ordeal
+          then:
+            - turnTo: 313
+    - choice:
+        - text: Remain an initiate after all
+          then:
+            - turnTo: 615
