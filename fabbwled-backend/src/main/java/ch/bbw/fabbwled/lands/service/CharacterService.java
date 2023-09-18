@@ -15,8 +15,26 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CharacterService {
 
+    public String validateCharacter(Character.CharacterDto character) {
+        if (character.posessions().size() > 12) {
+            return "Character possesion size not allowed over 12";
+        }
+        if (!character.rank().equals(RankEnum.OUTCAST)) {
+            return "Starting rank has to be 1";
+        }
+        if (!(character.baseStats().charisma() > 0 && character.baseStats().charisma() <= 6
+                && character.baseStats().combat() > 0 && character.baseStats().combat() <= 6
+                && character.baseStats().magic() > 0 && character.baseStats().magic() <= 6
+                && character.baseStats().sanctity() > 0 && character.baseStats().sanctity() <= 6
+                && character.baseStats().scouting() > 0 && character.baseStats().scouting() <= 6
+                && character.baseStats().thievery() > 0 && character.baseStats().thievery() <= 6)) {
+            return "Stats can only range between 1 and 6";
+        }
+        return "";
+    }
+
     public List<Character.CharacterDto> getAllCharacters(int bookId) {
-        if(bookId == 1) {
+        if (bookId == 1) {
             return List.of(new Character.CharacterDto("Liana The Swift", RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,
                             new Character.StatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),
                             """
@@ -35,9 +53,9 @@ public class CharacterService {
                                     He left his homeland when an extended outbreak of peace
                                     made his skills redundant there. He is blunt and outspoken, 
                                     but scrupulously follows the warrior’s code. He knows the
-                                    merchants’ guild in Yellowport needs assistance."""
+                                    merchants’ guild in Yellowport needs assistance.""")
                     ,
-                    new Character.CharacterDto("Chalor The Exiled One", RankEnum.OUTCAST, ProfesionEnum.Mage, 9,
+                    new Character.CharacterDto("Chalor The Exiled One", RankEnum.OUTCAST, ProfessionEnum.MAGE, 9,
                             new Character.StatsDto(2, 2, 6, 1, 5, 3),
                             List.of("staff, leather jerkin (Defence +1), map"),
                             """
@@ -46,7 +64,7 @@ public class CharacterService {
                                     desire for secret knowledge. His goal is to become one
                                     of the mightiest wizards of the world, and nothing will 
                                     stand in his way. For now, he is looking for the Gold
-                                    Dust Tavern in Yellowport, where adventure awaits.""",
+                                    Dust Tavern in Yellowport, where adventure awaits."""),
                     new Character.CharacterDto("Marana Fireheart", RankEnum.OUTCAST, ProfessionEnum.ROGUE, 9,
                             new Character.StatsDto(5, 4, 4, 1, 2, 6),
                             List.of("sword", "leather jerkin (Defence +1)", "map"),
@@ -56,8 +74,8 @@ public class CharacterService {
                                     was too active in her chosen profession, she has come to new
                                     lands to seek her fortune. Devious and resourceful, she can
                                     break in almost anywhere. She has heard that the temple of
-                                    Sig in Marlock City needs the service of a rogue.""",
-                    new Character.CharacterDto("Ignatius The Devout", RankEnum.OUTCAST, ProfessionEnu.PRIEST, 9,
+                                    Sig in Marlock City needs the service of a rogue."""),
+                    new Character.CharacterDto("Ignatius The Devout", RankEnum.OUTCAST, ProfessionEnum.PRIEST, 9,
                             new Character.StatsDto(4, 2, 3, 6, 4, 2),
                             List.of("mace", "leather jerkin (Defence +1)", "map"),
                             """
@@ -65,10 +83,10 @@ public class CharacterService {
                                     about the deities of the Fabled Lands. His strong beliefs
                                     give his sermons added zest, and he has enthralled many
                                     a crowd with his impassioned speeches. He is looking for
-                                    the House of Priests in Marlock City""",
-                    new Character.CharacterDto("Astariel Skysong",RankEnum.OUTCAST,9,
-                            new Character.StatsDto(6,3,4,3,2,4),
-                            List.of( "sword", "leather jerkin (Defence +1)", "map"),
+                                    the House of Priests in Marlock City"""),
+                    new Character.CharacterDto("Astariel Skysong", RankEnum.OUTCAST, ProfessionEnum.TROUBADOUR, 9,
+                            new Character.StatsDto(6, 3, 4, 3, 2, 4),
+                            List.of("sword", "leather jerkin (Defence +1)", "map"),
                             """
                                     Astariel has the wanderlust, and chafes if he has to remain
                                     in one place for any length of time. He enjoys the
@@ -76,7 +94,7 @@ public class CharacterService {
                                     knows what adventures each new day will bring. He
                                     lives by his wits and is a familiar figure at tavern firesides,
                                     where he regales travellers with his tales."""
-            );
+                    ));
         }
         return List.of();
     }

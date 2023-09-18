@@ -1,12 +1,11 @@
 package ch.bbw.fabbwled.lands.character;
 
 import lombok.With;
-import ch.bbw.fabbwled.lands.character.ProfessionEnum;
-import ch.bbw.fabbwled.lands.character.RankEnum;
+import java.util.List;
 public class Character {
     @With
     public record CharacterDto(String name,
-                               RankEnum rank
+                               RankEnum rank,
 							ProfessionEnum profession,
                                int stamina,
                                StatsDto baseStats,
