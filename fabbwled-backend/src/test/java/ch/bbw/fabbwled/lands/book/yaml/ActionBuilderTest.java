@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 public class ActionBuilderTest implements WithAssertions {
     private final ActionBuilder builder = new ActionBuilder();
 
