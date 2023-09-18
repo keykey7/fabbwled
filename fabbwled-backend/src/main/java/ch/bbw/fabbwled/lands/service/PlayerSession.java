@@ -46,7 +46,7 @@ public class PlayerSession {
 
 
         public int getDefence() {
-            return this.character().rank().ordinal() + this.character().baseStats().combat(); // TODO add modifier for adding defence and combat (item perks) https://github.com/keykey7/fabbwled/issues/193
+            return this.character().rank().ordinal() + 1 + this.character().baseStats().combat(); // TODO add modifier for adding defence and combat (item perks) https://github.com/keykey7/fabbwled/issues/193
         }
     }
 
