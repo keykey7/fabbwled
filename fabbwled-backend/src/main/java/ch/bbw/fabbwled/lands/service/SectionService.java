@@ -3,9 +3,9 @@ package ch.bbw.fabbwled.lands.service;
 import ch.bbw.fabbwled.lands.book.SectionDto;
 import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.book.yaml.SectionLoader;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +13,19 @@ import java.util.Set;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class SectionService {
 
 	final PlayerSession playerSession;
 
 	final Set<SectionHandler> allSections;
+
+	public SectionService(PlayerSession playerSession, Set<SectionHandler> allSections) {
+		this.playerSession = playerSession;
+		this.allSections = allSections;
+
+		// Verify sections.
+		new SectionLoader().loadSections();
+	}
 
 	public SectionHandler getSectionHandler(@NonNull SectionId id) {
 		return allSections.stream()
