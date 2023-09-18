@@ -24,7 +24,8 @@ public class SectionService {
 		this.allSections = allSections;
 
 		// Verify sections.
-		new SectionLoader().loadSections();
+		var loader = new SectionLoader();
+		loader.loadSections(loader.yamlFiles());
 	}
 
 	public SectionHandler getSectionHandler(@NonNull SectionId id) {
