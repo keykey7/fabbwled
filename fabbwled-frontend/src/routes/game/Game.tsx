@@ -13,7 +13,27 @@ export default function Game() {
                     angles.Note whatever you are taking on your Adventure Sheet, andturn to 10.</p>
             </div>
             <div className={styles.page}>
-                Stats and stuff
+                <div className={styles.statsDisplay}>
+                    <h3>Xisaj Nikolaj</h3>
+                    <div className={styles.stats}>
+                        {/* TODO: Replace this with table */}
+                        <ul>
+                            <li>Rank: 1</li>
+                            <li>Profession: Hurensohn</li>
+                            <li>Stamina: -3</li>
+                            <li>Defence: was das</li>
+                            <li>Money: Dark souls</li>
+                        </ul>
+                        <ul>
+                            <li>Charisma: 1</li>
+                            <li>Combo: 1</li>
+                            <li>Magic: 2</li>
+                            <li>Sanctity: 5</li>
+                            <li>Scouting: 1</li>
+                            <li>Thievery: 1</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>);
