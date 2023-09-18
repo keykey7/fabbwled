@@ -16,19 +16,27 @@ import java.util.List;
 public class CharacterService {
 
     public String validateCharacter(Character.CharacterDto character) {
+        Character.StatsDto stats = character.baseStats();
+        int charisma = stats.charisma();
+        int combat = stats.combat();
+        int magic = stats.magic();
+        int sanctity = stats.sanctity();
+        int scouting = stats.scouting();
+        int thievery = stats.thievery();
+
+        if (charisma < 1 || charisma > 6
+                || combat < 1 || combat > 6
+                || magic < 1 || magic > 6
+                || sanctity < 1 || sanctity > 6
+                || scouting < 1 || scouting > 6
+                || thievery < 1 || thievery > 6) {
+            return "Stats can only range between 1 and 6";
+        }
         if (character.posessions().size() > 12) {
-            return "Character possesion size not allowed over 12";
+            return "Character possession size not allowed over 12";
         }
         if (!character.rank().equals(RankEnum.OUTCAST)) {
             return "Starting rank has to be 1";
-        }
-        if (!(character.baseStats().charisma() > 0 && character.baseStats().charisma() <= 6
-                && character.baseStats().combat() > 0 && character.baseStats().combat() <= 6
-                && character.baseStats().magic() > 0 && character.baseStats().magic() <= 6
-                && character.baseStats().sanctity() > 0 && character.baseStats().sanctity() <= 6
-                && character.baseStats().scouting() > 0 && character.baseStats().scouting() <= 6
-                && character.baseStats().thievery() > 0 && character.baseStats().thievery() <= 6)) {
-            return "Stats can only range between 1 and 6";
         }
         return "";
     }
