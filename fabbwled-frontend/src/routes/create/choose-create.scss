@@ -1,0 +1,34 @@
+/* TODO OLIVER: change button styles to book background when its added*/
+button {
+  height: 30vh;
+  width: 20vw;
+
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 40px;
+  border: none;
+  background-color: #e0c29d;
+  color: #5c4f47;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #c7a982;
+  transform: scale(1.05);
+}
+
+/* Add a parchment paper texture background */
+.choose_create_container {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
