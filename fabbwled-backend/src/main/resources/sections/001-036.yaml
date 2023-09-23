@@ -1,0 +1,18 @@
+- number: 32
+  content:
+    - text: |
+        You head across the hot, dusty and sparsely vegetated land.
+        Vultures circle overhead – presumably they think you’re going
+        to die. You wander on, until you come to a ridge. Down
+        below, in a shallow valley, is a great mound of earth. Scorpion
+        men crawl in and out of the many burrows that riddle the earth.
+        The number of scorpion men in the valley makes your heart
+        quail; unless you have the codeword Artefact, the place is too
+        deadly to enter. If you have the codeword Artefact, turn to 406.
+        Otherwise, turn to 492.
+    - if:
+        - hasKeyword: Artefact
+    - then:
+        - turnTo: 406
+    - else:
+        - turnTo: 492
