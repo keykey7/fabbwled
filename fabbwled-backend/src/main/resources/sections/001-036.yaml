@@ -1,0 +1,5 @@
+- number: 7
+  content:
+    - text: |
+        Much  to  your  embarrassment,  you  get  lost  in  the  vast  forest. You  wander  around  for  days  until  you  finally  emerge  at  the Bronze Hills.
+    - turnTo: 110
