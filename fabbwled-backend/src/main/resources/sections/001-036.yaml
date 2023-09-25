@@ -22,9 +22,6 @@
         monolithic stone structure atop one of them.
         ‘Come on, come one, I’ll show you the Gates of the World,’
         the old man babbles.
-        Follow him turn to 192
-        Explore the coast turn to 128
-        Head into the nearby forest turn to 257
     - choice:
         - text: Follow him
         - then:
