@@ -1,3 +1,19 @@
+- number: 15
+  content:
+    - text: Three drunken army officers...
+    - if:
+        hasTitle: "Protector of Sokara"
+      then:
+        - turnTo: 542
+      else:
+        - text: If not, read on.
+        - choice:
+            - text: Step out of the way
+              then:
+                - turnTo: 44
+            - text: Return the insult
+              then:
+                - turnTo: 266
 - number: 20
   content:
     - text: |
@@ -24,13 +40,11 @@
         the old man babbles.
     - choice:
         - text: Follow him
-        - then:
+          then:
             - turnTo: 192
-    - choice:
         - text: Explore the coast
-        - then:
+          then:
             - turnTo: 128
-    - choice:
         - text: Head into the nearby forest
-        - then:
+          then:
             - turnTo: 257
