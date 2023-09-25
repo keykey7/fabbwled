@@ -8,8 +8,7 @@
         men crawl in and out of the many burrows that riddle the earth.
         The number of scorpion men in the valley makes your heart
         quail; unless you have the codeword Artefact, the place is too
-        deadly to enter. If you have the codeword Artefact, turn to 406.
-        Otherwise, turn to 492.
+        deadly to enter.
     - if:
         - hasKeyword: Artefact
     - then:
