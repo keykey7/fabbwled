@@ -12,15 +12,12 @@
         - text: Examine the runes
           then:
             - turnTo: 515
-    - choice:
         - text: Go down to the beach
           then:
             - turnTo: 97
-    - choice:
         - text: Take the road to Trefoille
           then:
             - turnTo: 602
-    - choice:
         - text: Take the road to Marlock City
           then:
             - turnTo: 166
