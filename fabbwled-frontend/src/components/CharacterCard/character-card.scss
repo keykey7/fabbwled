@@ -1,0 +1,58 @@
+.character-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #e0c29d;
+  color: #5c4f47;
+  border: 2px solid #5c4f47;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  width: 25%;
+  text-align: left;
+  transition: transform .3s;
+
+  &:hover {
+    background-color: darken(#e0c29d, 10%);
+    transform: scale(1.05);
+  }
+}
+
+.character-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: #5c4f47 dashed 1px;
+}
+
+.character-image {
+  text-align: right;
+}
+
+.character-image img {
+  display: inline-block;
+  width: 30%;
+  height: 30%;
+  object-fit: cover;
+  border: 2px solid #5c4f47;
+  border-radius: 50%;
+}
+
+.character-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.character-info {
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.attribute {
+  margin: 5px 0;
+}
+
+.description {
+  margin-top: 10px;
+  font-style: italic;
+}
