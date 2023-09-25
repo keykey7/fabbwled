@@ -1,4 +1,10 @@
-import { Container, Grid, TextField, Typography } from "@mui/material";
+import {
+  Container,
+  Grid,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
 import "./adventure-sheet.scss";
 
@@ -23,7 +29,7 @@ export default function AdventureSheet() {
   });
 
   const handleAbilityChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     abilityName: keyof Abilities,
   ) => {
     const inputValue = parseInt(event.target.value);
@@ -194,6 +200,95 @@ export default function AdventureSheet() {
             />
           </Grid>
           <Grid item xs={3} />
+        </Grid>
+        <br />
+        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+          Stamina
+        </Typography>
+        <Grid container>
+          <Grid item xs={3} />
+          <Grid item xs={3}>
+            <TextField
+              label="When unwounded"
+              variant="standard"
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              inputProps={{
+                min: 1,
+                max: 10,
+              }}
+              onKeyPress={handleKeyPress}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              label="Current"
+              variant="standard"
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              inputProps={{
+                min: 1,
+                max: 10,
+              }}
+              onKeyPress={handleKeyPress}
+            />
+          </Grid>
+        </Grid>
+        <br />
+        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+          Possesions
+        </Typography>
+        <Grid container>{/* TODO NOEL: implement possesions */}</Grid>
+        <br />
+        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+          Other values
+        </Typography>
+        <Grid container>
+          <Grid item xs={3} />
+          <Grid item xs={3}>
+            <TextField
+              label="Money"
+              variant="standard"
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              inputProps={{
+                min: 1,
+                max: 10,
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">$</InputAdornment>
+                ),
+              }}
+              onKeyPress={handleKeyPress}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField label="Blessings" variant="standard" multiline />
+          </Grid>
+          <Grid item xs={3} />
+
+          <Grid item xs={3} />
+          <Grid item xs={3}>
+            <TextField
+              label="Resurrection arrangements"
+              variant="standard"
+              multiline
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              label="Titles and honours"
+              variant="standard"
+              multiline
+            />
+          </Grid>
         </Grid>
       </Container>
     </div>

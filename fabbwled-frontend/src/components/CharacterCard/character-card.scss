@@ -8,7 +8,7 @@
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   width: 25%;
   text-align: left;
-  transition: transform .3s;
+  transition: transform 0.3s;
 
   &:hover {
     background-color: darken(#e0c29d, 10%);
