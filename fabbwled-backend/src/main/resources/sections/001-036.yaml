@@ -10,8 +10,8 @@
         quail; unless you have the codeword Artefact, the place is too
         deadly to enter.
     - if:
-        - hasKeyword: Artefact
-    - then:
-        - turnTo: 406
-    - else:
-        - turnTo: 492
+        hasKeyword: Artefact
+        then:
+          - turnTo: 406
+        else:
+          - turnTo: 492
