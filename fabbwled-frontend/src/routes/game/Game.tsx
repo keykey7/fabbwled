@@ -1,6 +1,11 @@
 import styles from "./Game.module.scss";
+import {Button} from "@mui/material";
+
+
+
 
 export default function Game() {
+
     return (<div className={styles.desk}>
         <div className={styles.book}>
             <div className={styles.page}>
@@ -34,6 +39,11 @@ export default function Game() {
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div className={styles.side}>
+            <div className={styles.buttons}>
+                <Button className={styles.eraser}>Exit</Button>
             </div>
         </div>
     </div>);
