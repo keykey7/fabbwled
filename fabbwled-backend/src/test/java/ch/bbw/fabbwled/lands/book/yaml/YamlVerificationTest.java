@@ -18,7 +18,7 @@ public class YamlVerificationTest implements WithAssertions {
     void verifySingleChoice() {
         var action = new Action.Choice(List.of(new Action.Choice.SingleChoice(
                 "hello",
-                List.of(new Action.TurnToAction(new SectionId(1, 0)))
+                List.of(new Action.TurnToAction(new SectionId(1, 1)))
         )));
 
         assertThatThrownBy(action::simpleVerify).hasMessage("Choice action only has a single choice, don't use a choice.");
