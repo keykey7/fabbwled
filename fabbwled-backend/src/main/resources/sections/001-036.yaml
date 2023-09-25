@@ -3,5 +3,5 @@
     - text: |
         Either you are recklessly brave, or very foolish to visit the palace
         where you assassinated the governor, Provost Marshal Royzer has established new security procedures, and it is impossible for
-        you to see him. Return to 10.
+        you to see him.
     - turnTo: 10
