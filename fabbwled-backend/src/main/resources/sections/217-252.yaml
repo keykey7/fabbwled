@@ -1,0 +1,111 @@
+- number: 217
+  content:
+    - text: "You come across a forest glade. Birds twitter in the trees, and woodland animals frolic playfully about. In the middle of the glade stands a mighty willow, ancient beyond reckoning. Its trunk is hollow, and a wooden door has been set in the entrance. You step into the glade. Make a SANCTITY roll at Difficulty 9."
+    - choice:
+        - text: "Successful SANCTITY roll"
+          then:
+            - turnTo: 356
+        - text: "Failed SANCTITY roll"
+          then:
+            - turnTo: 64
+- number: 218
+  content:
+    - text: "The militia take you alive. You lose all your money and possessions. Cross them off your Adventure Sheet. Then you are thrown into the dungeons of Yellowport."
+    - turnTo: 454
+
+- number: 219
+  content:
+    - text: "Your ship, crew, and cargo are lost to the deep, dark sea. Cross them off your Adventure Sheet. Your only thought now is to save yourself. Roll two dice."
+    - choice:
+        - text: "Score greater than Rank"
+          then:
+            - turnTo: 680
+        - text: "Score less than or equal to Rank"
+          then:
+            - text: "Lose Stamina points equal to the score of one die roll."
+            - turnTo: 436
+
+- number: 220
+  content:
+    - text: "The temple of Alvir and Valmir is built like an upside-down galleon. Alvir and Valmir are brother and sister, King and Queen of the Land beneath the Waves, masters of the sea."
+    - if:
+        hasCodeword: "Anchor"
+      then:
+        - turnTo: 531
+      else:
+        - text: "Wanted: brave adventurer – apply to the high priest."
+        - choice:
+            - text: "Become an initiate"
+              then:
+                - turnTo: 294
+            - text: "Renounce worship"
+              then:
+                - turnTo: 624
+            - text: "Seek a blessing"
+              then:
+                - turnTo: 448
+            - text: "Talk to the high priest"
+              then:
+                - turnTo: 411
+            - text: "Leave the temple"
+              then:
+                - turnTo: 10
+
+- number: 221
+  content:
+    - text: "One of the militiamen recognizes you and shouts, 'That’s the one who assassinated Marloes Marlock! Get him!'"
+    - text: "You turn tail and flee with fifteen militiamen on your heels. Roll one die."
+    - choice:
+        - text: "Score less than or equal to Rank"
+          then:
+            - turnTo: 57
+        - text: "Score greater than Rank"
+          then:
+            - turnTo: 252
+
+- number: 222
+  content:
+    - text: "Your ship is sailing in the coastal waters near Marlock City. Roll two dice."
+    - choice:
+        - text: "Score 2-4: Storm"
+          then:
+            - turnTo: 124
+        - text: "Score 5-9: An uneventful voyage"
+          then:
+            - turnTo: 420
+        - text: "Score 10-12: Sea battle"
+          then:
+            - turnTo: 169
+
+- number: 223
+  content:
+    - text: "The ghoul staggers back, howling at the night sky, and gnashing its teeth. Suddenly, brownish ichor spills from its eyes and the flesh begins to shrivel on its bones. It collapses in on itself, leaving only a mound of putrescent matter, atop of which rests its head, now lifeless, empty eye-sockets staring at the moon."
+    - text: "You grab the head, and set off. Note you have a ghoul’s head."
+    - turnTo: 100
+
+- number: 224
+  content:
+    - text: "Using your wilderness-honed sense of direction you dart through the maze of tunnels. Soon the sounds of pursuit fade, until they are but a dim echo. Heaving a sigh of relief, you press on."
+    - turnTo: 580
+
+# ... and so on for the remaining sections
+- number: 225
+  content:
+    - text: "You find a cave, with piles of human bones outside it. However, it is quite empty without signs of habitation – the beast that lived here is dead or departed."
+    - turnTo: 510
+
+- number: 226
+  content:
+    - text: "You take a stroll through the streets – Marlock City has a busy night life."
+    - choice:
+        - text: "Explore the barracks area"
+          then:
+            - turnTo: 15
+        - text: "Go to the Street of Entertainers"
+          then:
+            - turnTo: 129
+        - text: "Search the residential quarter"
+          then:
+            - turnTo: 619
+
+# ... Continue for other sections
