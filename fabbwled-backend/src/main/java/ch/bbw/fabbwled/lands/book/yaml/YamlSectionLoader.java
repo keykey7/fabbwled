@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class SectionLoader {
+public class YamlSectionLoader {
     private final ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
     public List<YamlSection> loadSections(Stream<YamlFile> files) {
@@ -71,7 +71,7 @@ public class SectionLoader {
         );
 
         return files.stream().map(filename -> {
-            try (var content = SectionLoader.class.getClassLoader().getResourceAsStream("sections/" + filename)) {
+            try (var content = YamlSectionLoader.class.getClassLoader().getResourceAsStream("sections/" + filename)) {
                 if (content == null) {
                     throw new FabledTechnicalException("Failed to load " + filename);
                 }

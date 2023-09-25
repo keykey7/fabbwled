@@ -1,10 +1,10 @@
 package ch.bbw.fabbwled.lands.book.book1;
 
-import ch.bbw.fabbwled.lands.book.yaml.SectionLoader;
+import ch.bbw.fabbwled.lands.book.yaml.YamlSectionLoader;
 import org.junit.jupiter.api.Test;
 
 public class YamlSectionValidationTest {
-    private final SectionLoader loader = new SectionLoader();
+    private final YamlSectionLoader loader = new YamlSectionLoader();
 
     @Test
     void loadAllSections() {
