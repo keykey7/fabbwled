@@ -8,11 +8,9 @@
         - text: Investigate the cave
           then:
             - turnTo: 665
-    - choice:
         - text: Go east to the Citadel of Velis Corin
           then:
             - turnTo: 271
-    - choice:
         - text: South into the wilderness
           then:
             - turnTo: 276
