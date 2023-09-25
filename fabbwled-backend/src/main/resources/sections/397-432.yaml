@@ -1,21 +1,21 @@
 - number: 397
   content:
-    - text: Your ship is thrown about like flotsam and jetsam. When the storm subsides, you take stock. Much has been swept overboard – you lose 1 Cargo Unit, if you had any, of your choice. Also, the ship has been swept way off course and the mate has no idea where you are. ‘We’re lost at sea, Cap’n!’ he moans. Turn to 90.
+    - text: Your ship is thrown about like flotsam and jetsam. When the storm subsides, you take stock. Much has been swept overboard – you lose 1 Cargo Unit, if you had any, of your choice. Also, the ship has been swept way off course and the mate has no idea where you are. ‘We’re lost at sea, Cap’n!’ he moans.
     - turnTo: 90
 
 - number: 401
   content:
-  - text: Your ship draws away, leaving the Sokarans behind. Your crew jeer at them, and you spot the captain shaking his fist at you in rage, before they disappear from sight. Turn to 439.
+  - text: Your ship draws away, leaving the Sokarans behind. Your crew jeer at them, and you spot the captain shaking his fist at you in rage, before they disappear from sight.
   - turnTo: 439
 
 - number: 407
   content:
-  - text: You hide in the kitchen pantry, and then, disguised as a kitchen scullion, sneak out unnoticed. The skill and daring of your exploit will be forever remembered! Long live the rightful king! Turn to 10.
+  - text: You hide in the kitchen pantry, and then, disguised as a kitchen scullion, sneak out unnoticed. The skill and daring of your exploit will be forever remembered! Long live the rightful king!
   - turnTo: 10
 
 - number: 408
   content:
-  - text: You decline. They look at you inscrutably, and then sink beneath the waves with the body of their companion. Turn to 507
+  - text: You decline. They look at you inscrutably, and then sink beneath the waves with the body of their companion.
   - turnTo: 507
 
 - number: 410
@@ -32,7 +32,7 @@
 
 - number: 412
   content:
-  - text: You are on the cobbled road between Yellowport and Trefoille. You meet a few merchants and pilgrims, but all in all it is an uneventful journey. Head for Yellowport turn to 10 Head for Trefoille turn to 250
+  - text: You are on the cobbled road between Yellowport and Trefoille. You meet a few merchants and pilgrims, but all in all it is an uneventful journey. Head for Yellowport turn to 10 Head for Trefoille
   - choice:
     - text: Head for Yellowport
       then:
@@ -44,7 +44,7 @@
 
 - number: 421
   content:
-  - text: The storm demons shrink back with a wailing, mournful cry, like wind in the trees. The power of your faith is enough to repel them. You work free one of the stakes holding down Sul Veneris. Turn to 365.
+  - text: The storm demons shrink back with a wailing, mournful cry, like wind in the trees. The power of your faith is enough to repel them. You work free one of the stakes holding down Sul Veneris.
   - turnTo: 365
 
 
