@@ -12,8 +12,6 @@
         wears rudimentary armour. Great black eyes shine with an
         implacable alien intelligence. The mer-folk dart away in fright,
         leaving you alone with the creature.
-        If you have the codeword Anchor, turn to 116. Otherwise,
-        turn to 238.
     - if:
         - hasKeyword: Anchor
     - then:
