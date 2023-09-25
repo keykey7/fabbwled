@@ -18,13 +18,12 @@ button {
   transition: transform 0.3s;
 }
 
-/* Hover effect */
-button:hover {
-  background-color: darken(#e0c29d, 10%);
-  transform: scale(1.05);
+  &:hover {
+    background-color: darken(#e0c29d, 10%);
+    transform: scale(1.05);
+  }
 }
 
-/* Add a parchment paper texture background */
 .choose_create_container {
   height: 100vh;
   width: 100vw;
