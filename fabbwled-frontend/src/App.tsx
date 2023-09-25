@@ -1,14 +1,17 @@
-import { Route, Routes } from "react-router";
+import {Route, Routes} from "react-router";
 import AdventureSheet from "./routes/create/AdventureSheet.tsx";
 import Game from "./routes/game/Game.tsx";
+import ChooseCreate from "./routes/create/ChooseCreate.tsx";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/create" element={<AdventureSheet />} />
-      <Route path="/game" element={<Game />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/create" element={<ChooseCreate/>}/>
+            <Route path="/create/character" element={<AdventureSheet/>}/>
+            <Route path="/create/existing-character"/> {/* TODO: Implement Character template site */}
+            <Route path="/game" element={<Game/>}/>
+        </Routes>
+    );
 }
 
 export default App;
