@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router";
-import Create from "./routes/create/Create.tsx";
+import AdventureSheet from "./routes/create/AdventureSheet.tsx";
 import Game from "./routes/game/Game.tsx";
 
 function App() {
   return (
     <Routes>
-      <Route path="/create" element={<Create />} />
+      <Route path="/create" element={<AdventureSheet />} />
       <Route path="/game" element={<Game />} />
     </Routes>
   );
