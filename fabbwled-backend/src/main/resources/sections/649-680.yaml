@@ -1,0 +1,7 @@
+- choice:
+    - text: Step out of the way
+      then:
+        - turnTo: 44
+    - text: Return the insult
+      then:
+        - turnTo: 266
