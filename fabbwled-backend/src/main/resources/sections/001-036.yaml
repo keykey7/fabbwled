@@ -8,10 +8,6 @@
         Judging by the runes etched into the rock, the tor dates back
         to the time of the Shadar, a race that ruled Harkuna so long ago,
         they are lost in myth and legend.
-        Examine the runes turn to 515
-        Go down to the beach turn to 97
-        Take the road to Trefoille turn to 602
-        Take the road to Marlock City turn to 166
     - choice:
         - text: Examine the runes
           then:
