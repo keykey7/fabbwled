@@ -13,8 +13,8 @@
         implacable alien intelligence. The mer-folk dart away in fright,
         leaving you alone with the creature.
     - if:
-        - hasKeyword: Anchor
-    - then:
+        hasKeyword: Anchor
+    then:
         - turnTo: 116
-    - else:
+    else:
         - turnTo: 238
