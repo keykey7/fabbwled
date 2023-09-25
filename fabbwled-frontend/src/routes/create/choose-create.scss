@@ -5,7 +5,7 @@ button {
 
   display: inline-block;
   padding: 10px 20px;
-  margin: 0 40px;
+  margin: 0 60px;
   border: none;
   background-color: #e0c29d;
   color: #5c4f47;
@@ -15,11 +15,12 @@ button {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform .3s;
 }
 
 /* Hover effect */
 button:hover {
-  background-color: #c7a982;
+  background-color: darken(#e0c29d, 10%);
   transform: scale(1.05);
 }
 
