@@ -1,0 +1,60 @@
+- number: 397
+  content:
+    - text: Your ship is thrown about like flotsam and jetsam. When the storm subsides, you take stock. Much has been swept overboard – you lose 1 Cargo Unit, if you had any, of your choice. Also, the ship has been swept way off course and the mate has no idea where you are. ‘We’re lost at sea, Cap’n!’ he moans. Turn to 90.
+    - turnTo: 90
+
+- number: 401
+  content:
+  - text: Your ship draws away, leaving the Sokarans behind. Your crew jeer at them, and you spot the captain shaking his fist at you in rage, before they disappear from sight. Turn to 439.
+  - turnTo: 439
+
+- number: 407
+  content:
+  - text: You hide in the kitchen pantry, and then, disguised as a kitchen scullion, sneak out unnoticed. The skill and daring of your exploit will be forever remembered! Long live the rightful king! Turn to 10.
+  - turnTo: 10
+
+- number: 408
+  content:
+  - text: You decline. They look at you inscrutably, and then sink beneath the waves with the body of their companion. Turn to 507
+  - turnTo: 507
+
+- number: 410
+  content:
+  - text: ‘Oh, what a load of rotten leaves!’ exclaims the tree. ‘Anyone can see you’re as bad as the next human. In fact, I’d say you’re probably a... a lumberjack! Now, get lost!’
+  - choice:
+    - text: Leave the forest
+      then:
+      - turnTo: 678
+    - text: Attack the tree
+      then:
+      - turnTo: 570
+
+
+- number: 412
+  content:
+  - text: You are on the cobbled road between Yellowport and Trefoille. You meet a few merchants and pilgrims, but all in all it is an uneventful journey. Head for Yellowport turn to 10 Head for Trefoille turn to 250
+  - choice:
+    - text: Head for Yellowport
+      then:
+      - turnTo: 10
+    - text: Head for Trefoille
+      then:
+      - turnTo: 250
+
+
+- number: 421
+  content:
+  - text: The storm demons shrink back with a wailing, mournful cry, like wind in the trees. The power of your faith is enough to repel them. You work free one of the stakes holding down Sul Veneris. Turn to 365.
+  - turnTo: 250
+
+
+- number: 429
+  content:
+    - text: The gloomy wreck is filled with coral-encrusted skeletons of its drowned crew. You find the captain’s cabin. Inside, a figure still sits in a chair, a chest of gems at its feet. With a thrill of horror, you realize it is a ghost, an undead remnant of a pirate captain, steeped in evil, its nacreous, fish-gnawed flesh still pulsing with a kind of half-life.
+    - choice:
+        - text: Swim straight in and grab the chest
+          then:
+            - turnTo: 89
+        - text: Try to steal it without being seen
+          then:
+            - turnTo: 363
