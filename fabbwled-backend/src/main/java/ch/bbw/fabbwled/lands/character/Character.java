@@ -9,7 +9,7 @@ public class Character {
 							   ProfessionEnum profession,
                                int stamina,
                                StatsDto baseStats,
-                               List<String> posessions,
+                               List<String> possessions,
                                String description) {
     }
 
