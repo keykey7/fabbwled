@@ -1,7 +1,7 @@
 package ch.bbw.fabbwled.lands.controller;
 
+import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.service.PlayerSession;
-import ch.bbw.fabbwled.lands.character.Character.CharacterDto;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.service.CharacterService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Collections;
 import java.util.List;
 
 @Validated
@@ -19,32 +20,31 @@ public class PlayerController {
     private final PlayerSession playerSession;
     private final CharacterService characterService;
 
-    /**
-     * @return the current player session
-     */
     @GetMapping("/api/player")
     public PlayerSession.PlayerDto whoami() {
         return playerSession.getPlayer();
     }
 
     @GetMapping("/api/player/characters/{bookId}/all")
-    public List<CharacterDto> getAllCharacters(@PathVariable int bookId) {
+    public List<Character.CharacterCreateDto> getAllCharacters(@PathVariable int bookId) {
         return characterService.getAllCharacters(bookId);
     }
 
-    @GetMapping("/api/player/getCharacter")
-    public Character.CharacterDto getCharacter() {
-        return playerSession.getPlayer().character();
-    }
-
     @PostMapping("/api/player/setCharacter")
-    public ResponseEntity setCharacter(@RequestBody Character.CharacterDto character) {
-        String validationResult = characterService.validateCharacter(character);
-        if(!validationResult.isEmpty()) {
-            return ResponseEntity.badRequest().body(validationResult);
-        }
+    public ResponseEntity<Character.CharacterCreateDto> setCharacter(@RequestBody Character.CharacterCreateDto createdPlayer) {
+        playerSession.setInitialCreation(true);
         playerSession.update(player -> {
-            player = player.withCharacter(character);
+            player = createdPlayer.player().withCurrentSection(SectionId.book1(15)).withTitlesAndHonours(Collections.emptySet()); // TODO Set sectionId to 1 asap
+            return player;
+        });
+        playerSession.setInitialCreation(false);
+        return ResponseEntity.ok(new Character.CharacterCreateDto(playerSession.getPlayer(),createdPlayer.description()));
+    } // Should only be used when the player is created
+
+    @PostMapping("/api/player/update")
+    public ResponseEntity<PlayerSession.PlayerDto> updatePlayer(@RequestBody PlayerSession.PlayerDto createdPlayer) {
+        playerSession.update(player -> {
+            player = createdPlayer;
             return player;
         });
         return ResponseEntity.ok(playerSession.getPlayer());
