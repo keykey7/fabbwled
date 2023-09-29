@@ -6,7 +6,7 @@ public class Character {
     @With
     public record CharacterDto(String name,
                                RankEnum rank,
-							ProfessionEnum profession,
+							   ProfessionEnum profession,
                                int stamina,
                                StatsDto baseStats,
                                List<String> posessions,
