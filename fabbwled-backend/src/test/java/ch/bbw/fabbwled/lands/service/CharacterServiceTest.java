@@ -72,7 +72,7 @@ class CharacterServiceTest extends FabledTestBase {
                         and woodland groves rather than in the squalid streets
                         of cities. She has the agility of a gazelle, the cunning of
                         a fox and the ferocity of an eagle. She has heard of a
-                        City of Trees, deep within the forest of the Isle of 
+                        City of Trees, deep within the forest of the Isle of
                         "Druids."""
         );// Create a character with a large possession size
         assertThatThrownBy(() -> testPlayerSession.validatePlayer(character.player())).isInstanceOfAny(FabledBusinessException.class); // Expect the validation error message
