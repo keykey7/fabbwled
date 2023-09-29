@@ -31,7 +31,7 @@ class CharacterServiceTest extends FabledTestBase {
     @Test
     void byCorrectBookId() {
         var id = 1;
-        assertThat(characterService.getAllCharacters(id)).hasSizeGreaterThan(5);
+        assertThat(characterService.getAllCharacters(id)).hasSize(6);
     }
 
     @Test
