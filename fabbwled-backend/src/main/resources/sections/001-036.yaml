@@ -2,7 +2,7 @@
   content:
     - text: |
        You step through the archway. Immediately the symbols on the stone begin to glow with red-hot energy; your hair stands on end and your body tingles. A crackling nimbus of blue-whiteforce engulfs you, the sky darkens and thunder and lightning crash and leap across the heavens.  
-       Suddenly, your vision fades, and everything goes black. When your sight returns, you find yourself at the gates of a large  city, set on an ochre-coloured river.  
+       Suddenly, your vision fades, and everything goes black. When your sight returns, you find yourself at the gates of a large city, set on an ochre-coloured river.  
        A vile stink of brimstone permeates the air. 
        You wrinkle your face up in disgust and gag involuntarily.‘Welcome to Yellowport!’ says a passing merchant.
     - turnTo: 10
