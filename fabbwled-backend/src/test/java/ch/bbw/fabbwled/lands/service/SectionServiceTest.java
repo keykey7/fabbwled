@@ -17,7 +17,7 @@ class SectionServiceTest extends FabledTestBase {
 	@Test
 	void byId() {
 		var id = SectionId.book1(15);
-		assertThat(sectionService.byId(id)).extracting(SectionDto::id).isEqualTo(id);
+		assertThat(sectionService.byId(id).id()).isEqualTo(id);
 	}
 
 	@Test
