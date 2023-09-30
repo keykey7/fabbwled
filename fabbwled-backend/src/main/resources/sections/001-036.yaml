@@ -14,3 +14,52 @@
             - text: Return the insult
               then:
                 - turnTo: 266
+- number: 23
+  content:
+    - text: |
+        As you stride forward, they look up with expressions of
+        luminous rage.
+        ‘Get you back, mortal,’ warns one, ‘or I’ll touch you with
+        my grave-cold hands and then it’ll be your dying day!’
+    - choice:
+        - text: Attack then
+          then:
+            - turnTo: 479
+        - text: Call on your god to banish them
+          then:
+            - turnTo: 520
+- number: 28
+  content:
+    - text: |
+        You jump into the air, and hit the ground rolling. You come
+        up, bruised but alive, in time to see the horses ride straight into
+        the rocky wall of a low hill! To your amazement, they pass
+        straight through the rock and disappear. Silence falls across the
+        land like a blanket. There is no sign of them, not even tracks.
+        You camp for the night and the next day set off once more.
+    - choice:
+        - text: North across country
+          then:
+            - turnTo: 560
+        - text: East to the road
+          then:
+            - turnTo: 588
+        - text: To Trefoulle
+          then:
+            - turnTo: 250
+        - text: To Marlock City
+          then:
+            - turnTo: 100
+        - text: West towards the River Grimm
+          then:
+            - turnTo: 99
+- number: 36
+  content:
+    - text: |
+        Soon you realize you are completely lost in this strange, magical
+        forest. You wander around for days, barely able to find enough
+        food and water. Lose 4 Stamina points. If you still live, you
+        eventually stagger out of the forest to the coast.
+    - turnTo: 128
+
+
