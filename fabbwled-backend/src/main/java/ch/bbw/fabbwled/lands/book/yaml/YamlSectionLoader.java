@@ -35,7 +35,9 @@ public class YamlSectionLoader {
             return rawSection.map((section) -> {
                 try {
                     var actions = builder.buildActions(section.content());
-                    return new YamlSection(new SectionId(1, section.number()), actions);
+                    var yamlSection = new YamlSection(new SectionId(1, section.number()), actions);
+                    yamlSection.simpleVerify();
+                    return yamlSection;
                 } catch (FabledTechnicalException e) {
                     throw new FabledTechnicalException("Invalid section: " + section.number(), e);
                 }
