@@ -1,3 +1,19 @@
+- number: 15
+  content:
+    - text: Three drunken army officers...
+    - if:
+        hasTitle: "Protector of Sokara"
+      then:
+        - turnTo: 542
+      else:
+        - text: If not, read on.
+        - choice:
+            - text: Step out of the way
+              then:
+                - turnTo: 44
+            - text: Return the insult
+              then:
+                - turnTo: 266
 - number: 35
   content:
     - text: |
