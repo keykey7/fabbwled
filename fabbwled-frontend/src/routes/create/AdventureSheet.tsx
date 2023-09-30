@@ -1,296 +1,334 @@
 import {
-  Container,
-  Grid,
-  InputAdornment,
-  TextField,
-  Typography,
+    Button,
+    Container,
+    FormControl,
+    Grid,
+    InputAdornment,
+    InputLabel,
+    MenuItem,
+    Select,
+    TextField,
+    Typography,
 } from "@mui/material";
-import { useState } from "react";
 import "./adventure-sheet.scss";
+import {useFormik} from "formik";
+import validationSchema from "./AdventureSheetSchema.ts"
 
 type Abilities = {
-  charisma: number;
-  combat: number;
-  magic: number;
-  sanctity: number;
-  scouting: number;
-  thievery: number;
+    charisma: number;
+    combat: number;
+    magic: number;
+    sanctity: number;
+    scouting: number;
+    thievery: number;
 };
 
 export default function AdventureSheet() {
-  const [name, setName] = useState<string>("");
-  const [abilities, setAbilities] = useState<Abilities>({
-    charisma: 1,
-    combat: 1,
-    magic: 1,
-    sanctity: 1,
-    scouting: 1,
-    thievery: 1,
-  });
+    const initialValues = {
+        name: '',
+        profession: 'Wayfarer',
+        charisma: 1,
+        combat: 1,
+        magic: 1,
+        sanctity: 1,
+        scouting: 1,
+        thievery: 1,
+        // Add initial values for other fields here if needed
+    };
 
-  const handleAbilityChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    abilityName: keyof Abilities,
-  ) => {
-    const inputValue = parseInt(event.target.value);
+    const formik = useFormik({
+        initialValues,
+        validationSchema,
+        onSubmit: (values) => {
+            // Handle form submission here
+            console.log('Form submitted with values:', values);
+        },
+    });
 
-    if (!isNaN(inputValue) && inputValue >= 1 && inputValue <= 10) {
-      setAbilities((prevAbilities) => ({
-        ...prevAbilities,
-        [abilityName]: inputValue,
-      }));
-    }
-  };
+    return (
+        <div>
+            <br/>
+            <Container>
+                <Typography variant="h4" gutterBottom style={{textAlign: "center"}}>
+                    Adventure Sheet
+                </Typography>
+                <form onSubmit={formik.handleSubmit}>
+                    <Grid container>
+                        {/* Row 1 */}
+                        <Grid item xs={3}/>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="Name"
+                                variant="standard"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.name}
+                                error={formik.touched.name && Boolean(formik.errors.name)}
+                                helperText={formik.touched.name && formik.errors.name}
+                                name="name"
+                            />
+                        </Grid>
+                        <Grid item xs={2}>
+                            <FormControl variant="standard" sx={{width: '100%'}}>
+                                <InputLabel>Profession</InputLabel>
+                                <Select defaultValue={"Wayfarer"} onChange={formik.handleChange}
+                                        value={formik.values.profession} name="profession">
+                                    <MenuItem value={"Wayfarer"}>Wayfarer</MenuItem>
+                                    <MenuItem value={"Warrior"}>Warrior</MenuItem>
+                                    <MenuItem value={"Mage"}>Mage</MenuItem>
+                                    <MenuItem value={"Rogue"}>Rogue</MenuItem>
+                                    <MenuItem value={"Priest"}>Priest</MenuItem>
+                                    <MenuItem value={"Troubadour"}>Troubadour</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={3}/>
 
-  const handleKeyPress = (event: {
-    key: string;
-    preventDefault: () => void;
-  }) => {
-    const allowedKeys = /[0-9]|Backspace|ArrowLeft|ArrowRight/;
+                        {/* Row 2 */}
+                        <Grid item xs={3}/>
+                        <Grid item xs={3}>
+                            <TextField label="God" variant="standard"/>
+                        </Grid>
+                        <Grid item xs={0.75}>
+                            <TextField label="Rank" variant="standard" disabled/>
+                        </Grid>
+                        <Grid item xs={0.5}/>
+                        <Grid item xs={0.75}>
+                            <TextField label="Defence" variant="standard"/>
+                        </Grid>
+                        <Grid item xs={4}/>
+                    </Grid>
+                    <br/>
+                    <Typography variant="h5" gutterBottom style={{textAlign: "center"}}>
+                        {name === "Nikolaj" ? "Disabilities" : "Abilities"}
+                    </Typography>
+                    <Grid container>
+                        <Grid item xs={3}/>
+                        <Grid item xs={1}>
+                            <TextField
+                                label="Charisma"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.charisma}
+                                error={formik.touched.charisma && Boolean(formik.errors.charisma)}
+                                helperText={formik.touched.charisma && formik.errors.charisma}
+                                name="charisma"
+                            />
+                        </Grid>
+                        <Grid item xs={1}/>
+                        <Grid item xs={1}>
+                            <TextField
+                                label="Combat"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.combat}
+                                error={formik.touched.combat && Boolean(formik.errors.combat)}
+                                helperText={formik.touched.combat && formik.errors.combat}
+                                name="combat"
+                            />
+                        </Grid>
+                        <Grid item xs={1}/>
+                        <Grid item xs={1}>
+                            <TextField
+                                label="Magic"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.magic}
+                                error={formik.touched.magic && Boolean(formik.errors.magic)}
+                                helperText={formik.touched.magic && formik.errors.magic}
+                                name="magic"
+                            />
+                        </Grid>
+                        <Grid item xs={3}/>
 
-    if (!allowedKeys.test(event.key)) {
-      event.preventDefault();
-    }
-  };
+                        {/* Row 3 */}
+                        <Grid item xs={3}/>
+                        <Grid item xs={1}>
+                            <TextField
+                                label="Sanctity"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.sanctity}
+                                error={formik.touched.sanctity && Boolean(formik.errors.sanctity)}
+                                helperText={formik.touched.sanctity && formik.errors.sanctity}
+                                name="sanctity"
+                            />
+                        </Grid>
+                        <Grid item xs={1}/>
+                        <Grid item xs={1}>
+                            <TextField
+                                label="Scouting"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.scouting}
+                                error={formik.touched.scouting && Boolean(formik.errors.scouting)}
+                                helperText={formik.touched.scouting && formik.errors.scouting}
+                                name="scouting"
+                            />
+                        </Grid>
+                        <Grid item xs={1}/>
+                        <Grid item xs={1}>
+                            <TextField
+                                label="Thievery"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.thievery}
+                                error={formik.touched.thievery && Boolean(formik.errors.thievery)}
+                                helperText={formik.touched.thievery && formik.errors.thievery}
+                                name="thievery"
+                            />
+                        </Grid>
+                        <Grid item xs={3}/>
+                    </Grid>
+                    <br/>
+                    <Typography variant="h5" gutterBottom style={{textAlign: "center"}}>
+                        Stamina
+                    </Typography>
+                    <Grid container>
+                        <Grid item xs={3}/>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="When unwounded"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="Current"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                            />
+                        </Grid>
+                    </Grid>
+                    <br/>
+                    <Typography variant="h5" gutterBottom style={{textAlign: "center"}}>
+                        Possesions
+                    </Typography>
+                    <Grid container>{/* TODO NOEL: implement possesions */}</Grid>
+                    <br/>
+                    <Typography variant="h5" gutterBottom style={{textAlign: "center"}}>
+                        Other values
+                    </Typography>
+                    <Grid container>
+                        <Grid item xs={3}/>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="Money"
+                                variant="standard"
+                                type="number"
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
+                                inputProps={{
+                                    min: 1,
+                                    max: 6,
+                                }}
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">$</InputAdornment>
+                                    ),
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={3}>
+                            <TextField label="Blessings" variant="standard" multiline/>
+                        </Grid>
+                        <Grid item xs={3}/>
 
-  return (
-    <div>
-      <br />
-      <Container>
-        <Typography variant="h4" gutterBottom style={{ textAlign: "center" }}>
-          Adventure Sheet
-        </Typography>
-        <Grid container>
-          {/* Row 1 */}
-          <Grid item xs={3} />
-          <Grid item xs={3}>
-            <TextField
-              label="Name"
-              variant="standard"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <TextField label="Profession" variant="standard" />
-          </Grid>
-          <Grid item xs={3} />
-
-          {/* Row 2 */}
-          <Grid item xs={3} />
-          <Grid item xs={3}>
-            <TextField label="God" variant="standard" />
-          </Grid>
-          <Grid item xs={0.75}>
-            <TextField label="Rank" variant="standard" />
-          </Grid>
-          <Grid item xs={0.5} />
-          <Grid item xs={0.75}>
-            <TextField label="Defence" variant="standard" />
-          </Grid>
-          <Grid item xs={4} />
-        </Grid>
-        <br />
-        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-          {name === "Nikolaj" ? "Disabilities" : "Abilities"}
-        </Typography>
-        <Grid container>
-          <Grid item xs={3} />
-          <Grid item xs={1}>
-            <TextField
-              label="Charisma"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-              onChange={(e) => handleAbilityChange(e, "charisma")}
-            />
-          </Grid>
-          <Grid item xs={1} />
-          <Grid item xs={1}>
-            <TextField
-              label="Combat"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-              onChange={(e) => handleAbilityChange(e, "combat")}
-            />
-          </Grid>
-          <Grid item xs={1} />
-          <Grid item xs={1}>
-            <TextField
-              label="Magic"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-              onChange={(e) => handleAbilityChange(e, "magic")}
-            />
-          </Grid>
-          <Grid item xs={3} />
-
-          {/* Row 3 */}
-          <Grid item xs={3} />
-          <Grid item xs={1}>
-            <TextField
-              label="Sanctity"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-              onChange={(e) => handleAbilityChange(e, "sanctity")}
-            />
-          </Grid>
-          <Grid item xs={1} />
-          <Grid item xs={1}>
-            <TextField
-              label="Scouting"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-              onChange={(e) => handleAbilityChange(e, "scouting")}
-            />
-          </Grid>
-          <Grid item xs={1} />
-          <Grid item xs={1}>
-            <TextField
-              label="Thievery"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-              onChange={(e) => handleAbilityChange(e, "thievery")}
-            />
-          </Grid>
-          <Grid item xs={3} />
-        </Grid>
-        <br />
-        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-          Stamina
-        </Typography>
-        <Grid container>
-          <Grid item xs={3} />
-          <Grid item xs={3}>
-            <TextField
-              label="When unwounded"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <TextField
-              label="Current"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              onKeyPress={handleKeyPress}
-            />
-          </Grid>
-        </Grid>
-        <br />
-        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-          Possesions
-        </Typography>
-        <Grid container>{/* TODO NOEL: implement possesions */}</Grid>
-        <br />
-        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-          Other values
-        </Typography>
-        <Grid container>
-          <Grid item xs={3} />
-          <Grid item xs={3}>
-            <TextField
-              label="Money"
-              variant="standard"
-              type="number"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              inputProps={{
-                min: 1,
-                max: 10,
-              }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">$</InputAdornment>
-                ),
-              }}
-              onKeyPress={handleKeyPress}
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <TextField label="Blessings" variant="standard" multiline />
-          </Grid>
-          <Grid item xs={3} />
-
-          <Grid item xs={3} />
-          <Grid item xs={3}>
-            <TextField
-              label="Resurrection arrangements"
-              variant="standard"
-              multiline
-            />
-          </Grid>
-          <Grid item xs={3}>
-            <TextField
-              label="Titles and honours"
-              variant="standard"
-              multiline
-            />
-          </Grid>
-        </Grid>
-      </Container>
-    </div>
-  );
+                        <Grid item xs={3}/>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="Resurrection arrangements"
+                                variant="standard"
+                                multiline
+                            />
+                        </Grid>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="Titles and honours"
+                                variant="standard"
+                                multiline
+                            />
+                        </Grid>
+                    </Grid>
+                    <br/>
+                    <Grid container>
+                        <Grid item xs={3}/>
+                        <Grid item xs={3}>
+                            <Button type="submit">Save</Button>
+                        </Grid>
+                    </Grid>
+                </form>
+            </Container>
+        </div>
+    );
 }
