@@ -6,3 +6,19 @@
        A vile stink of brimstone permeates the air. 
        You wrinkle your face up in disgust and gag involuntarily. ‘Welcome to Yellowport!’ says a passing merchant.
     - turnTo: 10
+- number: 15
+  content:
+    - text: Three drunken army officers...
+    - if:
+        hasTitle: "Protector of Sokara"
+      then:
+        - turnTo: 542
+      else:
+        - text: If not, read on.
+        - choice:
+            - text: Step out of the way
+              then:
+                - turnTo: 44
+            - text: Return the insult
+              then:
+                - turnTo: 266
