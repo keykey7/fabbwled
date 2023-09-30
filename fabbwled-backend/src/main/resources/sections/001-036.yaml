@@ -28,3 +28,19 @@
         Wary of danger, you lose  no time in getting to your feet. Confronting you is an old man clad in a dirty loin-cloth.  
         His eyes have a feverish bright look that is suggestive of either a mystic or a mad man.
     - turnTo: 20
+- number: 15
+  content:
+    - text: Three drunken army officers...
+    - if:
+        hasTitle: "Protector of Sokara"
+      then:
+        - turnTo: 542
+      else:
+        - text: If not, read on.
+        - choice:
+            - text: Step out of the way
+              then:
+                - turnTo: 44
+            - text: Return the insult
+              then:
+                - turnTo: 266
