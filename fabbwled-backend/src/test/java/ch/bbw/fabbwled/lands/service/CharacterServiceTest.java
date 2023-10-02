@@ -82,7 +82,7 @@ class CharacterServiceTest extends FabledTestBase {
     @Test
     void validateCharacterWithNonOutcastRank() {
         Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(15),Collections.emptySet(),RankEnum.COMMONER, ProfessionEnum.WAYFARER, 9,
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem()),
+                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16)),
                 """
                         Liana prefers to make her home in mountain grottos
                         and woodland groves rather than in the squalid streets
