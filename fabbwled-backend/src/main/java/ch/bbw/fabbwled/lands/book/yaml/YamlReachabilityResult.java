@@ -3,21 +3,21 @@ package ch.bbw.fabbwled.lands.book.yaml;
 public enum YamlReachabilityResult {
     NORMAL,
     /**
-     * This action diverges (does not return, meaning it's a terminating action like turnTo).
+     * This action terminates (does not return, meaning it's a terminating action like turnTo).
      */
-    DIVERGES;
+    TERMINATES;
 
     /**
-     * The intersection of the two results, returns DIVERGES if both results diverge.
+     * The intersection of the two results, returns TERMINATES if both results diverge.
      */
     public YamlReachabilityResult intersection(YamlReachabilityResult other) {
-        if (this == YamlReachabilityResult.DIVERGES && other == YamlReachabilityResult.DIVERGES) {
-            return YamlReachabilityResult.DIVERGES;
+        if (this == YamlReachabilityResult.TERMINATES && other == YamlReachabilityResult.TERMINATES) {
+            return YamlReachabilityResult.TERMINATES;
         }
         return YamlReachabilityResult.NORMAL;
     }
 
-    public boolean diverges() {
-        return this == YamlReachabilityResult.DIVERGES;
+    public boolean terminates() {
+        return this == YamlReachabilityResult.TERMINATES;
     }
 }

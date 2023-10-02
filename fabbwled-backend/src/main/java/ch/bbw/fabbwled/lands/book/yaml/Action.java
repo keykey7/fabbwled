@@ -30,11 +30,11 @@ public interface Action {
 
         @Override
         public YamlReachabilityResult verifyReachability() {
-            var diverges = YamlActionReachabilityHelper.verifyActionList(then);
+            var thenResult = YamlActionReachabilityHelper.verifyActionList(then);
             if (else_.isPresent()) {
-                diverges = diverges.intersection(YamlActionReachabilityHelper.verifyActionList(else_.get()));
+                thenResult = thenResult.intersection(YamlActionReachabilityHelper.verifyActionList(else_.get()));
             }
-            return diverges;
+            return thenResult;
         }
     }
 
@@ -44,8 +44,8 @@ public interface Action {
 
         @Override
         public YamlReachabilityResult verifyReachability() {
-            // turnTo always goes to a different action, so it diverges.
-            return YamlReachabilityResult.DIVERGES;
+            // turnTo always goes to a different action, so it terminates.
+            return YamlReachabilityResult.TERMINATES;
         }
     }
 
@@ -64,7 +64,7 @@ public interface Action {
 
         @Override
         public YamlReachabilityResult verifyReachability() {
-            var reachability = YamlReachabilityResult.DIVERGES;
+            var reachability = YamlReachabilityResult.TERMINATES;
 
             for (SingleChoice choice : choices) {
                 reachability =

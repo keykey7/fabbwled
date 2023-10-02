@@ -6,17 +6,17 @@ import java.util.List;
 
 public class YamlActionReachabilityHelper {
     public static YamlReachabilityResult verifyActionList(List<Action> actions) {
-        var diverges = false;
+        var terminates = false;
 
         for (Action action : actions) {
-            if (diverges) {
+            if (terminates) {
                 throw new FabledTechnicalException(
                         "Unreachable action: " + action + ". This action is after a terminating action like turnTo");
             }
             var result = action.verifyReachability();
-            diverges = result.diverges();
+            terminates = result.terminates();
         }
 
-        return diverges ? YamlReachabilityResult.DIVERGES : YamlReachabilityResult.NORMAL;
+        return terminates ? YamlReachabilityResult.TERMINATES : YamlReachabilityResult.NORMAL;
     }
 }
