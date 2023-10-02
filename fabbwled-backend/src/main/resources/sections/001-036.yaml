@@ -1,3 +1,93 @@
+- number: 1
+  content:
+    - text: |
+        The approach of dawn has turned the sky a milky grey-green, like jade. 
+        The sea is a luminous pane of silver. Holding the tiller of your sailing boat,  
+        you keep your gaze fixed on the glittering constellation known as the Spider.  
+        It marks the north, and by keeping it to port you know you are still on course.
+        The sun appears in a trembling burst of red fire at the rim of the world. 
+        Slowly the chill of night gives way to brazen warmth.You lick your parched lips. 
+        There is a little water sloshing in the bottom of the barrel by your feet, but not enough to see you through another day.
+        Sealed in a scroll case tucked into your jerkin is the parchment map your grandfather gave to you on his death-bed. 
+        You remember his stirring tales of far sea voyages, of kingdoms beyond the western horizon, of sorcerous islands and ruined palaces filled with treasure.  
+        As a child you dreamed of nothing else but the magical quests that were in store if you too became an adventurer.
+        You never expected to die in an open boat before your adventures even began.
+        Securing the tiller, you unroll the map and study it again. You hardly need to. Every detail is etched into your memory by now.  
+        According to your reckoning, you should have reached the east coast of Harkuna, the great northern continent, days ago. 
+        A pasty grey blob splatters on to the map. 
+        After a moment of stunned surprise, you look up and curse the seagull circling directly overhead. Then it strikes you – where there’s a seagull, there may be land.
+        You leap to your feet and scan the horizon. 
+        Sure enough, aline of white cliffs lie a league to the north. Have you been sailing along the coast all this time without realising the mainland was so close? 
+        Steering towards the cliffs, you feel the boat judder against rough waves. 
+        A howling wind whips plumes of spindrift across the sea. Breakers pound the high cliffs. The tiller is yanked out of your hands. 
+        The little boat is spun around, out of control, and goes plunging in towards the coast. You leap clear at the last second. 
+        There is the snap of timber, the roaring crescendo of the waves – and then silence as you gounder.  
+        Striking out wildly, you try to swim clear of the razor-sharp rocks. 
+        For a while the undertow threatens to drag you down, then suddenly a wave catches you and flings you contemptuously up on to the beach.
+        Battered and bedraggled you lie gasping for breath until you hear someone walking along the shore towards you. 
+        Wary of danger, you lose  no time in getting to your feet. Confronting you is an old man clad in a dirty loin-cloth.  
+        His eyes have a feverish bright look that is suggestive of either a mystic or a mad man.
+    - turnTo: 20
+- number: 3
+  content:
+    - text: |
+        You have come to the foothills of the Spine of Harkun, in the north west of Sokara. 
+        The view is impressive: a massive wall of forested mountains, whose rocky, white-flanked peaks soar skywards into the clouds.  
+        These parts of the mountains are unclimbable but you notice a large cave at the bottom of a mountain.
+    - choice:
+        - text: Investigate the cave
+          then:
+            - turnTo: 665
+        - text: Go east to the Citadel of Velis Corin
+          then:
+            - turnTo: 271
+        - text: South into the wilderness
+          then:
+            - turnTo: 276
+- number: 7
+  content:
+    - text: |
+        Much to your embarrassment, you get lost in the vast forest. 
+        You wander around for days until you finally emerge at the Bronze Hills.
+    - turnTo: 110
+- number: 8
+  content:
+    - text: |
+        You step through the archway. Immediately the symbols on the stone begin to glow with red-hot energy; your hair stands on end and your body tingles. A crackling nimbus of blue-whiteforce engulfs you, the sky darkens and thunder and lightning crash and leap across the heavens.  
+        Suddenly, your vision fades, and everything goes black. When your sight returns, you find yourself at the gates of a large city, set on an ochre-coloured river.  
+        A vile stink of brimstone permeates the air. 
+        You wrinkle your face up in disgust and gag involuntarily. ‘Welcome to Yellowport!’ says a passing merchant.
+    - turnTo: 10
+- number: 11
+  content:
+    - text: |
+        A narrow path leads up the hill, the top of which is crowned
+        with a circle of large obsidian standing stones, hewn from solid
+        rock. Despite the bitter wind that blows across these hills, the
+        stones are unweathered and seem but newly lain. They form
+        three archways, each carved with mystic symbols and runes of
+        power.
+    - turnTo: 65
+- number: 12
+  content:
+    - text: |
+        You tell them a story of tragic love between a merman and a
+        human princess. The mer-folk are moved to shed briny tears,
+        and one of them plants a languorous kiss on your lips.
+        You find that you can indeed breathe underwater now. The
+        mer-folk lead you into the depths, where they swim playfully
+        around you.
+        Suddenly, a hideous form looms out of the murk. It is like a
+        giant squid, but it carries a spear in one of its many tentacles and
+        wears rudimentary armour. Great black eyes shine with an
+        implacable alien intelligence. The mer-folk dart away in fright,
+        leaving you alone with the creature.
+    - if:
+        hasKeyword: Anchor
+      then:
+        - turnTo: 116
+      else:
+        - turnTo: 238
 - number: 15
   content:
     - text: Three drunken army officers...
@@ -14,6 +104,40 @@
             - text: Return the insult
               then:
                 - turnTo: 266
+- number: 20
+  content:
+    - text: |
+        ‘Well, well, well, what have we here, friends?’ asks the old man.
+        He seems to be talking to someone next to him, although you
+        are certain he is alone. ‘Looks like a washed up adventurer to
+        me!’ he says in answer to his own question, ‘all wet and out of
+        luck.’
+        He carries on having a conversation – a conversation that
+        quickly turns into a heated debate. He is clearly quite mad.
+        ‘Excuse me, umm, EXCUSE ME!,’ you shout above the
+        hubbub in an attempt to grab the old man’s attention. He stops
+        and stares at you.
+        ‘Is this the Isle of the Druids?’ you ask impatiently.
+        ‘Indeed it is,’ says the old man, ‘I see that you are from a far
+        land so it is up to me to welcome you to Harkuna. But I think
+        you may have much to do here as it is written in the stars that
+        someone like you would come. Your destiny awaits you! Follow
+        me, young adventurer.’
+        The old man turns smartly about and begins walking up a
+        path towards some hills. You can just see some sort of
+        monolithic stone structure atop one of them.
+        ‘Come on, come one, I’ll show you the Gates of the World,’
+        the old man babbles.
+    - choice:
+        - text: Follow him
+          then:
+            - turnTo: 192
+        - text: Explore the coast
+          then:
+            - turnTo: 128
+        - text: Head into the nearby forest
+          then:
+            - turnTo: 257
 - number: 23
   content:
     - text: |
@@ -28,6 +152,21 @@
         - text: Call on your god to banish them
           then:
             - turnTo: 520
+- number: 26
+  content:
+    - text: |
+        You set sail for Dweomer. The journey takes a few days but,
+        amazingly, it is uneventful. The captain can’t believe his luck, as
+        you disembark at Dweomer harbour, on the Sorcerers’ Isle.
+        Turn to paragraph 100 in Over the Blood-Dark Sea.
+    - turnTo: 100
+- number: 27
+  content:
+    - text: |
+        Either you are recklessly brave, or very foolish to visit the palace
+        where you assassinated the governor, Provost Marshal Royzer has established new security procedures, and it is impossible for
+        you to see him.
+    - turnTo: 10
 - number: 28
   content:
     - text: |
@@ -53,6 +192,46 @@
         - text: West towards the River Grimm
           then:
             - turnTo: 99
+- number: 32
+  content:
+    - text: |
+        You head across the hot, dusty and sparsely vegetated land.
+        Vultures circle overhead – presumably they think you’re going
+        to die. You wander on, until you come to a ridge. Down
+        below, in a shallow valley, is a great mound of earth. Scorpion
+        men crawl in and out of the many burrows that riddle the earth.
+        The number of scorpion men in the valley makes your heart
+        quail; unless you have the codeword Artefact, the place is too
+        deadly to enter.
+    - if:
+        hasKeyword: "Artefact"
+      then:
+        - turnTo: 406
+      else:
+        - turnTo: 492
+- number: 35
+  content:
+    - text: |
+        You come to the top of a windswept cliff. An ancient pillar of
+        jumbled rock, pitted and weatherbeaten, stands at the cliff’s
+        edge, like a broken finger pointing at the sky. Seagulls sing their
+        song of desolation in the air.
+        Judging by the runes etched into the rock, the tor dates back
+        to the time of the Shadar, a race that ruled Harkuna so long ago,
+        they are lost in myth and legend.
+    - choice:
+        - text: Examine the runes
+          then:
+            - turnTo: 515
+        - text: Go down to the beach
+          then:
+            - turnTo: 97
+        - text: Take the road to Trefoille
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 166
 - number: 36
   content:
     - text: |
@@ -61,5 +240,3 @@
         food and water. Lose 4 Stamina points. If you still live, you
         eventually stagger out of the forest to the coast.
     - turnTo: 128
-
-
