@@ -44,7 +44,6 @@ public class PlayerController {
     public ResponseEntity<PlayerSession.PlayerDto> updatePlayer(@RequestBody PlayerSession.PlayerDto createdPlayer) {
         playerSession.update(player -> {
             player = createdPlayer;
-            return player;
         });
         return ResponseEntity.ok(playerSession.getPlayer());
     }
