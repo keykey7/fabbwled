@@ -22,7 +22,7 @@
         ‘Get you back, mortal,’ warns one, ‘or I’ll touch you with
         my grave-cold hands and then it’ll be your dying day!’
     - choice:
-        - text: Attack then
+        - text: Attack them
           then:
             - turnTo: 479
         - text: Call on your god to banish them
