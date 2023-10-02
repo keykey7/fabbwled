@@ -7,7 +7,6 @@
         pouch, you find a bag of pearls, which you can take if you
         wish.
     - turnTo: 507
-
 - number: 41
   content:
     - text: |
@@ -31,7 +30,6 @@
         - text: Rack your memory for a solution
           then:
             - turnTo: 487
-
 - number: 44
   content:
     - text: |
@@ -39,7 +37,6 @@
         this case, and step aside. The officers laugh contemptuously, and
         swagger past. Nothing else happens tonight.
     - turnTo: 100
-
 - number: 47
   content:
     - text: |
@@ -62,7 +59,6 @@
         - text: East to the road
           then:
             - turnTo: 387
-
 - number: 50
   content:
     - text: |
@@ -73,14 +69,12 @@
         You will have to be careful not to get yourself recognised.
         Choose an option from the list on page 10.
     - turnTo: 10
-
 - number: 54
   content:
     - text: |
         You drive back the storm demons long enough for you to work
         free one of the stakes that is holding Sul Veneris down.
     - turnTo: 365
-
 - number: 56
   content:
     - text: |
@@ -97,14 +91,12 @@
         - text: Leave it and sail on
           then:
             - turnTo: 85
-
 - number: 57
   content:
     - text: |
         You manage to lose them amid the backstreets of Yellowport.
         Once the heat is off, you return to the city centre.
     - turnTo: 10
-
 - number: 63
   content:
     - text: |
@@ -125,17 +117,16 @@
         ‘Please, help us!’ plead the villagers.
     - if:
         hasKeyword: Attar
-        then:
-          - turnTo: 578
-        else:
-          - choice:
-              - text: Help them
-                then:
-                  - turnTo: 600
-              - text: Refuse to help
-                then:
-                  - turnTo: 427
-
+      then:
+        - turnTo: 578
+      else:
+        - choice:
+            - text: Help them
+              then:
+                - turnTo: 600
+            - text: Refuse to help
+              then:
+                - turnTo: 427
 - number: 65
   content:
     - text: |
@@ -159,7 +150,6 @@
         - text: Step through the Wishport arch
           then:
             - turnTo: 330
-
 - number: 66
   content:
     - text: |
@@ -178,7 +168,6 @@
         - text: Leap off
           then:
             - turnTo: 28
-
 - number: 71
   content:
     - text: |
@@ -193,26 +182,25 @@
         resourcefulness. See temple warden.’
     - if:
         hasKeyword: Ague
-        then:
-          - turnTo: 517
-        else:
-          - choice:
-              - text: Become an initiate
-                then:
-                  - turnTo: 409
-              - text: Renounce worship
-                then:
-                  - turnTo: 187
-              - text: Make resurrection arrangements
-                then:
-                  - turnTo: 478
-              - text: Visit the warden
-                then:
-                  - turnTo: 48
-              - text: Leave the temple
-                then:
-                  - turnTo: 100
-
+      then:
+        - turnTo: 517
+      else:
+        - choice:
+            - text: Become an initiate
+              then:
+                - turnTo: 409
+            - text: Renounce worship
+              then:
+                - turnTo: 187
+            - text: Make resurrection arrangements
+              then:
+                - turnTo: 478
+            - text: Visit the warden
+              then:
+                - turnTo: 48
+            - text: Leave the temple
+              then:
+                - turnTo: 100
 - number: 72
   content:
     - text: |
