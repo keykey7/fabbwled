@@ -1,5 +1,4 @@
 import styles from "./Game.module.scss";
-import { Button } from "@mui/material";
 
 export default function Game() {
   return (
@@ -43,7 +42,12 @@ export default function Game() {
       </div>
       <div className={styles.side}>
         <div className={styles.buttons}>
-          <Button className={styles.eraser}>Exit</Button>
+          <button className={styles.pencil} title={"New Game"}>
+            <img src={"/pencil.png"} />
+          </button>
+          <button className={styles.eraser} title={"Exit the current game"}>
+            <img src={"/eraser.png"} />
+          </button>
         </div>
       </div>
     </div>
