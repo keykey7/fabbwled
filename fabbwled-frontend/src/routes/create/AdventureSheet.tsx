@@ -14,25 +14,35 @@ import "./adventure-sheet.scss";
 import {useFormik} from "formik";
 import validationSchema from "./AdventureSheetSchema.ts"
 
-type Abilities = {
+/*type Abilities = {
     charisma: number;
     combat: number;
     magic: number;
     sanctity: number;
     scouting: number;
     thievery: number;
-};
+};*/
+
+const possessions = [
+    'sword',
+    'leather jerkin (Defence +1)',
+    'map',
+];
 
 export default function AdventureSheet() {
     const initialValues = {
         name: '',
         profession: 'Wayfarer',
+        rank: 1,
         charisma: 1,
         combat: 1,
         magic: 1,
         sanctity: 1,
         scouting: 1,
         thievery: 1,
+        staminaUnwounded: 9,
+        staminaCurrent: 9,
+        possessions: possessions,
         // Add initial values for other fields here if needed
     };
 
@@ -89,18 +99,20 @@ export default function AdventureSheet() {
                         <Grid item xs={3}>
                             <TextField label="God" variant="standard"/>
                         </Grid>
-                        <Grid item xs={0.75}>
-                            <TextField label="Rank" variant="standard" disabled/>
-                        </Grid>
-                        <Grid item xs={0.5}/>
-                        <Grid item xs={0.75}>
-                            <TextField label="Defence" variant="standard"/>
+                        <Grid item xs={3}>
+                            <TextField
+                                label="Rank"
+                                variant="standard"
+                                disabled
+                                value={formik.values.rank}
+                                name="rank"
+                            />
                         </Grid>
                         <Grid item xs={4}/>
                     </Grid>
                     <br/>
                     <Typography variant="h5" gutterBottom style={{textAlign: "center"}}>
-                        {name === "Nikolaj" ? "Disabilities" : "Abilities"}
+                        Abilities
                     </Typography>
                     <Grid container>
                         <Grid item xs={3}/>
@@ -252,6 +264,9 @@ export default function AdventureSheet() {
                                     min: 1,
                                     max: 6,
                                 }}
+                                disabled
+                                value={formik.values.staminaUnwounded}
+                                name="staminaUnwounded"
                             />
                         </Grid>
                         <Grid item xs={3}>
@@ -266,14 +281,38 @@ export default function AdventureSheet() {
                                     min: 1,
                                     max: 6,
                                 }}
+                                disabled
+                                value={formik.values.staminaCurrent}
+                                name="staminaCurrent"
                             />
                         </Grid>
                     </Grid>
                     <br/>
                     <Typography variant="h5" gutterBottom style={{textAlign: "center"}}>
-                        Possesions
+                        Possessions
                     </Typography>
-                    <Grid container>{/* TODO NOEL: implement possesions */}</Grid>
+                    <Grid container>
+                        <Grid item xs={4.5}/>
+                        <Grid item>
+                            <FormControl variant="standard">
+                                <InputLabel>Your possessions</InputLabel>
+                                <Select
+                                    multiple
+                                    value={formik.values.possessions}
+                                    disabled
+                                >
+                                    {possessions.map((possession) => (
+                                        <MenuItem
+                                            key={possession}
+                                            value={possession}
+                                        >
+                                            {possession}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                    </Grid>
                     <br/>
                     <Typography variant="h5" gutterBottom style={{textAlign: "center"}}>
                         Other values
@@ -330,5 +369,6 @@ export default function AdventureSheet() {
                 </form>
             </Container>
         </div>
-    );
+    )
+        ;
 }
