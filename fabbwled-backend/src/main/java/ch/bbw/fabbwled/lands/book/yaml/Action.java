@@ -1,6 +1,7 @@
 package ch.bbw.fabbwled.lands.book.yaml;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 
 import java.util.List;
@@ -11,6 +12,8 @@ public interface Action {
 
     YamlReachabilityResult verifyReachability();
 
+    SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent);
+
     record TextAction(String text) implements Action {
         @Override
         public void simpleVerify() {}
@@ -18,6 +21,11 @@ public interface Action {
         @Override
         public YamlReachabilityResult verifyReachability() {
             return YamlReachabilityResult.NORMAL;
+        }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            return parent.text(text);
         }
     }
 
@@ -36,6 +44,17 @@ public interface Action {
             }
             return thenResult;
         }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            var condition = condition().isActive(writer.getSession());
+
+            parent = parent.activeIf(condition, x -> writer.writeList(this.then, x));
+            if (else_.isPresent()) {
+                parent = parent.activeIf(!condition, x -> writer.writeList(this.else_.get(), x));
+            }
+            return parent;
+        }
     }
 
     record TurnToAction(SectionId sectionId) implements Action {
@@ -46,6 +65,12 @@ public interface Action {
         public YamlReachabilityResult verifyReachability() {
             // turnTo always goes to a different action, so it terminates.
             return YamlReachabilityResult.TERMINATES;
+        }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            var id = writer.addHandler(player -> player.withCurrentSection(sectionId));
+            return parent.clickableTurnTo(id, sectionId.sectionId());
         }
     }
 
@@ -72,6 +97,13 @@ public interface Action {
             }
 
             return reachability;
+        }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            for (SingleChoice choice : choices) {
+
+            }
         }
 
         record SingleChoice(String text, List<Action> actions) {}
