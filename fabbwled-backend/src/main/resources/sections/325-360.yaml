@@ -5,3 +5,71 @@
         ‘Another successful year’s haunting!’ laughs the woman. Quietly you creep back and tell the villagers what you have discovered. Brimming with outrage, they go straight to the mill and seize the three miscreants.
         ‘Old Megan!’ cries one of the villagers when he sees who is the ring leader of the three. ‘So, you’ve been masquerading as a ghost for these seven years, eh? Well, tomorrow we’ll take you to the gallows and then you can play the part for real.
     - turnTo: 671
+- number: 329
+  content:
+    - text: |
+        ‘Still haven’t found him?’ he says.
+        ‘Did you try the Castle of the Dragon Knights to the west of the Bronze Hills?’
+        As he turnsand leaves, he says, ‘When you have better tidings, I will return here.
+        ’You follow him, but he is nowhere to be seen.
+    - turnTo: 400
+- number: 335
+  content:
+    - text: |
+        The captain eyes your crew, and your marines.
+        They are at ough-looking lot, seasoned sailors and veterans of quite a few battles at sea.
+        ‘Bah!’ he exclaims, ‘It’s not worth the trouble. I’ll let it pass this time.
+        ’With that, he returns to his ship, and departs
+    - turnTo: 439
+- number: 341
+  content:
+    - text: |
+        You hear an interesting story about one of Baroness Ravayne’s knights, in Golnir.
+        Apparently he is plotting against her! ‘Intrigue and treachery in the court of the baroness...’
+        mutters a man before his voice fades to a whisper. You leave the tavern.
+    - turnTo: 400
+- number: 345
+  content:
+    - text: |
+        A ship, impaled on some rocks, is breaking up.
+        Nothing remains save for rotten timbers.
+        However, a little bottle is bobbing in the waves.
+        Inside, a message reads, ‘Never sail at night through rocky waters.’
+        You sail on.
+    - turnTo: 209
+- number: 349
+  content:
+    - text: |
+        You are too fast to get caught, and run off into the shadowy backstreets of Caran Baru.
+        Cursing your luck, you consider your next move.
+    - turnTo: 400
+- number: 352
+  content:
+    - text: |
+        You mutter an enchantment that is intended to give you the appearance of a rat man but you get some of the intricate syllables wrong,
+        and  take  on  the  appearance  of  a  particularly  wealthy merchant!
+        At the sight of you, the rat men redouble their efforts, and you are overwhelmed
+        by sheer numbers
+    - turnTo: 308
+- number: 357
+  content:
+    - text: |
+        The moon begins to rise, making the ghosts seem to glow.
+        They sit  hunched  over  their  feast  like  vultures,
+        occasionally stirring their hands in the pile of silver coins and tittering eerily.
+    - choice:
+        - text: Confront them
+          then:
+            - turnTo: 23
+        - text: Stay hidden and follow when they leave
+          then:
+            - turnTo: 541
+- number: 360
+  content:
+    - text: |
+        You have no luck in tracking down the ghoul.
+        The next day, you hear a rumour doing the rounds in the taverns.
+        A ghoul was found and destroyed by an adventuring priestess of Tyrnai
+        –apparently, the temple of Nagil rewarded her handsomely. 
+        Looks like you were pipped at the post.
+    - turnTo: 100
