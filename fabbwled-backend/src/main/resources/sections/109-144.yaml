@@ -60,7 +60,6 @@
       then:
         - turnTo: 521
       else:
-        - text: Otherwise
         - turnTo: 276
 
 - number: 131
