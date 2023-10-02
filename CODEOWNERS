@@ -17,7 +17,7 @@ fabbwled-backend/src/main/resources/sections/505-540.yaml @Noeelll
 fabbwled-backend/src/main/resources/sections/541-576.yaml @nnikolajj
 fabbwled-backend/src/main/resources/sections/577-612.yaml @JJoeey
 fabbwled-backend/src/main/resources/sections/613-648.yaml @Oliver-was-taken
-fabbwled-backend/src/main/resources/sections/649-689.yaml @kaibria
+fabbwled-backend/src/main/resources/sections/649-680.yaml @kaibria
 
 .github/workflows/ @dbabvwid
 fabbwled-frontend/ @corsin-lehre
