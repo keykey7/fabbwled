@@ -1,0 +1,115 @@
+- number: 80
+  content:
+    - text: |
+        You grab the woman’s wrist a split-second before she can cut
+        the strings of your money pouch. You drag her around to face
+        you, but she meets your outraged scowl with a swashbuckling
+        grin.
+        ‘You’ve got good reflexes,’ she says. ‘Most of the street scum
+        around here are too drink-sodden or dimwitted to notice the
+        loss of a few Shards. Want to earn some real money?’
+    - choice:
+        - text: Accept her offer
+          then:
+            - turnTo: 425
+        - text: Refuse and leave
+          then:
+            - turnTo: 10
+- number: 84
+  content:
+    - text: |
+        Your ship awaits you in the harbour. The crew are in good
+        spirits, as ever when a new voyage is about to begin.
+    - choice:
+        - text: Go ashore
+          then:
+            - turnTo: 142
+        - text: Set sail
+          then:
+            - turnTo: 222
+- number: 85
+  content:
+    - text: You are sailing around Scorpion Bight.
+    - choice:
+        - text: Sail north along the coast
+          then:
+            - turnTo: 190
+        - text: Sail west towards Yellowport
+          then:
+            - turnTo: 29
+        - text: Sail east into the Sea of Whispers
+          then:
+            - turnTo: 136
+        - text: Sail south into the Violet Ocean
+          then:
+            - turnTo: 416
+        - text: Go ashore at Scorpion Bight
+          then:
+            - turnTo: 176
+- number: 86
+  content:
+    - text: |
+        The temple of the Three Fortunes is a squat, square building. A
+        frieze above the door depicts three woman weaving a tapestry.
+        ‘That’s the Tapestry of Fate, where our destiny is woven,’
+        comments a priest.
+    - choice:
+        - text: Become an initiate
+          then:
+            - turnTo: 258
+        - text: Renounce worship
+          then:
+            - turnTo: 573
+        - text: Seek a blessing
+          then:
+            - turnTo: 603
+        - text: Leave the temple
+          then:
+            - turnTo: 400
+- number: 95
+  content:
+    - text: |
+        You are greeted warmly and politely by the provost marshal
+        who treats you as one if his own. However, there are no more
+        missions, and after thanking you once again, he politely sends
+        you on your way.
+    - turnTo: 10
+- number: 98
+  content:
+    - text: |
+        The soldier recognizes you and bows.
+        ‘My lord,’ he says, ‘We are a small group now, left here to
+        act as raiders behind enemy lines. Thanks to your heroic actions,
+        the Citadel of Velis Corin is now ours – the king has moved his
+        court there. Go to the citadel if you would speak with the king.’
+        There is nothing else of interest in the mountains, so you
+        return to the foothills.
+    - turnTo: 474
+- number: 99
+  content:
+    - text: |
+        You are on the east bank of the River Grimm, a great, powerful
+        river, which rushes past towards the sea. You can travel to
+        Golnir from here.
+    - choice:
+        - text: Cross the bridge to Conflass Cities of Gold and Glory
+          then:
+            - turnTo: 168
+        - text: Ford the river to the south Cities of Gold and Glory
+          then:
+            - turnTo: 306
+        - text: Follow the river north
+          then:
+            - turnTo: 333
+        - text: Head for the Curstmoor
+          then:
+            - turnTo: 175
+        - text: Head towards Devil’s Peak
+          then:
+            - turnTo: 560
+        - text: Go south to the mouth of the river
+          then:
+            - turnTo: 579
+        - text: Go to Marlock City
+          then:
+            - turnTo: 100
