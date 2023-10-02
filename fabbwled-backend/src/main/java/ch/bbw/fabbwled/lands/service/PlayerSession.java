@@ -25,6 +25,7 @@ public class PlayerSession {
 
     private final CharacterService characterService = new CharacterService();
 
+
     private final Character.CharacterCreateDto initialCharacter = characterService.getAllCharacters(1).get(0);
     private PlayerDto player = initialCharacter.player();
     @Setter
@@ -80,7 +81,7 @@ public class PlayerSession {
                             ProfessionEnum profession,
                             int stamina,
                             Character.BaseStatsDto baseStats,
-                            List<String> possessions) {
+                            List<String> possessions, ShardSystem shards) {
 
 
         public int getDefence() {
