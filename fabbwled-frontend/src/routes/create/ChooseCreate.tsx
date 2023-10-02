@@ -5,7 +5,7 @@ export default function ChooseCreate() {
   return (
     <div className="choose_create_container">
       <Link to={"/create/character"}>
-        <button>Create own character</button>
+        <button className="choose_create_button">Create own character</button>
       </Link>{" "}
       {/* TODO OLIVER: add route character creation */}
       <Link to={"/create/existing-character"}>
