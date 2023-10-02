@@ -1,0 +1,17 @@
+- number: 295
+  content:
+    - text: The  scorpion  men  cannot  keep  up  with  you,  and  you  leg  it  all the  way  back  to  the  road.  Maybe  you  can  come  back  and  try again later.
+    - turnTo: 492
+- number: 302
+  content:
+    - text: You can explore
+    - choice:
+        - text: The poor quarter
+          then:
+            - turnTo: 93
+        - text: The harbour area
+          then:
+            - turnTo: 587
+        - text: The palace
+          then:
+            - turnTo: 277
