@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 public class YamlVerificationTest implements WithAssertions {
+    private static final SectionId DUMMY_ID = new SectionId(1, 1);
+
     @Test
     void verifyEmptyChoice() {
         var action = new Action.Choice(List.of());
@@ -18,9 +20,25 @@ public class YamlVerificationTest implements WithAssertions {
     void verifySingleChoice() {
         var action = new Action.Choice(List.of(new Action.Choice.SingleChoice(
                 "hello",
-                List.of(new Action.TurnToAction(new SectionId(1, 1)))
+                List.of(new Action.TurnToAction(DUMMY_ID))
         )));
 
         assertThatThrownBy(action::simpleVerify).hasMessage("Choice action only has a single choice, don't use a choice.");
+    }
+
+    @Test
+    void unreachableActionShouldThrow() {
+        List<Action> actions = List.of(new Action.TurnToAction(DUMMY_ID), new Action.TextAction("hello"));
+        var section = new YamlSection(DUMMY_ID, actions);
+
+        assertThatThrownBy(section::verifyReachability).hasMessage("Unreachable action: TextAction[text=hello]. This action is after a terminating action like turnTo");
+    }
+
+    @Test
+    void nonTerminatingSectionShouldThrow() {
+        List<Action> actions = List.of(new Action.TextAction("hello"));
+        var section = new YamlSection(DUMMY_ID, actions);
+
+        assertThatThrownBy(section::verifyReachability).hasMessage("Section may not terminate. Every section needs to end with turnTo on every path.");
     }
 }
