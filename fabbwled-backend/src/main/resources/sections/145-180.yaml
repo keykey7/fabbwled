@@ -1,6 +1,6 @@
 - number: 175
   content:
-    - text: If there is a tick in the box, turn to 673 immediately. If not, puta tick there now, and read on.You are trekking across the aptly named Curstmoor. A greatrolling  expanse  of  blasted  heath  stretches  before  you.  Greyclouds   hang   over   a   mournful,   dirty-water   coloured   plain,studded  with  rocky  outcrops  and  low  hills.  A  raven  flutters  tothe  ground  nearby,  eyeing  you  curiously.  His  brothers  cawloudly into the echoing sky. Dusk falls, and in the dim twilight,a herd of horses comes streaking out of the night, straight at you.As they near, it seems to you that their hooves are not touchingthe  ground,  and  from  their  manes  trail  wispy  clouds  of  sparks,like tiny stars.
+    - text: If there is a tick in the box, turn to 673 immediately. If not, puta tick there now, and read on.You are trekking across the aptly named Curstmoor. A greatrolling  expanse  of  blasted heath stretches before you. Greyclouds hang over a mournful, dirty-water   coloured   plain,studded  with  rocky  outcrops  and  low  hills.  A  raven  flutters  tothe  ground  nearby,  eyeing  you  curiously.  His  brothers  cawloudly into the echoing sky. Dusk falls, and in the dim twilight,a herd of horses comes streaking out of the night, straight at you.As they near, it seems to you that their hooves are not touchingthe  ground,  and  from  their  manes  trail  wispy  clouds  of  sparks,like tiny stars.
     - choice:
       - text: Get out of their way.
         then:
