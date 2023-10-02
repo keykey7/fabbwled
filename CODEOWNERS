@@ -1,23 +1,23 @@
 # Section Responsibles (from, to, who)
-# 1   36  @Lion-alt
-# 37  72  @Desi7
-# 73  108 @kimberlymo
-# 109 144 @adrsch04
-# 145 180 @miolmi
-# 181 216 @Rwael
-# 217 252 @MagischerWolf05
-# 253 288 @elion004
-# 289 324 @tamer545
-# 325 360 @stevan04
-# 361 396 @dbabvwid
-# 397 432 @lucasmillanm
-# 433 468 @corsin-lehre
-# 469 504 @Nilstrieb
-# 505 540 @Noeelll
-# 541 576 @nnikolajj
-# 577 612 @JJoeey
-# 613 648 @Oliver-was-taken
-# 649 680 @kaibria
+fabbwled-backend/src/main/resources/sections/001-036.yaml 1   36  @Lion-alt
+fabbwled-backend/src/main/resources/sections/037-072.yaml @Desi7
+fabbwled-backend/src/main/resources/sections/073-108.yaml @kimberlymo
+fabbwled-backend/src/main/resources/sections/109-144.yaml @adrsch04
+fabbwled-backend/src/main/resources/sections/145-180.yaml @miolmi
+fabbwled-backend/src/main/resources/sections/181-216.yaml @Rwael
+fabbwled-backend/src/main/resources/sections/217-252.yaml @MagischerWolf05
+fabbwled-backend/src/main/resources/sections/253-288.yaml @elion004
+fabbwled-backend/src/main/resources/sections/289-324.yaml @tamer545
+fabbwled-backend/src/main/resources/sections/325-360.yaml @stevan04
+fabbwled-backend/src/main/resources/sections/361-396.yaml @dbabvwid
+fabbwled-backend/src/main/resources/sections/397-432.yaml @lucasmillanm
+fabbwled-backend/src/main/resources/sections/433-468.yaml @corsin-lehre
+fabbwled-backend/src/main/resources/sections/469-504.yaml @Nilstrieb
+fabbwled-backend/src/main/resources/sections/505-540.yaml @Noeelll
+fabbwled-backend/src/main/resources/sections/541-576.yaml @nnikolajj
+fabbwled-backend/src/main/resources/sections/577-612.yaml @JJoeey
+fabbwled-backend/src/main/resources/sections/613-648.yaml @Oliver-was-taken
+fabbwled-backend/src/main/resources/sections/649-689.yaml @kaibria
 
 .github/workflows/ @dbabvwid
 fabbwled-frontend/ @corsin-lehre
