@@ -9,9 +9,16 @@ import java.util.Optional;
 public interface Action {
     void simpleVerify();
 
+    YamlReachabilityResult verifyReachability();
+
     record TextAction(String text) implements Action {
         @Override
         public void simpleVerify() {}
+
+        @Override
+        public YamlReachabilityResult verifyReachability() {
+            return YamlReachabilityResult.NORMAL;
+        }
     }
 
     record IfAction(Condition condition, List<Action> then, Optional<List<Action>> else_) implements Action {
@@ -20,11 +27,26 @@ public interface Action {
             then.forEach(Action::simpleVerify);
             else_.ifPresent(else_ -> else_.forEach(Action::simpleVerify));
         }
+
+        @Override
+        public YamlReachabilityResult verifyReachability() {
+            var thenResult = YamlActionReachabilityHelper.verifyActionList(then);
+            if (else_.isPresent()) {
+                thenResult = thenResult.intersection(YamlActionReachabilityHelper.verifyActionList(else_.get()));
+            }
+            return thenResult;
+        }
     }
 
     record TurnToAction(SectionId sectionId) implements Action {
         @Override
         public void simpleVerify() {}
+
+        @Override
+        public YamlReachabilityResult verifyReachability() {
+            // turnTo always goes to a different action, so it terminates.
+            return YamlReachabilityResult.TERMINATES;
+        }
     }
 
     record Choice(List<SingleChoice> choices) implements Action {
@@ -38,6 +60,18 @@ public interface Action {
             }
 
             choices.forEach(choice -> choice.actions.forEach(Action::simpleVerify));
+        }
+
+        @Override
+        public YamlReachabilityResult verifyReachability() {
+            var reachability = YamlReachabilityResult.TERMINATES;
+
+            for (SingleChoice choice : choices) {
+                reachability =
+                        reachability.intersection(YamlActionReachabilityHelper.verifyActionList(choice.actions()));
+            }
+
+            return reachability;
         }
 
         record SingleChoice(String text, List<Action> actions) {}
