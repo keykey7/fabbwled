@@ -1,7 +1,7 @@
 import {useRef} from 'react';
 import ReactDice, {ReactDiceRef} from "react-dice-complete";
 
-interface DiceComponentProps {
+type DiceComponentProps = {
     numberOfDice?: number;
     onRoll: (total: number) => void;
 }
@@ -14,7 +14,7 @@ const DiceComponent = ({ numberOfDice = 1, onRoll }: DiceComponentProps) => {
     }
 
     const rollAll = () => {
-        reactDice.current?.rollAll()
+        reactDice.current?.rollAll();
     }
 
     return (
