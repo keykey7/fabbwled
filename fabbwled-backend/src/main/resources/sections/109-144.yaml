@@ -34,7 +34,6 @@
       then:
         - turnTo: 351
       else:
-        - text: Otherwise
         - turnTo: 565
 
 - number: 128
