@@ -2,24 +2,17 @@ package ch.bbw.fabbwled.lands.service;
 
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-public class ShardSystem {
-    private int shardCount;
-
-
-    public ShardSystem(int initialShards ){
-        shardCount = initialShards;
-    }
+public record ShardSystem (int shardCount){
     public int getShardCount(){
         return shardCount;
     }
-    public void addShards(int amount){
+    public ShardSystem addShards(int amount){
         if(amount < 0){
             throw new IllegalArgumentException("Cannot add a negative number of shards.");
         }
-        shardCount += amount;
+        return new ShardSystem(shardCount + amount);
     }
-    public boolean substractShards(int amount){
+    public ShardSystem substractShards(int amount){
         if (amount < 0)
         {
             throw new IllegalArgumentException("Cannot subtract a negative number of shards.");
@@ -27,13 +20,9 @@ public class ShardSystem {
 
         if (shardCount >= amount)
         {
-            shardCount -= amount;
-            return true;
+            return new ShardSystem(shardCount - amount);
         }
-        else
-        {
-            return false;
-        }
+        throw new IllegalStateException("Cannnot return negative nummber");
     }
 
 }
