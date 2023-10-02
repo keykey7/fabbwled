@@ -1,9 +1,14 @@
 - number: 326
   content:
     - text: |
-        You follow the footprints to the mill, where you see an old lady and two men brushing flour off their clothes.
-        ‘Another successful year’s haunting!’ laughs the woman. Quietly you creep back and tell the villagers what you have discovered. Brimming with outrage, they go straight to the mill and seize the three miscreants.
-        ‘Old Megan!’ cries one of the villagers when he sees who is the ring leader of the three. ‘So, you’ve been masquerading as a ghost for these seven years, eh? Well, tomorrow we’ll take you to the gallows and then you can play the part for real.
+        You follow the footprints to the mill,
+        where you see an old lady and two men brushing flour off their clothes.
+        ‘Another successful year’s haunting!’ laughs the woman.
+        Quietly you creep back and tell the villagers what you have discovered.
+        Brimming with outrage, they go straight to the mill and seize the three miscreants.
+        ‘Old Megan!’ cries one of the villagers when he sees who is the ring leader of the three.
+        ‘So, you’ve been masquerading as a ghost for these seven years, eh?
+        Well, tomorrow we’ll take you to the gallows and then you can play the part for real.
     - turnTo: 671
 - number: 329
   content:
@@ -40,14 +45,16 @@
 - number: 349
   content:
     - text: |
-        You are too fast to get caught, and run off into the shadowy backstreets of Caran Baru.
+        You are too fast to get caught,
+        and run off into the shadowy backstreets of Caran Baru.
         Cursing your luck, you consider your next move.
     - turnTo: 400
 - number: 352
   content:
     - text: |
-        You mutter an enchantment that is intended to give you the appearance of a rat man but you get some of the intricate syllables wrong,
-        and  take  on  the  appearance  of  a  particularly  wealthy merchant!
+        You mutter an enchantment that is intended to give you the appearance
+        of a rat man but you get some of the intricate syllables wrong,
+        and take on the appearance of a particularly wealthy merchant!
         At the sight of you, the rat men redouble their efforts, and you are overwhelmed
         by sheer numbers
     - turnTo: 308
@@ -55,7 +62,7 @@
   content:
     - text: |
         The moon begins to rise, making the ghosts seem to glow.
-        They sit  hunched  over  their  feast  like  vultures,
+        They sit hunched over their feast like vultures,
         occasionally stirring their hands in the pile of silver coins and tittering eerily.
     - choice:
         - text: Confront them
