@@ -34,8 +34,7 @@ public class PlayerController {
     public ResponseEntity<Character.CharacterCreateDto> setCharacter(@RequestBody Character.CharacterCreateDto createdPlayer) {
         playerSession.setInitialCreation(true);
         playerSession.update(player -> {
-            player = createdPlayer.player().withCurrentSection(SectionId.book1(15)).withTitlesAndHonours(Collections.emptySet()); // TODO Set sectionId to 1 asap
-            return player;
+            player = createdPlayer.player().withCurrentSection(SectionId.book1(1)).withTitlesAndHonours(Collections.emptySet()); 
         });
         playerSession.setInitialCreation(false);
         return ResponseEntity.ok(new Character.CharacterCreateDto(playerSession.getPlayer(),createdPlayer.description()));
