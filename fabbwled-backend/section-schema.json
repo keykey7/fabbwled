@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/keykey7/fabbwled/section",
+  "title": "Section",
+  "description": "A section definition file",
+  "type": "array",
+  "items": {
+    "description": "A single section",
+    "type": "object",
+    "properties": {
+      "number": {
+        "description": "The unique section identifier number",
+        "type": "number"
+      },
+      "content": {
+        "description": "The list of actions",
+        "type": "array",
+        "items": {
+          "description": "A single action",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Text that should be shown to the user",
+              "type": "string"
+            },
+            "if": {
+              "description": "A conditional. Also needs then and maybe else.",
+              "$comment": "can't use refs because intellij doesnt handle them lol",
+              "properties": {
+                "hasTitle": {
+                  "description": "Has a title",
+                  "type": "string"
+                },
+                "hasKeyword": {
+                  "description": "Has a keyword",
+                  "type": "string"
+                },
+                "needsAtLeastShards": {
+                  "description": "Needs at least this many shards (inclusive)",
+                  "type": "number"
+                }
+              }
+            },
+            "then": {
+              "description": "The actions that are executed when the condition is true",
+              "$comment": "can't use refs because intellij doesnt handle them lol",
+              "type": "array",
+              "items": {
+                "description": "A single action",
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "Text that should be shown to the user",
+                    "type": "string"
+                  },
+                  "if": {
+                    "description": "A conditional. Also needs then and maybe else.",
+                    "properties": {
+                      "hasTitle": {
+                        "description": "Has a title",
+                        "type": "string"
+                      },
+                      "hasKeyword": {
+                        "description": "Has a keyword",
+                        "type": "string"
+                      },
+                      "needsAtLeastShards": {
+                        "description": "Needs at least this many shards (inclusive)",
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "then": {
+                    "description": "The actions that are executed when the condition is true",
+                    "$ref": "#/items/properties/content"
+                  },
+                  "else": {
+                    "description": "The actions that are executed when the condition is false",
+                    "$ref": "#/items/properties/content"
+                  },
+                  "turnTo": {
+                    "description": "Turn to a different section. Ends the section.",
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "else": {
+              "description": "The actions that are executed when the condition is false",
+              "type": "array",
+              "items": {
+                "description": "A single action",
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "description": "Text that should be shown to the user",
+                    "type": "string"
+                  },
+                  "if": {
+                    "description": "A conditional. Also needs then and maybe else.",
+                    "properties": {
+                      "hasTitle": {
+                        "description": "Has a title",
+                        "type": "string"
+                      },
+                      "hasKeyword": {
+                        "description": "Has a keyword",
+                        "type": "string"
+                      },
+                      "needsAtLeastShards": {
+                        "description": "Needs at least this many shards (inclusive)",
+                        "type": "number"
+                      }
+                    }
+                  },
+                  "then": {
+                    "description": "The actions that are executed when the condition is true",
+                    "$ref": "#/items/properties/content"
+                  },
+                  "else": {
+                    "description": "The actions that are executed when the condition is false",
+                    "$ref": "#/items/properties/content"
+                  },
+                  "turnTo": {
+                    "description": "Turn to a different section. Ends the section.",
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "turnTo": {
+              "description": "Turn to a different section. Ends the section.",
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}
