@@ -102,23 +102,6 @@
   }
 }
 
-.statsDisplay {
-  border: 1px solid black;
-  padding: 0 5%;
-
-  .stats {
-    display: flex;
-    justify-content: space-between;
-
-    ul {
-      padding: 0;
-      li {
-        list-style: none;
-      }
-    }
-  }
-}
-
 .pageIndicator {
   text-align: center;
   margin-top: 0;
