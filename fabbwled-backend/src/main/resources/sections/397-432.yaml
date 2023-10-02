@@ -36,7 +36,6 @@
       then:
       - turnTo: 570
 
-
 - number: 412
   content:
   - text: |
@@ -51,7 +50,6 @@
       then:
       - turnTo: 250
 
-
 - number: 421
   content:
   - text: | 
@@ -59,7 +57,6 @@
       The power of your faith is enough to repel them. 
       You work free one of the stakes holding down Sul Veneris.
   - turnTo: 365
-
 
 - number: 429
   content:
