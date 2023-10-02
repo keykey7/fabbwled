@@ -37,6 +37,7 @@ public class YamlSectionLoader {
                     var actions = builder.buildActions(section.content());
                     var yamlSection = new YamlSection(new SectionId(1, section.number()), actions);
                     yamlSection.simpleVerify();
+                    yamlSection.verifyReachability();
                     return yamlSection;
                 } catch (FabledTechnicalException e) {
                     throw new FabledTechnicalException("Invalid section: " + section.number(), e);
