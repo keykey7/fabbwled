@@ -63,7 +63,7 @@ public class PlayerSession {
             }
             if (playerDto.shards().getShardCount() < player.shards().getShardCount()){
                 int ShardsAmount = player.shards().getShardCount() - playerDto.shards().getShardCount();
-                playerDto.shards().addShards(ShardsAmount);
+                playerDto.shards().subsractShards(ShardsAmount);
             }
             if (playerDto.possessions().size() > 12) {
                 throw new FabledBusinessException("Character possession size not allowed over 12");
@@ -88,7 +88,8 @@ public class PlayerSession {
                             ProfessionEnum profession,
                             int stamina,
                             Character.BaseStatsDto baseStats,
-                            List<String> possessions, ShardSystem shards) {
+                            List<String> possessions, 
+                            ShardSystem shards) {
 
 
         public int getDefence() {
