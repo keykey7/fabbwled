@@ -89,7 +89,8 @@ public class PlayerSession {
                             int stamina,
                             Character.BaseStatsDto baseStats,
                             List<String> possessions, 
-                            ShardSystem shards) {
+                            ShardSystem shards,
+                            Set<String> codeWords) {
 
 
         public int getDefence() {
