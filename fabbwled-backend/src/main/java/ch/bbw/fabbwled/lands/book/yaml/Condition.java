@@ -6,4 +6,6 @@ public interface Condition {
     record HasKeyword(String keyword) implements Condition {}
 
     record NeedsAtLeastShards(int amount) implements Condition {}
+
+    record IsTickBoxDone(boolean isTickBoxDone) implements Condition {}
 }

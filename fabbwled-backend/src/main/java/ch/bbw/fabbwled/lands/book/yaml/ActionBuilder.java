@@ -19,6 +19,7 @@ public class ActionBuilder {
             assertNull(raw.else_(), "else", "text");
             assertNull(raw.turnTo(), "turnTo", "text");
             assertNull(raw.choice(), "choice", "text");
+            assertNull(raw.checkTickBox(), "checkTickBox", "text");
 
             return new Action.TextAction(raw.text());
         }
@@ -63,18 +64,24 @@ public class ActionBuilder {
         if (raw.hasTitle() != null) {
             assertNull(raw.hasKeyword(), "hasKeyword", "hasTitle");
             assertNull(raw.needsAtLeastShards(), "needsAtLeastShards", "hasTitle");
+            assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasTitle");
 
             return new Condition.HasTitle(raw.hasTitle());
         }
 
         if (raw.hasKeyword() != null) {
             assertNull(raw.needsAtLeastShards(), "needsAtLeastShards", "hasKeyword");
+            assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasKeyword");
 
             return new Condition.HasKeyword(raw.hasKeyword());
         }
 
         if (raw.needsAtLeastShards() != null) {
             return new Condition.NeedsAtLeastShards(raw.needsAtLeastShards());
+        }
+
+        if(raw.isTickBoxDone() != null) {
+            return new Condition.IsTickBoxDone(raw.isTickBoxDone());
         }
 
         throw new FabledTechnicalException("Condition must have one property");

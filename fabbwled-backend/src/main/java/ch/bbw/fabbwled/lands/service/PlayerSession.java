@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.UnaryOperator;
 
@@ -88,8 +89,9 @@ public class PlayerSession {
                             ProfessionEnum profession,
                             int stamina,
                             Character.BaseStatsDto baseStats,
-                            List<String> possessions, 
-                            ShardSystem shards) {
+                            List<String> possessions,
+                            ShardSystem shards,
+                            Map<SectionId, Integer> tickBoxes) {
 
 
         public int getDefence() {
