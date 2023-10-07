@@ -1,11 +1,9 @@
 package ch.bbw.fabbwled.lands.service;
 
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
+@Getter
 public record ShardSystem (int shardCount){
-    public int getShardCount(){
-        return shardCount;
-    }
     public ShardSystem addShards(int amount){
         if(amount < 0){
             throw new IllegalArgumentException("Cannot add a negative number of shards.");

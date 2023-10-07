@@ -23,6 +23,10 @@
               "description": "Text that should be shown to the user",
               "type": "string"
             },
+            "acquireKeyword": {
+              "description": "Acquires a keyword",
+              "type": "keyword"
+            },
             "if": {
               "description": "A conditional. Also needs then and maybe else.",
               "$comment": "can't use refs because intellij doesnt handle them lol",
@@ -52,6 +56,10 @@
                   "text": {
                     "description": "Text that should be shown to the user",
                     "type": "string"
+                  },
+                  "acquireKeyword": {
+                    "description": "Acquires a keyword",
+                    "type": "keyword"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
@@ -95,6 +103,10 @@
                   "text": {
                     "description": "Text that should be shown to the user",
                     "type": "string"
+                  },
+                  "acquireKeyword": {
+                    "description": "Acquires a keyword",
+                    "type": "keyword"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",

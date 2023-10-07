@@ -19,6 +19,7 @@ public class ActionBuilder {
             assertNull(raw.else_(), "else", "text");
             assertNull(raw.turnTo(), "turnTo", "text");
             assertNull(raw.choice(), "choice", "text");
+            assertNull(raw.acquireKeyword(), "acquireKeyword", "text");
 
             return new Action.TextAction(raw.text());
         }
@@ -29,6 +30,7 @@ public class ActionBuilder {
             }
             assertNull(raw.turnTo(), "turnTo", "if");
             assertNull(raw.choice(), "choice", "if");
+            assertNull(raw.acquireKeyword(), "choice", "if");
 
             Optional<List<Action>> else_ =
                     raw.else_() != null ? Optional.of(buildActions(raw.else_())) : Optional.empty();
