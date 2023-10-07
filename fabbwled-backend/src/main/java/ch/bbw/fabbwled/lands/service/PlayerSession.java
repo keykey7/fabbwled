@@ -57,12 +57,12 @@ public class PlayerSession {
             if (this.initialCreation) {
                 validateInitialCreation(playerDto);
             }
-            if (playerDto.shards().getShardCount() > player.shards().getShardCount()){
-                int ShardsAmount = playerDto.shards().getShardCount() - player.shards().getShardCount();
+            if (playerDto.shards().shardCount() > player.shards().shardCount()){
+                int ShardsAmount = playerDto.shards().shardCount() - player.shards().shardCount();
                 playerDto.shards().addShards(ShardsAmount);
             }
-            if (playerDto.shards().getShardCount() < player.shards().getShardCount()){
-                int ShardsAmount = player.shards().getShardCount() - playerDto.shards().getShardCount();
+            if (playerDto.shards().shardCount() < player.shards().shardCount()){
+                int ShardsAmount = player.shards().shardCount() - playerDto.shards().shardCount();
                 playerDto.shards().subtractShards(ShardsAmount);
             }
             if (playerDto.possessions().size() > 12) {
