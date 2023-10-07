@@ -59,7 +59,7 @@
                   },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
-                    "type": "keyword"
+                    "type": "string"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
