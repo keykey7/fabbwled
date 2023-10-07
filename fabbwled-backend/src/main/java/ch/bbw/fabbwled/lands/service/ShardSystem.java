@@ -1,8 +1,8 @@
 package ch.bbw.fabbwled.lands.service;
 
-import lombok.Getter;
 
-@Getter
+
+
 public record ShardSystem (int shardCount){
     public ShardSystem addShards(int amount){
         if(amount < 0){
@@ -10,7 +10,7 @@ public record ShardSystem (int shardCount){
         }
         return new ShardSystem(shardCount + amount);
     }
-    public ShardSystem substractShards(int amount){
+    public ShardSystem subtractShards(int amount){
         if (amount < 0)
         {
             throw new IllegalArgumentException("Cannot subtract a negative number of shards.");
@@ -20,7 +20,7 @@ public record ShardSystem (int shardCount){
         {
             return new ShardSystem(shardCount - amount);
         }
-        throw new IllegalStateException("Cannnot return negative nummber");
+        throw new IllegalStateException("Cannot return negative number");
     }
 
 }

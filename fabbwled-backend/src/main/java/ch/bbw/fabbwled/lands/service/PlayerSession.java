@@ -63,7 +63,7 @@ public class PlayerSession {
             }
             if (playerDto.shards().getShardCount() < player.shards().getShardCount()){
                 int ShardsAmount = player.shards().getShardCount() - playerDto.shards().getShardCount();
-                playerDto.shards().substractShards(ShardsAmount);
+                playerDto.shards().subtractShards(ShardsAmount);
             }
             if (playerDto.possessions().size() > 12) {
                 throw new FabledBusinessException("Character possession size not allowed over 12");
