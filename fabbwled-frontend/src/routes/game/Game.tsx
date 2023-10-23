@@ -23,10 +23,10 @@ export default function Game() {
               {/* TODO: Replace this with table */}
               <ul>
                 <li>Rank: 1</li>
-                <li>Profession: Hurensohn</li>
+                <li>Profession: Rogue</li>
                 <li>Stamina: -3</li>
-                <li>Defence: was das</li>
-                <li>Money: Dark souls</li>
+                <li>Defence: 42</li>
+                <li>Money: 0</li>
               </ul>
               <ul>
                 <li>Charisma: 1</li>
