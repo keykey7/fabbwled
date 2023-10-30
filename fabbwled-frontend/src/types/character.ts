@@ -1,9 +1,9 @@
-interface CharacterCreateDto {
+type CharacterCreateDto = {
   player: PlayerDto;
   description: string;
-}
+};
 
-interface PlayerDto {
+type PlayerDto = {
   name: string;
   currentSection: []; //new
   titlesAndHonours: string[];
@@ -14,13 +14,13 @@ interface PlayerDto {
   possessions: string[];
   shards: []; //new
   defence: number;
-}
+};
 
-interface BaseStatsDto {
+type BaseStatsDto = {
   charisma: number;
   combat: number;
   magic: number;
   sanctity: number;
   scouting: number;
   thievery: number;
-}
+};
