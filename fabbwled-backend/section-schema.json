@@ -23,6 +23,10 @@
               "description": "Text that should be shown to the user",
               "type": "string"
             },
+            "checkTickBox": {
+              "description": "Checks the tickbox",
+              "type": "boolean"
+            }
             "acquireKeyword": {
               "description": "Acquires a keyword",
               "type": "keyword"
@@ -47,6 +51,10 @@
                   "description": "Needs at least this many shards (inclusive)",
                   "type": "number"
                 },
+                "isTickBoxDone": {
+                  "description": "Checks if tickbox is fully filled in a section",
+                  "type": "boolean"
+                }
                 "hasPossession": {
                   "description": "Has a possession",
                   "type": "string"
@@ -65,6 +73,10 @@
                     "description": "Text that should be shown to the user",
                     "type": "string"
                   },
+                  "checkTickBox": {
+                    "description": "Checks the tickbox",
+                    "type": "boolean"
+                  }
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -87,6 +99,10 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "isTickBoxDone": {
+                        "description": "Checks if tickbox is fully filled in a section",
+                        "type": "boolean"
                       },
                       "hasPossession": {
                         "description": "Has a possession",
@@ -120,6 +136,10 @@
                     "description": "Text that should be shown to the user",
                     "type": "string"
                   },
+                  "checkTickBox": {
+                    "description": "Checks the tickbox",
+                    "type": "boolean"
+                  }
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -142,6 +162,10 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "isTickBoxDone": {
+                        "description": "Checks if tickbox is fully filled in a section",
+                        "type": "boolean"
                       },
                       "hasPossession": {
                         "description": "Has a possession",
