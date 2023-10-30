@@ -13,6 +13,5 @@ public record RawAction(String text, @JsonProperty("if") RawCondition if_,
                         List<RawChoice> choice,
                         String acquireKeyword,
 
-                        Integer turnTo, String acquirePossession) {}
-                        Integer turnTo,
-                       ) {}
+                        Integer turnTo, String acquirePossession)
+                        {}
