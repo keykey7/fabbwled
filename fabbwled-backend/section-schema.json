@@ -27,6 +27,10 @@
               "description": "Acquires a keyword",
               "type": "keyword"
             },
+            "acquirePossession": {
+              "description": "Possession to be acquired",
+              "type": "string"
+            },
             "if": {
               "description": "A conditional. Also needs then and maybe else.",
               "$comment": "can't use refs because intellij doesnt handle them lol",
@@ -42,6 +46,10 @@
                 "needsAtLeastShards": {
                   "description": "Needs at least this many shards (inclusive)",
                   "type": "number"
+                },
+                "hasPossession": {
+                  "description": "Has a possession",
+                  "type": "string"
                 }
               }
             },
@@ -61,6 +69,10 @@
                     "description": "Acquires a keyword",
                     "type": "string"
                   },
+                  "acquirePossession": {
+                    "description": "Possession to be acquired",
+                    "type": "string"
+                  },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
                     "properties": {
@@ -75,6 +87,10 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "hasPossession": {
+                        "description": "Has a possession",
+                        "type": "string"
                       }
                     }
                   },
@@ -106,7 +122,11 @@
                   },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
-                    "type": "keyword"
+                    "type": "string"
+                  },
+                  "acquirePossession": {
+                    "description": "Possession to be acquired",
+                    "type": "string"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
@@ -122,6 +142,10 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "hasPossession": {
+                        "description": "Has a possession",
+                        "type": "string"
                       }
                     }
                   },
