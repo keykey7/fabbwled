@@ -54,7 +54,7 @@
                 "isTickBoxDone": {
                   "description": "Checks if tickbox is fully filled in a section",
                   "type": "boolean"
-                }
+                },
                 "hasPossession": {
                   "description": "Has a possession",
                   "type": "string"
@@ -76,7 +76,7 @@
                   "checkTickBox": {
                     "description": "Checks the tickbox",
                     "type": "boolean"
-                  }
+                  },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -139,7 +139,7 @@
                   "checkTickBox": {
                     "description": "Checks the tickbox",
                     "type": "boolean"
-                  }
+                  },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
