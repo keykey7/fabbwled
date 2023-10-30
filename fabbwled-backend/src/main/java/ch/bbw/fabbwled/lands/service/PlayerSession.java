@@ -1,7 +1,7 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
-import ch.bbw.fabbwled.lands.character.CharacterDto;
+import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
@@ -89,8 +89,6 @@ public class PlayerSession {
                             ProfessionEnum profession,
                             int stamina,
                             Character.BaseStatsDto baseStats,
-                            List<String> possessions,
-                            ShardSystem shards,
                             List<String> possessions, 
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
