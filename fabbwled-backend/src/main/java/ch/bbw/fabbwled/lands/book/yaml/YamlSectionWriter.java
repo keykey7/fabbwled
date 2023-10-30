@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.function.Function;
 
 @RequiredArgsConstructor
+@Getter
 public class YamlSectionWriter {
-    @Getter
-    private PlayerSession session;
-    private ArrayList<Function<PlayerSession.PlayerDto, PlayerSession.PlayerDto>> clickHandlers = new ArrayList<>();
+    private final PlayerSession session;
+    private final ArrayList<Function<PlayerSession.PlayerDto, PlayerSession.PlayerDto>> clickHandlers = new ArrayList<>();
 
     public int addHandler(Function<PlayerSession.PlayerDto, PlayerSession.PlayerDto> handler) {
         var id = clickHandlers.size();
