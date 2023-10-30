@@ -19,13 +19,13 @@ class ShardSystemTest {
 
     @Test
     void testGetShardCount() {
-        assertEquals(10, shardSystem.getShardCount());
+        assertEquals(10, shardSystem.shardCount());
     }
 
     @Test
     void testAddShards() {
         ShardSystem _shardSystem = shardSystem.addShards(5);
-        assertEquals(15, _shardSystem.getShardCount());
+        assertEquals(15, _shardSystem.shardCount());
     }
 
     @Test
@@ -35,17 +35,17 @@ class ShardSystemTest {
 
     @Test
     void testSubtractShards() {
-        ShardSystem shardSystem1 = shardSystem.substractShards(5);
-        assertEquals(5, shardSystem1.getShardCount());
+        ShardSystem shardSystem1 = shardSystem.subtractShards(5);
+        assertEquals(5, shardSystem1.shardCount());
     }
 
     @Test
     void testSubtractNegativeShards() {
-        assertThrows(IllegalArgumentException.class, () -> shardSystem.substractShards(-5));
+        assertThrows(IllegalArgumentException.class, () -> shardSystem.subtractShards(-5));
     }
 
     @Test
     void testSubtractMoreShardsThanAvailable() {
-        assertThrows(IllegalStateException.class,()-> shardSystem.substractShards(15));
+        assertThrows(IllegalStateException.class,()-> shardSystem.subtractShards(15));
     }
 }
