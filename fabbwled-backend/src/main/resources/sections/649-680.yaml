@@ -1,0 +1,5 @@
+- number: 654
+  content:
+    - text: You slip out of your chains, and hide inside an ore-laden miningcart. When it is taken out of the mine, you creep out, and runoff into the hills. Eventually you reach Caran Baru.
+    - turnTo: 400
+
