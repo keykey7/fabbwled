@@ -26,6 +26,10 @@
             "checkTickBox": {
               "description": "Checks the tickbox",
               "type": "boolean"
+            }
+            "acquirePossession": {
+              "description": "Possession to be acquired",
+              "type": "string"
             },
             "if": {
               "description": "A conditional. Also needs then and maybe else.",
@@ -47,6 +51,10 @@
                   "description": "Checks if tickbox is fully filled in a section",
                   "type": "boolean"
                 }
+                "hasPossession": {
+                  "description": "Has a possession",
+                  "type": "string"
+                }
               }
             },
             "then": {
@@ -64,6 +72,10 @@
                   "checkTickBox": {
                     "description": "Checks the tickbox",
                     "type": "boolean"
+                  }
+                  "acquirePossession": {
+                    "description": "Possession to be acquired",
+                    "type": "string"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
@@ -83,6 +95,10 @@
                       "isTickBoxDone": {
                         "description": "Checks if tickbox is fully filled in a section",
                         "type": "boolean"
+                      },
+                      "hasPossession": {
+                        "description": "Has a possession",
+                        "type": "string"
                       }
                     }
                   },
@@ -116,6 +132,10 @@
                     "description": "Checks the tickbox",
                     "type": "boolean"
                   },
+                  "acquirePossession": {
+                    "description": "Possession to be acquired",
+                    "type": "string"
+                  },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
                     "properties": {
@@ -134,6 +154,10 @@
                       "isTickBoxDone": {
                         "description": "Checks if tickbox is fully filled in a section",
                         "type": "boolean"
+                      },
+                      "hasPossession": {
+                        "description": "Has a possession",
+                        "type": "string"
                       }
                     }
                   },

@@ -13,4 +13,6 @@ public record RawAction(String text, @JsonProperty("if") RawCondition if_,
                         List<RawChoice> choice,
 
                         Integer turnTo,
-                        Boolean checkTickBox) {}
+                        Boolean checkTickBox,String acquirePossession) {}
+
+
