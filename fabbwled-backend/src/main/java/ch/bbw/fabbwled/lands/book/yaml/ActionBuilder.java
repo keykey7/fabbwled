@@ -85,6 +85,7 @@ public class ActionBuilder {
 
         if(raw.isTickBoxDone() != null) {
             return new Condition.IsTickBoxDone(raw.isTickBoxDone());
+        }
         if (raw.hasPossession() != null) {
             return new Condition.HasPossession(raw.hasPossession());
         }
