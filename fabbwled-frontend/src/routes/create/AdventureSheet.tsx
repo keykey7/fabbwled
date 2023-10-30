@@ -13,6 +13,7 @@ import {
 import "./adventure-sheet.scss";
 import {useFormik} from "formik";
 import validationSchema from "./AdventureSheetSchema.ts";
+import {createCharacter} from "../../api/character.ts";
 
 /*type Abilities = {
     charisma: number;
@@ -48,6 +49,31 @@ export default function AdventureSheet() {
         onSubmit: (values) => {
             // Handle form submission here
             console.log("Form submitted with values:", values);
+
+            const characterCreateDto: CharacterCreateDto = {
+                player: {
+                    name: formik.values.name,
+                    currentSection: [],
+                    titlesAndHonours: [],
+                    rank: formik.values.rank, // Will be 1 (starting rank)
+                    profession: "Wayfarer",
+                    stamina: formik.values.staminaCurrent,
+                    baseStats: {
+                        charisma: formik.values.charisma,
+                        combat: formik.values.combat,
+                        magic: formik.values.magic,
+                        sanctity: formik.values.sanctity,
+                        scouting: formik.values.scouting,
+                        thievery: formik.values.thievery,
+                    },
+                    possessions: formik.values.possessions,
+                    shards: [],
+                    defence: 0, // This value will be calculated in the backend
+                },
+                description: "",
+            };
+            createCharacter(characterCreateDto)
+                .then(r => console.log(r));
         },
     });
 

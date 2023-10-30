@@ -12,13 +12,11 @@ export async function createCharacter(data: CharacterCreateDto): Promise<any> {
         });
 
         if (response.ok) {
-            const responseData = await response.json();
-            return responseData;
+            return await response.json();
         } else {
-            // Handle error responses here
             throw new Error(`API request failed with status: ${response.status}`);
         }
-    } catch (error) {
+    } catch (error: any) {
         // Handle any network or other errors here
         throw new Error(`An error occurred: ${error.message}`);
     }
