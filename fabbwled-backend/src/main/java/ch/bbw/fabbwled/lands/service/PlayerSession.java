@@ -1,7 +1,7 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
-import ch.bbw.fabbwled.lands.character.Character;
+import ch.bbw.fabbwled.lands.character.CharacterDto;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
@@ -58,13 +58,13 @@ public class PlayerSession {
             if (this.initialCreation) {
                 validateInitialCreation(playerDto);
             }
-            if (playerDto.shards().getShardCount() > player.shards().getShardCount()){
-                int ShardsAmount = playerDto.shards().getShardCount() - player.shards().getShardCount();
+            if (playerDto.shards().shardCount() > player.shards().shardCount()){
+                int ShardsAmount = playerDto.shards().shardCount() - player.shards().shardCount();
                 playerDto.shards().addShards(ShardsAmount);
             }
-            if (playerDto.shards().getShardCount() < player.shards().getShardCount()){
-                int ShardsAmount = player.shards().getShardCount() - playerDto.shards().getShardCount();
-                playerDto.shards().substractShards(ShardsAmount);
+            if (playerDto.shards().shardCount() < player.shards().shardCount()){
+                int ShardsAmount = player.shards().shardCount() - playerDto.shards().shardCount();
+                playerDto.shards().subtractShards(ShardsAmount);
             }
             if (playerDto.possessions().size() > 12) {
                 throw new FabledBusinessException("Character possession size not allowed over 12");
@@ -91,7 +91,11 @@ public class PlayerSession {
                             Character.BaseStatsDto baseStats,
                             List<String> possessions,
                             ShardSystem shards,
-                            Map<SectionId, Integer> tickBoxes) {
+                            List<String> possessions, 
+                            ShardSystem shards,
+                            Map<SectionId, Integer> tickBoxes,
+                            Set<String> codeWords
+                            ) {
 
 
         public int getDefence() {
