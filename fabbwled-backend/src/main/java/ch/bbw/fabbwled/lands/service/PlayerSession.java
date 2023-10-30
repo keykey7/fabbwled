@@ -57,13 +57,13 @@ public class PlayerSession {
             if (this.initialCreation) {
                 validateInitialCreation(playerDto);
             }
-            if (playerDto.shards().getShardCount() > player.shards().getShardCount()){
-                int ShardsAmount = playerDto.shards().getShardCount() - player.shards().getShardCount();
+            if (playerDto.shards().shardCount() > player.shards().shardCount()){
+                int ShardsAmount = playerDto.shards().shardCount() - player.shards().shardCount();
                 playerDto.shards().addShards(ShardsAmount);
             }
-            if (playerDto.shards().getShardCount() < player.shards().getShardCount()){
-                int ShardsAmount = player.shards().getShardCount() - playerDto.shards().getShardCount();
-                playerDto.shards().substractShards(ShardsAmount);
+            if (playerDto.shards().shardCount() < player.shards().shardCount()){
+                int ShardsAmount = player.shards().shardCount() - playerDto.shards().shardCount();
+                playerDto.shards().subtractShards(ShardsAmount);
             }
             if (playerDto.possessions().size() > 12) {
                 throw new FabledBusinessException("Character possession size not allowed over 12");
@@ -89,7 +89,8 @@ public class PlayerSession {
                             int stamina,
                             Character.BaseStatsDto baseStats,
                             List<String> possessions, 
-                            ShardSystem shards) {
+                            ShardSystem shards,
+                            Set<String> codeWords) {
 
 
         public int getDefence() {
