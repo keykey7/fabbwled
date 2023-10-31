@@ -15,17 +15,7 @@ import { useFormik } from "formik";
 import validationSchema from "./AdventureSheetSchema.ts";
 import { createCharacter } from "../../api/character.ts";
 
-/*type Abilities = {
-    charisma: number;
-    combat: number;
-    magic: number;
-    sanctity: number;
-    scouting: number;
-    thievery: number;
-};*/
-
-const possessions = ["sword", "leather jerkin (Defence +1)", "map"];
-
+const defaultPossessions = ["sword", "leather jerkin (Defence +1)", "map"];
 export default function AdventureSheet() {
   const initialValues = {
     name: "",
@@ -39,23 +29,24 @@ export default function AdventureSheet() {
     thievery: 1,
     staminaUnwounded: 9,
     staminaCurrent: 9,
-    possessions: possessions,
-    // Add initial values for other fields here if needed
+    possessions: defaultPossessions,
+    titlesAndHonours: "",
   };
 
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      // Handle form submission here
       console.log("Form submitted with values:", values);
 
       const characterCreateDto: CharacterCreateDto = {
         player: {
           name: formik.values.name,
-          currentSection: [],
-          titlesAndHonours: [],
-          rank: formik.values.rank, // Will be 1 (starting rank)
+          currentSection: { bookId: 0, sectionId: 0 },
+          titlesAndHonours: formik.values.titlesAndHonours
+            .split(",")
+            .map((title) => title.trim()),
+          rank: "OUTCAST", // must be OUTCAST (starting rank 1)
           profession: "Wayfarer",
           stamina: formik.values.staminaCurrent,
           baseStats: {
@@ -67,8 +58,14 @@ export default function AdventureSheet() {
             thievery: formik.values.thievery,
           },
           possessions: formik.values.possessions,
-          shards: [],
+          shards: { shardCount: 0 },
           defence: 0, // This value will be calculated in the backend
+          tickBoxes: {
+            additionalProp1: 0,
+            additionalProp2: 0,
+            additionalProp3: 0,
+          },
+          codeWords: [],
         },
         description: "",
       };
@@ -139,6 +136,8 @@ export default function AdventureSheet() {
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Abilities
           </Typography>
+
+          {/* Row 3 */}
           <Grid container>
             <Grid item xs={3} />
             <Grid item xs={1}>
@@ -207,7 +206,7 @@ export default function AdventureSheet() {
             </Grid>
             <Grid item xs={3} />
 
-            {/* Row 3 */}
+            {/* Row 4 */}
             <Grid item xs={3} />
             <Grid item xs={1}>
               <TextField
@@ -283,6 +282,8 @@ export default function AdventureSheet() {
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Stamina
           </Typography>
+
+          {/* Row 5 */}
           <Grid container>
             <Grid item xs={3} />
             <Grid item xs={3}>
@@ -324,13 +325,15 @@ export default function AdventureSheet() {
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Possessions
           </Typography>
+
+          {/* Row 6 */}
           <Grid container>
             <Grid item xs={4.5} />
             <Grid item>
               <FormControl variant="standard">
                 <InputLabel>Your possessions</InputLabel>
                 <Select multiple value={formik.values.possessions} disabled>
-                  {possessions.map((possession) => (
+                  {defaultPossessions.map((possession) => (
                     <MenuItem key={possession} value={possession}>
                       {possession}
                     </MenuItem>
@@ -343,6 +346,8 @@ export default function AdventureSheet() {
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Other values
           </Typography>
+
+          {/* Row 7 */}
           <Grid container>
             <Grid item xs={3} />
             <Grid item xs={3}>
@@ -368,7 +373,6 @@ export default function AdventureSheet() {
               <TextField label="Blessings" variant="standard" multiline />
             </Grid>
             <Grid item xs={3} />
-
             <Grid item xs={3} />
             <Grid item xs={3}>
               <TextField
@@ -382,6 +386,18 @@ export default function AdventureSheet() {
                 label="Titles and honours"
                 variant="standard"
                 multiline
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.titlesAndHonours}
+                error={
+                  formik.touched.titlesAndHonours &&
+                  Boolean(formik.errors.titlesAndHonours)
+                }
+                helperText={
+                  formik.touched.titlesAndHonours &&
+                  formik.errors.titlesAndHonours
+                }
+                name="titlesAndHonours"
               />
             </Grid>
           </Grid>
