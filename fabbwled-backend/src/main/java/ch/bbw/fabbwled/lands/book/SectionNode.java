@@ -100,6 +100,14 @@ public interface SectionNode {
 			return clickable(clickId, x -> x.text("turn to ").section(section));
 		}
 
+        public ContainerNode clickableDice(int clickId, int dice) {
+            return clickable(clickId, x -> x.text("Roll a die"));
+        }
+
+        public ContainerNode clickableDiceOption(int clickId, int min, int max) {
+            return clickable(clickId, x -> x.text("Score " + min + "-" + max));
+        }
+
 		/**
 		 * @param id the section-id (usually redered in bold)
 		 */
