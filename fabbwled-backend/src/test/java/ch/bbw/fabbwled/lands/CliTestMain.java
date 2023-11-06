@@ -15,7 +15,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assumptions.assumeFalse;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, properties = {"logging.level.ch.bbw.fabbwled=WARN"})
 @ActiveProfiles("test")
@@ -32,7 +32,8 @@ class CliTestMain {
 
 	@BeforeAll
 	static void onlyInHeadless() {
-		assumeFalse(GraphicsEnvironment.isHeadless());
+		assumeTrue(!GraphicsEnvironment.isHeadless());
+        assumeTrue(System.getenv("CI") == null);
 	}
 
 	@Test
