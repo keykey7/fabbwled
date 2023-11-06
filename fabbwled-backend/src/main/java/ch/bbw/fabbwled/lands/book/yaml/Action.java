@@ -1,6 +1,7 @@
 package ch.bbw.fabbwled.lands.book.yaml;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 
 import java.util.List;
@@ -11,6 +12,15 @@ public interface Action {
 
     YamlReachabilityResult verifyReachability();
 
+    /**
+     * Render the YAML action into a section node.
+     *
+     * @param writer The context of the current rendering session. Contains the player session and handlers.
+     * @param parent The parent section node where the child nodes get appended to.
+     * @return The new resulting node.
+     */
+    SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent);
+
     record TextAction(String text) implements Action {
         @Override
         public void simpleVerify() {}
@@ -18,6 +28,11 @@ public interface Action {
         @Override
         public YamlReachabilityResult verifyReachability() {
             return YamlReachabilityResult.NORMAL;
+        }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            return parent.text(text);
         }
     }
 
@@ -36,6 +51,17 @@ public interface Action {
             }
             return thenResult;
         }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            var condition = this.condition().isActive(writer.getSession(), writer.getSectionId());
+
+            parent = parent.activeIf(condition, x -> writer.writeList(this.then, x));
+            if (else_.isPresent()) {
+                parent = parent.activeIf(!condition, x -> writer.writeList(this.else_.get(), x));
+            }
+            return parent;
+        }
     }
 
     record TurnToAction(SectionId sectionId) implements Action {
@@ -46,6 +72,12 @@ public interface Action {
         public YamlReachabilityResult verifyReachability() {
             // turnTo always goes to a different action, so it terminates.
             return YamlReachabilityResult.TERMINATES;
+        }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            var id = writer.addHandler(player -> player.withCurrentSection(sectionId));
+            return parent.clickableTurnTo(id, sectionId.sectionId());
         }
     }
 
@@ -59,7 +91,15 @@ public interface Action {
                 throw new FabledTechnicalException("Choice action only has a single choice, don't use a choice.");
             }
 
-            choices.forEach(choice -> choice.actions.forEach(Action::simpleVerify));
+            choices.forEach(choice -> {
+                if (choice.actions.size() != 1) {
+                    throw new FabledTechnicalException("Choice actions must contain a single turnTo");
+                }
+                if (!(choice.actions.get(0) instanceof Action.TurnToAction)) {
+                    throw new FabledTechnicalException("Choice actions must contain a single turnTo");
+                }
+                choice.actions.forEach(Action::simpleVerify);
+            });
         }
 
         @Override
@@ -72,6 +112,19 @@ public interface Action {
             }
 
             return reachability;
+        }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            for (SingleChoice choice : choices) {
+                var turnTo = (Action.TurnToAction) choice.actions.get(0);
+                var id = writer.addHandler(player -> player.withCurrentSection(turnTo.sectionId));
+
+                parent = parent.choice(c -> c.text(choice.text),
+                                       a -> a.clickableTurnTo(id, turnTo.sectionId.sectionId())
+                );
+            }
+            return parent;
         }
 
         record SingleChoice(String text, List<Action> actions) {}
