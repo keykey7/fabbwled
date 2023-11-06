@@ -32,6 +32,7 @@ export default function AdventureSheet() {
     possessions: defaultPossessions,
     titlesAndHonours: "",
     money: 16,
+    description: "",
   };
 
   const formik = useFormik({
@@ -68,7 +69,7 @@ export default function AdventureSheet() {
           },
           codeWords: [],
         },
-        description: "",
+        description: formik.values.description,
       };
       createCharacter(characterCreateDto).then((r) => console.log(r));
     },
@@ -402,6 +403,24 @@ export default function AdventureSheet() {
                   formik.errors.titlesAndHonours
                 }
                 name="titlesAndHonours"
+              />
+            </Grid>
+          </Grid>
+          <br />
+
+          {/* Row 8 */}
+          <Grid container>
+            <Grid item xs={4} />
+            <Grid item xs={4}>
+              <TextField
+                label="Description"
+                fullWidth
+                variant="standard"
+                multiline
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.description}
+                name="description"
               />
             </Grid>
           </Grid>
