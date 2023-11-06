@@ -13,7 +13,7 @@ import {
 import "./adventure-sheet.scss";
 import { useFormik } from "formik";
 import validationSchema from "./AdventureSheetSchema.ts";
-import { createCharacter } from "../../api/character.ts";
+import { setCharacter } from "../../api/character.ts";
 
 const defaultPossessions = ["sword", "leather jerkin (Defence +1)", "map"];
 export default function AdventureSheet() {
@@ -71,7 +71,7 @@ export default function AdventureSheet() {
         },
         description: formik.values.description,
       };
-      createCharacter(characterCreateDto).then((r) => console.log(r));
+      setCharacter(characterCreateDto).then((r) => console.log(r));
     },
   });
 

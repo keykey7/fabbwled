@@ -1,32 +1,50 @@
 import "./character-card.scss";
+import { setCharacter } from "../../api/character.ts";
 
-export default function CharacterCard() {
+type CharacterCardProps = {
+  character: CharacterCreateDto;
+  imageUrl: string;
+};
+
+export default function CharacterCard(props: CharacterCardProps) {
+  const { character } = props;
+  const player = props.character.player;
+  const baseStats = player.baseStats;
+
   return (
     <div className="character-card">
       <div className="character-header">
         <div className="character-name">
-          <h2>Name</h2>
+          <h3>{player.name}</h3>
         </div>
         <div className="character-image">
-          <img src="https://picsum.photos/200/200?grayscale" alt="Character" />
+          <img src={props.imageUrl} alt="Character" />
         </div>
       </div>
       <div className="character-info">
         <h3>General Information</h3>
-        <div className="attribute">Rank</div>
-        <div className="attribute">Profession</div>
-        <div className="attribute">Stamina</div>
-        <div className="attribute">Defence</div>
-        <div className="attribute">Money</div>
+        <p className="attribute">Rank: {player.rank}</p>
+        <p className="attribute">Profession: {player.profession}</p>
+        <p className="attribute">Stamina: {player.stamina}</p>
+        <p className="attribute">Defence: {player.defence}</p>
+        <p className="attribute">Shards: {player.shards.shardCount}</p>
         <h3>Abilities</h3>
-        <div className="attribute">Charisma</div>
-        <div className="attribute">Combat</div>
-        <div className="attribute">Magic</div>
-        <div className="attribute">Sanctity</div>
-        <div className="attribute">Scouting</div>
-        <div className="attribute">Thievery</div>
-        <div className="attribute">Possessions</div>
-        <div className="description">Description</div>
+        <p className="attribute">Charisma: {baseStats.charisma}</p>
+        <p className="attribute">Combat: {baseStats.combat}</p>
+        <p className="attribute">Magic: {baseStats.magic}</p>
+        <p className="attribute">Sanctity: {baseStats.sanctity}</p>
+        <p className="attribute">Scouting: {baseStats.scouting}</p>
+        <p className="attribute">Thievery: {baseStats.thievery}</p>
+        <p className="attribute">Possessions: {player.possessions}</p>
+        <p className="description">{character.description}</p>
+      </div>
+      <div>
+        <button
+          className="character-select-button"
+          onClick={() => setCharacter(character)}
+        >
+          Select
+        </button>
       </div>
     </div>
   );
