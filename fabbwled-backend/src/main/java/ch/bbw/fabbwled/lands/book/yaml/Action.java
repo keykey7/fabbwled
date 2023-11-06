@@ -54,7 +54,7 @@ public interface Action {
 
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            var condition = this.condition().isActive(writer.getSession());
+            var condition = this.condition().isActive(writer.getSession(), writer.getSectionId());
 
             parent = parent.activeIf(condition, x -> writer.writeList(this.then, x));
             if (else_.isPresent()) {

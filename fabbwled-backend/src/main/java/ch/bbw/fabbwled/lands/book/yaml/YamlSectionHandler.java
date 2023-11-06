@@ -26,7 +26,7 @@ public class YamlSectionHandler implements SectionHandler {
     public SectionNode getBody() {
         var node = SectionNode.root();
 
-        var writer = new YamlSectionWriter(playerSession);
+        var writer = new YamlSectionWriter(playerSession, section.id());
 
         for (Action action : section.actions()) {
             node = action.writeToNode(writer, node);

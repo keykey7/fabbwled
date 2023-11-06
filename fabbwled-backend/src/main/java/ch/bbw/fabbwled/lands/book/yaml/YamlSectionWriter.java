@@ -1,6 +1,7 @@
 package ch.bbw.fabbwled.lands.book.yaml;
 
 import ch.bbw.fabbwled.lands.book.SectionHandler;
+import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.service.PlayerSession;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import java.util.function.Function;
 @Getter
 public class YamlSectionWriter {
     private final PlayerSession session;
+    private final SectionId sectionId;
     private final ArrayList<Function<PlayerSession.PlayerDto, PlayerSession.PlayerDto>> clickHandlers = new ArrayList<>();
 
     public int addHandler(Function<PlayerSession.PlayerDto, PlayerSession.PlayerDto> handler) {
