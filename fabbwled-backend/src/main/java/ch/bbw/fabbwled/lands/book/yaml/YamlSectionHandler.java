@@ -15,7 +15,7 @@ public class YamlSectionHandler implements SectionHandler {
     private final PlayerSession playerSession;
     private final YamlSection section;
 
-    private ArrayList<Function<PlayerSession.PlayerDto, PlayerSession.PlayerDto>> handlers;
+    private ArrayList<Function<PlayerSession.PlayerDto, PlayerSession.PlayerDto>> handlers = new ArrayList<>();
 
     @Override
     public SectionId getId() {
