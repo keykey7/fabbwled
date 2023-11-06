@@ -10,7 +10,6 @@
         - text: Submit to the ordeal
           then:
             - turnTo: 313
-    - choice:
         - text: Remain an initiate after all
           then:
             - turnTo: 615
