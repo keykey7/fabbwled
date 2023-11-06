@@ -20,7 +20,9 @@ export async function createCharacter(data: CharacterCreateDto): Promise<any> {
   }
 }
 
-export async function getAllCharacters(bookId: number): Promise<CharacterCreateDto[]> {
+export async function getAllCharacters(
+  bookId: number,
+): Promise<CharacterCreateDto[]> {
   try {
     const response = await fetch(`${baseApiURL}/${bookId}/all`, {
       method: "GET",

@@ -6,8 +6,8 @@ type CharacterCardProps = {
 };
 
 export default function CharacterCard(props: CharacterCardProps) {
-  const {character} = props;
-  const player = props.character.player
+  const { character } = props;
+  const player = props.character.player;
   const baseStats = player.baseStats;
 
   return (

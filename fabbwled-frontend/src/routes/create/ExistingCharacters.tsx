@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllCharacters } from "../../api/character.ts";
 import CharacterCard from "../../components/CharacterCard/CharacterCard.tsx";
-import './existing-characters.scss'
+import "./existing-characters.scss";
 
 export default function ExistingCharacters() {
   const [characters, setCharacters] = useState<CharacterCreateDto[]>([]);
@@ -18,7 +18,11 @@ export default function ExistingCharacters() {
     <div className="existing-characters-container">
       {characters.map((character, index) => {
         return (
-            <CharacterCard character={character} imageUrl={`https://picsum.photos/200/20${index}`} key={index}/>
+          <CharacterCard
+            character={character}
+            imageUrl={`https://picsum.photos/200/20${index}`}
+            key={index}
+          />
         );
       })}
     </div>
