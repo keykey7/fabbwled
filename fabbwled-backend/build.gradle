@@ -36,4 +36,5 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+	systemProperty "java.awt.headless", "false"
 }
