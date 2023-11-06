@@ -6,6 +6,7 @@ import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
 import ch.bbw.fabbwled.lands.character.Resurrection;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.With;
@@ -83,6 +84,7 @@ public class PlayerSession {
     }
 
     @With
+    @Builder
     public record PlayerDto(String name,
                             SectionId currentSection,
                             Set<String> titlesAndHonours,
