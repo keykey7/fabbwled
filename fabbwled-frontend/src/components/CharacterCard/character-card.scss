@@ -7,8 +7,10 @@
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   width: 25%;
+  min-width: 400px;
   text-align: left;
   transition: transform 0.3s;
+  font-size: 0.75rem;
 
   &:hover {
     background-color: darken(#e0c29d, 10%);
@@ -27,12 +29,13 @@
 
 .character-image {
   text-align: right;
+  display: inline-block;
 }
 
 .character-image img {
   display: inline-block;
-  width: 30%;
-  height: 30%;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
   border: 2px solid #5c4f47;
   border-radius: 50%;
@@ -55,4 +58,6 @@
 .description {
   margin-top: 10px;
   font-style: italic;
+  height: 100px;
+  overflow-y: scroll;
 }

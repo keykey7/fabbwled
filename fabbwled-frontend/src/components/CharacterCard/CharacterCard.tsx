@@ -1,32 +1,41 @@
 import "./character-card.scss";
 
-export default function CharacterCard() {
+type CharacterCardProps = {
+  character: CharacterCreateDto;
+  imageUrl: string;
+};
+
+export default function CharacterCard(props: CharacterCardProps) {
+  const {character} = props;
+  const player = props.character.player
+  const baseStats = player.baseStats;
+
   return (
     <div className="character-card">
       <div className="character-header">
         <div className="character-name">
-          <h2>Name</h2>
+          <h3>{player.name}</h3>
         </div>
         <div className="character-image">
-          <img src="https://picsum.photos/200/200?grayscale" alt="Character" />
+          <img src={props.imageUrl} alt="Character" />
         </div>
       </div>
       <div className="character-info">
         <h3>General Information</h3>
-        <div className="attribute">Rank</div>
-        <div className="attribute">Profession</div>
-        <div className="attribute">Stamina</div>
-        <div className="attribute">Defence</div>
-        <div className="attribute">Money</div>
+        <div className="attribute">Rank: {player.rank}</div>
+        <div className="attribute">Profession: {player.profession}</div>
+        <div className="attribute">Stamina: {player.stamina}</div>
+        <div className="attribute">Defence: {player.defence}</div>
+        <div className="attribute">Shards: {player.shards.shardCount}</div>
         <h3>Abilities</h3>
-        <div className="attribute">Charisma</div>
-        <div className="attribute">Combat</div>
-        <div className="attribute">Magic</div>
-        <div className="attribute">Sanctity</div>
-        <div className="attribute">Scouting</div>
-        <div className="attribute">Thievery</div>
-        <div className="attribute">Possessions</div>
-        <div className="description">Description</div>
+        <div className="attribute">Charisma: {baseStats.charisma}</div>
+        <div className="attribute">Combat: {baseStats.combat}</div>
+        <div className="attribute">Magic: {baseStats.magic}</div>
+        <div className="attribute">Sanctity: {baseStats.sanctity}</div>
+        <div className="attribute">Scouting: {baseStats.scouting}</div>
+        <div className="attribute">Thievery: {baseStats.thievery}</div>
+        <div className="attribute">Possessions: {player.possessions}</div>
+        <div className="description">{character.description}</div>
       </div>
     </div>
   );
