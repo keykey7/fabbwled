@@ -1,6 +1,7 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.character.BlessingEnum;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
@@ -92,7 +93,8 @@ public class PlayerSession {
                             List<String> possessions, 
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
-                            Set<String> codeWords
+                            Set<String> codeWords,
+                            Set<BlessingEnum> blessings
                             ) {
 
 
