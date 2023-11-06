@@ -11,10 +11,11 @@
   text-align: left;
   transition: transform 0.3s;
   font-size: 0.75rem;
+  cursor: default;
 
   &:hover {
     background-color: darken(#e0c29d, 10%);
-    transform: scale(1.05);
+    transform: scale(1.01);
   }
 }
 
@@ -60,4 +61,21 @@
   font-style: italic;
   height: 100px;
   overflow-y: scroll;
+}
+
+.character-select-button {
+  all: unset;
+  width: 100%;
+  text-transform: uppercase;
+  color: #5c4f47;
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.5rem;
+
+  &:hover {
+    font-weight: bolder;
+    font-size: 0.9rem;
+  }
 }

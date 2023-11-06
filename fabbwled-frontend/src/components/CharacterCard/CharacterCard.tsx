@@ -1,4 +1,5 @@
 import "./character-card.scss";
+import { setCharacter } from "../../api/character.ts";
 
 type CharacterCardProps = {
   character: CharacterCreateDto;
@@ -36,6 +37,14 @@ export default function CharacterCard(props: CharacterCardProps) {
         <div className="attribute">Thievery: {baseStats.thievery}</div>
         <div className="attribute">Possessions: {player.possessions}</div>
         <div className="description">{character.description}</div>
+      </div>
+      <div>
+        <button
+          className="character-select-button"
+          onClick={() => setCharacter(character)}
+        >
+          Select
+        </button>
       </div>
     </div>
   );

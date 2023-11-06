@@ -1,5 +1,5 @@
 const baseApiURL = "http://localhost:8080/api/player";
-export async function createCharacter(data: CharacterCreateDto): Promise<any> {
+export async function setCharacter(data: CharacterCreateDto): Promise<any> {
   try {
     const response = await fetch(baseApiURL, {
       method: "POST",
