@@ -19,3 +19,20 @@ export async function createCharacter(data: CharacterCreateDto): Promise<any> {
     throw new Error(`An error occurred: ${error.message}`); // Handle network errors
   }
 }
+
+export async function getAllCharacters(bookId: number): Promise<any> {
+  try {
+    const response = await fetch(`${apiUrl}/${bookId}/all`, {
+      method: "GET",
+    });
+
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw new Error(`API request failed with status: ${response.status}`);
+    }
+  } catch (error: any) {
+    // Handle any network or other errors here
+    throw new Error(`An error occurred: ${error.message}`);
+  }
+}
