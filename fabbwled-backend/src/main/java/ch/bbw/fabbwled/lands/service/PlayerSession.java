@@ -88,6 +88,8 @@ public class PlayerSession {
                             RankEnum rank,
                             ProfessionEnum profession,
                             int stamina,
+                            String god,
+                            int staminaWhenUnwounded,
                             Character.BaseStatsDto baseStats,
                             List<String> possessions, 
                             ShardSystem shards,
