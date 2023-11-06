@@ -8,6 +8,14 @@ package ch.bbw.fabbwled.lands.book;
  */
 public record SectionDto(SectionId id, SectionTicks ticks, SectionNode body) {
 
+	public String asPlainText() {
+		var text = "---------- \033[1m" + id().sectionId() + "\033[22m ";
+		text += ticks().asPlainText();
+		text += "----------\n";
+		text += body().asPlainText();
+		return text;
+	}
+
 	/**
 	 * Section Ticks are checkboxes displayed next to the section number.
 	 * @param total amount of checkboxes
@@ -25,6 +33,14 @@ public record SectionDto(SectionId id, SectionTicks ticks, SectionNode body) {
 
 		public static SectionTicks none() {
 			return new SectionTicks(0, 0);
+		}
+
+		public String asPlainText() {
+			if (total == 0) {
+				return "";
+			}
+			return "☒".repeat(ticked) +
+					"☐".repeat(total - ticked) + " ";
 		}
 	}
 }
