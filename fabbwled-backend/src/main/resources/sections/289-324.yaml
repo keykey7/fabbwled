@@ -15,3 +15,68 @@
         - text: The palace
           then:
             - turnTo: 277
+- number: 310
+  content:
+    - text: If there is a tick in the box
+    - if:
+        hasTickBoxDone:
+          then:
+            - turnTo: 614
+      else:
+        - text: If not, read on. The Stinking River has cut its way through the high ground here. On the edge of the chasm that overlooks the river lies the village of High Therys. The locals are behaving very oddly. You watch the villagers lay out a fine feast on the village green. A pig is set roasting on a spit, loaves of freshly baked bread are piled beside bowls overflowing with fruits, butter and cheese. Lastly, the richest merchants of the village bring coffers full of silver which they set beside the table. To your amazement, instead of sitting down to dine, the villagers then scurry home and start closing the shutters on their windows.
+          then:
+            - turnTo: 283
+- number: 314
+  content:
+    - text: The runes mean nothing to you.
+    - choice:
+        - text: Go down to the beach
+          then:
+            - turnTo: 97
+        - text: Take the road to Trefoille
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 166
+- number: 316
+  content:
+    - text: The temple of Elnir is an imposing edifice of grey stone, inlaid with yellow marbling. Elnir is the god of the sky and of kingship. He is the ruler of the gods. ‘His dreams are the clouds before a storm,’ says a passing priest.
+    - choice:
+        - text: Become an initiate of Elnir
+          then:
+            - turnTo: 291
+        - text: Renounce his worship
+          then:
+            - turnTo: 143
+        - text: Seek a blessing
+          then:
+            - turnTo: 388
+        - text: Leave the temple
+          then:
+            - turnTo: 10
+- number: 317
+  content:
+    - text: It is the same craft you got the magic spear from, with the silver-skinned demon inside – still dead you presume. You examine it again, but there is nothing else of interest on board. The figure still lies there unmoving. You sail on.
+    - turnTo: 85
+- number: 320
+  content:
+    - text: You learn from their conversations that they are from the jungles of distant Ankon-Konu, the Feathered Lands, and that they have come here to find new sacrifices for their god, and new members for their cult. The chef pronounces the cauldron is ready, and they remove the net that holds you.
+    - choice:
+        - text: Fight
+          then:
+            - turnTo: 204
+        - text: Shout ‘Badogor!’ repeatedly
+          then:
+            - turnTo: 101
+        - text: Join their cult
+          then:
+            - turnTo: 61
+- number: 322
+  content:
+    - text: The repulsive one recognizes you from your last undersea trip!
+    - turnTo: 238
+- number: 323
+  content:
+    - text: A few locals are discussing recent events – it seems some hideous beast has made its lair in a cave on the hill that overlooks the village. ‘It’s a gorlock,’ says a farmer. ‘And it’s amassed quite a bit of treasure by all accounts – lifted from its victims. A brave adventurer like yourself could get rich it you killed it. You’d be doing us a favour as well.’ You ask what a gorlock looks like, but no one knows. ‘Nobody’s come back to tell the tale!’ says the innkeeper. You leave the tavern.
+    - turnTo: 510
