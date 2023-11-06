@@ -23,7 +23,7 @@ public interface Condition {
     record NeedsAtLeastShards(int amount) implements Condition {
         @Override
         public boolean isActive(PlayerSession session) {
-            return session.getPlayer().shards().getShardCount() >= amount;
+            return session.getPlayer().shards().shardCount() >= amount;
         }
     }
 
