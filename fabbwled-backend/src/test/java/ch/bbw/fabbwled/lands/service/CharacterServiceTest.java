@@ -5,6 +5,7 @@ import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
+import ch.bbw.fabbwled.lands.character.Resurrection;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
 import ch.bbw.fabbwled.lands.service.ShardSystem;
 import org.junit.jupiter.api.Test;
@@ -40,7 +41,7 @@ class CharacterServiceTest extends FabledTestBase {
     void validateCharacterWithValidStats() {
         Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(15), Collections.emptySet(),RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,
 
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16), Map.of(),Collections.emptySet()),
+                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16), Map.of(),Collections.emptySet(),new Resurrection(SectionId.book1(33),false)),
                 """
                         Liana prefers to make her home in mountain grottos
                         and woodland groves rather than in the squalid streets
@@ -56,7 +57,7 @@ class CharacterServiceTest extends FabledTestBase {
     void validateCharacterWithInvalidStats() {
         Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(15),Collections.emptySet(),RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,
 
-                new Character.BaseStatsDto(2, 5, 2, 3, 7, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet()),
+                new Character.BaseStatsDto(2, 5, 2, 3, 7, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet(),new Resurrection(SectionId.book1(33),false)),
 
                 """
                         Liana prefers to make her home in mountain grottos
@@ -72,7 +73,7 @@ class CharacterServiceTest extends FabledTestBase {
     void validateCharacterWithLargePossessionSize() {
         Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift",SectionId.book1(15),Collections.emptySet(), RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,
 
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield"),new ShardSystem(16),Map.of(),Collections.emptySet()),
+                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield"),new ShardSystem(16),Map.of(),Collections.emptySet(),new Resurrection(SectionId.book1(33),false)),
                 """
                         Liana prefers to make her home in mountain grottos
                         and woodland groves rather than in the squalid streets
@@ -88,7 +89,7 @@ class CharacterServiceTest extends FabledTestBase {
     void validateCharacterWithNonOutcastRank() {
         Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(15),Collections.emptySet(),RankEnum.COMMONER, ProfessionEnum.WAYFARER, 9,
 
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet()),
+                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet(),new Resurrection(SectionId.book1(33),false)),
 
 
                 """
