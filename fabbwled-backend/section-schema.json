@@ -23,6 +23,18 @@
               "description": "Text that should be shown to the user",
               "type": "string"
             },
+            "checkTickBox": {
+              "description": "Checks the tickbox",
+              "type": "boolean"
+            }
+            "acquireKeyword": {
+              "description": "Acquires a keyword",
+              "type": "keyword"
+            },
+            "acquirePossession": {
+              "description": "Possession to be acquired",
+              "type": "string"
+            },
             "if": {
               "description": "A conditional. Also needs then and maybe else.",
               "$comment": "can't use refs because intellij doesnt handle them lol",
@@ -38,6 +50,14 @@
                 "needsAtLeastShards": {
                   "description": "Needs at least this many shards (inclusive)",
                   "type": "number"
+                },
+                "isTickBoxDone": {
+                  "description": "Checks if tickbox is fully filled in a section",
+                  "type": "boolean"
+                }
+                "hasPossession": {
+                  "description": "Has a possession",
+                  "type": "string"
                 }
               }
             },
@@ -51,6 +71,18 @@
                 "properties": {
                   "text": {
                     "description": "Text that should be shown to the user",
+                    "type": "string"
+                  },
+                  "checkTickBox": {
+                    "description": "Checks the tickbox",
+                    "type": "boolean"
+                  }
+                  "acquireKeyword": {
+                    "description": "Acquires a keyword",
+                    "type": "string"
+                  },
+                  "acquirePossession": {
+                    "description": "Possession to be acquired",
                     "type": "string"
                   },
                   "if": {
@@ -67,6 +99,14 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "isTickBoxDone": {
+                        "description": "Checks if tickbox is fully filled in a section",
+                        "type": "boolean"
+                      },
+                      "hasPossession": {
+                        "description": "Has a possession",
+                        "type": "string"
                       }
                     }
                   },
@@ -96,6 +136,18 @@
                     "description": "Text that should be shown to the user",
                     "type": "string"
                   },
+                  "checkTickBox": {
+                    "description": "Checks the tickbox",
+                    "type": "boolean"
+                  }
+                  "acquireKeyword": {
+                    "description": "Acquires a keyword",
+                    "type": "string"
+                  },
+                  "acquirePossession": {
+                    "description": "Possession to be acquired",
+                    "type": "string"
+                  },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
                     "properties": {
@@ -110,6 +162,14 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "isTickBoxDone": {
+                        "description": "Checks if tickbox is fully filled in a section",
+                        "type": "boolean"
+                      },
+                      "hasPossession": {
+                        "description": "Has a possession",
+                        "type": "string"
                       }
                     }
                   },
