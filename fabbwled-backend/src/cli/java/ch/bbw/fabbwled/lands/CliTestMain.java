@@ -5,17 +5,13 @@ import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.controller.PlayerController;
 import ch.bbw.fabbwled.lands.controller.SectionController;
 import ch.bbw.fabbwled.lands.service.PlayerSession;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, properties = {"logging.level.ch.bbw.fabbwled=WARN"})
 @ActiveProfiles("test")
@@ -30,11 +26,9 @@ class CliTestMain {
 	@Autowired
 	SectionController sectionController;
 
-	@BeforeAll
-	static void onlyInHeadless() {
-		assumeTrue(!GraphicsEnvironment.isHeadless());
-        assumeTrue(System.getenv("CI") == null);
-	}
+    static {
+        System.setProperty("java.awt.headless", "false");
+    }
 
 	@Test
 	void run() {
