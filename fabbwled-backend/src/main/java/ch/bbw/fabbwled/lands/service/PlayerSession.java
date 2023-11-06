@@ -4,6 +4,7 @@ import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
+import ch.bbw.fabbwled.lands.character.Resurrection;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
 import lombok.Getter;
 import lombok.Setter;
@@ -92,7 +93,8 @@ public class PlayerSession {
                             List<String> possessions, 
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
-                            Set<String> codeWords
+                            Set<String> codeWords,
+                            Resurrection resurrectionArrangement
                             ) {
 
 
