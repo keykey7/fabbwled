@@ -31,6 +31,7 @@ export default function AdventureSheet() {
     staminaCurrent: 9,
     possessions: defaultPossessions,
     titlesAndHonours: "",
+    money: 16,
   };
 
   const formik = useFormik({
@@ -58,7 +59,7 @@ export default function AdventureSheet() {
             thievery: formik.values.thievery,
           },
           possessions: formik.values.possessions,
-          shards: { shardCount: 0 },
+          shards: { shardCount: formik.values.money },
           defence: 0, // This value will be calculated in the backend
           tickBoxes: {
             additionalProp1: 0,
@@ -355,6 +356,7 @@ export default function AdventureSheet() {
                 label="Money"
                 variant="standard"
                 type="number"
+                disabled
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -367,6 +369,8 @@ export default function AdventureSheet() {
                     <InputAdornment position="start">$</InputAdornment>
                   ),
                 }}
+                value={formik.values.money}
+                name="money"
               />
             </Grid>
             <Grid item xs={3}>
@@ -404,7 +408,7 @@ export default function AdventureSheet() {
           <br />
           <div className={"submitContainer"}>
             <Button variant="contained" type="submit">
-              Save
+              Create Character
             </Button>
           </div>
         </form>
