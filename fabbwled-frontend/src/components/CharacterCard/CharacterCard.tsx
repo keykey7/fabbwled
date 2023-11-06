@@ -23,20 +23,20 @@ export default function CharacterCard(props: CharacterCardProps) {
       </div>
       <div className="character-info">
         <h3>General Information</h3>
-        <div className="attribute">Rank: {player.rank}</div>
-        <div className="attribute">Profession: {player.profession}</div>
-        <div className="attribute">Stamina: {player.stamina}</div>
-        <div className="attribute">Defence: {player.defence}</div>
-        <div className="attribute">Shards: {player.shards.shardCount}</div>
+        <p className="attribute">Rank: {player.rank}</p>
+        <p className="attribute">Profession: {player.profession}</p>
+        <p className="attribute">Stamina: {player.stamina}</p>
+        <p className="attribute">Defence: {player.defence}</p>
+        <p className="attribute">Shards: {player.shards.shardCount}</p>
         <h3>Abilities</h3>
-        <div className="attribute">Charisma: {baseStats.charisma}</div>
-        <div className="attribute">Combat: {baseStats.combat}</div>
-        <div className="attribute">Magic: {baseStats.magic}</div>
-        <div className="attribute">Sanctity: {baseStats.sanctity}</div>
-        <div className="attribute">Scouting: {baseStats.scouting}</div>
-        <div className="attribute">Thievery: {baseStats.thievery}</div>
-        <div className="attribute">Possessions: {player.possessions}</div>
-        <div className="description">{character.description}</div>
+        <p className="attribute">Charisma: {baseStats.charisma}</p>
+        <p className="attribute">Combat: {baseStats.combat}</p>
+        <p className="attribute">Magic: {baseStats.magic}</p>
+        <p className="attribute">Sanctity: {baseStats.sanctity}</p>
+        <p className="attribute">Scouting: {baseStats.scouting}</p>
+        <p className="attribute">Thievery: {baseStats.thievery}</p>
+        <p className="attribute">Possessions: {player.possessions}</p>
+        <p className="description">{character.description}</p>
       </div>
       <div>
         <button
