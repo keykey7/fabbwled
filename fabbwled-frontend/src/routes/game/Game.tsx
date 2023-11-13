@@ -1,4 +1,5 @@
 import styles from "./Game.module.scss";
+import Inventory from "../../components/Inventory";
 
 export default function Game() {
   return (
@@ -48,6 +49,7 @@ export default function Game() {
           <button className={styles.eraser} title={"Exit the current game"}>
             <img src={"/eraser.png"} />
           </button>
+          <Inventory/>
         </div>
       </div>
     </div>
