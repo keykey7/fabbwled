@@ -429,6 +429,7 @@ export default function AdventureSheet() {
                 fullWidth
                 variant="standard"
                 multiline
+                onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.description}
                 error={
@@ -444,7 +445,7 @@ export default function AdventureSheet() {
           </Grid>
           <br />
           <div className={"submitContainer"}>
-            <Button variant="contained" type="submit">
+            <Button className="submitButton" variant="contained" type="submit">
               Create Character
             </Button>
           </div>
