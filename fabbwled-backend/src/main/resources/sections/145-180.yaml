@@ -6,6 +6,7 @@
         Yellowport might be able to help. And the holy waters at 
         Blessed Springs are known to be efficacious in this kind of case.’
     - turnTo: 100
+
 - number: 163
   content:
     - text: |
@@ -19,6 +20,7 @@
           The guildmaster has you removed by his guards, and you are 
         dumped into the street.
     - turnTo: 100
+
 - number: 165
   content:
     - text: |
@@ -32,12 +34,14 @@
         - text: Try to escape
           then:
             - turnTo: 444
+
 - number: 167
   content:
     - text: |
         You lose your pursuers in the treacherous rocky passes of the 
         mountains. Eventually, you reach the safety of the foothills.
     - turnTo: 474
+
 - number: 171
   content:
     - text: |
@@ -55,6 +59,7 @@
         ‘There weren’t any ghosts,’ you explain. ‘It was these three all
         along.’
     - turnTo: 671
+
 - number: 173
   content:
     - text: |
@@ -62,6 +67,7 @@
         cold, but lucky to be alive. You haul yourself up the beach on to
         land. Fortunately for you, you find the village of Blessed Springs.
     - turnTo: 510
+
 - number: 179
   content:
     - text: |
@@ -75,6 +81,7 @@
           You realize it is time to leave, and climb down the 
         mountain.
     - turnTo: 474
+
 - number: 180
   content:
     - text: |
