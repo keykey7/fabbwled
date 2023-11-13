@@ -30,4 +30,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover;
+}
+
+.choose_create_book {
+  height: 80vh;
+  width: 80vw;
+  background-image: url("../../assets/book.png");
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
