@@ -1,3 +1,32 @@
+- number: 149
+  content:
+    - text: |
+        A man accosts you as you are leaving a tavern. His breath reeks
+        of rotting teeth, and his ear has been cut off – the mark of a man
+        punished for piracy.
+          ‘Give me 10 Shards and I will tell you what you want to
+        know,’ he says.
+
+        Pay the money (cross off 10 Shards) turn to 533
+        Refuse to pay turn to 468
+    - if:
+        needsAtLeastShards: {
+          description: Needs at least this many shards (inclusive),
+          number: 10
+        }
+      then:
+        - choice:
+            - text: Pay the money (10 Shards)
+              then:
+                - turnTo: 533
+            - text: Refuse to pay
+              then:
+                - turnTo: 468
+      else:
+            - text: Return the insult
+              then:
+                - turnTo: 468
+
 - number: 156
   content:
     - text: |
