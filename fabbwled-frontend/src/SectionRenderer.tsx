@@ -25,8 +25,8 @@ type SectionElement = Simple | Clickable | Container;
 
 type OnClickCallBack = (clickId: Clickable["clickId"]) => void;
 
-export function convertToElement<T extends SectionElement>(
-  element: T,
+export function convertToElement(
+  element: SectionElement,
   onClick: OnClickCallBack,
 ): React.ReactElement {
   switch (element.type) {
