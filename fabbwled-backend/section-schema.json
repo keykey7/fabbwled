@@ -26,7 +26,7 @@
             "checkTickBox": {
               "description": "Checks the tickbox",
               "type": "boolean"
-            }
+            },
             "acquireKeyword": {
               "description": "Acquires a keyword",
               "type": "keyword"
@@ -54,9 +54,13 @@
                 "isTickBoxDone": {
                   "description": "Checks if tickbox is fully filled in a section",
                   "type": "boolean"
-                }
+                },
                 "hasPossession": {
                   "description": "Has a possession",
+                  "type": "string"
+                },
+                "hasProfession": {
+                  "description": "Has a profession",
                   "type": "string"
                 }
               }
@@ -76,7 +80,7 @@
                   "checkTickBox": {
                     "description": "Checks the tickbox",
                     "type": "boolean"
-                  }
+                  },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -106,6 +110,10 @@
                       },
                       "hasPossession": {
                         "description": "Has a possession",
+                        "type": "string"
+                      },
+                      "hasProfession": {
+                        "description": "Has a profession",
                         "type": "string"
                       }
                     }
@@ -139,7 +147,7 @@
                   "checkTickBox": {
                     "description": "Checks the tickbox",
                     "type": "boolean"
-                  }
+                  },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -169,6 +177,10 @@
                       },
                       "hasPossession": {
                         "description": "Has a possession",
+                        "type": "string"
+                      },
+                      "hasProfession": {
+                        "description": "Has a profession",
                         "type": "string"
                       }
                     }
