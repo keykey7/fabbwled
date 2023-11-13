@@ -5,7 +5,9 @@ import ch.bbw.fabbwled.lands.character.BlessingEnum;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
+import ch.bbw.fabbwled.lands.character.Resurrection;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
+import lombok.Builder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -88,6 +90,7 @@ public class PlayerSession {
     }
 
     @With
+    @Builder
     public record PlayerDto(String name,
                             SectionId currentSection,
                             Set<String> titlesAndHonours,
@@ -101,6 +104,8 @@ public class PlayerSession {
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
                             Set<String> codeWords,
+                            boolean isResurrectionPossible,
+                            Resurrection resurrectionArrangement,
                             Set<BlessingEnum> blessings
                             ) {
 
