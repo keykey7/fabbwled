@@ -22,6 +22,19 @@
     }
   }
 
+  .dices {
+    font-size: 12px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    position: absolute;
+    left: 10%;
+    top: -250%;
+    translate: 0 -50%;
+    justify-content: space-between;
+    padding-left: 1%;
+  }
+
   .side {
     font-size: 12px;
     height: fit-content;
