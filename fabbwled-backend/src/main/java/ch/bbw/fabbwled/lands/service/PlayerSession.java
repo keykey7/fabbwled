@@ -7,6 +7,8 @@ import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.With;
@@ -99,7 +101,9 @@ public class PlayerSession {
                             Character.BaseStatsDto baseStats,
                             List<String> possessions, 
                             ShardSystem shards,
-                            Map<SectionId, Integer> tickBoxes,
+                            @JsonDeserialize(keyUsing = SectionId.SectionIdKeyDeserializer.class)
+                                @JsonSerialize(keyUsing = SectionId.SectionidKeySerializer.class)
+                                Map<SectionId, Integer> tickBoxes,
                             Set<String> codeWords,
                             Set<BlessingEnum> blessings
                             ) {
