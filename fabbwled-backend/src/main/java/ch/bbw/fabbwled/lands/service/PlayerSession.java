@@ -96,6 +96,7 @@ public class PlayerSession {
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
                             Set<String> codeWords,
+                            boolean isResurrectionPossible,
                             Resurrection resurrectionArrangement
                             ) {
 

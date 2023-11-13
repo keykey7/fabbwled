@@ -52,7 +52,8 @@ class CharacterServiceTest extends FabledTestBase {
                 .shards(new ShardSystem(16))
                 .tickBoxes(Map.of())
                 .codeWords(Collections.emptySet())
-                .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                .isResurrectionPossible(false)
+                .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                 """
                         Liana prefers to make her home in mountain grottos
                         and woodland groves rather than in the squalid streets
@@ -77,7 +78,8 @@ class CharacterServiceTest extends FabledTestBase {
                 .shards(new ShardSystem(16))
                 .tickBoxes(Map.of())
                 .codeWords(Collections.emptySet())
-                .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                .isResurrectionPossible(false)
+                .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
 
                 """
                         Liana prefers to make her home in mountain grottos
@@ -103,7 +105,8 @@ class CharacterServiceTest extends FabledTestBase {
                 .shards(new ShardSystem(16))
                 .tickBoxes(Map.of())
                 .codeWords( Collections.emptySet())
-                .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                .isResurrectionPossible(false)
+                .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                 """
                         Liana prefers to make her home in mountain grottos
                         and woodland groves rather than in the squalid streets
@@ -129,7 +132,8 @@ class CharacterServiceTest extends FabledTestBase {
                 .shards(new ShardSystem(16))
                 .tickBoxes(Map.of())
                 .codeWords(Collections.emptySet())
-                .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                .isResurrectionPossible(false)
+                .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                 """
                         Liana prefers to make her home in mountain grottos
                         and woodland groves rather than in the squalid streets

@@ -33,7 +33,7 @@ public class CharacterService {
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
-                            .resurrectionArrangement(new Resurrection(SectionId.book1(33), false))
+                            .resurrectionArrangement(new Resurrection("ResurrectionTitle",SectionId.book1(33)))
                             .build(),
 
                             """
@@ -56,7 +56,8 @@ public class CharacterService {
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
-                            .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                            .isResurrectionPossible(false)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
 
                             """
                                     Andriel seeks fame through adventure and the glory of battle.
@@ -76,7 +77,8 @@ public class CharacterService {
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
-                            .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                            .isResurrectionPossible(false)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Chalor is an outcast by choice, shunning his native land
                                     and the family who spurned him, driven by a burning
@@ -96,7 +98,7 @@ public class CharacterService {
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
-                            .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
 
 
                             """
@@ -118,7 +120,8 @@ public class CharacterService {
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
-                            .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                            .isResurrectionPossible(false)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Ignatius is a traveller whose desire is to learn all he can
                                     about the deities of the Fabled Lands. His strong beliefs
@@ -137,7 +140,8 @@ public class CharacterService {
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
-                            .resurrectionArrangement(new Resurrection(SectionId.book1(33), false)).build(),
+                            .isResurrectionPossible(false)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Astariel has the wanderlust, and chafes if he has to remain
                                     in one place for any length of time. He enjoys the
