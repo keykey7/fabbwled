@@ -27,15 +27,18 @@ public class CharacterService {
                             .titlesAndHonours(Collections.emptySet())
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.WAYFARER)
+                            .god("Ebron")
+                            .initialStamina(9)                             
                             .stamina(9)
                             .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
                             .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
+                            .blessings(Collections.emptySet())
+                            .isResurrectionPossible(false)
                             .resurrectionArrangement(new Resurrection("ResurrectionTitle",SectionId.book1(33)))
-                            .build(),
-
+                            .build(),                                        
                             """
                                     Liana prefers to make her home in mountain grottos
                                     and woodland groves rather than in the squalid streets
@@ -51,14 +54,17 @@ public class CharacterService {
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.WARRIOR)
                             .stamina(9)
+                            .initialStamina(9)
                             .baseStats(new Character.BaseStatsDto(3, 6, 2, 4, 3, 2))
                             .possessions(List.of("battle-axe", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
+                            .god("Ebron")
+                            .blessings(Collections.emptySet())
                             .isResurrectionPossible(false)
-                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
-
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .build(),
                             """
                                     Andriel seeks fame through adventure and the glory of battle.
                                     He left his homeland when an extended outbreak of peace
@@ -72,12 +78,15 @@ public class CharacterService {
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.MAGE)
                             .stamina(9)
+                            .initialStamina(9)
                             .baseStats(new Character.BaseStatsDto(2, 2, 6, 1, 5, 3))
                             .possessions(List.of("staff, leather jerkin (Defence +1), map"))
                             .shards(new ShardSystem(16))
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
+                            .god("Ebron")
                             .isResurrectionPossible(false)
+                            .blessings(Collections.emptySet())
                             .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Chalor is an outcast by choice, shunning his native land
@@ -93,13 +102,16 @@ public class CharacterService {
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.ROGUE)
                             .stamina(9)
+                            .initialStamina(9)
                             .baseStats(new Character.BaseStatsDto(5, 4, 4, 1, 2, 6))
                             .possessions(List.of("sword", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
+                            .god("Ebron")
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
+                            .blessings(Collections.emptySet())
+                            .isResurrectionPossible(false)
                             .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
-
 
                             """
                                     Marana is a fiercely independent woman who grew up in the
@@ -121,6 +133,9 @@ public class CharacterService {
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
                             .isResurrectionPossible(false)
+                            .blessings(Collections.emptySet())
+                            .god("Ebron")
+                            .initialStamina(9)
                             .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Ignatius is a traveller whose desire is to learn all he can
@@ -141,6 +156,9 @@ public class CharacterService {
                             .tickBoxes(Map.of())
                             .codeWords(Collections.emptySet())
                             .isResurrectionPossible(false)
+                            .blessings(Collections.emptySet())
+                            .god("Ebron")
+                            .initialStamina(9)
                             .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Astariel has the wanderlust, and chafes if he has to remain
