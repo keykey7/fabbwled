@@ -28,12 +28,13 @@ export default function AdventureSheet() {
     sanctity: 1,
     scouting: 1,
     thievery: 1,
-    staminaUnwounded: 9,
     staminaCurrent: 9,
     possessions: defaultPossessions,
     titlesAndHonours: "",
     money: 16,
     description: "",
+    god: "",
+    blessings: "",
   };
 
   const formik = useFormik({
@@ -122,7 +123,16 @@ export default function AdventureSheet() {
             {/* Row 2 */}
             <Grid item xs={3} />
             <Grid item xs={3}>
-              <TextField label="God" variant="standard" />
+              <TextField
+                label="God"
+                variant="standard"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.god}
+                error={formik.touched.god && Boolean(formik.errors.god)}
+                helperText={formik.touched.god && formik.errors.god}
+                name="god"
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField
@@ -282,47 +292,11 @@ export default function AdventureSheet() {
             <Grid item xs={3} />
           </Grid>
           <br />
-          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-            Stamina
-          </Typography>
 
           {/* Row 5 */}
           <Grid container>
             <Grid item xs={3} />
-            <Grid item xs={3}>
-              <TextField
-                label="When unwounded"
-                variant="standard"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                inputProps={{
-                  min: 1,
-                  max: 6,
-                }}
-                disabled
-                value={formik.values.staminaUnwounded}
-                name="staminaUnwounded"
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                label="Current"
-                variant="standard"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                inputProps={{
-                  min: 1,
-                  max: 6,
-                }}
-                disabled
-                value={formik.values.staminaCurrent}
-                name="staminaCurrent"
-              />
-            </Grid>
+            <Grid item xs={3}></Grid>
           </Grid>
           <br />
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
@@ -381,7 +355,21 @@ export default function AdventureSheet() {
               />
             </Grid>
             <Grid item xs={3}>
-              <TextField label="Blessings" variant="standard" multiline />
+              <TextField
+                label="Stamina"
+                variant="standard"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                inputProps={{
+                  min: 1,
+                  max: 6,
+                }}
+                disabled
+                value={formik.values.staminaCurrent}
+                name="staminaCurrent"
+              />
             </Grid>
             <Grid item xs={3} />
             <Grid item xs={3} />
@@ -394,7 +382,27 @@ export default function AdventureSheet() {
             </Grid>
             <Grid item xs={3}>
               <TextField
-                label="Titles and honours"
+                label="Blessings"
+                variant="standard"
+                multiline
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.blessings}
+                error={
+                  formik.touched.blessings && Boolean(formik.errors.blessings)
+                }
+                helperText={formik.touched.blessings && formik.errors.blessings}
+                name="blessings"
+              />
+            </Grid>
+          </Grid>
+          <br />
+          <Grid container>
+            <Grid item xs={4} />
+            <Grid item xs={4}>
+              <TextField
+                label="Titles and honours (comma separated)"
+                fullWidth
                 variant="standard"
                 multiline
                 onChange={formik.handleChange}
@@ -412,8 +420,6 @@ export default function AdventureSheet() {
               />
             </Grid>
           </Grid>
-          <br />
-
           {/* Row 8 */}
           <Grid container>
             <Grid item xs={4} />
@@ -423,9 +429,15 @@ export default function AdventureSheet() {
                 fullWidth
                 variant="standard"
                 multiline
-                onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.description}
+                error={
+                  formik.touched.description &&
+                  Boolean(formik.errors.description)
+                }
+                helperText={
+                  formik.touched.description && formik.errors.description
+                }
                 name="description"
               />
             </Grid>
