@@ -3,6 +3,7 @@ package ch.bbw.fabbwled.lands.service;
 import ch.bbw.fabbwled.lands.book.SectionDto;
 import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.book.yaml.YamlSectionHandler;
 import ch.bbw.fabbwled.lands.book.yaml.YamlSectionLoader;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import lombok.NonNull;
@@ -25,7 +26,9 @@ public class SectionService {
 
 		// Verify sections.
 		var loader = new YamlSectionLoader();
-		loader.loadSections(loader.yamlFiles());
+		loader.loadSections(loader.yamlFiles())
+                .stream().map(yaml -> new YamlSectionHandler(playerSession, yaml))
+                .forEach(allSections::add);
 	}
 
 	public SectionHandler getSectionHandler(@NonNull SectionId id) {

@@ -35,6 +35,10 @@
               "description": "Possession to be acquired",
               "type": "string"
             },
+            "spendShards": {
+              "description": "How many shards should be spent",
+              "type": "number"
+            },
             "if": {
               "description": "A conditional. Also needs then and maybe else.",
               "$comment": "can't use refs because intellij doesnt handle them lol",
@@ -88,6 +92,10 @@
                   "acquirePossession": {
                     "description": "Possession to be acquired",
                     "type": "string"
+                  },
+                  "spendShards": {
+                    "description": "How many shards should be spent",
+                    "type": "number"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
@@ -155,6 +163,10 @@
                   "acquirePossession": {
                     "description": "Possession to be acquired",
                     "type": "string"
+                  },
+                  "spendShards": {
+                    "description": "How many shards should be spent",
+                    "type": "number"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",

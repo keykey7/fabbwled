@@ -22,6 +22,7 @@ public class ActionBuilder {
             assertNull(raw.checkTickBox(), "checkTickBox", "text");
             assertNull(raw.acquireKeyword(), "acquireKeyword", "text");
             assertNull(raw.acquirePossession(), "acquirePossession", "text");
+            assertNull(raw.spendShards(), "spendShards", "text");
 
             return new Action.TextAction(raw.text());
         }
