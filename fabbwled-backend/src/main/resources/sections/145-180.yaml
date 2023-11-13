@@ -34,7 +34,8 @@
         enough to cure you. However, I believe the Temple of Maka in 
         Yellowport might be able to help. And the holy waters at 
         Blessed Springs are known to be efficacious in this kind of case.’
-    - turnTo: 100
+      then:
+        - turnTo: 100
 
 - number: 163
   content:
@@ -48,7 +49,8 @@
         bring me the head of Amcha One-Eye!’ 
           The guildmaster has you removed by his guards, and you are 
         dumped into the street.
-    - turnTo: 100
+      then:
+        - turnTo: 100
 
 - number: 165
   content:
@@ -69,7 +71,8 @@
     - text: |
         You lose your pursuers in the treacherous rocky passes of the 
         mountains. Eventually, you reach the safety of the foothills.
-    - turnTo: 474
+      then:
+        - turnTo: 474
 
 - number: 171
   content:
@@ -87,7 +90,8 @@
           You shake your head and sigh at the stupidity of the yokels.
         ‘There weren’t any ghosts,’ you explain. ‘It was these three all
         along.’
-    - turnTo: 671
+      then:
+        - turnTo: 671
 
 - number: 173
   content:
@@ -95,7 +99,8 @@
         You find yourself washed up on a rocky shore, battered and
         cold, but lucky to be alive. You haul yourself up the beach on to
         land. Fortunately for you, you find the village of Blessed Springs.
-    - turnTo: 510
+      then:
+        - turnTo: 510
 
 - number: 179
   content:
@@ -107,9 +112,10 @@
         and have you shot!’
         One of the archers looses a shaft, and an arrow thuds into the 
         ground at your feet, quivering menacingly.
-          You realize it is time to leave, and climb down the 
+          You realize it is time to leave, and climb down the
         mountain.
-    - turnTo: 474
+      then:
+        - turnTo: 474
 
 - number: 180
   content:
@@ -127,4 +133,5 @@
           The gates open, and a troop of heavy cavalry canter past.
           ‘Make way for the Marlock City militia!’, says the guard.
           When they have passed, you walk into the city.
-    - turnTo: 100
+      then:
+        - turnTo: 100
