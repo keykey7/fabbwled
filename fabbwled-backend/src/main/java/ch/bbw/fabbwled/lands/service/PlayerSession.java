@@ -92,7 +92,8 @@ public class PlayerSession {
                             List<String> possessions, 
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
-                            Set<String> codeWords
+                            Set<String> codeWords,
+                            Map<SectionId, Integer> playerClicks
                             ) {
 
 

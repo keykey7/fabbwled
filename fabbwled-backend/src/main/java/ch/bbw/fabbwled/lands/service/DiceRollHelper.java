@@ -28,7 +28,6 @@ public class DiceRollHelper {
     }
 
     public boolean isBetweenScore(int start, int end) {
-        System.out.println("Is between score: " + (diceSumCount <= end && diceSumCount >= start));
         return diceSumCount <= end && diceSumCount >= start;
     }
 

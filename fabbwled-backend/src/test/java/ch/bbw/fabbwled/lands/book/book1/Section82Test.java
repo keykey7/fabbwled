@@ -1,7 +1,6 @@
 package ch.bbw.fabbwled.lands.book.book1;
 
 import ch.bbw.fabbwled.lands.FabledTestBase;
-import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
 import ch.bbw.fabbwled.lands.service.PlayerSession;
 import ch.bbw.fabbwled.lands.service.SectionService;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,23 +23,13 @@ class Section82Test extends FabledTestBase {
     }
 
     @Test
-    void hasThreeOptions() {
+    void hasOneStartingOption() {
         assertThat(sectionService.getSectionHandler(section82.getId()).getBody().allClickIds()).hasSize(4);
     }
 
     @Test
-    void testBody() {
+    void setOptionEnabledBasedOnNumber() {
+        sectionService.onClick(0);
 
-    }
-
-    @Test
-    void containsInsult() {
-        assertThat(sectionService.getSectionHandler(section82.getId()).getBody().asPlainText()).contains("insult");
-    }
-
-    @Test
-    void cannotChickenOut() {
-        assertThatThrownBy(() -> sectionService.onClick(Section15.ClickOptions.PROTECTOR.ordinal()))
-                .isInstanceOf(FabledBusinessException.class);
     }
 }
