@@ -1,11 +1,18 @@
 import { Route, Routes } from "react-router";
-import Create from "./routes/create/Create.tsx";
+import AdventureSheet from "./routes/create/AdventureSheet.tsx";
 import Game from "./routes/game/Game.tsx";
+import ChooseCreate from "./routes/create/ChooseCreate.tsx";
+import ExistingCharacters from "./routes/create/ExistingCharacters.tsx";
 
 function App() {
   return (
     <Routes>
-      <Route path="/create" element={<Create />} />
+      <Route path="/create" element={<ChooseCreate />} />
+      <Route path="/create/character" element={<AdventureSheet />} />
+      <Route
+        path="/create/existing-character"
+        element={<ExistingCharacters />}
+      />
       <Route path="/game" element={<Game />} />
     </Routes>
   );
