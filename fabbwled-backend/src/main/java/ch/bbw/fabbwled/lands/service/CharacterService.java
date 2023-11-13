@@ -28,7 +28,7 @@ public class CharacterService {
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.WAYFARER)
                             .god("Ebron")
-                            .initialStamina(9)                             
+                            .staminaWhenUnwounded(9)
                             .stamina(9)
                             .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
                             .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
@@ -54,7 +54,7 @@ public class CharacterService {
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.WARRIOR)
                             .stamina(9)
-                            .initialStamina(9)
+                            .staminaWhenUnwounded(9)
                             .baseStats(new Character.BaseStatsDto(3, 6, 2, 4, 3, 2))
                             .possessions(List.of("battle-axe", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
@@ -78,7 +78,7 @@ public class CharacterService {
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.MAGE)
                             .stamina(9)
-                            .initialStamina(9)
+                            .staminaWhenUnwounded(9)
                             .baseStats(new Character.BaseStatsDto(2, 2, 6, 1, 5, 3))
                             .possessions(List.of("staff, leather jerkin (Defence +1), map"))
                             .shards(new ShardSystem(16))
@@ -102,7 +102,7 @@ public class CharacterService {
                             .rank(RankEnum.OUTCAST)
                             .profession(ProfessionEnum.ROGUE)
                             .stamina(9)
-                            .initialStamina(9)
+                            .staminaWhenUnwounded(9)
                             .baseStats(new Character.BaseStatsDto(5, 4, 4, 1, 2, 6))
                             .possessions(List.of("sword", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
@@ -135,7 +135,7 @@ public class CharacterService {
                             .isResurrectionPossible(false)
                             .blessings(Collections.emptySet())
                             .god("Ebron")
-                            .initialStamina(9)
+                            .staminaWhenUnwounded(9)
                             .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Ignatius is a traveller whose desire is to learn all he can
@@ -158,7 +158,7 @@ public class CharacterService {
                             .isResurrectionPossible(false)
                             .blessings(Collections.emptySet())
                             .god("Ebron")
-                            .initialStamina(9)
+                            .staminaWhenUnwounded(9)
                             .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                             """
                                     Astariel has the wanderlust, and chafes if he has to remain

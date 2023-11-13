@@ -47,7 +47,7 @@ class CharacterServiceTest extends FabledTestBase {
                 .rank(RankEnum.OUTCAST)
                 .profession(ProfessionEnum.WAYFARER)
                 .stamina(9)
-                .initialStamina(9)
+                .staminaWhenUnwounded(9)
                 .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
                 .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
                 .shards(new ShardSystem(16))
@@ -56,7 +56,6 @@ class CharacterServiceTest extends FabledTestBase {
                 .isResurrectionPossible(false)
                 .god("Ebron")
                 .blessings(Collections.emptySet())
-                .isResurrectionPossible(false)
                 .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
                 """
                         Liana prefers to make her home in mountain grottos
@@ -83,7 +82,7 @@ class CharacterServiceTest extends FabledTestBase {
                 .tickBoxes(Map.of())
                 .codeWords(Collections.emptySet())
                 .isResurrectionPossible(false)
-                .initialStamina(9)
+                .staminaWhenUnwounded(9)
                 .blessings(Collections.emptySet())
                 .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
 
@@ -113,7 +112,7 @@ class CharacterServiceTest extends FabledTestBase {
                 .codeWords(Collections.emptySet())
                 .isResurrectionPossible(false)
                 .blessings(Collections.emptySet())
-                .initialStamina(9)
+                .staminaWhenUnwounded(9)
                 .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
 
                 """
@@ -141,13 +140,11 @@ class CharacterServiceTest extends FabledTestBase {
                 .shards(new ShardSystem(16))
                 .tickBoxes(Map.of())
                 .codeWords(Collections.emptySet())
-                .initialStamina(9)
+                .staminaWhenUnwounded(9)
                 .god("Ebron")
                 .blessings(Collections.emptySet())
                 .isResurrectionPossible(false)
                 .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet(),Collections.emptySet()),
-
 
 
                 """
