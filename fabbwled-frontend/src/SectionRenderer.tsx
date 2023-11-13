@@ -1,27 +1,27 @@
 import React from "react";
 
-type SectionElementStyle = "NONE" | "SECTION" | "ITEM" | "ABILITY" | "TICKBOX";
+export type SectionElementStyle = "NONE" | "SECTION" | "ITEM" | "ABILITY" | "TICKBOX";
 
-type Container = {
+export type Container = {
   children: SectionElement[];
   type: "CONTAINER";
   style: SectionElementStyle;
 };
 
-type Simple = {
+export type Simple = {
   text: string;
   type: "SIMPLE";
   style: SectionElementStyle;
 };
 
-type Clickable = {
+export type Clickable = {
   clickId: number;
   text: string;
   type: "CLICKABLE";
   child: SectionElement;
 };
 
-type SectionElement = Simple | Clickable | Container;
+export type SectionElement = Simple | Clickable | Container;
 
 type OnClickCallBack = (clickId: Clickable["clickId"]) => void;
 
