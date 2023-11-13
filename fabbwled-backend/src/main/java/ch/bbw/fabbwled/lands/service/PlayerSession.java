@@ -1,10 +1,14 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.character.BlessingEnum;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
+import ch.bbw.fabbwled.lands.character.Resurrection;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
+import lombok.Builder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.With;
@@ -12,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.UnaryOperator;
 
@@ -57,17 +62,21 @@ public class PlayerSession {
             if (this.initialCreation) {
                 validateInitialCreation(playerDto);
             }
-            if (playerDto.shards().getShardCount() > player.shards().getShardCount()){
-                int ShardsAmount = playerDto.shards().getShardCount() - player.shards().getShardCount();
+            if (playerDto.shards().shardCount() > player.shards().shardCount()){
+                int ShardsAmount = playerDto.shards().shardCount() - player.shards().shardCount();
                 playerDto.shards().addShards(ShardsAmount);
             }
-            if (playerDto.shards().getShardCount() < player.shards().getShardCount()){
-                int ShardsAmount = player.shards().getShardCount() - playerDto.shards().getShardCount();
-                playerDto.shards().substractShards(ShardsAmount);
+            if (playerDto.shards().shardCount() < player.shards().shardCount()){
+                int ShardsAmount = player.shards().shardCount() - playerDto.shards().shardCount();
+                playerDto.shards().subtractShards(ShardsAmount);
             }
             if (playerDto.possessions().size() > 12) {
                 throw new FabledBusinessException("Character possession size not allowed over 12");
             }
+            if(playerDto.stamina > playerDto.getMaxStamina()) {
+                throw new FabledBusinessException("Stamina can't be bigger than max stamina");
+            }
+
         } catch (FabledBusinessException e) {
             throw new FabledBusinessException(e);
         }
@@ -81,19 +90,32 @@ public class PlayerSession {
     }
 
     @With
+    @Builder
     public record PlayerDto(String name,
                             SectionId currentSection,
                             Set<String> titlesAndHonours,
                             RankEnum rank,
                             ProfessionEnum profession,
                             int stamina,
+                            String god,
+                            @JsonIgnore int staminaWhenUnwounded,
                             Character.BaseStatsDto baseStats,
                             List<String> possessions, 
-                            ShardSystem shards) {
+                            ShardSystem shards,
+                            Map<SectionId, Integer> tickBoxes,
+                            Set<String> codeWords,
+                            boolean isResurrectionPossible,
+                            Resurrection resurrectionArrangement,
+                            Set<BlessingEnum> blessings
+                            ) {
+
 
 
         public int getDefence() {
             return this.rank().getRankNumber() + this.baseStats().combat();
+        }
+        public int getMaxStamina() {
+            return ( this.rank().getRankNumber() - 1 ) + this.staminaWhenUnwounded;
         }
     }
 

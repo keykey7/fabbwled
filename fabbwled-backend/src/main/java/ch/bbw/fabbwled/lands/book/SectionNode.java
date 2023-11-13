@@ -76,6 +76,21 @@ public interface SectionNode {
 			return NodeType.CONTAINER;
 		}
 
+		@Override
+		public String asPlainText() {
+			return switch (style) {
+				case NONE -> children()
+						.stream()
+						.map(SectionNode::asPlainText)
+						.collect(Collectors.joining());
+				case DISABLED -> "\033[37m" + children()
+						.stream()
+						.map(SectionNode::asPlainText)
+						.collect(Collectors.joining()) + "\033[39m"; // grey FG
+				case CHOICE -> "\t" + children.get(0).asPlainText() + "\t" + children.get(1).asPlainText() + "\n";
+			};
+		}
+
 		ContainerNode append(SectionNode child) {
 			return new ContainerNode(style, Stream.concat(children.stream(), Stream.of(child)).toList());
 		}
@@ -166,6 +181,11 @@ public interface SectionNode {
 		public NodeType getType() {
 			return NodeType.CLICKABLE;
 		}
+
+		@Override
+		public String asPlainText() {
+			return "\033[4m" + child.asPlainText() + " [" + clickId + "]\033[24m"; // underlined
+		}
 	}
 
 	record SimpleNode(SimpleStyleType style, String text) implements SectionNode {
@@ -187,6 +207,17 @@ public interface SectionNode {
 
 		public static SimpleNode tickbox(boolean active) {
 			return new SimpleNode(SimpleStyleType.TICKBOX, String.valueOf(active));
+		}
+
+		@Override
+		public String asPlainText() {
+			return switch (style) {
+				case NONE -> text;
+				case SECTION -> "\033[1m" + text + "\033[22m"; // bold
+				case ABILITY -> text.toUpperCase();
+				case ITEM -> "\033[3m" + text + "\033[23m"; // italic
+				case TICKBOX -> "true".equals(text) ? "☒" : "☐";
+			};
 		}
 
 		@Override
