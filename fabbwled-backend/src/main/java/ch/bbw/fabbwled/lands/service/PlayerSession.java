@@ -6,6 +6,7 @@ import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.With;
@@ -70,6 +71,10 @@ public class PlayerSession {
             if (playerDto.possessions().size() > 12) {
                 throw new FabledBusinessException("Character possession size not allowed over 12");
             }
+            if(playerDto.stamina > playerDto.getMaxStamina()) {
+                throw new FabledBusinessException("Stamina can't be bigger than max stamina");
+            }
+
         } catch (FabledBusinessException e) {
             throw new FabledBusinessException(e);
         }
@@ -89,6 +94,8 @@ public class PlayerSession {
                             RankEnum rank,
                             ProfessionEnum profession,
                             int stamina,
+                            String god,
+                            @JsonIgnore int staminaWhenUnwounded,
                             Character.BaseStatsDto baseStats,
                             List<String> possessions, 
                             ShardSystem shards,
@@ -98,8 +105,12 @@ public class PlayerSession {
                             ) {
 
 
+
         public int getDefence() {
             return this.rank().getRankNumber() + this.baseStats().combat();
+        }
+        public int getMaxStamina() {
+            return ( this.rank().getRankNumber() - 1 ) + this.staminaWhenUnwounded;
         }
     }
 
