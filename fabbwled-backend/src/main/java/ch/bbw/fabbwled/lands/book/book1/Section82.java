@@ -31,15 +31,21 @@ public class Section82 implements SectionHandler {
         return SectionNode.root()
                 .text("You are following the course of the Stinking River – and it\n" +
                         "certainly does stink, laden with sulphur as it is.")
-                .clickableDice(ClickOptions.DICE.ordinal(), AMOUNT_OF_DICES)
+                .activeIf(!diceRollHelper.hasUserThrownDice(), x-> x.clickableDice(ClickOptions.DICE.ordinal(), AMOUNT_OF_DICES))
 
-                .activeIf(diceRollHelper.isBetweenScore(1, 2), x -> x.clickableDiceOption(ClickOptions.SCORE_1_2.ordinal(), 1, 2)
-                        .text("Stung by a large golden insect. You are " +
+                .activeIf(isDiceOptionEnabled(1, 2), x -> x.choice(
+                        a -> a.clickableDiceOption(ClickOptions.SCORE_1_2.ordinal(), 1, 2),
+                        c -> c.text("Stung by a large golden insect. You are " +
                                 "poisoned (COMBAT –1 until you find a cure)"))
-                .activeIf(diceRollHelper.isBetweenScore(3, 4), x -> x.clickableDiceOption(ClickOptions.SCORE_3_4.ordinal(), 3, 4)
-                        .text("Nothing happens"))
-                .activeIf(diceRollHelper.isBetweenScore(5, 6), x -> x.clickableDiceOption(ClickOptions.SCORE_5_6.ordinal(), 5, 6)
-                        .text("Catch a smoulder fish. Note it on your Adventure Sheet."))
+                )
+                .activeIf(isDiceOptionEnabled(3, 4), x -> x.choice(
+                        a -> a.clickableDiceOption(ClickOptions.SCORE_3_4.ordinal(), 3, 4),
+                        b -> b.text("Nothing happens"))
+                )
+                .activeIf(isDiceOptionEnabled(5, 6), x -> x.choice(
+                        a -> a.clickableDiceOption(ClickOptions.SCORE_5_6.ordinal(), 5, 6),
+                        b -> b.text("Catch a smoulder fish. Note it on your Adventure Sheet."))
+                )
 
                 .activeIf(hasDiceOptionBeenSelected(), x -> x.text("When you are ready, you can:")
                         .choice(c -> c.text("Follow the river north"),
@@ -69,7 +75,7 @@ public class Section82 implements SectionHandler {
                 // TODO minus 1 for combat
                 playerSession.update(playerDto -> {
                     var newList = playerDto.withBaseStats(playerDto.baseStats());
-                    return playerDto;
+                    return newList;
                 });
                 addClickedClickId(ClickOptions.SCORE_1_2.ordinal());
             }
@@ -86,7 +92,8 @@ public class Section82 implements SectionHandler {
 
                 playerSession.update(playerDto -> {
                     var newList = playerDto.withPossessions(playerDto.possessions());
-                    newList.possessions().add("fish");
+                    // cannot be done yet -> list is immutable!!
+                    // newList.possessions().add("fish");
                     return newList;
                 });
                 addClickedClickId(ClickOptions.SCORE_5_6.ordinal());
@@ -137,10 +144,12 @@ public class Section82 implements SectionHandler {
      * @return either true or false
      */
     private boolean hasDiceOptionBeenSelected() {
-        var diceOptions = List.of(ClickOptions.SCORE_1_2.ordinal(), ClickOptions.SCORE_3_4.ordinal(), ClickOptions.SCORE_5_6.ordinal());
-        return diceOptions.contains(playerSession.getPlayer().playerClicks().get(getId()));
+        return playerSession.getPlayer().playerClicks().containsKey(getId());
     }
 
+    private boolean isDiceOptionEnabled(int start, int end) {
+        return !hasDiceOptionBeenSelected() && diceRollHelper.isBetweenScore(start, end);
+    }
     enum ClickOptions {
         DICE,
         SCORE_1_2,

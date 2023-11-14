@@ -1,13 +1,16 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
+@RequiredArgsConstructor
 public class DiceRollHelper {
 
+    private final PlayerSession playerSession;
     int diceSumCount = 0;
 
     public int roll(int amountOfDices) {
