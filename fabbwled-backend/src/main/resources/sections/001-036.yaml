@@ -79,11 +79,11 @@
         But I must warn you that several priests have already tried, and we never saw them again.
         ’If you take up the quest, record the codeword Altitude.
     - if:
-        hasKeyword: Altitude
+        hasKeyword: "Altitude"
         then:
           - turnTo: 272
     - else:
-      - acquireKeyword: Altitude
+      - acquireKeyword: "Altitude"
       - turnTo: 100
 - number: 11
   content:
