@@ -41,4 +41,11 @@ public class YamlVerificationTest implements WithAssertions {
 
         assertThatThrownBy(section::verifyReachability).hasMessage("Section may not terminate. Every section needs to end with turnTo on every path.");
     }
+
+    @Test
+    void doubleSpaceShouldThrow() {
+        var action = new Action.TextAction("Hello.  Test.");
+
+        assertThatThrownBy(action::simpleVerify).hasMessage("Text contains double spaces. Replace all double spaces with a single space.");
+    }
 }
