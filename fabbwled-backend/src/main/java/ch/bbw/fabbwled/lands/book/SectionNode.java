@@ -116,7 +116,10 @@ public interface SectionNode {
 		}
 
         public ContainerNode clickableDice(int clickId, int dice) {
-            return clickable(clickId, x -> x.text("Roll a die"));
+            if (dice == 1 ) {
+                return clickable(clickId, x -> x.text("Roll a dice"));
+            }
+           return clickable(clickId, x -> x.text("Roll " + dice + " dices"));
         }
 
         public ContainerNode clickableDiceOption(int clickId, int min, int max) {
