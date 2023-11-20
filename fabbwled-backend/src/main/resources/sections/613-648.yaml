@@ -89,22 +89,22 @@
     - acquireKeyword: Avenge
 - number: 623
   content:
-      - text: |
-          You clamber down a ladder into a long, low hall, the Venefax
-          Market.
-          Items with no purchase price listed are not available locally.
-          Armour To buy To sell
-          Leather (Defence +1) 50 Shards 45 Shards
-          Ring mail (Defence +2) – 90 Shards
-          Weapons (sword, axe, etc) To buy To sell
-          Without COMBAT bonus 50 Shards 40 Shards
-          COMBAT bonus +1 – 200 Shards
-          Other items To buy To sell
-          Rope 50 Shards 45 Shards
-          Lantern 100 Shards 90 Shards
-          Climbing gear 100 Shards 90 Shards
-          Scorpion antidote 100 Shards 90 Shards
-      - turnTo: 427
+    - text: |
+        You clamber down a ladder into a long, low hall, the Venefax
+        Market.
+        Items with no purchase price listed are not available locally.
+        Armour To buy To sell
+        Leather (Defence +1) 50 Shards 45 Shards
+        Ring mail (Defence +2) – 90 Shards
+        Weapons (sword, axe, etc) To buy To sell
+        Without COMBAT bonus 50 Shards 40 Shards
+        COMBAT bonus +1 – 200 Shards
+        Other items To buy To sell
+        Rope 50 Shards 45 Shards
+        Lantern 100 Shards 90 Shards
+        Climbing gear 100 Shards 90 Shards
+        Scorpion antidote 100 Shards 90 Shards
+    - turnTo: 427
 - number: 624
   content:
     - text: |
@@ -193,18 +193,18 @@
         woody voice, ‘None can pass – begone, human!’
         If you have the codeword Apple , turn to 594 . If not, you
     - choices:
-      - text: turn to 594
-        then:
-          - turnTo: 594
-      - text: Return to the Trading Post turn to 195
-        then:
-          - turnTo: 195
-      - text: Attack the tree turn to 570
-        then:
-          - turnTo: 570
-      - text: Try to persuade it to let you pass turn to 237
-        then:
-          - turnTo: 237
+        - text: turn to 594
+          then:
+            - turnTo: 594
+        - text: Return to the Trading Post turn to 195
+          then:
+            - turnTo: 195
+        - text: Attack the tree turn to 570
+          then:
+            - turnTo: 570
+        - text: Try to persuade it to let you pass turn to 237
+          then:
+            - turnTo: 237
 # Section 631 - too complex for the current implementation of sections
 # Section 632 - too complex for the current implementation of sections
 # Section 633 - too complex for the current implementation of sections
@@ -367,7 +367,4 @@
           then:
             - turnTo: 81
 # Section 648 - too complex for the current implementation of sections
-
-
-
 
