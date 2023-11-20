@@ -12,10 +12,10 @@
   content:
     - text: |
         You grab the woman’s wrist and give it a painful twist.
-        You are not being cruel for the sake of it – she was about to steal your money!‘Oh, let me go,’ she pleads, showing you the little infant son she’s carrying in her other arm.
+        You are not being cruel for the sake of it – she was about to steal your money! ‘Oh, let me go,’ she pleads, showing you the little infant son she’s carrying in her other arm.
         ‘I need the money for my starving children and my poor crippled husband.
         ’Yellowport is full of wretched like this.
-        With a snarl, you push her away, tossing a coin after her for good measure (cross 1Shard off your Adventure Sheet).
+        With a snarl, you push her away, tossing a coin after her for good measure (cross 1 Shard off your Adventure Sheet).
         Later, strolling down by the canal, you find a small bundle lying on the slick cobblestones. 
         It is a doll wrapped in swaddling clothes to make it look like a baby
     - turnTo: 10
@@ -37,7 +37,7 @@
     - text: |
         Fort Estgard is one of three forts along the wall that runs right along the border.
         Their purpose is to defend Sokara against the ravening man beasts of Nerech, which are constantly trying to break through to raid the interior.
-        The commander of the fort desperately wants to see you.‘My daughter, Alissia, has been kidnapped by the man beasts!’he says.
+        The commander of the fort desperately wants to see you.‘My daughter, Alissia, has been kidnapped by the man beasts!’ he says.
         ‘They are asking that I let one of their raiding parties through, to attack the farmlands.
         I’m delaying my response as long as possible, but if I don’t do something soon, they will kill her! Please, I need a brave adventurer to rescue her!’
     - if:
