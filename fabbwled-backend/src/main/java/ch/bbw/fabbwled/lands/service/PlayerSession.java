@@ -1,12 +1,10 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
-import ch.bbw.fabbwled.lands.character.BlessingEnum;
 import ch.bbw.fabbwled.lands.character.Character;
-import ch.bbw.fabbwled.lands.character.ProfessionEnum;
-import ch.bbw.fabbwled.lands.character.RankEnum;
+import ch.bbw.fabbwled.lands.character.*;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.With;
@@ -88,6 +86,7 @@ public class PlayerSession {
     }
 
     @With
+    @Builder
     public record PlayerDto(String name,
                             SectionId currentSection,
                             Set<String> titlesAndHonours,
@@ -95,13 +94,16 @@ public class PlayerSession {
                             ProfessionEnum profession,
                             int stamina,
                             String god,
-                            @JsonIgnore int staminaWhenUnwounded,
+                            int staminaWhenUnwounded,
                             Character.BaseStatsDto baseStats,
                             List<String> possessions, 
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
                             Set<String> codeWords,
-                            Set<BlessingEnum> blessings
+                            boolean isResurrectionPossible,
+                            Resurrection resurrectionArrangement,
+                            Set<BlessingEnum> blessings,
+                            Map<SectionId, Integer> playerClicks
                             ) {
 
 
