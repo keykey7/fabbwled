@@ -32,7 +32,7 @@ public class PlayerController {
         return characterService.getAllCharacters(bookId);
     }
 
-    @PostMapping()
+    @PostMapping(consumes = "application/json")
     public ResponseEntity<Character.CharacterCreateDto> setCharacter(@RequestBody Character.CharacterCreateDto createdPlayer) {
         playerSession.setInitialCreation(true);
         playerSession.update(player -> {
