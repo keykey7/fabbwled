@@ -1,6 +1,7 @@
 logging:
   level:
     ch.bbw.fabbwled: debug
+    org.springframework.web: DEBUG
     root: info
   pattern:
     dateformat: HH:mm:ss
@@ -21,3 +22,6 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+springdoc:
+  api-docs:
+    path: "/api-docs"

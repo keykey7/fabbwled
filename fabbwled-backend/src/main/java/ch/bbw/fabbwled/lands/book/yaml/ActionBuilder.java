@@ -19,6 +19,10 @@ public class ActionBuilder {
             assertNull(raw.else_(), "else", "text");
             assertNull(raw.turnTo(), "turnTo", "text");
             assertNull(raw.choice(), "choice", "text");
+            assertNull(raw.checkTickBox(), "checkTickBox", "text");
+            assertNull(raw.acquireKeyword(), "acquireKeyword", "text");
+            assertNull(raw.acquirePossession(), "acquirePossession", "text");
+            assertNull(raw.spendShards(), "spendShards", "text");
 
             return new Action.TextAction(raw.text());
         }
@@ -29,6 +33,7 @@ public class ActionBuilder {
             }
             assertNull(raw.turnTo(), "turnTo", "if");
             assertNull(raw.choice(), "choice", "if");
+            assertNull(raw.acquireKeyword(), "choice", "if");
 
             Optional<List<Action>> else_ =
                     raw.else_() != null ? Optional.of(buildActions(raw.else_())) : Optional.empty();
@@ -63,18 +68,29 @@ public class ActionBuilder {
         if (raw.hasTitle() != null) {
             assertNull(raw.hasKeyword(), "hasKeyword", "hasTitle");
             assertNull(raw.needsAtLeastShards(), "needsAtLeastShards", "hasTitle");
+            assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasTitle");
+            assertNull(raw.hasPossession(), "hasPossession", "hasTitle");
 
             return new Condition.HasTitle(raw.hasTitle());
         }
 
         if (raw.hasKeyword() != null) {
             assertNull(raw.needsAtLeastShards(), "needsAtLeastShards", "hasKeyword");
+            assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasKeyword");
+            assertNull(raw.hasPossession(), "hasPossession", "hasKeyword");
 
             return new Condition.HasKeyword(raw.hasKeyword());
         }
 
         if (raw.needsAtLeastShards() != null) {
             return new Condition.NeedsAtLeastShards(raw.needsAtLeastShards());
+        }
+
+        if(raw.isTickBoxDone() != null) {
+            return new Condition.IsTickBoxDone(raw.isTickBoxDone());
+        }
+        if (raw.hasPossession() != null) {
+            return new Condition.HasPossession(raw.hasPossession());
         }
 
         throw new FabledTechnicalException("Condition must have one property");
