@@ -1,0 +1,373 @@
+# Section 613 - too complex for the current implementation of sections
+# Section 614 - too complex for the current implementation of sections
+# Section 615 - too complex for the current implementation of sections
+# Section 616 - too complex for the current implementation of sections
+- number: 617
+  content:
+    - text: |
+        A desperate battle ensues.
+        Ghoul, COMBAT 3, Defence 7, Stamina 15
+        If you win, turn to 196.
+        If you lose, your adventures are over, unless you have a resurrection deal.
+    - turnTo: 196
+- number: 618
+  content:
+    - text: |
+        Becoming an initiate of Lacuna gives you the benefit of paying
+        less for blessings and other services the temple can offer. It costs
+        30 Shards to become an initiate. You cannot do this if you are
+        already an initiate of another temple. If you choose to become
+        an initiate, write Lacuna in the God box on your Adventure
+        Sheet – and remember to cross off the 30 Shards. Once you
+        have finished here, turn to 544.
+    - turnTo: 544
+    - spendShards: 30
+- number: 619
+  content:
+    - text: |
+        If there is a tick in the box, turn to 339 immediately. If not, put
+        a tick there now, and read on.
+        You come across a blazing house in the poorer area of town.
+        A crowd has gathered, watching the flames impassively.
+        A young girl runs up to you, in tears. ‘My mother is inside!
+        Please, please help her!’ she begs. The fire is raging hard, and you are not sure whether anyone
+        could be left alive inside.
+    - choice:
+        - text: If there is a tick in the box, turn to 339 immediately.
+          then:
+            - turnTo: 339
+        - text: Attempt a rescue turn to 262
+          then:
+            - turnTo: 262
+        - text: Walk on turn to 100
+          then:
+            - turnTo: 100
+- number: 620
+  content:
+    - text: |
+        Some local militiamen approach you with ill intent, presumably
+        with a view to extorting a few Shards. They recognize you as a
+        favourite of General Marlock, however, and leave you well
+        alone, bowing and scraping to avoid your anger. Nothing else
+        occurs this night. Turn to 100.
+    - turnTo: 100
+- number: 621
+  content:
+    - text: |
+        The coast road between Yellowport and Venefax is well-
+        maintained and you make good time. You pass a few army
+        patrols but they leave you alone.
+    - choice:
+        - text: Travel to Blessed Springs turn to 510
+          then:
+            - turnTo: 510
+        - text: Head for Venefax turn to 427
+          then:
+            - turnTo: 427
+        - text: Go north across country turn to 548
+          then:
+            - turnTo: 548
+        - text: South to Yellowport turn to 10
+          then:
+            - turnTo: 10
+- number: 622
+  content:
+    - text: |
+        The last time you were here, you had only a few minutes to
+        grab some loot. Desperately, you search around for the magic
+        chest that Oliphard the Wizardly wanted you to get for him.
+        You find it – note the magic chest on your Adventure Sheet –
+        but the sea dragon returns almost straight away, and you are
+        forced to climb out of the hole in the roof without getting
+        anything more, save for a pouch of 50 Shards.
+        You crawl out on to the island in the middle of the lake and
+        hitch a boat ride back to Cadmium. During the journey, you
+        examine the magic chest , but it is guarded by great sorcery and
+        is impossible to open.
+        Delete the codeword Avenge and turn to 135 .
+    - turnTo: 135
+    - acquireKeyword: Avenge
+- number: 623
+  content:
+      - text: |
+          You clamber down a ladder into a long, low hall, the Venefax
+          Market.
+          Items with no purchase price listed are not available locally.
+          Armour To buy To sell
+          Leather (Defence +1) 50 Shards 45 Shards
+          Ring mail (Defence +2) – 90 Shards
+          Weapons (sword, axe, etc) To buy To sell
+          Without COMBAT bonus 50 Shards 40 Shards
+          COMBAT bonus +1 – 200 Shards
+          Other items To buy To sell
+          Rope 50 Shards 45 Shards
+          Lantern 100 Shards 90 Shards
+          Climbing gear 100 Shards 90 Shards
+          Scorpion antidote 100 Shards 90 Shards
+      - turnTo: 427
+- number: 624
+  content:
+    - text: |
+        To renounce the worship of Alvir and Valmir, you must pay 30
+        Shards in compensation to the priesthood. The priest says
+        nothing, he just points to a mural on the wall. It depicts the
+        story of a woman who left the temple – a storm destroyed her
+        ship and she drowned, to spend eternity as a lost soul, cleaning
+        the barnacles off the thrones of Alvir and Valmir.
+        Do you want to change your mind?
+        When you have finished here, turn to 220 .
+    - choices:
+        - text: If you are determined to renounce your faith, pay the 30 Shards and delete Alvir and almir from the God box on your Adventure Sheet.
+          then:
+            - spendShards: 30
+            - turnTo: 220
+        - text: Dont't renounce your faith
+          then:
+            - turnTo: 220
+- number: 625
+  content:
+    - text: |
+        You realize that you have committed an act of sacrilege by
+        stealing from the temple – you know in your heart that Tyrnai
+        has cursed you.
+        You will never be a great fighter while you suffer the wrath
+        of Tyrnai. Subtract 1 from your COMBAT ability until you can
+        find a way of lifting the curse. Perhaps the priests of Sig in
+        Marlock City can help you. Note that you are under ‘Tyrnai’s
+        Curse, -1 COMBAT. You sneak out of the temple. Turn to 400 .
+    - turnTo: 400
+- number: 626
+  content:
+    - text: |
+        You recite a devotional prayer to the gods, calling on your faith
+        to aid you. The goblin folk are repelled by your piety, and
+        purity of spirit. Even Gobrash finds the strength to get out from
+        under you, and run off, such is your effect on them.
+        ‘Eeaurgh!’ snarls the queen, recoiling, ‘Please, your godliness
+        is harmful to us. Here, take this and leave!’
+        A jug of faery mead and an enchanted spear (COMBAT
+        +2) are pushed towards you. Note them on your Adventure
+        Sheet.
+        The wall behind you shimmers and disappears – you step
+        through, back into the cold, night air of the Curstmoor. You
+        leave the faery mound far behind, and camp for the night. The
+        next day, you resume your travels.
+    - choices:
+        - text: Go north across country turn to 560
+          then:
+            - turnTo: 560
+        - text: Head east to the road turn to 558
+          then:
+            - turnTo: 558
+        - text: Go to Trefoille turn to 250
+          then:
+            - turnTo: 250
+        - text: Go to Marlock City turn to 100
+          then:
+            - turnTo: 100
+        - text: Head west towards the River Grimm turn to 99
+          then:
+            - turnTo: 99
+- number: 627
+  content:
+    - text: |
+        A bard in the tavern recites an epic tale of ancient legend. He
+        speaks of Xinoc the Priest King, the ruler of a mighty nation in
+        the distant steppes, far to the north. A thousand years ago his
+        empire flourished, and his wealth was enormous. He was buried
+        in a great pyramid tomb, along with his riches. It is said the
+        Pyramid of Xinoc lies beyond the Spine of Harkun, and beyond
+        the Great Steppes, in the foothills of the Peaks at the Edge of the
+        World. You question him further, but that is all he knows. You
+        leave the tavern. Turn to 10
+    - turnTo: 10
+# Section 628 - too complex for the current implementation of sections
+# Section 629 - too complex for the current implementation of sections
+- number: 630
+  content:
+    - text: |
+        You struggle deeper into the forest until you come to a thick
+        wall of impenetrable thorn bushes. Circling it, you find there is a
+        break in the hedge, but it is filled by a large tree.
+        To your surprise, a face forms in the trunk, and speaks in a
+        woody voice, ‘None can pass – begone, human!’
+        If you have the codeword Apple , turn to 594 . If not, you
+    - choices:
+      - text: turn to 594
+        then:
+          - turnTo: 594
+      - text: Return to the Trading Post turn to 195
+        then:
+          - turnTo: 195
+      - text: Attack the tree turn to 570
+        then:
+          - turnTo: 570
+      - text: Try to persuade it to let you pass turn to 237
+        then:
+          - turnTo: 237
+# Section 631 - too complex for the current implementation of sections
+# Section 632 - too complex for the current implementation of sections
+# Section 633 - too complex for the current implementation of sections
+- number: 634
+  content:
+    - text: |
+        The climb is slightly easier than the last time, and you heave
+        yourself over the lip of the top of Devil’s Peak. A gryphon – a
+        creature that is half lion, half eagle, and at least the same size as
+        you – has made its nest here. It immediately swoops in to the
+        attack, intent on protecting its nest. You must fight.
+        Gryphon, COMBAT 4, Defence 5, Stamina 7
+        If you lose, you are birdfeed for gryphon chicks – your
+        adventures are over.
+        If you win, you find a bag of pearls and 10 Shards in the
+        nest. There is nothing else up here, so you slog all the way down
+        again. Turn to 658.
+    - turnTo: 658
+    - spendShards: -10
+    # TODO: Add pearls to inventory
+# Section 635 - too complex for the current implementation of sections
+- number: 636
+  content:
+    - text: |
+        Becoming an initiate of Tyrnai gives you the benefit of paying
+        less for blessings and other services the temple can offer. To
+        qualify as an initiate you must have a COMBAT score of at least
+        6. Unlike other temples, there is no entry fee. You cannot
+        become an initiate of Tyrnai if you are already an initiate of
+        another temple. If you choose to become an initiate (and meet
+        the qualification) write Tyrnai in the God box on your
+        Adventure Sheet.
+        Once you have finished here, turn to 282.
+    - turnTo: 282
+- number: 637
+  content:
+    - text: |
+        Somehow you manage to evade the creature’s jaws, and swim
+        back to shore. Hauling yourself up on to the beach, you are
+        assaulted by an angry villager.
+        ‘Where’s my boat?’ he cries, ‘You’ve sunk it, haven’t you?
+        You city types don’t know a thing! Well, you’ll have to pay me
+        back – fifty Shards at least!’
+        ‘Hah!’ you reply, ‘The cost of hiring it was more than its
+        worth in any case. As far as I’m concerned, that boat was mine
+        to do with as I liked!’
+        The argument goes on all the way back to the village but
+        eventually the fisherman gives up and storms off.
+        Turn to 135.
+    - turnTo: 135
+- number: 638
+  content:
+    - text: |
+        You know from ancient texts of arcane lore that the repulsive
+        ones cannot stand bright light. Using all your magical power,
+        you cause the glowing moss to emit a dazzling flash of yellow
+        light. Blinded for a few seconds, the repulsive ones mill about
+        helplessly, and you dart in and seize the golden net (note it on
+        your Adventure Sheet).
+        You swim for the Shadar Tor as fast as you can. From here,
+        you can:
+    - choices:
+        - text: Take the road to Trefoille turn to 602
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City turn to 166
+          then:
+            - turnTo: 166
+# Section 639 - too complex for the current implementation of sections
+- number: 640
+  content:
+    - text: |
+        You are restored to life at the war god’s temple in Caran Baru.
+        Your Stamina is back to its normal score. The possessions and
+        cash you were carrying at the time of your death are lost. Cross
+        them off your Adventure Sheet. Also remember to delete the
+        entry in the Resurrection box now it has been used.
+        The high priest, sweating from the effort of the ceremony of
+        resurrection, says, ‘Tyrnai has brought you back – honour him
+        by the upholding the code of the warrior and by sending many
+        the souls of those slain in the battle to him.
+    - turnTo: 282
+- number: 641
+  content:
+    - text: |
+        Want to try your luck in the Gambler’s Den?’ asks a short, dark
+        man, dressed as a mercenary bodyguard. ‘Just 5 Shards entrance
+        fee.’
+        He nods to a door at the top of some rickety stairs.
+        If you pay the money, cross it off and turn to 91 . If not, he
+        shrugs, and hisses at another passerby. You wander off and pass
+        an uneventful evening, turn to 100 .
+    - choices:
+        - text: Pay the money
+          then:
+            - turnTo: 91
+            - spendShards: 5
+        - text: Don't pay the money
+          then:
+            - turnTo: 100
+- number: 642
+  content:
+    - text: |
+        You open the cage door. A wide grin suddenly appears at about
+        head height within the dark shadows that wreath the trau. All
+        you can see is a huge sliver of a grin, topped by two glowing red
+        eyes.
+        ‘Free at last!’ gushes the trau as it leaps out. ‘Now for home,
+        and as much faery mead as I can drink!’
+        With that, it delves into the ground so fast that it has
+        burrowed out of sight before you can do anything to stop it.
+        Shrugging your shoulders resignedly, you leave the market.
+        Turn to 400 .
+    - turnTo: 400
+- number: 643
+  content:
+    - text: |
+        Gamely, you drive yourself on, but your thirst is becoming
+        terrible, and soon you will be unable to continue. If you go on,
+        you might die of thirst before finding a water supply.
+
+    - choices:
+        - text: Turn back
+          then:
+            - turnTo: 244
+        - text: Press on
+          then:
+            - turnTo: 78
+# Section 445 - too complex for the current implementation of sections
+- number: 644
+  content:
+    - text: |
+        Using your sorcerous powers you breathe a cloud of greenish
+        vapour over the ratmen. Coughing and gasping, they sink into
+        an enchanted slumber. It is an easy matter to despatch them
+        while they sleep. Turn to 554 .
+    - turnTo: 554
+- number: 646
+  content:
+    - text: |
+        Your mind is blasted into numb confusion by the protective
+        spells that guard the sacred grove. You wander off aimlessly into
+        the forest, and get hopelessly lost for days. You don’t even have
+        the wit to eat and drink – lose 3 Stamina points. If you are still
+        alive, you wander through the forest until you emerge, at last, at
+        the Bronze Hills. Turn to 110 .
+    - turnTo: 110
+    # TODO: lose 3 stamina points
+- number: 647
+  content:
+    - text: |
+        As you reach for the back of the golem’s head, it turns and grabs
+        your arm, yanking you to the ground. Then it swings its club at
+        your head.
+    - choices:
+        - text: Run away
+          then:
+            - turnTo: 349
+        - text: Fight the golem
+          then:
+            - turnTo: 81
+# Section 648 - too complex for the current implementation of sections
+
+
+
+
