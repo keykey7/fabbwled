@@ -50,6 +50,20 @@
           then:
             - turnTo: 250
 
+- number: 418
+  content:
+    - text: |
+        You have heard that the man with the velvet eyepatch should be
+        in Caran Baru. If you want to search for him now, turn to 117.
+        If not, turn to 400 and choose from the options there.
+    - choice:
+        - text: Turn to 117
+          then:
+            - turnTo: 117
+        - text: Turn to 400
+          then:
+            - turnTo: 400
+
 - number: 421
   content:
     - text: |
