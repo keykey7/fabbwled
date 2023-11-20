@@ -67,7 +67,7 @@
         - text: If you want to buy it.
           then:
             - turnTo: 459
-        - text: If not, you head back in totown.
+        - text: If not, you head back in to town.
           then:
             - turnTo: 400
 - number: 474
