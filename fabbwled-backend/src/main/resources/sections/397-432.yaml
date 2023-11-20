@@ -2,15 +2,13 @@
   content:
     - text: |
         Your ship draws away, leaving the Sokarans behind. 
-        Your crew jeer at them, and you spot the captain shaking his fist at you in rage, 
-        before they disappear from sight.
+        Your crew jeer at them, and you spot the captain shaking his fist at you in rage, before they disappear from sight.
     - turnTo: 439
 
 - number: 407
   content:
     - text: |
-        You hide in the kitchen pantry, and then, 
-        disguised as a kitchen scullion, sneak out unnoticed. 
+        You hide in the kitchen pantry, and then, disguised as a kitchen scullion, sneak out unnoticed. 
         The skill and daring of your exploit will be forever remembered! 
         Long live the rightful king!
     - turnTo: 10
@@ -18,8 +16,7 @@
 - number: 408
   content:
     - text: |
-        You decline. They look at you inscrutably, 
-        and then sink beneath the waves with the body of their companion.
+        You decline. They look at you inscrutably, and then sink beneath the waves with the body of their companion.
     - turnTo: 507
 
 - number: 410
@@ -50,6 +47,19 @@
           then:
             - turnTo: 250
 
+- number: 418
+  content:
+    - text: |
+        You have heard that the man with the velvet eyepatch should be in Caran Baru. If you want to search for him now, turn to 117.
+        If not, turn to 400 and choose from the options there.
+    - choice:
+        - text: Turn to 117
+          then:
+            - turnTo: 117
+        - text: Turn to 400
+          then:
+            - turnTo: 400
+
 - number: 421
   content:
     - text: |
@@ -62,10 +72,8 @@
   content:
     - text: |
         The gloomy wreck is filled with coral-encrusted skeletons of its drowned crew. 
-        You find the captain’s cabin. Inside, a figure still sits in a chair, 
-        a chest of gems at its feet. With a thrill of horror, you realize it is a ghost, 
-        an undead remnant of a pirate captain, steeped in evil, 
-        its nacreous, fish-gnawed flesh still pulsing with a kind of half-life.
+        You find the captain’s cabin. Inside, a figure still sits in a chair, a chest of gems at its feet. 
+        With a thrill of horror, you realize it is a ghost, an undead remnant of a pirate captain, steeped in evil, its nacreous, fish-gnawed flesh still pulsing with a kind of half-life.
     - choice:
         - text: Swim straight in and grab the chest
           then:
