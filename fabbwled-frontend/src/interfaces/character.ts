@@ -1,4 +1,4 @@
-import { Container } from "../SectionRenderer.tsx";
+import {Container} from "../SectionRenderer.tsx";
 
 interface CharacterCreateDto {
     player: Player;
@@ -6,43 +6,44 @@ interface CharacterCreateDto {
 }
 
 export interface Player {
-  name: string;
-  currentSection: `1-${number}`;
-  titlesAndHonours: string[];
-  rank:
-    | "OUTCAST"
-    | "COMMONER"
-    | "GUILDMEMBER"
-    | "MASTER"
-    | "GENTLEMAN"
-    | "BARON"
-    | "COUNT"
-    | "EARL"
-    | "MARQUIS"
-    | "DUKE";
-  profession:
-    | "Wayfarer"
-    | "Warrior"
-    | "Mage"
-    | "Rogue"
-    | "Priest"
-    | "Troubadour";
-  stamina: number;
-  baseStats: BaseStats;
-  possessions: string[];
-  shards: Shards;
-  tickBoxes: TickBoxes;
-  codeWords: string[];
-  defence: number;
+    name: string;
+    currentSection: `1-${number}`;
+    titlesAndHonours: string[];
+    rank:
+        | "OUTCAST"
+        | "COMMONER"
+        | "GUILDMEMBER"
+        | "MASTER"
+        | "GENTLEMAN"
+        | "BARON"
+        | "COUNT"
+        | "EARL"
+        | "MARQUIS"
+        | "DUKE";
+    profession:
+        | "Wayfarer"
+        | "Warrior"
+        | "Mage"
+        | "Rogue"
+        | "Priest"
+        | "Troubadour";
+    stamina: number;
+    staminaWhenUnwounded: number;
+    baseStats: BaseStats;
+    possessions: string[];
+    shards: Shards;
+    tickBoxes: TickBoxes;
+    codeWords: string[];
+    defence: number;
 }
 
 interface BaseStats {
-    charisma: number;
-    combat: number;
-    magic: number;
-    sanctity: number;
-    scouting: number;
-    thievery: number;
+  charisma: number;
+  combat: number;
+  magic: number;
+  sanctity: number;
+  scouting: number;
+  thievery: number;
 }
 
 export interface Section {
@@ -55,10 +56,10 @@ export interface Section {
 }
 
 interface Shards {
-    shardCount: number;
+  shardCount: number;
 }
 
 interface SectionId {
-    sectionId?: number;
-    bookId?: number;
+  sectionId?: number;
+  bookId?: number;
 }
