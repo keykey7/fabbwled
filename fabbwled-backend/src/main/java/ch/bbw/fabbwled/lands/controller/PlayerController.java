@@ -15,33 +15,35 @@ import java.util.List;
 @Validated
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/player")
+@CrossOrigin("http://localhost:5173")
 public class PlayerController {
 
     private final PlayerSession playerSession;
     private final CharacterService characterService;
 
-    @GetMapping("/api/player")
+    @GetMapping()
     public PlayerSession.PlayerDto whoami() {
         return playerSession.getPlayer();
     }
 
-    @GetMapping("/api/player/characters/{bookId}/all")
+    @GetMapping("/{bookId}/all")
     public List<Character.CharacterCreateDto> getAllCharacters(@PathVariable int bookId) {
         return characterService.getAllCharacters(bookId);
     }
 
-    @PostMapping("/api/player/setCharacter")
+    @PostMapping()
     public ResponseEntity<Character.CharacterCreateDto> setCharacter(@RequestBody Character.CharacterCreateDto createdPlayer) {
         playerSession.setInitialCreation(true);
         playerSession.update(player -> {
-            player = createdPlayer.player().withCurrentSection(SectionId.book1(1)).withTitlesAndHonours(Collections.emptySet()); 
+            player = createdPlayer.player().withCurrentSection(SectionId.book1(1)).withTitlesAndHonours(Collections.emptySet());
             return player;
         });
         playerSession.setInitialCreation(false);
         return ResponseEntity.ok(new Character.CharacterCreateDto(playerSession.getPlayer(),createdPlayer.description()));
     } // Should only be used when the player is created
 
-    @PostMapping("/api/player/update")
+    @PutMapping()
     public ResponseEntity<PlayerSession.PlayerDto> updatePlayer(@RequestBody PlayerSession.PlayerDto createdPlayer) {
         playerSession.update(player -> {
             player = createdPlayer;
