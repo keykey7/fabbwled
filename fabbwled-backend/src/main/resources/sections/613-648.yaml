@@ -21,7 +21,7 @@
         Sheet – and remember to cross off the 30 Shards. Once you
         have finished here, turn to 544.
     - turnTo: 544
-    - spendShards: 30
+    # TODO: - spendShards: 30
 - number: 619
   content:
     - text: |
@@ -86,7 +86,7 @@
         is impossible to open.
         Delete the codeword Avenge and turn to 135 .
     - turnTo: 135
-    - acquireKeyword: Avenge
+    # TODO: - acquireKeyword: Avenge
 - number: 623
   content:
     - text: |
@@ -116,10 +116,10 @@
         the barnacles off the thrones of Alvir and Valmir.
         Do you want to change your mind?
         When you have finished here, turn to 220 .
-    - choices:
+    - choice:
         - text: If you are determined to renounce your faith, pay the 30 Shards and delete Alvir and almir from the God box on your Adventure Sheet.
           then:
-            - spendShards: 30
+            # TODO: - spendShards: 30
             - turnTo: 220
         - text: Dont't renounce your faith
           then:
@@ -152,7 +152,7 @@
         through, back into the cold, night air of the Curstmoor. You
         leave the faery mound far behind, and camp for the night. The
         next day, you resume your travels.
-    - choices:
+    - choice:
         - text: Go north across country turn to 560
           then:
             - turnTo: 560
@@ -192,7 +192,7 @@
         To your surprise, a face forms in the trunk, and speaks in a
         woody voice, ‘None can pass – begone, human!’
         If you have the codeword Apple , turn to 594 . If not, you
-    - choices:
+    - choice:
         - text: turn to 594
           then:
             - turnTo: 594
@@ -223,8 +223,8 @@
         nest. There is nothing else up here, so you slog all the way down
         again. Turn to 658.
     - turnTo: 658
-    - spendShards: -10
-    # TODO: Add pearls to inventory
+    # TODO: - spendShards: -10
+# TODO: Add pearls to inventory
 # Section 635 - too complex for the current implementation of sections
 - number: 636
   content:
@@ -266,7 +266,7 @@
         your Adventure Sheet).
         You swim for the Shadar Tor as fast as you can. From here,
         you can:
-    - choices:
+    - choice:
         - text: Take the road to Trefoille turn to 602
           then:
             - turnTo: 602
@@ -297,11 +297,11 @@
         If you pay the money, cross it off and turn to 91 . If not, he
         shrugs, and hisses at another passerby. You wander off and pass
         an uneventful evening, turn to 100 .
-    - choices:
+    - choice:
         - text: Pay the money
           then:
             - turnTo: 91
-            - spendShards: 5
+            # TODO: - spendShards: 5
         - text: Don't pay the money
           then:
             - turnTo: 100
@@ -326,7 +326,7 @@
         terrible, and soon you will be unable to continue. If you go on,
         you might die of thirst before finding a water supply.
 
-    - choices:
+    - choice:
         - text: Turn back
           then:
             - turnTo: 244
@@ -359,7 +359,7 @@
         As you reach for the back of the golem’s head, it turns and grabs
         your arm, yanking you to the ground. Then it swings its club at
         your head.
-    - choices:
+    - choice:
         - text: Run away
           then:
             - turnTo: 349
