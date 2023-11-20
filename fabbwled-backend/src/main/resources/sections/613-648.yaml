@@ -2,26 +2,26 @@
 # Section 614 - too complex for the current implementation of sections
 # Section 615 - too complex for the current implementation of sections
 # Section 616 - too complex for the current implementation of sections
-- number: 617
-  content:
-    - text: |
-        A desperate battle ensues.
-        Ghoul, COMBAT 3, Defence 7, Stamina 15
-        If you win, turn to 196.
-        If you lose, your adventures are over, unless you have a resurrection deal.
-    - turnTo: 196
-- number: 618
-  content:
-    - text: |
-        Becoming an initiate of Lacuna gives you the benefit of paying
-        less for blessings and other services the temple can offer. It costs
-        30 Shards to become an initiate. You cannot do this if you are
-        already an initiate of another temple. If you choose to become
-        an initiate, write Lacuna in the God box on your Adventure
-        Sheet – and remember to cross off the 30 Shards. Once you
-        have finished here, turn to 544.
-    - turnTo: 544
-    # TODO: - spendShards: 30
+# - number: 617
+#   content:
+#     - text: |
+#         A desperate battle ensues.
+#         Ghoul, COMBAT 3, Defence 7, Stamina 15
+#         If you win, turn to 196.
+#         If you lose, your adventures are over, unless you have a resurrection deal.
+#     - turnTo: 196
+# - number: 618
+#   content:
+#     - text: |
+#         Becoming an initiate of Lacuna gives you the benefit of paying
+#         less for blessings and other services the temple can offer. It costs
+#         30 Shards to become an initiate. You cannot do this if you are
+#         already an initiate of another temple. If you choose to become
+#         an initiate, write Lacuna in the God box on your Adventure
+#         Sheet – and remember to cross off the 30 Shards. Once you
+#         have finished here, turn to 544.
+#     - turnTo: 544
+#     # TODO: - spendShards: 30
 - number: 619
   content:
     - text: |
@@ -87,24 +87,24 @@
         Delete the codeword Avenge and turn to 135 .
     - turnTo: 135
     # TODO: - acquireKeyword: Avenge
-- number: 623
-  content:
-    - text: |
-        You clamber down a ladder into a long, low hall, the Venefax
-        Market.
-        Items with no purchase price listed are not available locally.
-        Armour To buy To sell
-        Leather (Defence +1) 50 Shards 45 Shards
-        Ring mail (Defence +2) – 90 Shards
-        Weapons (sword, axe, etc) To buy To sell
-        Without COMBAT bonus 50 Shards 40 Shards
-        COMBAT bonus +1 – 200 Shards
-        Other items To buy To sell
-        Rope 50 Shards 45 Shards
-        Lantern 100 Shards 90 Shards
-        Climbing gear 100 Shards 90 Shards
-        Scorpion antidote 100 Shards 90 Shards
-    - turnTo: 427
+# - number: 623
+#   content:
+#     - text: |
+#         You clamber down a ladder into a long, low hall, the Venefax
+#         Market.
+#         Items with no purchase price listed are not available locally.
+#         Armour To buy To sell
+#         Leather (Defence +1) 50 Shards 45 Shards
+#         Ring mail (Defence +2) – 90 Shards
+#         Weapons (sword, axe, etc) To buy To sell
+#         Without COMBAT bonus 50 Shards 40 Shards
+#         COMBAT bonus +1 – 200 Shards
+#         Other items To buy To sell
+#         Rope 50 Shards 45 Shards
+#         Lantern 100 Shards 90 Shards
+#         Climbing gear 100 Shards 90 Shards
+#         Scorpion antidote 100 Shards 90 Shards
+#     - turnTo: 427
 - number: 624
   content:
     - text: |
@@ -136,38 +136,38 @@
         Marlock City can help you. Note that you are under ‘Tyrnai’s
         Curse, -1 COMBAT. You sneak out of the temple. Turn to 400 .
     - turnTo: 400
-- number: 626
-  content:
-    - text: |
-        You recite a devotional prayer to the gods, calling on your faith
-        to aid you. The goblin folk are repelled by your piety, and
-        purity of spirit. Even Gobrash finds the strength to get out from
-        under you, and run off, such is your effect on them.
-        ‘Eeaurgh!’ snarls the queen, recoiling, ‘Please, your godliness
-        is harmful to us. Here, take this and leave!’
-        A jug of faery mead and an enchanted spear (COMBAT
-        +2) are pushed towards you. Note them on your Adventure
-        Sheet.
-        The wall behind you shimmers and disappears – you step
-        through, back into the cold, night air of the Curstmoor. You
-        leave the faery mound far behind, and camp for the night. The
-        next day, you resume your travels.
-    - choice:
-        - text: Go north across country turn to 560
-          then:
-            - turnTo: 560
-        - text: Head east to the road turn to 558
-          then:
-            - turnTo: 558
-        - text: Go to Trefoille turn to 250
-          then:
-            - turnTo: 250
-        - text: Go to Marlock City turn to 100
-          then:
-            - turnTo: 100
-        - text: Head west towards the River Grimm turn to 99
-          then:
-            - turnTo: 99
+# - number: 626
+#   content:
+#     - text: |
+#         You recite a devotional prayer to the gods, calling on your faith
+#         to aid you. The goblin folk are repelled by your piety, and
+#         purity of spirit. Even Gobrash finds the strength to get out from
+#         under you, and run off, such is your effect on them.
+#         ‘Eeaurgh!’ snarls the queen, recoiling, ‘Please, your godliness
+#         is harmful to us. Here, take this and leave!’
+#         A jug of faery mead and an enchanted spear (COMBAT
+#         +2) are pushed towards you. Note them on your Adventure
+#         Sheet.
+#         The wall behind you shimmers and disappears – you step
+#         through, back into the cold, night air of the Curstmoor. You
+#         leave the faery mound far behind, and camp for the night. The
+#         next day, you resume your travels.
+#     - choice:
+#         - text: Go north across country turn to 560
+#           then:
+#             - turnTo: 560
+#         - text: Head east to the road turn to 558
+#           then:
+#             - turnTo: 558
+#         - text: Go to Trefoille turn to 250
+#           then:
+#             - turnTo: 250
+#         - text: Go to Marlock City turn to 100
+#           then:
+#             - turnTo: 100
+#         - text: Head west towards the River Grimm turn to 99
+#           then:
+#             - turnTo: 99
 - number: 627
   content:
     - text: |
