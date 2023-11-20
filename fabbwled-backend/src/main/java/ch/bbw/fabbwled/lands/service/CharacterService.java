@@ -5,11 +5,13 @@ import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
+import ch.bbw.fabbwled.lands.character.Resurrection;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,9 +22,25 @@ public class CharacterService {
 
     public List<Character.CharacterCreateDto> getAllCharacters(int bookId) {
         if (bookId == 1) {
-            return List.of(new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(1), Collections.emptySet(),RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,
-                            new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet()),
-
+            return List.of(new Character.CharacterCreateDto(PlayerSession.PlayerDto.builder()
+                            .name("Liana The Swift")
+                            .currentSection(SectionId.book1(1))
+                            .titlesAndHonours(Collections.emptySet())
+                            .rank(RankEnum.OUTCAST)
+                            .profession(ProfessionEnum.WAYFARER)
+                            .god("Ebron")
+                            .staminaWhenUnwounded(9)
+                            .stamina(9)
+                            .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
+                            .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
+                            .shards(new ShardSystem(16))
+                            .tickBoxes(Map.of())
+                            .codeWords(Collections.emptySet())
+                            .blessings(Collections.emptySet())
+                            .isResurrectionPossible(false)
+                            .resurrectionArrangement(new Resurrection("ResurrectionTitle",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),                                        
                             """
                                     Liana prefers to make her home in mountain grottos
                                     and woodland groves rather than in the squalid streets
@@ -31,22 +49,50 @@ public class CharacterService {
                                     City of Trees, deep within the forest of the Isle of
                                     "Druids."""
                     ),
-                    new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Andriel The Hammer", SectionId.book1(1), Collections.emptySet(),RankEnum.OUTCAST, ProfessionEnum.WARRIOR, 9,
-                            new Character.BaseStatsDto(3, 6, 2, 4, 3, 2),
-
-                            List.of("battle-axe", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet()),
-
+                    new Character.CharacterCreateDto(PlayerSession.PlayerDto.builder()
+                            .name("Andriel The Hammer")
+                            .currentSection(SectionId.book1(1))
+                            .titlesAndHonours(Collections.emptySet())
+                            .rank(RankEnum.OUTCAST)
+                            .profession(ProfessionEnum.WARRIOR)
+                            .stamina(9)
+                            .staminaWhenUnwounded(9)
+                            .baseStats(new Character.BaseStatsDto(3, 6, 2, 4, 3, 2))
+                            .possessions(List.of("battle-axe", "leather jerkin (Defence +1)", "map"))
+                            .shards(new ShardSystem(16))
+                            .tickBoxes(Map.of())
+                            .codeWords(Collections.emptySet())
+                            .god("Ebron")
+                            .blessings(Collections.emptySet())
+                            .isResurrectionPossible(false)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
                             """
                                     Andriel seeks fame through adventure and the glory of battle.
                                     He left his homeland when an extended outbreak of peace
                                     made his skills redundant there. He is blunt and outspoken,
                                     but scrupulously follows the warrior’s code. He knows the
                                     merchants’ guild in Yellowport needs assistance."""),
-                    new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Chalor The Exiled One",SectionId.book1(1), Collections.emptySet(), RankEnum.OUTCAST, ProfessionEnum.MAGE, 9,
-                            new Character.BaseStatsDto(2, 2, 6, 1, 5, 3),
-
-                            List.of("staff, leather jerkin (Defence +1), map"),new ShardSystem(16),Map.of(),Collections.emptySet()),
-
+                    new Character.CharacterCreateDto(PlayerSession.PlayerDto.builder()
+                            .name("Chalor The Exiled One")
+                            .currentSection(SectionId.book1(1))
+                            .titlesAndHonours(Collections.emptySet())
+                            .rank(RankEnum.OUTCAST)
+                            .profession(ProfessionEnum.MAGE)
+                            .stamina(9)
+                            .staminaWhenUnwounded(9)
+                            .baseStats(new Character.BaseStatsDto(2, 2, 6, 1, 5, 3))
+                            .possessions(List.of("staff, leather jerkin (Defence +1), map"))
+                            .shards(new ShardSystem(16))
+                            .tickBoxes(Map.of())
+                            .codeWords(Collections.emptySet())
+                            .god("Ebron")
+                            .isResurrectionPossible(false)
+                            .blessings(Collections.emptySet())
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
                             """
                                     Chalor is an outcast by choice, shunning his native land
                                     and the family who spurned him, driven by a burning
@@ -54,12 +100,26 @@ public class CharacterService {
                                     of the mightiest wizards of the world, and nothing will
                                     stand in his way. For now, he is looking for the Gold
                                     Dust Tavern in Yellowport, where adventure awaits."""),
-                    new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Marana Fireheart",SectionId.book1(1), Collections.emptySet(), RankEnum.OUTCAST, ProfessionEnum.ROGUE, 9,
-                            new Character.BaseStatsDto(5, 4, 4, 1, 2, 6),
+                    new Character.CharacterCreateDto(PlayerSession.PlayerDto.builder()
+                            .name("Marana Fireheart")
+                            .currentSection(SectionId.book1(1))
+                            .titlesAndHonours(Collections.emptySet())
+                            .rank(RankEnum.OUTCAST)
+                            .profession(ProfessionEnum.ROGUE)
+                            .stamina(9)
+                            .staminaWhenUnwounded(9)
+                            .baseStats(new Character.BaseStatsDto(5, 4, 4, 1, 2, 6))
+                            .possessions(List.of("sword", "leather jerkin (Defence +1)", "map"))
+                            .shards(new ShardSystem(16))
+                            .god("Ebron")
+                            .tickBoxes(Map.of())
+                            .codeWords(Collections.emptySet())
+                            .blessings(Collections.emptySet())
+                            .isResurrectionPossible(false)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
 
-                            List.of("sword", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet()),
-
-                                                    
                             """
                                     Marana is a fiercely independent woman who grew up in the
                                     back streets of her home town. Forced to flee because she
@@ -67,20 +127,50 @@ public class CharacterService {
                                     lands to seek her fortune. Devious and resourceful, she can
                                     break in almost anywhere. She has heard that the temple of
                                     Sig in Marlock City needs the service of a rogue."""),
-                    new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Ignatius The Devout",SectionId.book1(1), Collections.emptySet(), RankEnum.OUTCAST, ProfessionEnum.PRIEST, 9,
-                            new Character.BaseStatsDto(4, 2, 3, 6, 4, 2),
-
-                            List.of("mace", "leather jerkin (Defence +1)", "map"),new ShardSystem(16), Map.of(),Collections.emptySet()),
+                    new Character.CharacterCreateDto(PlayerSession.PlayerDto.builder()
+                            .name("Ignatius The Devout")
+                            .currentSection(SectionId.book1(1))
+                            .titlesAndHonours(Collections.emptySet())
+                            .rank(RankEnum.OUTCAST)
+                            .profession(ProfessionEnum.PRIEST)
+                            .stamina(9)
+                            .baseStats(new Character.BaseStatsDto(4, 2, 3, 6, 4, 2))
+                            .possessions(List.of("mace", "leather jerkin (Defence +1)", "map"))
+                            .shards(new ShardSystem(16))
+                            .tickBoxes(Map.of())
+                            .codeWords(Collections.emptySet())
+                            .isResurrectionPossible(false)
+                            .blessings(Collections.emptySet())
+                            .god("Ebron")
+                            .staminaWhenUnwounded(9)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
                             """
                                     Ignatius is a traveller whose desire is to learn all he can
                                     about the deities of the Fabled Lands. His strong beliefs
                                     give his sermons added zest, and he has enthralled many
                                     a crowd with his impassioned speeches. He is looking for
                                     the House of Priests in Marlock City"""),
-                    new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Astariel Skysong",SectionId.book1(1), Collections.emptySet(), RankEnum.OUTCAST, ProfessionEnum.TROUBADOUR, 9,
-                            new Character.BaseStatsDto(6, 3, 4, 3, 2, 4),
-
-                            List.of("sword", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet()),
+                    new Character.CharacterCreateDto(PlayerSession.PlayerDto.builder()
+                            .name("Astariel Skysong")
+                            .currentSection(SectionId.book1(1))
+                            .titlesAndHonours(Collections.emptySet())
+                            .rank(RankEnum.OUTCAST)
+                            .profession(ProfessionEnum.TROUBADOUR)
+                            .stamina(9)
+                            .baseStats(new Character.BaseStatsDto(6, 3, 4, 3, 2, 4))
+                            .possessions(List.of("sword", "leather jerkin (Defence +1)", "map"))
+                            .shards(new ShardSystem(16))
+                            .tickBoxes(Map.of())
+                            .codeWords(Collections.emptySet())
+                            .isResurrectionPossible(false)
+                            .blessings(Collections.emptySet())
+                            .god("Ebron")
+                            .staminaWhenUnwounded(9)
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
                             """
                                     Astariel has the wanderlust, and chafes if he has to remain
                                     in one place for any length of time. He enjoys the
