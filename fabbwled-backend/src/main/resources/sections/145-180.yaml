@@ -12,12 +12,12 @@
     - text: |
         You hold up the pirate captain’s head. The guildmaster looks 
         up expectantly, but his face quickly darkens. 
-          ‘This is not Amcha!! Everyone knows he has only one eye – 
+        ‘This is not Amcha!! Everyone knows he has only one eye – 
         this poor fellow is probably some beggar you killed in an alley 
         somewhere. You think you can swindle the guild with this 
         pathetic ruse! Out! Get out! And don’t come back until you 
         bring me the head of Amcha One-Eye!’ 
-          The guildmaster has you removed by his guards, and you are 
+        The guildmaster has you removed by his guards, and you are 
         dumped into the street.
     - turnTo: 100
 - number: 165
@@ -46,13 +46,13 @@
         green. They are badly hurt, but still alive. Now that you can get
         better look at them, you see that they are dusted all over with
         flour, giving them a spectral appearance.
-          You summon the other villagers. At first they are loath to
+        You summon the other villagers. At first they are loath to
         venture out and inspect the three strangers, but the fact that you
         survived convinces them there are no ghosts to worry about.
-          ‘Why, it’s Old Megan!’ cries a man as he claps eyes on one
+        ‘Why, it’s Old Megan!’ cries a man as he claps eyes on one
         of the three. ‘And here’s Bradok the miller, and Lame Pootmar!
         Why are they all covered in flour? Where’re the ghosts?’
-          You shake your head and sigh at the stupidity of the yokels.
+        You shake your head and sigh at the stupidity of the yokels.
         ‘There weren’t any ghosts,’ you explain. ‘It was these three all
         along.’
     - turnTo: 671
@@ -98,11 +98,11 @@
         You claim that you have come to swear allegiance to Nergan, 
         the rightful king of Sokara. Captain Vorkung is not convinced. 
         He narrows his eyes suspiciously.
-          ‘You’d better leave – now. Before I decide you are a spy, 
+        ‘You’d better leave – now. Before I decide you are a spy, 
         and have you shot!’
         One of the archers looses a shaft, and an arrow thuds into the 
         ground at your feet, quivering menacingly.
-          You realize it is time to leave, and climb down the 
+        You realize it is time to leave, and climb down the 
         mountain.
     - turnTo: 474
 - number: 180
@@ -114,11 +114,11 @@
         force engulfs you, the sky darkens and thunder and lightning 
         crash and leap across the heavens. Suddenly, your vision fades, 
         and everything goes black. 
-          When your sight returns, you find yourself outside the gates 
+        When your sight returns, you find yourself outside the gates 
         of a huge, fortified city. A guard starts in surprise at the sight of 
         you. Then he shakes his head as if to clear it, sure he must have 
         imagined what he just saw!
-          The gates open, and a troop of heavy cavalry canter past.
-          ‘Make way for the Marlock City militia!’, says the guard.
-          When they have passed, you walk into the city.
+        The gates open, and a troop of heavy cavalry canter past.
+        ‘Make way for the Marlock City militia!’, says the guard.
+        When they have passed, you walk into the city.
     - turnTo: 100

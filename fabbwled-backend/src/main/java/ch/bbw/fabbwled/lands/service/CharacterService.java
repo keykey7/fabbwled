@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,7 @@ public class CharacterService {
                             .blessings(Collections.emptySet())
                             .isResurrectionPossible(false)
                             .resurrectionArrangement(new Resurrection("ResurrectionTitle",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
                             .build(),                                        
                             """
                                     Liana prefers to make her home in mountain grottos
@@ -64,6 +66,7 @@ public class CharacterService {
                             .blessings(Collections.emptySet())
                             .isResurrectionPossible(false)
                             .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
                             .build(),
                             """
                                     Andriel seeks fame through adventure and the glory of battle.
@@ -87,7 +90,9 @@ public class CharacterService {
                             .god("Ebron")
                             .isResurrectionPossible(false)
                             .blessings(Collections.emptySet())
-                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
                             """
                                     Chalor is an outcast by choice, shunning his native land
                                     and the family who spurned him, driven by a burning
@@ -111,7 +116,9 @@ public class CharacterService {
                             .codeWords(Collections.emptySet())
                             .blessings(Collections.emptySet())
                             .isResurrectionPossible(false)
-                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
 
                             """
                                     Marana is a fiercely independent woman who grew up in the
@@ -136,7 +143,9 @@ public class CharacterService {
                             .blessings(Collections.emptySet())
                             .god("Ebron")
                             .staminaWhenUnwounded(9)
-                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
                             """
                                     Ignatius is a traveller whose desire is to learn all he can
                                     about the deities of the Fabled Lands. His strong beliefs
@@ -159,7 +168,9 @@ public class CharacterService {
                             .blessings(Collections.emptySet())
                             .god("Ebron")
                             .staminaWhenUnwounded(9)
-                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33))).build(),
+                            .resurrectionArrangement(new Resurrection("Resurrection Title",SectionId.book1(33)))
+                            .playerClicks(new HashMap<>())
+                            .build(),
                             """
                                     Astariel has the wanderlust, and chafes if he has to remain
                                     in one place for any length of time. He enjoys the
