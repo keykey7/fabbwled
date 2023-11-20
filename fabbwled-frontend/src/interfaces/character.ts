@@ -1,11 +1,8 @@
 import { Container } from "../SectionRenderer.tsx";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore we need this later
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export interface CharacterCreateDto {
-  player: Player;
-  description: string;
+interface CharacterCreateDto {
+    player: Player;
+    description: string;
 }
 
 export interface Player {
@@ -40,12 +37,12 @@ export interface Player {
 }
 
 interface BaseStats {
-  charisma: number;
-  combat: number;
-  magic: number;
-  sanctity: number;
-  scouting: number;
-  thievery: number;
+    charisma: number;
+    combat: number;
+    magic: number;
+    sanctity: number;
+    scouting: number;
+    thievery: number;
 }
 
 export interface Section {
@@ -58,11 +55,10 @@ export interface Section {
 }
 
 interface Shards {
-  shardCount: number;
+    shardCount: number;
 }
 
-interface TickBoxes {
-  additionalProp1: number;
-  additionalProp2: number;
-  additionalProp3: number;
+interface SectionId {
+    sectionId?: number;
+    bookId?: number;
 }

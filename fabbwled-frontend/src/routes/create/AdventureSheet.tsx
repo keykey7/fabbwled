@@ -29,6 +29,7 @@ export default function AdventureSheet() {
     scouting: 1,
     thievery: 1,
     staminaCurrent: 9,
+    staminaWhenUnwounded: 9,
     possessions: defaultPossessions,
     titlesAndHonours: "",
     money: 16,
@@ -51,8 +52,9 @@ export default function AdventureSheet() {
             .split(",")
             .map((title) => title.trim()),
           rank: "OUTCAST", // must be OUTCAST (starting rank 1)
-          profession: "Wayfarer",
+          profession: "WAYFARER",
           stamina: formik.values.staminaCurrent,
+          staminaWhenUnwounded: formik.values.staminaWhenUnwounded,
           baseStats: {
             charisma: formik.values.charisma,
             combat: formik.values.combat,
@@ -64,11 +66,7 @@ export default function AdventureSheet() {
           possessions: formik.values.possessions,
           shards: { shardCount: formik.values.money },
           defence: 0, // This value will be calculated in the backend
-          tickBoxes: {
-            additionalProp1: 0,
-            additionalProp2: 0,
-            additionalProp3: 0,
-          },
+          tickBoxes: {},
           codeWords: [],
         },
         description: formik.values.description,
