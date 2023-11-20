@@ -10,8 +10,7 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class DiceRollHelper {
 
-    private final PlayerSession playerSession;
-    int diceSumCount = 0;
+    private int diceSumCount = 0;
 
     public int roll(int amountOfDices) {
         diceSumCount = 0;

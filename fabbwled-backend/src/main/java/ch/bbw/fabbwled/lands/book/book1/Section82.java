@@ -10,8 +10,6 @@ import ch.bbw.fabbwled.lands.service.PlayerSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 @RequiredArgsConstructor
 public class Section82 implements SectionHandler {
@@ -75,15 +73,16 @@ public class Section82 implements SectionHandler {
                 // TODO minus 1 for combat
                 playerSession.update(playerDto -> {
                     var newList = playerDto.withBaseStats(playerDto.baseStats());
+                    var newPlayer = newList.baseStats().withCombat(playerDto.baseStats().combat());
                     return newList;
                 });
-                addClickedClickId(ClickOptions.SCORE_1_2.ordinal());
+                addPlayerClickId(ClickOptions.SCORE_1_2.ordinal());
             }
             case SCORE_3_4 -> {
                 if (!diceRollHelper.isBetweenScore(3, 4)) {
                     throw new FabledBusinessException("invalid click: 3 and 4");
                 }
-                addClickedClickId(ClickOptions.SCORE_3_4.ordinal());
+                addPlayerClickId(ClickOptions.SCORE_3_4.ordinal());
             }
             case SCORE_5_6 -> {
                 if (!diceRollHelper.isBetweenScore(5, 6)) {
@@ -92,11 +91,12 @@ public class Section82 implements SectionHandler {
 
                 playerSession.update(playerDto -> {
                     var newList = playerDto.withPossessions(playerDto.possessions());
+                    // TODO add new possession
                     // cannot be done yet -> list is immutable!!
                     // newList.possessions().add("fish");
                     return newList;
                 });
-                addClickedClickId(ClickOptions.SCORE_5_6.ordinal());
+                addPlayerClickId(ClickOptions.SCORE_5_6.ordinal());
             }
             case FOLLOW_NORTH -> {
                 if (!hasDiceOptionBeenSelected()) {
@@ -130,7 +130,7 @@ public class Section82 implements SectionHandler {
         return SectionHandler.super.getTicks();
     }
 
-    private void addClickedClickId(int clickId) {
+    private void addPlayerClickId(int clickId) {
         playerSession.update(x -> {
             var newList = x.withPlayerClicks(x.playerClicks());
             newList.playerClicks().put(getId(), clickId);
@@ -139,8 +139,7 @@ public class Section82 implements SectionHandler {
     }
 
     /**
-     * Will check if the score options of the dice have already been clicked or not
-     *
+     * Will check if the score options of the dice has already been clicked or not
      * @return either true or false
      */
     private boolean hasDiceOptionBeenSelected() {
