@@ -9,7 +9,7 @@
     - choice:
         - text: Catch the tail
           then:
-            turnTo: 362
+            - turnTo: 362
         - text: Leave it well alone
           then:
             - turnTo: 561
@@ -75,16 +75,16 @@
         licks his lips.
     - turnTo: 320
 # TODO: SANCTITY ROLL
-- number: 509
-  content:
-    - text: |
-        You spot a pressure pad at the base of the idol just in time –
-        who knows what unpleasant trap that would have set off!
-        Quickly, you remove the chain mail and sling it over your
-        shoulder. Note the gold chain mail of Tyrnai on your
-        Adventure Sheet – as it is gold, it is useless as actual armour.
-        The eyes of the jaguar headed idol seem to turn to look at
-        you. Make a SANCTITY roll at Difficulty 10.
+#- number: 509
+#  content:
+#    - text: |
+#        You spot a pressure pad at the base of the idol just in time –
+#        who knows what unpleasant trap that would have set off!
+#        Quickly, you remove the chain mail and sling it over your
+#        shoulder. Note the gold chain mail of Tyrnai on your
+#        Adventure Sheet – as it is gold, it is useless as actual armour.
+#        The eyes of the jaguar headed idol seem to turn to look at
+#        you. Make a SANCTITY roll at Difficulty 10.
 - number: 510
   content:
     - text: |
@@ -120,43 +120,45 @@
           then:
             - turnTo: 548
 # TODO: Buy ingredients, SCOUTING roll
-- number: 511
-  content:
-    - text: |
-        Your arcane knowledge tells you much about the undead.
-        Ghouls are known to eat the flesh of the dead as well as the
-        living. They like to make their homes in crypts and graveyards
-        and they never venture out during the day, as sunlight burns
-        their pallid undead flesh. Also, they cannot abide a powder of
-        salt and iron filings mixed together.
-    - choice:
-        - text: Visit the Holy Waters
-          then:
-            - turnTo: 450
-- number: 512
-  content:
-    - if:
-        hasKeyword: "pirateCaptain’sHead"
-      then:
-        - choice:
-            - text: Want to give it to the guildmaster?
-              then:
-                - turnTo: 163
-            - text: Want to keep it
-              then:
-                - text: |
-                    ‘Do you have the head of Amcha the Pirate?’ asks the
-                    guildmaster. ‘No! The what are you doing here? He is plying his
-                    evil trade in the seas to the south, and his base lies to the east of
-                    the Sorcerers’ Isle. Now go!’
-                - turnTo: 100
-      else:
-        - text: |
-            ‘Do you have the head of Amcha the Pirate?’ asks the
-            guildmaster. ‘No! The what are you doing here? He is plying his
-            evil trade in the seas to the south, and his base lies to the east of
-            the Sorcerers’ Isle. Now go!’
-        - turnTo: 100
+#- number: 511
+#  content:
+#    - text: |
+#        Your arcane knowledge tells you much about the undead.
+#        Ghouls are known to eat the flesh of the dead as well as the
+#        living. They like to make their homes in crypts and graveyards
+#        and they never venture out during the day, as sunlight burns
+#        their pallid undead flesh. Also, they cannot abide a powder of
+#        salt and iron filings mixed together.
+#        You can purchase these ingredients for 15 Shards at many a
+#        market stall. If you make the purchase, note you have salt and
+#        iron filings on your Adventure Sheet.
+#        When you are ready, you set off to search the cemeteries of
+#        Marlock City. Make a SCOUTING roll at Difficulty 9.
+# TODO: Implement when backend is capable of
+#- number: 512
+#  content:
+#    - if:
+#        hasKeyword: "pirateCaptain’sHead"
+#      then:
+#        - choice:
+#            - text: Want to give it to the guildmaster?
+#              then:
+#                - turnTo: 163
+#            - text: Want to keep it
+#              then:
+#                - text: |
+#                    ‘Do you have the head of Amcha the Pirate?’ asks the
+#                    guildmaster. ‘No! The what are you doing here? He is plying his
+#                    evil trade in the seas to the south, and his base lies to the east of
+#                    the Sorcerers’ Isle. Now go!’
+#                - turnTo: 100
+#      else:
+#        - text: |
+#            ‘Do you have the head of Amcha the Pirate?’ asks the
+#            guildmaster. ‘No! The what are you doing here? He is plying his
+#            evil trade in the seas to the south, and his base lies to the east of
+#            the Sorcerers’ Isle. Now go!’
+#        - turnTo: 100
 - number: 513
   content:
     - text: |
@@ -173,7 +175,7 @@
     - choice:
         - text: Explore the sunken wreck
           then:
-            turnTo: 429
+            - turnTo: 429
         - text: Swim back up to your ship
           then:
             - turnTo: 616
@@ -189,7 +191,7 @@
     - choice:
         - text: Climb the ladder
           then:
-            turnTo: 350
+            - turnTo: 350
         - text: Leave the cave
           then:
             - turnTo: 3
@@ -238,7 +240,7 @@
     - choice:
         - text: Fight the Black Dragon Knight
           then:
-            turnTo: 321
+            - turnTo: 321
         - text: Don’t fight and leave instead
           then:
             - turnTo: 276
@@ -263,7 +265,7 @@
     - choice:
         - text: Accept the offer
           then:
-            turnTo: 513
+            - turnTo: 513
         - text: Refuse the offer
           then:
             - turnTo: 408
@@ -303,7 +305,7 @@
     - choice:
         - text: Become an initiate
           then:
-            turnTo: 435
+            - turnTo: 435
         - text: Renounce his worship
           then:
             - turnTo: 69
@@ -326,7 +328,7 @@
     - choice:
         - text: South into Scorpion Bight
           then:
-            turnTo: 492
+            - turnTo: 492
         - text: North east towards Blessed Springs
           then:
             - turnTo: 87
@@ -368,7 +370,7 @@
     - choice:
         - text: Walk in and challenge him
           then:
-            turnTo: 589
+            - turnTo: 589
         - text: Ambush him when he leaves
           then:
             - turnTo: 211
@@ -383,7 +385,7 @@
     - choice:
         - text: Wait a little longer
           then:
-            turnTo: 119
+            - turnTo: 119
         - text: Go upstairs to find Lauria
           then:
             - turnTo: 386
@@ -391,20 +393,20 @@
           then:
             - turnTo: 10
 # TODO: check if hasProfession is implemented
-- number: 535
-  content:
-    - text: |
-        The House of Priests is an impressive building, a roundhouse of
-        multi-coloured bricks. The myriad colours give it a bizarre and
-        garish look, calculated to unsettle the visitor. Inside, a hundred
-        offices team with the administration of the polytheistic religion
-        of Sokara and Golnir.
-    - if:
-        hasProfession: "Priest"
-      then:
-        - turnTo: 9
-      else:
-        - turnTo: 100
+#- number: 535
+#  content:
+#    - text: |
+#        The House of Priests is an impressive building, a roundhouse of
+#        multi-coloured bricks. The myriad colours give it a bizarre and
+#        garish look, calculated to unsettle the visitor. Inside, a hundred
+#        offices team with the administration of the polytheistic religion
+#        of Sokara and Golnir.
+#    - if:
+#        hasProfession: "Priest"
+#      then:
+#        - turnTo: 9
+#      else:
+#        - turnTo: 100
 # TODO: implement 536
 # TODO: check if correct
 - number: 537
@@ -415,11 +417,14 @@
         - choice:
             - text: "Buy bag of pearls"
               then:
-                - spendShards: 20
+#                - spendShards: 20
                 - turnTo: 106
+            - text: "Leave and resume your journey"
+              then:
+                - turnTo: 85
       else:
         - text: "Leave and resume your journey"
-          turnTo: 85
+        - turnTo: 85
 # TODO: implement 538
 # TODO: implement 539
 - number: 540
@@ -433,7 +438,7 @@
     - choice:
         - text: Return to the city centre
           then:
-            turnTo: 100
+            - turnTo: 100
         - text: Chase the muggers off
           then:
             - turnTo: 433
