@@ -102,7 +102,8 @@ public class PlayerSession {
                             Set<String> codeWords,
                             boolean isResurrectionPossible,
                             Resurrection resurrectionArrangement,
-                            Set<BlessingEnum> blessings
+                            Set<BlessingEnum> blessings,
+                            Map<SectionId, Integer> playerClicks
                             ) {
 
 
