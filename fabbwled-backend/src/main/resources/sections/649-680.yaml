@@ -1,5 +1,177 @@
 - number: 654
   content:
-    - text: You slip out of your chains, and hide inside an ore-laden miningcart. When it is taken out of the mine, you creep out, and runoff into the hills. Eventually you reach Caran Baru.
+    - text: |
+        You slip out of your chains, and hide inside an ore-laden 
+        miningcart. When it is taken out of the mine, you creep out, 
+        and runoff into the hills. Eventually you reach Caran Baru.
     - turnTo: 400
-
+- number: 658
+  content:
+    - text: |
+        You are standing at the bottom of the Devil’s Peak. It is a
+        massive tower of black rock, like a stone tree-trunk, bare and
+        branchless, climbing up into the sky. You cannot see the top, for
+        it is shrouded in grey clouds. Thunder and lightning play about
+        the clouded summit.
+        The sides of the peak are almost sheer, but there are many
+        hand and footholds. It can be climbed, but only if you have
+        some climbing gear. If you have and you want to make the
+        ascent, turn to 340. Otherwise, turn to 560.
+    - choice:
+        - text: Climb Tower
+        - if:
+            hasPossession: "climbing gear"
+          then:
+            - turnTo: 340
+        - text: Don't climb Tower
+          then:
+            - turnTo: 560
+- number: 659
+  content:
+    - text: |
+        You untie the little creature from its bonds. It gives a jubilant
+        cry, and soars upwards.
+        ‘Thank you, large one!’ it chatters, ‘My name is Pikalik the
+        Wing-warrior! We never forget – one day I will pay my debt.’
+        With that, he flitters away into the clouds.
+        ‘That’s 75 Shards you just let fly away,’ comments the man
+        in the palanquin wryly, ‘Mannekyn People can’t be trusted,
+        believe me.’
+        You leave the slave market.
+    - acquireKeyword: "Altruist"
+      then:
+        - turnTo: 400
+- number: 660
+  content:
+    - text: |
+        You are greeted warmly by the commander of the fort, whose
+        daughter, Alissia, embraces you happily.
+        You can stay here, in comfortable lodgings, free of charge.
+        You can restore any lost Stamina points, up to your maximum.
+        When you are ready, you can leave.
+    - choice:
+        - text: East into Nerech The Plains of Howling Darkness
+          then:
+            - turnTo: 225
+        - text: North west to Fort Mereth
+          then:
+            - turnTo: 299
+        - text: South east to Fort Brilon
+          then:
+            - turnTo: 259
+        - text: West into the farmlands
+          then:
+            - turnTo: 548
+- number: 663
+  content:
+    - text: |
+        They are too fast. You are caught and overwhelmed. You end
+        up as food for scorpion larvae. Your adventuring days are over,
+        unless you have a resurrection deal.
+- number: 665
+  content:
+    - text: |
+        You enter the cave – it is large and dark. Unfortunately, it is the
+        lair of a pack of wolves – a very big pack of wolves.
+    - if:
+        hasPossession: "wolf pelt"
+      then:
+        - turnTo: 516
+      else:
+        text: If not, read on.
+        then:
+          - turnTo: 280
+- number: 666
+  content:
+    - text: |
+        A trader from the far north tells a story about a great wizard,
+        Targdaz the Magnificent, who was tricked by a shaman of the
+        Horde of the Thousand Winds on the Great Steppes.
+        ‘He imprisoned Targdaz inside a giant ruby, and proceeded
+        to loot Targdaz’s tower. But in his stupidity, he opened the great
+        wizard’s Casket of Imponderables, and unleashed a terrible storm
+        that swept across the steppes, scattering many of the tribes far
+        and wide. The shaman was killed, of course, but as far as anyone
+        knows, Targdaz is still trapped in the ruby, waiting patiently for
+        release – perhaps for another hundred years, who knows? One
+        thing’s for certain – it won’t be me trying to get him out!’
+        When you are ready, you can go:
+    - choice:
+        - text: South
+          then:
+            - turnTo: 558
+        - text: North
+          then:
+            - turnTo: 347
+        - text: West in the Forest of Larun
+          then:
+            - turnTo: 47
+        - text: East to the lake and Cadmium
+          then:
+            - turnTo: 135
+- number: 669
+  content:
+    - text: |
+        You are recognised by an official, and a few moments later, you
+        are summoned to see the general himself! You are taken to the
+        throne room, which has been converted to a military style
+        headquarters.
+        Grieve Marlock is a tall, hook-nosed man, with cold,
+        penetrating green eyes.
+        ‘You come highly recommended by my brother, the
+        governor of Yellowport – I was hoping you would turn up,’ he
+        says in a commanding voice. ‘You did me a great service by
+        getting rid of that pompous fool, Nergan.
+        ‘Now there is one more thing I need you for. The Citadel of
+        Velis Corin, which sits astride the Pass of Eagles in the far north,
+        is under imminent attack from an army of the steppes. The
+        attackers are a rag-tag bunch of malcontents – nomads,
+        Mannekyn People, some trau even, and of course, the usual
+        traitorous dogs still loyal to the old king – may his soul burn in
+        the hells, ha, ha, ha!’
+        ‘I need you to go to the citadel, discuss the situation with
+        Commandant Orin Telana, and do all you can to make sure that
+        the citadel doesn’t fall. I’m relying on you!’
+    - if:
+        hasKeyword: "Assist"
+        then:
+          - turnTo: 102
+      else:
+        - text: If not, read on and record the codeword Assist.
+        - acquireKeyword: "Assist"
+    - if:
+        hasPossession: "coded missive"
+        then:
+          - turnTo: 667
+      else:
+        - text: If not, you are escorted out
+          then:
+            - TurnTo: 100
+- number: 670
+  content:
+    - text: |
+        You feel a wrenching moment of disorientation, and then you
+        suddenly appear with a flash beside a ruined, burnt-out city. A
+        passing builder stares at you in horror, unsure whether you are a
+        human or a demon. Quickly, you hurry away.
+    - turnTo: 250
+- number: 675
+  content:
+    - text: |
+        You fall into the yawning blackness with a despairing cry. You
+        plummet like a stone through the air for what seems like an age.
+        You are engulfed in absolute darkness, and all you can hear is
+        the whistling of the wind past your ears.
+        Suddenly you shoot into bright sunlight, and land with an
+        almighty splash into the sea! Coughing and spluttering, you rise
+        to the surface. You are not far from a forested island, and you
+        swim for shore. A small settlement crowds the shore – it looks
+        like you have arrived at the Trading Post on the Isle of Druids.
+    - turnTo: 195
+- number: 679
+  content:
+    - text: |
+        The scent of the sea proves strongest in one direction. Following
+        your nose, you eventually break free of the trees and find
+        yourself on the coast.
+    - turnTo: 128
