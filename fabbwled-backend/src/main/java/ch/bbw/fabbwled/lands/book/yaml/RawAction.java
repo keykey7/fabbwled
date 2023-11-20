@@ -13,7 +13,7 @@ public record RawAction(String text, @JsonProperty("if") RawCondition if_,
                         List<RawChoice> choice,
                         String acquireKeyword,
                         Integer turnTo,
-                        Boolean checkTickBox,String acquirePossession, String spendShards) {}
+                        Boolean checkTickBox,String acquirePossession, Integer spendShards) {}
 
 
 

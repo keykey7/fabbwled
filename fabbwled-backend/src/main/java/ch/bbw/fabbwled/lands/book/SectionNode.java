@@ -91,7 +91,7 @@ public interface SectionNode {
 			};
 		}
 
-		ContainerNode append(SectionNode child) {
+		public ContainerNode append(SectionNode child) {
 			return new ContainerNode(style, Stream.concat(children.stream(), Stream.of(child)).toList());
 		}
 
