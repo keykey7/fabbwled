@@ -11,10 +11,17 @@ java {
     sourceCompatibility = '17'
 }
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
+sourceSets {
+    cli {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
     }
+}
+
+configurations {
+    compileOnly.extendsFrom annotationProcessor
+    cliImplementation.extendsFrom testImplementation
+    cliRuntimeOnly.extendsFrom testRuntimeOnly
 }
 
 repositories {
@@ -31,6 +38,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.4.1'
 }
 
