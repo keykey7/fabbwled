@@ -60,6 +60,11 @@ public class ActionBuilder {
         if (raw.turnTo() != null) {
             return new Action.TurnToAction(new SectionId(1, raw.turnTo()));
         }
+        if(raw.then() != null && (raw.then().get(0).turnTo() != null)) {
+                return new Action.TurnToAction(new SectionId(1, raw.then().get(0).turnTo()));
+
+        }
+
 
         throw new FabledTechnicalException("Section must have one property");
     }
