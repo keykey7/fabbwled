@@ -9,10 +9,9 @@ public class YamlSectionLoaderTest implements WithAssertions {
     @Test
     void loadSingleSection() {
         var content = loader.loadSections(loader.yamlFiles());
-        var s15 = content.stream().filter(s -> s.id().sectionId() == 15).findFirst().orElseThrow();
+        var s1 = content.stream().filter(s -> s.id().sectionId() == 1).findFirst().orElseThrow();
 
-        assertThat(s15.actions()).hasSize(2);
-        assertThat(s15.actions().get(0)).isOfAnyClassIn(Action.TextAction.class);
-        assertThat(s15.actions().get(1)).isOfAnyClassIn(Action.IfAction.class);
+        assertThat(s1.actions()).hasSize(2);
+        assertThat(s1.actions().get(1)).isOfAnyClassIn(Action.TurnToAction.class);
     }
 }
