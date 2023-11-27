@@ -115,7 +115,7 @@
         ship and she drowned, to spend eternity as a lost soul, cleaning
         the barnacles off the thrones of Alvir and Valmir.
         Do you want to change your mind?
-        When you have finished here, turn to 220 .
+        When you have finished here, turn to 220.
     - choice:
         - text: If you are determined to renounce your faith, pay the 30 Shards and delete Alvir and almir from the God box on your Adventure Sheet.
           then:
