@@ -84,7 +84,7 @@
         hitch a boat ride back to Cadmium. During the journey, you
         examine the magic chest, but it is guarded by great sorcery and
         is impossible to open.
-        Delete the codeword Avenge and turn to 135 .
+        Delete the codeword Avenge and turn to 135.
     - turnTo: 135
     # TODO: - acquireKeyword: Avenge
 # - number: 623
