@@ -191,7 +191,7 @@
         break in the hedge, but it is filled by a large tree.
         To your surprise, a face forms in the trunk, and speaks in a
         woody voice, ‘None can pass – begone, human!’
-        If you have the codeword Apple , turn to 594 . If not, you
+        If you have the codeword Apple , turn to 594 . If not, you can:
     - choice:
         - text: turn to 594
           then:
