@@ -4,47 +4,150 @@
   background-image: url("desk.jpg");
   background-size: cover;
   display: grid;
+  grid-template-areas: "side book";
+  grid-auto-columns: auto 75vw;
   place-items: center;
 
-  .book {
-    font-size: 12px;
-    background-image: url("book.png");
-    height: 100vh;
-    width: 70vw;
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding: 7.5% 15% 7.5% 12%;
-    display: flex;
-    justify-content: space-between;
+  @media (max-width: 960px) {
+    grid-template-areas:
+      "book"
+      "side";
+    grid-template-columns: 1fr;
+    grid-template-rows: 75vh auto;
+  }
 
+  .bookWrapper {
+    display: grid;
+    place-items: center;
 
-    .page {
-      width: 45%;
+    .book {
+      font-size: 12px;
+      grid-area: book;
+      background-image: url("book.png");
+      background-position: center;
+      min-height: 85vh;
+      width: 70vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      display: grid;
+      grid-template-areas: "pageOne pageTwo";
+      grid-auto-columns: 1fr 1fr;
+      grid-auto-rows: auto;
+      padding: 10vh 10vw;
+      align-items: center;
+      justify-content: center;
+
+      .page {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-self: center;
+
+        &:nth-child(1) {
+          grid-area: pageOne;
+
+          .pageText {
+            display: inline;
+          }
+        }
+        &:nth-child(2) {
+          grid-area: pageTwo;
+        }
+      }
     }
   }
 
+
   .side {
+    grid-area: side;
     font-size: 12px;
-    height: 10vh;
-    width: 10vw;
-    padding: 7.5% 87% 1% 1%;
     display: flex;
-    position: absolute;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-evenly;
+    align-content: center;
+    height: 100%;
+    flex-direction: column;
+    padding-left: 1%;
+
+    @media (max-width: 960px) {
+      flex-direction: row;
+      justify-content: center;
+      align-content: space-evenly;
+    }
+
+    .dices {
+      font-size: 12px;
+      height: fit-content;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: space-around;
+      padding-left: 1%;
+
+      @media (max-width: 960px) {
+        flex-direction: row;
+        justify-content: center;
+        align-content: space-evenly;
+      }
+    }
 
     .buttons {
       font-size: 12px;
-      height: 10vh;
-      width: 10vw;
-      padding: 15% 87% 1% 1%;
       display: flex;
-      position: absolute;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      gap: 2vh;
+      width: 100%;
+
+      @media (max-width: 960px) {
+        flex-direction: row;
+        justify-content: center;
+        align-content: space-around;
+        margin: 0 auto;
+      }
 
       .eraser {
-        background-image: url("eraser.png");
-        background-size: contain;
-        background-repeat: no-repeat;
+        all: unset;
+        height: fit-content;
+        width: fit-content;
+        position: relative;
+        cursor: pointer;
+
+        img {
+          height: 6vh;
+        }
+
+        &:after {
+          content: "EXIT";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+        }
+      }
+
+      .pencil {
+        all: unset;
+        position: relative;
+        cursor: pointer;
+
+        img {
+          height: 4vh;
+          width: 100%;
+        }
+
+        &:after {
+          content: "NEW GAME";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+        }
       }
     }
   }
@@ -60,6 +163,7 @@
 
     ul {
       padding: 0;
+
       li {
         list-style: none;
       }
