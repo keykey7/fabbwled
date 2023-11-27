@@ -296,7 +296,7 @@
         He nods to a door at the top of some rickety stairs.
         If you pay the money, cross it off and turn to 91 . If not, he
         shrugs, and hisses at another passerby. You wander off and pass
-        an uneventful evening, turn to 100 .
+        an uneventful evening, turn to 100.
     - choice:
         - text: Pay the money
           then:
