@@ -134,7 +134,7 @@
         of Tyrnai. Subtract 1 from your COMBAT ability until you can
         find a way of lifting the curse. Perhaps the priests of Sig in
         Marlock City can help you. Note that you are under ‘Tyrnai’s
-        Curse, -1 COMBAT. You sneak out of the temple. Turn to 400 .
+        Curse, -1 COMBAT. You sneak out of the temple. Turn to 400.
     - turnTo: 400
 # - number: 626
 #   content:
