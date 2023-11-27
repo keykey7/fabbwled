@@ -84,7 +84,7 @@
         hitch a boat ride back to Cadmium. During the journey, you
         examine the magic chest, but it is guarded by great sorcery and
         is impossible to open.
-        Delete the codeword Avenge and turn to 135 .
+        Delete the codeword Avenge and turn to 135.
     - turnTo: 135
     # TODO: - acquireKeyword: Avenge
 # - number: 623
@@ -115,7 +115,7 @@
         ship and she drowned, to spend eternity as a lost soul, cleaning
         the barnacles off the thrones of Alvir and Valmir.
         Do you want to change your mind?
-        When you have finished here, turn to 220 .
+        When you have finished here, turn to 220.
     - choice:
         - text: If you are determined to renounce your faith, pay the 30 Shards and delete Alvir and almir from the God box on your Adventure Sheet.
           then:
@@ -134,7 +134,7 @@
         of Tyrnai. Subtract 1 from your COMBAT ability until you can
         find a way of lifting the curse. Perhaps the priests of Sig in
         Marlock City can help you. Note that you are under ‘Tyrnai’s
-        Curse, -1 COMBAT. You sneak out of the temple. Turn to 400 .
+        Curse, -1 COMBAT. You sneak out of the temple. Turn to 400.
     - turnTo: 400
 # - number: 626
 #   content:
@@ -191,7 +191,7 @@
         break in the hedge, but it is filled by a large tree.
         To your surprise, a face forms in the trunk, and speaks in a
         woody voice, ‘None can pass – begone, human!’
-        If you have the codeword Apple , turn to 594 . If not, you
+        If you have the codeword Apple , turn to 594 . If not, you can:
     - choice:
         - text: turn to 594
           then:
@@ -296,7 +296,7 @@
         He nods to a door at the top of some rickety stairs.
         If you pay the money, cross it off and turn to 91 . If not, he
         shrugs, and hisses at another passerby. You wander off and pass
-        an uneventful evening, turn to 100 .
+        an uneventful evening, turn to 100.
     - choice:
         - text: Pay the money
           then:
@@ -317,7 +317,7 @@
         With that, it delves into the ground so fast that it has
         burrowed out of sight before you can do anything to stop it.
         Shrugging your shoulders resignedly, you leave the market.
-        Turn to 400 .
+        Turn to 400.
     - turnTo: 400
 - number: 643
   content:
@@ -339,7 +339,7 @@
         Using your sorcerous powers you breathe a cloud of greenish
         vapour over the ratmen. Coughing and gasping, they sink into
         an enchanted slumber. It is an easy matter to despatch them
-        while they sleep. Turn to 554 .
+        while they sleep. Turn to 554.
     - turnTo: 554
 # Section 445 - too complex for the current implementation of sections
 - number: 646
@@ -350,7 +350,7 @@
         the forest, and get hopelessly lost for days. You don’t even have
         the wit to eat and drink – lose 3 Stamina points. If you are still
         alive, you wander through the forest until you emerge, at last, at
-        the Bronze Hills. Turn to 110 .
+        the Bronze Hills. Turn to 110.
     - turnTo: 110
     # TODO: lose 3 stamina points
 - number: 647
