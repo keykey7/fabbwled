@@ -350,7 +350,7 @@
         the forest, and get hopelessly lost for days. You don’t even have
         the wit to eat and drink – lose 3 Stamina points. If you are still
         alive, you wander through the forest until you emerge, at last, at
-        the Bronze Hills. Turn to 110 .
+        the Bronze Hills. Turn to 110.
     - turnTo: 110
     # TODO: lose 3 stamina points
 - number: 647
