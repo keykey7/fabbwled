@@ -333,7 +333,6 @@
         - text: Press on
           then:
             - turnTo: 78
-# Section 445 - too complex for the current implementation of sections
 - number: 644
   content:
     - text: |
@@ -342,6 +341,7 @@
         an enchanted slumber. It is an easy matter to despatch them
         while they sleep. Turn to 554 .
     - turnTo: 554
+# Section 445 - too complex for the current implementation of sections
 - number: 646
   content:
     - text: |
