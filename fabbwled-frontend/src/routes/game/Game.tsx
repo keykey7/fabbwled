@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import DiceComponent from "../../DiceComponent.tsx";
 import {Link} from "react-router-dom";
 import {convertToElement} from "../../SectionRenderer.tsx";
-import {Section} from '../../interfaces/'
+import {Section, Player} from '../../interfaces/character.ts'
 
 export default function Game() {
     const [character, setCharacter] = useState<Player>();

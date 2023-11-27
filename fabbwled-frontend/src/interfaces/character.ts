@@ -3,7 +3,7 @@ interface CharacterCreateDto {
   description: string;
 }
 
-interface Player {
+export interface Player {
   name: string;
   currentSection: Section;
   titlesAndHonours: string[];
@@ -43,7 +43,7 @@ interface BaseStats {
   thievery: number;
 }
 
-interface Section {
+export interface Section {
   bookId: number;
   sectionId: number;
 }
