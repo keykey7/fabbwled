@@ -7,14 +7,13 @@ import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.character.RankEnum;
 import ch.bbw.fabbwled.lands.character.Resurrection;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
-import ch.bbw.fabbwled.lands.service.ShardSystem;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest
 class CharacterServiceTest extends FabledTestBase {
@@ -51,7 +50,7 @@ class CharacterServiceTest extends FabledTestBase {
                 .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
                 .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
                 .shards(new ShardSystem(16))
-                .tickBoxes(Map.of())
+                .tickBoxes(new HashMap<>())
                 .codeWords(Collections.emptySet())
                 .isResurrectionPossible(false)
                 .god("Ebron")
@@ -79,7 +78,7 @@ class CharacterServiceTest extends FabledTestBase {
                 .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 7, 4))
                 .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
                 .shards(new ShardSystem(16))
-                .tickBoxes(Map.of())
+                .tickBoxes(new HashMap<>())
                 .codeWords(Collections.emptySet())
                 .isResurrectionPossible(false)
                 .staminaWhenUnwounded(9)
@@ -108,7 +107,7 @@ class CharacterServiceTest extends FabledTestBase {
                 .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
                 .possessions(List.of("spear", "leather jerkin (Defence +1)", "map", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield"))
                 .shards(new ShardSystem(16))
-                .tickBoxes(Map.of())
+                .tickBoxes(new HashMap<>())
                 .codeWords(Collections.emptySet())
                 .isResurrectionPossible(false)
                 .blessings(Collections.emptySet())
@@ -138,7 +137,7 @@ class CharacterServiceTest extends FabledTestBase {
                 .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
                 .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
                 .shards(new ShardSystem(16))
-                .tickBoxes(Map.of())
+                .tickBoxes(new HashMap<>())
                 .codeWords(Collections.emptySet())
                 .staminaWhenUnwounded(9)
                 .god("Ebron")

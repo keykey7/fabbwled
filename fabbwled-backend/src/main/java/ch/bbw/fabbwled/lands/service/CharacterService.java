@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -34,7 +33,7 @@ public class CharacterService {
                             .baseStats(new Character.BaseStatsDto(2, 5, 2, 3, 6, 4))
                             .possessions(List.of("spear", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
-                            .tickBoxes(Map.of())
+                            .tickBoxes(new HashMap<>())
                             .codeWords(Collections.emptySet())
                             .blessings(Collections.emptySet())
                             .isResurrectionPossible(false)
@@ -60,7 +59,7 @@ public class CharacterService {
                             .baseStats(new Character.BaseStatsDto(3, 6, 2, 4, 3, 2))
                             .possessions(List.of("battle-axe", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
-                            .tickBoxes(Map.of())
+                            .tickBoxes(new HashMap<>())
                             .codeWords(Collections.emptySet())
                             .god("Ebron")
                             .blessings(Collections.emptySet())
@@ -85,7 +84,7 @@ public class CharacterService {
                             .baseStats(new Character.BaseStatsDto(2, 2, 6, 1, 5, 3))
                             .possessions(List.of("staff, leather jerkin (Defence +1), map"))
                             .shards(new ShardSystem(16))
-                            .tickBoxes(Map.of())
+                            .tickBoxes(new HashMap<>())
                             .codeWords(Collections.emptySet())
                             .god("Ebron")
                             .isResurrectionPossible(false)
@@ -112,7 +111,7 @@ public class CharacterService {
                             .possessions(List.of("sword", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
                             .god("Ebron")
-                            .tickBoxes(Map.of())
+                            .tickBoxes(new HashMap<>())
                             .codeWords(Collections.emptySet())
                             .blessings(Collections.emptySet())
                             .isResurrectionPossible(false)
@@ -137,7 +136,7 @@ public class CharacterService {
                             .baseStats(new Character.BaseStatsDto(4, 2, 3, 6, 4, 2))
                             .possessions(List.of("mace", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
-                            .tickBoxes(Map.of())
+                            .tickBoxes(new HashMap<>())
                             .codeWords(Collections.emptySet())
                             .isResurrectionPossible(false)
                             .blessings(Collections.emptySet())
@@ -162,7 +161,7 @@ public class CharacterService {
                             .baseStats(new Character.BaseStatsDto(6, 3, 4, 3, 2, 4))
                             .possessions(List.of("sword", "leather jerkin (Defence +1)", "map"))
                             .shards(new ShardSystem(16))
-                            .tickBoxes(Map.of())
+                            .tickBoxes(new HashMap<>())
                             .codeWords(Collections.emptySet())
                             .isResurrectionPossible(false)
                             .blessings(Collections.emptySet())
