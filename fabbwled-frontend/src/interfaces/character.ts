@@ -38,12 +38,12 @@ export interface Player {
 }
 
 interface BaseStats {
-  charisma: number;
-  combat: number;
-  magic: number;
-  sanctity: number;
-  scouting: number;
-  thievery: number;
+    charisma: number;
+    combat: number;
+    magic: number;
+    sanctity: number;
+    scouting: number;
+    thievery: number;
 }
 
 export interface Section {
@@ -56,10 +56,11 @@ export interface Section {
 }
 
 interface Shards {
-  shardCount: number;
+    shardCount: number;
 }
 
 interface SectionId {
-  sectionId?: number;
-  bookId?: number;
+    sectionId?: number;
+    bookId?: number;
 }
+
