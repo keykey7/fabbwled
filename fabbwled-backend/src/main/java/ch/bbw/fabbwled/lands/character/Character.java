@@ -10,5 +10,9 @@ public class Character {
         public static BaseStatsDto all1() {
             return new BaseStatsDto(1, 1, 1, 1, 1, 1);
         }
+
+        public BaseStatsDto withCombatAdd(int amount) {
+            return withCombat(Math.max(combat + amount, 1));
+        }
     }
 }

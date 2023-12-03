@@ -10,37 +10,56 @@ import lombok.extern.jackson.Jacksonized;
 import java.io.Serializable;
 import java.util.*;
 import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
  * an immutable (meaning all attributes must not be editable) representation of a player and all possible state.
- * @param tickBoxes remembers all section tick-boxes (the box icon next to the number). use {@code #getTicks} to read.
- * @param mostRecentDiceRoll a set of dice (one or more) that were thrown most recently. empty list if no throw.
  */
 @With
 @Builder(builderMethodName = "emptyBuilder")
 @Jacksonized
 public record PlayerDto(String name,
+                        // the currently active section we are reading
                         @NonNull SectionId currentSection,
+                        // marks story progress
                         @NonNull Set<String> titlesAndHonours,
                         @NonNull RankEnum rank,
                         ProfessionEnum profession,
+                        // base stamina. if it goes to zero, you die
                         int stamina,
+                        // aka maximum stamina. can increase on special events and usually when increasing in RANK
                         int staminaWhenUnwounded,
+                        // defence is usually computed on-the-fly, so this is a volatile field
                         int defence,
+                        // worship me
                         String god,
                         @With(AccessLevel.PRIVATE)
                         @NonNull Character.BaseStatsDto baseStats,
+                        // Items in your inventory
                         @NonNull List<String> possessions,
+                        // money, money, money... can carry infinite amounts
                         int shards,
+                        // remembers all section tick-boxes (the box icon next to the number). use {@code #getTicks} to read them
                         @NonNull Map<SectionId, Integer> tickBoxes,
+                        // Codewords are special markers indicating story-progress, like "if you have codeword Apple..."
                         @NonNull Set<String> codeWords,
                         boolean isResurrectionPossible,
+                        // there can only ever be one resurrection deal: you can spawn here if you die
                         Resurrection resurrectionArrangement,
+                        // blessings allow you to re-roll a failed difficultly check, like "Make a SANCTITY roll at Difficulty 10"
                         @NonNull Set<BlessingEnum> blessings,
+                        // not officially listed on the character sheet. can be cured (by a witch for example)
                         @NonNull Set<String> poisons,
+                        // not officially listed on the character sheet. can be cured (by a healer for example)
                         @NonNull Set<String> disease,
+                        // not officially listed on the character sheet. can be cured (by a priest for example)
                         @NonNull Set<String> curses,
+                        // sometimes you just have to store something for later, like items in a cache
+                        @NonNull Map<SectionId, Serializable> persistentSectionStore,
+                        // and sometimes the text of the section is a bit complicated and requires temporary storage
+                        Serializable volatileSectionStore,
+                        // a bunch of dice (1-6) most recently rolled
                         @NonNull List<Integer> mostRecentDiceRoll
 ) implements Serializable {
 
@@ -52,15 +71,16 @@ public record PlayerDto(String name,
                 .stamina(9) // ruleset book 1
                 .staminaWhenUnwounded(9) // ruleset book 1
                 .shards(16) // ruleset book 1
-                .possessions(List.of("spear", "leather jerkin (Defence +1)", "map")) // ruleset book 1
-                .possessions(List.of())
+                .possessions(java.util.List.of("spear", "leather jerkin (Defence +1)", "map")) // ruleset book 1
+                .possessions(java.util.List.of())
                 .tickBoxes(Map.of())
                 .codeWords(Collections.emptySet())
                 .blessings(Collections.emptySet())
                 .poisons(Collections.emptySet())
                 .disease(Collections.emptySet())
                 .curses(Collections.emptySet())
-                .mostRecentDiceRoll(List.of());
+                .persistentSectionStore(Collections.emptyMap())
+                .mostRecentDiceRoll(java.util.List.of());
     }
 
     public static PlayerDto empty() {
@@ -104,6 +124,10 @@ public record PlayerDto(String name,
         var tmp = new ArrayList<>(possessions);
         tmp.remove(item);
         return withPossessions(Collections.unmodifiableList(tmp));
+    }
+
+    public PlayerDto addPoison(String poison) {
+        return withPoisons(Stream.concat(poisons.stream(), Stream.of(poison)).collect(Collectors.toUnmodifiableSet()));
     }
 
     public boolean hasUserThrownDice() {

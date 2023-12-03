@@ -31,7 +31,7 @@ public class Section82 implements SectionHandler {
                 .activeIf(!hasRolled, roll -> roll.clickable(player -> {
                     var updated = player.withDiceRoll(1);
                     if (updated.isLastRollSumBetween(1, 2)) {
-                        log.warn("TODO minus 1 for combat");
+                        updated = updated.addPoison(POISON);
                     } else if (updated.isLastRollSumBetween(5, 6)) {
                         updated = updated.addPossession("smoulder fish");
                     }
@@ -71,7 +71,7 @@ public class Section82 implements SectionHandler {
         @Override
         public PlayerDto applyEffect(PlayerDto basePlayer) {
             if (basePlayer.poisons().contains(POISON)) {
-                basePlayer = basePlayer.withStats(stats -> stats.withCombat(stats.combat() - 1));
+                basePlayer = basePlayer.withStats(stats -> stats.withCombatAdd(-1));
             }
             return basePlayer;
         }

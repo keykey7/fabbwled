@@ -21,9 +21,9 @@ import java.util.function.UnaryOperator;
 @RequiredArgsConstructor
 public class PlayerSession {
 
-    private final List<OnPlayerChange> playerChangeRules;
+    private final List<OnPlayerChange> allPlayerChangeEffects;
 
-    private final Set<OnAttributeRefresh> allEffects;
+    private final Set<OnAttributeRefresh> allAttributeRefreshEffects;
 
     private PlayerDto player;
 
@@ -33,7 +33,7 @@ public class PlayerSession {
 
     public PlayerDto getPlayer() {
         var basePlayer = player;
-        for (var effect : allEffects) {
+        for (var effect : allAttributeRefreshEffects) {
             basePlayer = effect.applyEffect(player);
         }
         return basePlayer; // the raw "player" is not exposed... only the one which has all effects (like DEFENCE) applied
@@ -41,12 +41,16 @@ public class PlayerSession {
 
     public void update(UnaryOperator<PlayerDto> modifier) {
         var newPlayer = modifier.apply(player); // updating the raw player (not getPlayer)
-        playerChangeRules.forEach(rule -> rule.validate(player, newPlayer));
-        player = newPlayer;
+        for (var effect : allPlayerChangeEffects) { // then run all automated rules on it
+            newPlayer = effect.applyEffect(player, newPlayer);
+        }
+        player = newPlayer; // all rules passed, persist it
     }
 
     @PostConstruct
-    public void setAnyPlayer() { // just convenience for now to always have a player... can be dropped
+    public void setAnyPlayer() {
+        // just convenience for now to always have a player...
+        // can be dropped once we always start with the character-creation step
         player = PlayerDto.empty()
                 .withCurrentSection(SectionId.book1(44));
     }
