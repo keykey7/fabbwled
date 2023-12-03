@@ -4,7 +4,6 @@ import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
-import ch.bbw.fabbwled.lands.service.ShardSystem;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,12 +29,14 @@ public interface Action {
 
     record TextAction(String text) implements Action {
         @Override
-        public void simpleVerify() {
-            if (this.text().contains("  ")) {
-                throw new FabledTechnicalException("Text contains double spaces. Replace all double spaces with a single space.");
-            }
+        public void simpleVerify() {}
+
+        @Override
+        public YamlReachabilityResult verifyReachability() {
+            return YamlReachabilityResult.NORMAL;
         }
 
+        @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
             return parent.text(text);
         }
@@ -82,8 +83,7 @@ public interface Action {
 
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            var id = writer.addHandler(player -> player.withCurrentSection(sectionId));
-            return parent.clickableTurnTo(id, sectionId.sectionId());
+            return parent.clickableTurnTo(sectionId.sectionId());
         }
     }
 
@@ -174,10 +174,8 @@ public interface Action {
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
             for (SingleChoice choice : choices) {
                 var turnTo = (Action.TurnToAction) choice.actions.get(0);
-                var id = writer.addHandler(player -> player.withCurrentSection(turnTo.sectionId));
-
                 parent = parent.choice(c -> c.text(choice.text),
-                        a -> a.clickableTurnTo(id, turnTo.sectionId.sectionId())
+                                       a -> a.clickableTurnTo(turnTo.sectionId.sectionId())
                 );
             }
             return parent;
