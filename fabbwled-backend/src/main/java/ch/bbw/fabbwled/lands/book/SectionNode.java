@@ -1,5 +1,6 @@
 package ch.bbw.fabbwled.lands.book;
 
+import ch.bbw.fabbwled.lands.character.AbilityEnum;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NonNull;
@@ -88,7 +89,7 @@ public interface SectionNode {
 		@Override
 		public String asPlainText() {
 			return switch (style) {
-				case NONE -> children()
+                case NONE, ENABLED -> children()
 						.stream()
 						.map(SectionNode::asPlainText)
 						.collect(Collectors.joining());
@@ -121,7 +122,7 @@ public interface SectionNode {
 
         public ContainerNode clickableRollDice(int dice) {
             if (dice == 1 ) {
-                return clickable(x -> x.withDiceRoll(dice), x -> x.text("Roll a mostRecentDiceRoll"));
+                return clickable(x -> x.withDiceRoll(dice), x -> x.text("Roll a die"));
             }
            return clickable(x -> x.withDiceRoll(dice), x -> x.text("Roll " + dice + " dices"));
         }
@@ -153,12 +154,70 @@ public interface SectionNode {
 		/**
 		 * @param condition if {@code false}, this section is drawn as disabled (unclickable or greyed out)
 		 * @param child  the content (all the grey text)
+         * @see #activeElseIf(boolean, Consumer) 
+         * @see #activeElse(Consumer) 
 		 */
 		public ContainerNode activeIf(boolean condition, Consumer<ContainerNode> child) {
-            var childNode = empty(condition ? ContainerStyle.NONE : ContainerStyle.DISABLED);
+            var childNode = empty(condition ? ContainerStyle.ENABLED : ContainerStyle.DISABLED);
             child.accept(childNode);
 			return append(childNode);
 		}
+
+        private boolean isPreviusIfActive() {
+            var previous = children.stream().filter(ContainerNode.class::isInstance)
+                    .map(x -> (ContainerNode) x)
+                    .filter(x -> List.of(ContainerStyle.ENABLED, ContainerStyle.DISABLED).contains(x.style))
+                    .toList();
+            if (previous.isEmpty()) {
+                throw new IllegalStateException("cannot construct an if-else without previous if");
+            }
+            return previous.stream().anyMatch(x -> x.style == ContainerStyle.ENABLED);
+        }
+
+        public ContainerNode activeElseIf(boolean condition, Consumer<ContainerNode> child) {
+            return activeIf(!isPreviusIfActive() && condition, child);
+        }
+
+        public ContainerNode activeElse(Consumer<ContainerNode> child) {
+            return activeIf(!isPreviusIfActive(), child);
+        }
+
+        /**
+         * Full difficulty dialog like:
+         * Make a ??? roll at Difficulty ??<br>
+         * Successful ??? roll (onSuccess)<br>
+         * Failed ??? roll (onFailure)
+         */
+        public ContainerNode clickableDifficultyRollWithOptions(PlayerDto current, AbilityEnum type, int difficulty,
+                                                                Consumer<ContainerNode> onSuccess,
+                                                                Consumer<ContainerNode> onFailure) {
+            return clickableDifficultyRoll(current, type, difficulty)
+                    .text(".\n")
+                    .activeIfDifficultySuccess(current, difficulty, x -> x
+                            .choice(l -> l.text("Successful ").append(SimpleNode.ability(type)).text(" roll"), onSuccess))
+                    .activeElseIf(current.lastDifficultyRoll() != null, x -> x
+                            .choice(l -> l.text("Failed ").append(SimpleNode.ability(type)).text(" roll"), onFailure));
+        }
+
+        /**
+         * Standard dialog "Make a ??? roll at Difficulty ??".
+         * Note: this isn't good enough if there are multiple difficulty rolls...
+         */
+        public ContainerNode clickableDifficultyRoll(PlayerDto current, AbilityEnum type, int difficulty) {
+            return append(empty().activeIf(current.lastDifficultyRoll() != type, a -> a
+                    .clickable(player -> player.withDiceRoll(2).withLastDifficultyRoll(type), b -> b
+                            .text("Make a ")
+                            .append(SimpleNode.ability(type))
+                            .text(" roll at Difficulty " + difficulty))));
+        }
+
+        /**
+         * selectable on successful {@code #clickableDifficultyRoll}.
+         */
+        public ContainerNode activeIfDifficultySuccess(PlayerDto current, int difficulty, Consumer<ContainerNode> child) {
+            return activeIf(current.lastDifficultyRoll() != null &&
+                    current.getLastRollSum() + current.baseStats().getByType(current.lastDifficultyRoll()) > difficulty, child);
+        }
 
 		/**
 		 * A choice is usually at the end of a section and has a left-aligned description and a right-aligned action.
@@ -181,6 +240,10 @@ public interface SectionNode {
 			 * No special style, simply a container for {@code #children}. Similar to a {@code <div>-tag}.
 			 */
 			NONE,
+            /**
+             * Similar to NONE, but explicitly enabled.
+             */
+            ENABLED,
 			/**
 			 * All child nodes are disabled/deactivated and cannot be interacted with
 			 */
@@ -219,8 +282,8 @@ public interface SectionNode {
 			return new SimpleNode(SimpleStyleType.ITEM, itemName);
 		}
 
-		public static SimpleNode ability(String abilityName) {
-			return new SimpleNode(SimpleStyleType.ABILITY, abilityName);
+		public static SimpleNode ability(AbilityEnum type) {
+			return new SimpleNode(SimpleStyleType.ABILITY, type.name());
 		}
 
 		public static SimpleNode tickbox(boolean active) {

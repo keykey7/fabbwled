@@ -1,6 +1,7 @@
 package ch.bbw.fabbwled.lands.character;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NonNull;
@@ -25,7 +26,8 @@ public record PlayerDto(String name,
                         // marks story progress
                         @NonNull Set<String> titlesAndHonours,
                         @NonNull RankEnum rank,
-                        ProfessionEnum profession,
+                        // mandatory profession
+                        @NonNull ProfessionEnum profession,
                         // base stamina. if it goes to zero, you die
                         int stamina,
                         // aka maximum stamina. can increase on special events and usually when increasing in RANK
@@ -59,6 +61,8 @@ public record PlayerDto(String name,
                         @NonNull Map<SectionId, Serializable> persistentSectionStore,
                         // and sometimes the text of the section is a bit complicated and requires temporary storage
                         Serializable volatileSectionStore,
+                        // remember the last type off difficulty roll, such that it can be rolled back using a blessing
+                        AbilityEnum lastDifficultyRoll,
                         // a bunch of dice (1-6) most recently rolled
                         @NonNull List<Integer> mostRecentDiceRoll
 ) implements Serializable {
@@ -68,6 +72,7 @@ public record PlayerDto(String name,
         return emptyBuilder().currentSection(SectionId.book1(1))
                 .titlesAndHonours(Collections.emptySet())
                 .rank(RankEnum.OUTCAST) // ruleset book 1
+                .profession(ProfessionEnum.WAYFARER) // ruleset book 1
                 .stamina(9) // ruleset book 1
                 .staminaWhenUnwounded(9) // ruleset book 1
                 .shards(16) // ruleset book 1
@@ -97,8 +102,13 @@ public record PlayerDto(String name,
         return withMostRecentDiceRoll(new Random().ints(amount, 1, 7).boxed().toList());
     }
 
+    @JsonIgnore
+    public int getLastRollSum() {
+        return mostRecentDiceRoll.stream().mapToInt(x -> x).sum();
+    }
+
     public boolean isLastRollSumBetween(int lower, int upper) {
-        var sum = mostRecentDiceRoll.stream().mapToInt(x -> x).sum();
+        var sum = getLastRollSum();
         return lower <= sum && sum <= upper;
     }
 
@@ -126,11 +136,23 @@ public record PlayerDto(String name,
         return withPossessions(Collections.unmodifiableList(tmp));
     }
 
+    public boolean hasCodeword(String codeword) {
+        return codeWords.contains(codeword);
+    }
+
+    public boolean hasTitleOrHonor(String titleOrHonor) {
+        return titlesAndHonours.contains(titleOrHonor);
+    }
+
     public PlayerDto addPoison(String poison) {
         return withPoisons(Stream.concat(poisons.stream(), Stream.of(poison)).collect(Collectors.toUnmodifiableSet()));
     }
 
-    public boolean hasUserThrownDice() {
+    public PlayerDto addShards(int amount) {
+        return withShards(shards + amount);
+    }
+
+    public boolean hasDiceRolled() {
         return !mostRecentDiceRoll.isEmpty();
     }
 }

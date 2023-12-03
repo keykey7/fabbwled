@@ -4,11 +4,9 @@ import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
 public class Section44 implements SectionHandler {
 
 	@Override

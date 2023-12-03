@@ -5,14 +5,10 @@ import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
 import ch.bbw.fabbwled.lands.service.effects.OnAttributeRefresh;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
-@RequiredArgsConstructor
 public class Section82 implements SectionHandler {
 
     private static final String POISON = "Golden insect (COMBAT –1)";
@@ -24,7 +20,7 @@ public class Section82 implements SectionHandler {
 
     @Override
     public SectionNode getBody(PlayerDto current) {
-        var hasRolled = current.hasUserThrownDice();
+        var hasRolled = current.hasDiceRolled();
         return SectionNode.root()
                 .text("You are following the course of the Stinking River – and it " +
                         "certainly does stink, laden with sulphur as it is.")

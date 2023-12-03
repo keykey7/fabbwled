@@ -14,5 +14,16 @@ public class Character {
         public BaseStatsDto withCombatAdd(int amount) {
             return withCombat(Math.max(combat + amount, 1));
         }
+
+        public int getByType(AbilityEnum type) {
+            return switch (type) {
+                case MAGIC -> magic;
+                case CHARISMA -> charisma;
+                case COMBAT -> combat;
+                case SANCTITY -> sanctity;
+                case SCOUTING -> scouting;
+                case THIEVERY -> thievery;
+            };
+        }
     }
 }

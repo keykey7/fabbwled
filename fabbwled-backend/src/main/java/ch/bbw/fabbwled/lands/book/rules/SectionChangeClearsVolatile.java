@@ -15,6 +15,7 @@ public class SectionChangeClearsVolatile implements OnPlayerChange {
         if (!before.currentSection().equals(after.currentSection())) {
             log.info("changing section effect");
             after = after.withDiceRoll(0) // clear last dice roll
+                    .withLastDifficultyRoll(null)
                     .withVolatileSectionStore(null);
         }
         return after;
