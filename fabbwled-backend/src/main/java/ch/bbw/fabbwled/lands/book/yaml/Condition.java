@@ -31,9 +31,6 @@ public interface Condition {
         @Override
         public boolean isActive(PlayerSession session, SectionId section) {
 
-            if(PlayerSession.getMaxTickboxValues().containsKey(section)) {
-                return session.getPlayer().getIsTickboxDone(section);
-            }
             return session.getPlayer().tickBoxes().get(section) == 1;
         }
     }

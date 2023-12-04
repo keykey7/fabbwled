@@ -35,21 +35,6 @@ public class PlayerSession {
     private boolean initialCreation;
 
 
-    public PlayerSession() {
-        //INITIALIZE TICK BOXES
-        initializeTickboxes();
-        // TODO Initislisze locations of sections
-    }
-
-    private void initializeTickboxes() {
-        Map<SectionId, Integer> tickBoxes = new HashMap<>(Collections.emptyMap());
-        tickBoxes.put(SectionId.book1(264), 0);
-        player = player.withTickBoxes(tickBoxes);
-    }
-
-    @Getter
-    protected static Map<SectionId, Integer> maxTickboxValues = Collections.emptyMap();
-
     public void validateInitialCreation(PlayerDto playerDto) {
         Character.BaseStatsDto stats = playerDto.baseStats();
         int charisma = stats.charisma();
@@ -123,11 +108,6 @@ public class PlayerSession {
                             Resurrection resurrectionArrangement,
                             Set<BlessingEnum> blessings
     ) {
-
-
-        public boolean getIsTickboxDone(SectionId sectionId) {
-            return Objects.equals(this.tickBoxes().get(sectionId), PlayerSession.maxTickboxValues.getOrDefault(sectionId,0));
-        }
 
         public int getDefence() {
             return this.rank().getRankNumber() + this.baseStats().combat();
