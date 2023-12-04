@@ -11,9 +11,7 @@ import lombok.With;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.UnaryOperator;
 
 /**
@@ -31,6 +29,7 @@ public class PlayerSession {
     private PlayerDto player = initialCharacter.player();
     @Setter
     private boolean initialCreation;
+
 
     public void validateInitialCreation(PlayerDto playerDto) {
         Character.BaseStatsDto stats = playerDto.baseStats();
@@ -58,18 +57,18 @@ public class PlayerSession {
             if (this.initialCreation) {
                 validateInitialCreation(playerDto);
             }
-            if (playerDto.shards().shardCount() > player.shards().shardCount()){
+            if (playerDto.shards().shardCount() > player.shards().shardCount()) {
                 int ShardsAmount = playerDto.shards().shardCount() - player.shards().shardCount();
                 playerDto.shards().addShards(ShardsAmount);
             }
-            if (playerDto.shards().shardCount() < player.shards().shardCount()){
+            if (playerDto.shards().shardCount() < player.shards().shardCount()) {
                 int ShardsAmount = player.shards().shardCount() - playerDto.shards().shardCount();
                 playerDto.shards().subtractShards(ShardsAmount);
             }
             if (playerDto.possessions().size() > 12) {
                 throw new FabledBusinessException("Character possession size not allowed over 12");
             }
-            if(playerDto.stamina > playerDto.getMaxStamina()) {
+            if (playerDto.stamina > playerDto.getMaxStamina()) {
                 throw new FabledBusinessException("Stamina can't be bigger than max stamina");
             }
 
@@ -82,6 +81,7 @@ public class PlayerSession {
     public void update(UnaryOperator<PlayerDto> modifier) {
         var temporaryPlayer = modifier.apply(player);
         validatePlayer(temporaryPlayer);
+
         player = modifier.apply(player);
     }
 
@@ -96,7 +96,7 @@ public class PlayerSession {
                             String god,
                             int staminaWhenUnwounded,
                             Character.BaseStatsDto baseStats,
-                            List<String> possessions, 
+                            List<String> possessions,
                             ShardSystem shards,
                             Map<SectionId, Integer> tickBoxes,
                             Set<String> codeWords,
@@ -107,12 +107,12 @@ public class PlayerSession {
                             ) {
 
 
-
         public int getDefence() {
             return this.rank().getRankNumber() + this.baseStats().combat();
         }
+
         public int getMaxStamina() {
-            return ( this.rank().getRankNumber() - 1 ) + this.staminaWhenUnwounded;
+            return (this.rank().getRankNumber() - 1) + this.staminaWhenUnwounded;
         }
     }
 
