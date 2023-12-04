@@ -1,6 +1,7 @@
 import "./character-card.scss";
 import { setCharacter } from "../../api/character.ts";
 import { CharacterCreateDto } from "../../interfaces/character.ts";
+import {Link} from "react-router-dom";
 
 type CharacterCardProps = {
   character: CharacterCreateDto;
@@ -40,12 +41,14 @@ export default function CharacterCard(props: CharacterCardProps) {
         <p className="description">{character.description}</p>
       </div>
       <div>
+        <Link to={'/game'}>
         <button
           className="character-select-button"
           onClick={() => setCharacter(character)}
         >
           Select
         </button>
+        </Link>
       </div>
     </div>
   );
