@@ -2,13 +2,10 @@ package ch.bbw.fabbwled.lands.book.yaml;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
-import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public interface Action {
     default void simpleVerify() {
@@ -29,11 +26,10 @@ public interface Action {
 
     record TextAction(String text) implements Action {
         @Override
-        public void simpleVerify() {}
-
-        @Override
-        public YamlReachabilityResult verifyReachability() {
-            return YamlReachabilityResult.NORMAL;
+        public void simpleVerify() {
+            if (this.text().contains("  ")) {
+                throw new FabledTechnicalException("Text contains double spaces. Replace all double spaces with a single space.");
+            }
         }
 
         @Override
@@ -90,9 +86,7 @@ public interface Action {
     record AcquireKeywordAction(String keyword) implements Action {
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            var id = writer.addHandler(player -> player.withCodeWords(Stream.concat(player.codeWords().stream(), Stream.of(this.keyword))
-                    .collect(Collectors.toSet())));
-            return parent.clickable(id, node -> node.text("Acquire keyword " + keyword));
+            return parent.clickable(player -> player.addCodeWord(keyword), node -> node.text("Acquire keyword " + keyword));
         }
     }
 
@@ -100,40 +94,24 @@ public interface Action {
     record AcquirePosessionAction(String possession) implements Action {
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            var id = writer.addHandler(player -> player.withPossessions(Stream.concat(player.possessions().stream(), Stream.of(this.possession))
-                    .collect(Collectors.toList())));
-            return parent.clickable(id, node -> node.text("Acquire possession " + possession));
+            return parent.clickable(player -> player.addPossession(possession), node -> node.text("Acquire possession " + possession));
         }
     }
 
     record CheckTickBoxAction(boolean set) implements Action {
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            var current = writer.getSession().getPlayer().tickBoxes().getOrDefault(writer.getSectionId(), 0) == 1;
-            var id = writer.addHandler(player -> {
-                player.tickBoxes().put(writer.getSectionId(), this.set ? 1 : 0);
-                return player;
-            });
-            return parent.clickable(id, node -> node.append(SectionNode.SimpleNode.tickbox(current)));
+            return parent.clickable(player -> player.addTick(), node -> node.text("Tick one more box."));
         }
     }
 
     record SpendShardsAction(int amount) implements Action {
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            var current = writer.getSession().getPlayer().shards().shardCount();
-            // Note: this also needs to work with negative amounts, which it does
-            var canAfford = current >= this.amount;
-
-            var id = writer.addHandler(player -> {
-                if (!canAfford) {
-                    throw new FabledBusinessException("Player cannot afford payment");
-                }
-                return player.withShards(new ShardSystem(current - amount));
-            });
             var msg = amount > 0 ? ("Buy for " + amount + " shards") : ("Get " + -amount + " shards");
-            return parent.activeIf(canAfford,
-                    node -> parent.clickable(id, node1 -> node1.text(msg)));
+            var canBuy = writer.getSession().getPlayer().shards() > amount;
+            return parent.activeIf(canBuy,
+                    node -> node.clickable(player -> player.addShards(-amount), node1 -> node1.text(msg)));
         }
     }
 

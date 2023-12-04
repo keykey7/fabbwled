@@ -148,6 +148,10 @@ public record PlayerDto(String name,
         return withPoisons(Stream.concat(poisons.stream(), Stream.of(poison)).collect(Collectors.toUnmodifiableSet()));
     }
 
+    public PlayerDto addCodeWord(String keyword) {
+        return withCodeWords(Stream.concat(codeWords.stream(), Stream.of(keyword)).collect(Collectors.toUnmodifiableSet()));
+    }
+
     public PlayerDto addShards(int amount) {
         return withShards(shards + amount);
     }

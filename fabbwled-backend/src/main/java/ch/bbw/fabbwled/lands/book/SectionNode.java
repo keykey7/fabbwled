@@ -101,7 +101,7 @@ public interface SectionNode {
 			};
 		}
 
-		ContainerNode append(SectionNode child) {
+		public ContainerNode append(SectionNode child) {
             children.add(child);
             return this;
 		}
@@ -175,11 +175,11 @@ public interface SectionNode {
         }
 
         public ContainerNode activeElseIf(boolean condition, Consumer<ContainerNode> child) {
-            return activeIf(!isPreviusIfActive() && condition, child);
+            return activeIf(!isPreviousIfActive() && condition, child);
         }
 
         public ContainerNode activeElse(Consumer<ContainerNode> child) {
-            return activeIf(!isPreviusIfActive(), child);
+            return activeIf(!isPreviousIfActive(), child);
         }
 
         /**
