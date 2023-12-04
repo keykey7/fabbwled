@@ -30,6 +30,7 @@ public interface Condition {
     record IsTickBoxDone(boolean isTickBoxDone) implements Condition {
         @Override
         public boolean isActive(PlayerSession session, SectionId section) {
+
             return session.getPlayer().tickBoxes().get(section) == 1;
         }
     }

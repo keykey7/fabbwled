@@ -13,3 +13,19 @@
         - text: Remain an initiate after all
           then:
             - turnTo: 615
+- number: 264
+  content:
+    - text: >
+        If there is a tick in the box, turn to 131. If not, put a tick there
+        now, and read on.
+        A large island made of reeds and plants, which grow out of a
+        massive floating bed of kelp, drifts aimlessly across the waters. As
+        you draw near, you see that a number of people have made their
+        home there. The inhabitants hail you, and invite you ashore.
+        Turn to 537.
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 131
+      else:
+        - turnTo: 537
