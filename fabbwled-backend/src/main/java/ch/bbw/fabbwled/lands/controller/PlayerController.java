@@ -1,15 +1,14 @@
 package ch.bbw.fabbwled.lands.controller;
 
-import ch.bbw.fabbwled.lands.book.SectionId;
-import ch.bbw.fabbwled.lands.service.PlayerSession;
 import ch.bbw.fabbwled.lands.character.Character;
 import ch.bbw.fabbwled.lands.service.CharacterService;
+import ch.bbw.fabbwled.lands.character.PlayerDto;
+import ch.bbw.fabbwled.lands.service.PlayerSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.http.ResponseEntity;
 
-import java.util.Collections;
 import java.util.List;
 
 @Validated
@@ -23,7 +22,7 @@ public class PlayerController {
     private final CharacterService characterService;
 
     @GetMapping()
-    public PlayerSession.PlayerDto whoami() {
+    public PlayerDto whoami() {
         return playerSession.getPlayer();
     }
 
@@ -33,18 +32,14 @@ public class PlayerController {
     }
 
     @PostMapping(consumes = "application/json")
-    public ResponseEntity<Character.CharacterCreateDto> setCharacter(@RequestBody Character.CharacterCreateDto createdPlayer) {
-        playerSession.setInitialCreation(true);
-        playerSession.update(player -> {
-            player = createdPlayer.player().withCurrentSection(SectionId.book1(1)).withTitlesAndHonours(Collections.emptySet());
-            return player;
-        });
-        playerSession.setInitialCreation(false);
-        return ResponseEntity.ok(new Character.CharacterCreateDto(playerSession.getPlayer(),createdPlayer.description()));
+    public void setCharacter(@RequestBody PlayerDto createdPlayer) {
+        characterService.validateInitialCreation(createdPlayer);
+        playerSession.forceSetNewPlayer(createdPlayer);
     } // Should only be used when the player is created
 
     @PutMapping()
-    public ResponseEntity<PlayerSession.PlayerDto> updatePlayer(@RequestBody PlayerSession.PlayerDto createdPlayer) {
+    public ResponseEntity<PlayerDto> updatePlayer(@RequestBody PlayerDto createdPlayer) {
+        // this endpoint is used for hacking and disabled in strict mode
         playerSession.update(player -> {
             player = createdPlayer;
             return player;
