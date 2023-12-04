@@ -26,23 +26,23 @@ class Section15Test extends FabledTestBase {
 
 	@Test
 	void canAvoidFight() {
-		assertThat(sectionService.onClick(Section15.ClickOptions.STEP_OUT.ordinal()).id())
+		assertThat(sectionService.onClick(1).id())
 				.isEqualTo(SectionId.book1(44));
 	}
 
 	@Test
-	void hasThreeOptions() {
-		assertThat(sectionService.getSectionHandler(section15.getId()).getBody().allClickIds()).hasSize(3);
+	void hasTwoActiveOptions() {
+		assertThat(sectionService.getSectionHandler(section15.getId()).getBody(playerSession.getPlayer()).allActiveClickIds()).hasSize(2);
 	}
 
 	@Test
 	void containsInsult() {
-		assertThat(sectionService.getSectionHandler(section15.getId()).getBody().asPlainText()).contains("insult");
+		assertThat(sectionService.getSectionHandler(section15.getId()).getBody(playerSession.getPlayer()).asPlainText()).contains("insult");
 	}
 
 	@Test
 	void cannotChickenOut() {
-		assertThatThrownBy(() -> sectionService.onClick(Section15.ClickOptions.PROTECTOR.ordinal()))
+		assertThatThrownBy(() -> sectionService.onClick(0))
 				.isInstanceOf(FabledBusinessException.class);
 	}
 }
