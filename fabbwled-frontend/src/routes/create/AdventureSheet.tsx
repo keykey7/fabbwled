@@ -106,6 +106,10 @@ export default function AdventureSheet() {
         <Typography variant="h4" gutterBottom style={{ textAlign: "center" }}>
           Adventure Sheet
         </Typography>
+          <hr />
+          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+              Base stats
+          </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Grid container>
             {/* Row 1 */}
@@ -166,7 +170,9 @@ export default function AdventureSheet() {
             </Grid>
             <Grid item xs={4} />
           </Grid>
-          <br />
+            <br/>
+
+          <hr />
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Abilities
           </Typography>
@@ -315,12 +321,8 @@ export default function AdventureSheet() {
           <br />
 
           {/* Row 5 */}
-          <Grid container>
-            <Grid item xs={3} />
-            <Grid item xs={3}></Grid>
-          </Grid>
-          <br />
-          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+            <hr />
+            <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Possessions
           </Typography>
 
@@ -346,10 +348,10 @@ export default function AdventureSheet() {
             </Grid>
           </Grid>
           <br />
-          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-            Other values
+            <hr />
+            <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+              Other values
           </Typography>
-
           {/* Row 7 */}
           <Grid container>
             <Grid item xs={3} />
