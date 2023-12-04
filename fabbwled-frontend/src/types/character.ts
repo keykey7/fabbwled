@@ -1,1 +1,7 @@
-type Profession = "WAYFARER" | "WARRIOR" | "MAGE" | "ROGUE" | "PRIEST" | "TROUBADOUR";
+type Profession =
+  | "WAYFARER"
+  | "WARRIOR"
+  | "MAGE"
+  | "ROGUE"
+  | "PRIEST"
+  | "TROUBADOUR";
