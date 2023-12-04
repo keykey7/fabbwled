@@ -15,6 +15,10 @@ import {useFormik} from "formik";
 import validationSchema from "./AdventureSheetSchema.ts";
 import { setCharacter } from "../../api/character.ts";
 import { CharacterCreateDto } from "../../interfaces/character.ts";
+import {useState} from "react";
+import AlertMessage from "../../components/AlertMessage.tsx";
+import {useNavigate} from "react-router";
+
 
 const professions: Profession[] = [
     "WAYFARER",
@@ -26,31 +30,34 @@ const professions: Profession[] = [
 ];
 
 const defaultPossessions = ["sword", "leather jerkin (Defence +1)", "map"];
+
+const initialValues = {
+    name: "",
+    profession: professions[0],
+    rank: 1,
+    charisma: 1,
+    combat: 1,
+    magic: 1,
+    sanctity: 1,
+    scouting: 1,
+    thievery: 1,
+    staminaCurrent: 9,
+    staminaWhenUnwounded: 9,
+    possessions: defaultPossessions,
+    titlesAndHonours: "",
+    money: 16,
+    description: "",
+    god: "",
+    blessings: "",
+};
 export default function AdventureSheet() {
-    const initialValues = {
-        name: "",
-        profession: professions[0],
-        rank: 1,
-        charisma: 1,
-        combat: 1,
-        magic: 1,
-        sanctity: 1,
-        scouting: 1,
-        thievery: 1,
-        staminaCurrent: 9,
-        staminaWhenUnwounded: 9,
-        possessions: defaultPossessions,
-        titlesAndHonours: "",
-        money: 16,
-        description: "",
-        god: "",
-        blessings: "",
-    };
+    const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState('');
 
     const formik = useFormik({
         initialValues,
         validationSchema,
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
             console.log("Form submitted with values:", values);
 
             const characterCreateDto: CharacterCreateDto = {
@@ -80,7 +87,15 @@ export default function AdventureSheet() {
                 },
                 description: formik.values.description,
             };
-            setCharacter(characterCreateDto).then((r) => console.log(r));
+            try {
+                await setCharacter(characterCreateDto);
+                setErrorMessage('');
+
+                navigate('/game')
+            } catch (error) {
+                setErrorMessage('Failed to create character. Please try again.');
+                console.error(error);
+            }
         },
     });
 
@@ -456,6 +471,14 @@ export default function AdventureSheet() {
                         </Button>
                     </div>
                 </form>
+                <br/>
+                {errorMessage && (
+                    <AlertMessage
+                        severity="error"
+                        message={errorMessage}
+                        onClose={() => setErrorMessage('')}
+                    />
+                )}
                 <br/>
             </Container>
             <br/>
