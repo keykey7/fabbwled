@@ -1,6 +1,6 @@
 - number: 253
   content:
-    - text: >
+    - text: |
         To renounce the worship of Lacuna, you must pass an ordeal of
         judgment. This entails the high priestess throwing several silver
         daggers at you, while you remain motionless.
@@ -15,7 +15,7 @@
             - turnTo: 615
 - number: 264
   content:
-    - text: >
+    - text: |
         If there is a tick in the box, turn to 131. If not, put a tick there
         now, and read on.
         A large island made of reeds and plants, which grow out of a
@@ -29,3 +29,12 @@
         - turnTo: 131
       else:
         - turnTo: 537
+- number: 269
+  content:
+    - text: |
+        You find a natural alcove in the wall of a tunnel. Desperately,
+        you squeeze yourself into it, and fade into the shadows. The
+        ratmen come bundling past, whooping and yelling. None of
+        them spot you, and once they have gone you step out, smiling
+        to yourself. Turn to 580.
+    - turnTo: 580
