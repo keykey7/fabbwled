@@ -1,6 +1,11 @@
 import React from "react";
 
-export type SectionElementStyle = "NONE" | "SECTION" | "ITEM" | "ABILITY" | "TICKBOX";
+export type SectionElementStyle =
+  | "NONE"
+  | "SECTION"
+  | "ITEM"
+  | "ABILITY"
+  | "TICKBOX";
 
 export type Container = {
   children: SectionElement[];
@@ -25,23 +30,30 @@ export type SectionElement = Simple | Clickable | Container;
 
 type OnClickCallBack = (clickId: Clickable["clickId"]) => void;
 
+type OnSectionChangeCallback = (section: string) => void;
+
 export function convertToElement(
   element: SectionElement,
   onClick: OnClickCallBack,
+  onSectionChange: OnSectionChangeCallback
 ): React.ReactElement {
   switch (element.type) {
     case "CLICKABLE":
       return (
         <a onClick={() => onClick(element.clickId)}>
-          {convertToElement(element.child, onClick)}
+          {convertToElement(element.child, onClick, onSectionChange)}
         </a>
       );
-    case "SIMPLE":
-      return <p style={convertStyle(element.style)}>{element.text}</p>;
+    case "SIMPLE": {
+      if(element.style === "SECTION") {
+        return <a onClick={() => onSectionChange(element.text)} href="#" style={convertStyle(element.style)}>{element.text}</a>
+      }
+      return <p style={convertStyle(element.style)}>{element.text}</p>
+    }
     case "CONTAINER":
       return (
         <div style={convertStyle(element.style)}>
-          {element.children.map((el) => convertToElement(el, onClick))}
+          {element.children.map((el) => convertToElement(el, onClick, onSectionChange))}
         </div>
       );
     default:

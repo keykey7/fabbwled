@@ -1,3 +1,5 @@
+import {Container} from "../SectionRenderer.tsx";
+
 interface CharacterCreateDto {
   player: Player;
   description: string;
@@ -44,8 +46,12 @@ interface BaseStats {
 }
 
 export interface Section {
-  bookId: number;
-  sectionId: number;
+  id: string;
+  body: Container;
+  ticks: {
+    total: number;
+    ticked: number
+  }
 }
 
 interface Shards {
