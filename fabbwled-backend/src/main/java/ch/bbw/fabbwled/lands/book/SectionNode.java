@@ -163,7 +163,7 @@ public interface SectionNode {
 			return append(childNode);
 		}
 
-        private boolean isPreviusIfActive() {
+        private boolean isPreviousIfActive() {
             var previous = children.stream().filter(ContainerNode.class::isInstance)
                     .map(x -> (ContainerNode) x)
                     .filter(x -> List.of(ContainerStyle.ENABLED, ContainerStyle.DISABLED).contains(x.style))
