@@ -27,7 +27,7 @@ public class Section4 implements SectionHandler {
     public SectionNode getBody() {
         return SectionNode.root().text("""
                         The  priests  of  Alvir  and  Valmir  are  overjoyed  that  you  have returned the golden net.
-                                The high priest rewards you with 100 Shards  and  a  magic  weapon,  a  rune-engraved  trident. 
+                                The high priest rewards you with 100 Shards  and  a  magic  weapon,  a  rune-engraved  trident.
                                 Note  the weapon,  a  trident  (COMBAT  +1),  on  your  Adventure  Sheet. """)
 
                 .clickableTurnTo(1,220);

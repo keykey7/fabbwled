@@ -27,7 +27,7 @@ public class Section34 implements SectionHandler {
         return SectionNode.root().text("""
                         You make it only 50 feet up the sheer rockface before you lose
                         your footing and fall to the ground. Lose 4 Stamina points. If
-                        you still live, turn to 658 where you can try again, if you like.""")
+                        you still live.""")
 
                 .clickableTurnTo(1, 658);
     }
