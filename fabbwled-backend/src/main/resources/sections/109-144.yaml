@@ -90,7 +90,7 @@
 
 - number: 133
   content:
-    - text: | 
+    - text: |
         You are forced back by the flames. Some townsfolk, covered in wet blankets, manage to get the woman out.
         They are treated like heroes – you are forgotten. Such is life.
     - turnTo: 100
