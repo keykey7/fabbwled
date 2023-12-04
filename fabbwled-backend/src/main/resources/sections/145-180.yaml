@@ -23,9 +23,70 @@
               then:
                 - turnTo: 468
       else:
-            - text: Return the insult
+            - text: Refuse to pay
               then:
                 - turnTo: 468
+- number: 150
+  content:
+    - text: |
+        Cross off the 10 Shards. You get a berth on a merchantman 
+        headed for Marlock City. It is a trouble-free journey. 
+          ‘I pay everyone off – the Sokarans, the pirates,’ says the 
+        captain. ‘That way I get left alone.’
+      then:
+        - turnTo: 100
+
+- number: 151
+  content:
+    - text: |
+        Inside the cave, you find Damor the Hermit, floating cross-
+        legged in the air. ‘I told you never to come back!’ he shouts 
+        angrily. He waves his hand, and you are teleported back down 
+        to the bottom of the mountain before you can say a word.
+      then:
+        - turnTo: 244
+
+- number: 154
+  content:
+    - text: |
+        The temple of Alvir and Valmir, Divine Rulers of the House of 
+        the Sea, is right on the teeming harbour of Marlock City. Its 
+        sea-green marbled porticos are draped in a hundred silver nets. 
+        Brother and sister, Alvir and Valmir rule below the waves. Alvir 
+        brings the souls of the drowned in his nets before his sister, 
+        Valmir, for judgement. 
+          A swaggering ship’s captain emerges from the temple, saying 
+        to you in passing, ‘Never, I mean never go to sea without paying 
+        your respects to the twin gods – unless ye want to sail through a 
+        world of storms!’
+    - choice:
+        - text: Become an initiate
+          then:
+            - turnTo: 343
+        - text: Renounce their worship
+          then:
+            - turnTo: 68
+        - text: Seek a blessing
+          then:
+            - turnTo: 275
+        - text: Leave the temple
+          then:
+            - turnTo: 100
+
+- number: 155
+  content:
+    - text: |
+        One of the Trading Post sailors rows you out to your ship 
+        anchored in the bay. ‘Welcome aboard, Cap’n,’ says the mate. 
+        The sky is clear and the smell of the sea fills your heart with 
+        wanderlust.
+    - choice:
+        - text: Set sail into the Sea of Whispers
+          then:
+            - turnTo: 136
+        - text: Return to the Trading Post
+          then:
+            - turnTo: 195
 
 - number: 156
   content:
@@ -36,6 +97,48 @@
         Blessed Springs are known to be efficacious in this kind of case.’
       then:
         - turnTo: 100
+
+- number: 158
+  content:
+    - text: |
+        The Three Rings Tavern is a comfortable inn near the city 
+        centre. The tavern costs you 1 Shard a day. Each day you spend 
+        here, you can recover 1 Stamina point if injured, up to the limit 
+        of your normal unwounded Stamina score.
+
+    - if:
+        needsAtLeastShards: {
+          description: Needs at least this many shards (inclusive),
+          number: 3
+        }
+      then:
+        - choice:
+            - text: Pay 3 more Shards and buy some drinks
+              then:
+                - turnTo: 147
+            - text: Leave the tavern
+              then:
+                - turnTo: 100
+      else:
+            - text: Leave the tavern
+              then:
+                - turnTo: 100
+
+- number: 159
+  content:
+    - text: |
+        Your mind falls into a waking dream, and you walk lazily into 
+        the waters. The mer-folk, laughing and singing, take you down 
+        to their undersea home of living coral, where they stop you 
+        from drowning with their faery magic. They keep you for 
+        several weeks, until you are no longer an amusement to them. 
+          You wake up, as is from a long sleep, with only a shadowy 
+        memory of your ordeal, to find yourself washed up in the 
+        harbour of Yellowport. You have lost all the possessions you 
+        were carrying (erase them from your Adventure Sheet) but you 
+        still have your money.
+
+
 
 - number: 163
   content:
@@ -73,6 +176,36 @@
         mountains. Eventually, you reach the safety of the foothills.
       then:
         - turnTo: 474
+
+- number: 169
+  content:
+    - text: |
+        If there is a tick in the box, turn to 443 immediately. If not, put 
+        a tick there now, and read on. 
+        You see a couple of Sokaran warships, pursuing two other 
+        ships. Your first mate says, ‘See the Red Pennants on them thar
+        ships? They be pirates, running from the Sokarans!’
+        
+        Help the Sokarans turn to 286
+        Help the pirates turn to 394
+        Ignore the battle turn to 443
+    - if:
+        isTickBoxDone:
+      then:
+        - turnTo: 443
+      else:
+        - choice:
+          - text: Help the Sokarans
+            then:
+              - turnTo: 284
+          - text: Help the pirates
+            then:
+              - turnTo: 394
+          - text: Ignore the battle
+            then:
+              - turnTo: 443
+
+
 
 - number: 171
   content:
