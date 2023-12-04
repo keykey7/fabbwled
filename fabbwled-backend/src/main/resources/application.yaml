@@ -11,7 +11,7 @@ server:
   servlet:
     session:
       cookie:
-        http-only: true
+        http-only: false
         secure: true
 spring:
   application:
