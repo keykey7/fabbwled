@@ -41,13 +41,13 @@ export default function CharacterCard(props: CharacterCardProps) {
         <p className="description">{character.description}</p>
       </div>
       <div>
-        <Link to={'/game'}>
-        <button
-          className="character-select-button"
-          onClick={() => setCharacter(character)}
-        >
-          Select
-        </button>
+        <Link to={"/game"}>
+          <button
+            className="character-select-button"
+            onClick={() => setCharacter(character)}
+          >
+            Select
+          </button>
         </Link>
       </div>
     </div>
