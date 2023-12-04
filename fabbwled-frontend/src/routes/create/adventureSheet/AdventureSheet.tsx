@@ -13,9 +13,9 @@ import {
 import "./adventure-sheet.scss";
 import { useFormik } from "formik";
 import validationSchema from "./AdventureSheetSchema.ts";
-import { setCharacter } from "../../api/character.ts";
+import { setCharacter } from "../../../api/character.ts";
 import { useState } from "react";
-import AlertMessage from "../../components/AlertMessage.tsx";
+import AlertMessage from "../../../components/AlertMessage/AlertMessage.tsx";
 import { useNavigate } from "react-router";
 import { CharacterCreateDto } from "../../interfaces/character.ts";
 

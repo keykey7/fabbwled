@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CharacterCard from "../../components/CharacterCard/CharacterCard.tsx";
+import CharacterCard from "../../../components/CharacterCard/CharacterCard.tsx";
 import "./existing-characters.scss";
 import {getAllCharacters} from "../../api/character.ts";
 import { CharacterCreateDto } from "../../interfaces/character.ts";
