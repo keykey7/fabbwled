@@ -50,6 +50,10 @@ public class ActionBuilder {
 
                 return new Action.Choice(choices);
             }),
+            new ActionKind("acquireKeyword", RawAction::acquireKeyword, raw -> new Action.AcquireKeywordAction(raw.acquireKeyword())),
+            new ActionKind("checkTickBox", RawAction::checkTickBox, raw -> new Action.CheckTickBoxAction(raw.checkTickBox())),
+            new ActionKind("acquirePossession", RawAction::acquirePossession, raw -> new Action.AcquirePosessionAction(raw.acquirePossession())),
+            new ActionKind("spendShards", RawAction::spendShards, raw -> new Action.SpendShardsAction(raw.spendShards())),
             new ActionKind("turnTo", RawAction::turnTo, raw -> new Action.TurnToAction(new SectionId(1, raw.turnTo())))
     );
 
