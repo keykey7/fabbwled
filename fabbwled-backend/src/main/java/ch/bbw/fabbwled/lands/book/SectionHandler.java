@@ -1,5 +1,7 @@
 package ch.bbw.fabbwled.lands.book;
 
+import ch.bbw.fabbwled.lands.character.PlayerDto;
+
 /**
  * Implementations of this are expected to be annotated by {@code org.springframework.stereotype.Component}.
  * Each section implements the rendering and the decision logic by this.
@@ -16,19 +18,13 @@ public interface SectionHandler {
 	 * @return the idempotent content of this section.
 	 * @see SectionNode
 	 */
-	SectionNode getBody();
-
-	/**
-	 * Indicated player interaction with this section. The id is an internal identifier of this section.
-	 * @param id an action identifier as defined by {@code #getBody}.
-	 */
-	void onClick(int id);
+	SectionNode getBody(PlayerDto current);
 
 	/**
 	 * In case this section requires ticks/checkboxes.
 	 * @return checkboxes (default is none)
 	 */
-	default SectionDto.SectionTicks getTicks() {
-		return SectionDto.SectionTicks.none();
+	default int getMaxTicks() {
+		return 0;
 	}
 }
