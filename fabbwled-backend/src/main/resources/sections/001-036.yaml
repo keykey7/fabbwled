@@ -103,6 +103,7 @@
         - acquireKeyword: "Altitude"
           then:
             - turnTo: 100
+    - turnTo: 100 # There to 'fix section loader'
 - number: 11
   content:
     - text: |
@@ -207,6 +208,7 @@
         - acquireKeyword: "Ambuscade"
           then:
             - turnTo: 474
+    - turnTo: 474 # There to 'fix' section loader
 - number: 26
   content:
     - text: |
@@ -269,8 +271,7 @@
         count on it.’ With that he leaves.
         You stagger out of the pool.
     - acquireKeyword: "Aklar"
-      then:
-        - turnTo: 510
+    - turnTo: 510
 - number: 32
   content:
     - text: |

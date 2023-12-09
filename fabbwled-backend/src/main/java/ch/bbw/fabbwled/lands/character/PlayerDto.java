@@ -130,6 +130,10 @@ public record PlayerDto(String name,
         return withBaseStats(mod.apply(baseStats));
     }
 
+    public PlayerDto subtractStamina(int amount) {
+        return withStamina(stamina()-amount);
+    }
+
     public PlayerDto removePossession(String item) {
         var tmp = new ArrayList<>(possessions);
         tmp.remove(item);
@@ -150,6 +154,12 @@ public record PlayerDto(String name,
 
     public PlayerDto addCodeWord(String keyword) {
         return withCodeWords(Stream.concat(codeWords.stream(), Stream.of(keyword)).collect(Collectors.toUnmodifiableSet()));
+    }
+
+    public PlayerDto addPersistentSectionStorage(Serializable persistentSectionValue) {
+        var tmp = new HashMap<>(persistentSectionStore);
+        tmp.put(currentSection,persistentSectionValue);
+        return withPersistentSectionStore(Collections.unmodifiableMap(tmp));
     }
 
     public PlayerDto addShards(int amount) {

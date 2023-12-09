@@ -3,7 +3,7 @@ package ch.bbw.fabbwled.lands.book.yaml;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 
-public class YamlSectionLoaderTest implements WithAssertions {
+class YamlSectionLoaderTest implements WithAssertions {
     private final YamlSectionLoader loader = new YamlSectionLoader();
 
     @Test

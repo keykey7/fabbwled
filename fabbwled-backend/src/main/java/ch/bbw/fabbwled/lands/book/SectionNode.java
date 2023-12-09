@@ -143,7 +143,7 @@ public interface SectionNode {
 
         /**
          * @param action what would change if the player would click on it
-         * @param child  content of the click (like what's inside an {@code <a>-tag}.
+         * @param child  content of the click like what's inside an {@code <a>-tag}.
          */
         public ContainerNode clickable(PlayerChange action, Consumer<ContainerNode> child) {
             var childNode = empty();
