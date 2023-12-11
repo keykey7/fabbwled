@@ -118,7 +118,7 @@ public interface SectionNode {
 		 * a shortform for the commen "turn to XY"-action
 		 */
 		public ContainerNode clickableTurnTo(int section) {
-            return clickable(playerDto -> playerDto.withCurrentSectionId(section), x -> x.text("turn to ").section(section));
+            return text("turn to ").clickable(playerDto -> playerDto.withCurrentSectionId(section), x -> x.section(section));
 		}
 
         public ContainerNode clickableRollDice(int dice) {
