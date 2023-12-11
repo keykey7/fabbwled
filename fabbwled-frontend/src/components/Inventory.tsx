@@ -1,15 +1,5 @@
-import React, {useState} from 'react';
-import {
-    Button,
-    Modal,
-    Box,
-    Typography,
-    Input,
-    List,
-    ListItem,
-    ListItemText,
-    IconButton,
-} from '@mui/material';
+import {useState} from 'react';
+import {Box, Button, IconButton, Input, List, ListItemButton, ListItemText, Modal, Typography,} from '@mui/material';
 import {Close} from "@mui/icons-material";
 import background from '../../public/inventory-background.png';
 
@@ -18,7 +8,11 @@ interface Item {
     name: string;
 }
 
-const Inventory: React.FC = () => {
+type InventoryProps = {
+    onAction: () => void;
+};
+
+const Inventory = ({onAction}: InventoryProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedItem, setSelectedItem] = useState<Item | null>(null);
@@ -31,7 +25,7 @@ const Inventory: React.FC = () => {
         {id: 5, name: 'Item 5'},
         {id: 6, name: 'Item 6'},
         {id: 7, name: 'Item 7'},
-    ];
+        ];
 
     const filteredItems = inventory.filter((item) =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -44,6 +38,7 @@ const Inventory: React.FC = () => {
     const handleActionClick = () => {
         if (selectedItem) {
             alert(`Action performed for ${selectedItem.name}`);
+            onAction();
         }
     };
 
@@ -54,20 +49,18 @@ const Inventory: React.FC = () => {
                 <Box
                     sx={{
                         position: 'absolute',
-                        width: '65vw',
+                        width: '60vw',
                         height: '70vh',
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        bgcolor: 'rgba(255, 255, 255, 0.2)', // Weiß mit Transparenz
                         backgroundImage: `url(${background})`,
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
                         boxShadow: 3,
+                        borderRadius: 7,
+                        textAlign: "center"
                     }}
                 >
-                    <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <Box sx={{justifyContent: 'space-between', alignItems: 'center'}}>
                         <Typography variant="h6">Inventory</Typography>
                         <IconButton onClick={() => setIsOpen(false)}>
                             <Close/>
@@ -79,15 +72,15 @@ const Inventory: React.FC = () => {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <List sx={{maxHeight: 200, overflowY: 'auto'}}>
+                    <List sx={{maxHeight: 200, overflowY: 'auto', alignItems: "center", textAlign: "center"}}>
                         {filteredItems.map((item) => (
-                            <ListItem
+                            <ListItemButton
                                 key={item.id}
                                 onClick={() => handleItemClick(item)}
-                                color={"#FFFFFF"}
+                                selected={selectedItem?.id === item.id}
                             >
                                 <ListItemText primary={item.name}/>
-                            </ListItem>
+                            </ListItemButton>
                         ))}
                     </List>
                     <Button
