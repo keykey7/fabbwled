@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class Section34 implements SectionHandler {
-    private final PlayerSession playerSession;
 
     @Override
     public SectionId getId() {
@@ -22,13 +21,12 @@ public class Section34 implements SectionHandler {
 
     @Override
     public SectionNode getBody(PlayerDto current) {
-        playerSession.update(x -> x.subtractStamina(4));
         return SectionNode.root().text("""
                         You make it only 50 feet up the sheer rockface before you lose
                         your footing and fall to the ground. Lose 4 Stamina points. If
                         you still live.""")
 
-                .clickableTurnTo(658);
+                .clickable(x -> x.subtractStamina(4),x -> x.clickableTurnTo(658));
     }
 
 

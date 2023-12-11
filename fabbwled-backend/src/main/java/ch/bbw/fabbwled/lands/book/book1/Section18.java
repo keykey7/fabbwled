@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class Section18 implements SectionHandler {
-    private final PlayerSession playerSession;
 
     @Override
     public SectionId getId() {
@@ -24,7 +23,6 @@ public class Section18 implements SectionHandler {
 
     @Override
     public SectionNode getBody(PlayerDto current) {
-        playerSession.update(x -> x.addShards(15));
         return SectionNode.root().text("""
                         You spin them a tale about how your poor brother, a mercenary
                         in Grieve Marlock’s personal guard, lost his legs in the fight to
@@ -33,6 +31,6 @@ public class Section18 implements SectionHandler {
                         by your eloquent speech – they end up having a whip-round
                         among themselves for your brother, and they give you 15
                         Shards! Chuckling to yourself, you return to the city centre.""")
-                .clickableTurnTo(10);
+                .clickable(x -> x.addShards(15), x -> x.clickableTurnTo(10));
     }
 }

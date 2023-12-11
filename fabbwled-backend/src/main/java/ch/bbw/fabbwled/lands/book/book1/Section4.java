@@ -22,14 +22,12 @@ public class Section4 implements SectionHandler {
     }
 
 
-
     @Override
     public SectionNode getBody(PlayerDto current) {
-        playerSession.update(x -> x.addShards(100).addPossession("trident  (COMBAT  +1)"));
         return SectionNode.root().text("""
                         The  priests of Alvir and  Valmir  are  overjoyed  that  you  have returned the golden net.
-                                The high priest rewards you with 100 Shards  and  a  magic  weapon,  a  rune-engraved  trident.
-                                Note the weapon, a trident  (COMBAT  +1),  on your  Adventure  Sheet.""")
+                                """)
+                .clickable(p -> p.addShards(100).addPossession("trident  (COMBAT  +1)"), x -> x.text("     The high priest rewards you with 100 Shards  and  a  magic  weapon,  a  rune-engraved  trident. Note the weapon, a trident  (COMBAT  +1),  on your  Adventure  Sheet."))
 
                 .clickableTurnTo(220);
     }

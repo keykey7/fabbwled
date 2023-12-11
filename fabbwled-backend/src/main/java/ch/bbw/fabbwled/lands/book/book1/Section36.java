@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class Section36 implements SectionHandler {
-    private final PlayerSession playerSession;
 
     @Override
     public SectionId getId() {
@@ -23,14 +22,13 @@ public class Section36 implements SectionHandler {
 
     @Override
     public SectionNode getBody(PlayerDto current) {
-        playerSession.update(x -> x.subtractStamina(4));
         return SectionNode.root().text("""
                             Soon you realize you are completely lost in this strange, magical
                             forest. You wander around for days, barely able to find enough
                             food and water. Lose 4 Stamina points. If you still live, you
                             eventually stagger out of the forest to the coast.""")
 
-                .clickableTurnTo(128);
+                .clickable(x -> x.subtractStamina(4),z -> z.clickableTurnTo(128));
     }
 
 }
