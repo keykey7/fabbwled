@@ -46,14 +46,16 @@
         justify-content: flex-start;
         flex-direction: column;
         align-self: center;
-        overflow-y: auto;
+
 
         &:nth-child(1) {
           grid-area: pageOne;
 
           .pageText {
-
+            overflow-y: auto;
+            max-height: 57vh;
           }
+
         }
         &:nth-child(2) {
           grid-area: pageTwo;
@@ -173,6 +175,9 @@
 }
 
 .pageIndicator {
+  position: sticky;
+  top: 0;
+  left: 0;
   text-align: center;
   margin-top: 0;
   font-weight: bold;

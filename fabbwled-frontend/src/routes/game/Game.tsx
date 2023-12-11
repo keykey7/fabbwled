@@ -1,33 +1,54 @@
 import styles from "./Game.module.scss";
 import { useEffect, useState } from "react";
 import DiceComponent from "../../DiceComponent.tsx";
-import { Link } from "react-router-dom";
 import { convertToElement } from "../../SectionRenderer.tsx";
-import { Section, Player } from "../../interfaces/character.ts";
+import { Player, Section } from "../../interfaces/character.ts";
 
 export default function Game() {
   const [character, setCharacter] = useState<Player>();
   const [section, setSection] = useState<Section>();
 
   useEffect(() => {
-    getCharacter();
-    getSection("1").then(setSection);
+    getCharacter().then((player: Player) => {
+      setCharacter(player);
+      getSection(player.currentSection.split("-")[1]).then(setSection);
+    });
   }, []);
 
   const getCharacter = async () => {
     const response = await fetch("http://localhost:8080/api/player");
-    const data = await response.json();
-    setCharacter(data);
+    return response.json();
   };
 
+  console.log(character);
   function rollDice(diceNumber: number) {
     console.log(diceNumber);
   }
 
-  const getSection = async (section: string): Promise<Section> => {
+  function newGame() {
+    document.cookie = "";
+  }
+
+  function exitGame() {
+    document.cookie = "";
+    window.location.href = "about:blank";
+  }
+
+  const clickItem = (clickId: string) =>
+    fetch(`http://localhost:8080/api/section/click`, {
+      method: "POST",
+      body: JSON.stringify({
+        clickId: parseInt(clickId, 10),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+
+  const getSection = async (sectionId: string): Promise<Section> => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/section/1/${section}`,
+        `http://localhost:8080/api/section/1/${sectionId}`,
       ); //${character?.currentSection.sectionId}
       const data = await response.json();
       console.log(data);
@@ -57,10 +78,16 @@ export default function Game() {
         <div className={styles.book}>
           <div className={styles.page}>
             <p className={styles.pageIndicator}>
-              {section?.id && section.id.split("-")[1]}
+              {section?.id ? section.id.split("-")[1] : ""}
             </p>
             <p className={styles.pageText}>
-              {section && convertToElement(section.body, () => {}, getSection)}
+              {section?.body
+                ? convertToElement(
+                    section.body,
+                    () => {},
+                    (id) => clickItem(id).then(setSection),
+                  )
+                : "Section not implemented"}
             </p>
           </div>
           <div className={styles.page}>
@@ -95,15 +122,17 @@ export default function Game() {
           ></DiceComponent>
         </div>
         <div className={styles.buttons}>
-          <Link to={"/create"}>
-            <button className={styles.pencil} title={"New Game"}>
-              <img src={"/pencil.png"} />
-            </button>
-          </Link>
+          <button
+            className={styles.pencil}
+            title={"New Game"}
+            onClick={newGame}
+          >
+            <img src={"/pencil.png"} />
+          </button>
           <button
             className={styles.eraser}
             title={"Exit the current game"}
-            onClick={() => window.close()}
+            onClick={exitGame}
           >
             <img src={"/eraser.png"} />
           </button>

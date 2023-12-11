@@ -7,7 +7,7 @@ interface CharacterCreateDto {
 
 export interface Player {
   name: string;
-  currentSection: Section;
+  currentSection: `1-${number}`;
   titlesAndHonours: string[];
   rank:
     | "OUTCAST"

@@ -16,7 +16,12 @@ export type Container = {
 export type Simple = {
   text: string;
   type: "SIMPLE";
-  style: SectionElementStyle;
+  style: "SECTION";
+  clickId: number;
+} | {
+  text: string;
+  type: "SIMPLE";
+  style: Exclude<SectionElementStyle, "SECTION">;
 };
 
 export type Clickable = {
@@ -30,7 +35,7 @@ export type SectionElement = Simple | Clickable | Container;
 
 type OnClickCallBack = (clickId: Clickable["clickId"]) => void;
 
-type OnSectionChangeCallback = (section: string) => void;
+type OnSectionChangeCallback = (clickId: number) => void;
 
 export function convertToElement(
   element: SectionElement,
@@ -39,6 +44,7 @@ export function convertToElement(
 ): React.ReactElement {
   switch (element.type) {
     case "CLICKABLE":
+      console.log(element.clickId)
       return (
         <a onClick={() => onClick(element.clickId)}>
           {convertToElement(element.child, onClick, onSectionChange)}
@@ -46,7 +52,7 @@ export function convertToElement(
       );
     case "SIMPLE": {
       if(element.style === "SECTION") {
-        return <a onClick={() => onSectionChange(element.text)} href="#" style={convertStyle(element.style)}>{element.text}</a>
+        return <a onClick={() => onSectionChange(element.clickId)} href="#" style={convertStyle(element.style)}>{element.text}</a>
       }
       return <p style={convertStyle(element.style)}>{element.text}</p>
     }
