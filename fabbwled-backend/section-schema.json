@@ -27,6 +27,10 @@
               "description": "Checks the tickbox",
               "type": "boolean"
             },
+            "useResurrectionDeal": {
+              "description": "Use a resurrection deal",
+              "type": "boolean"
+            },
             "acquireKeyword": {
               "description": "Acquires a keyword",
               "type": "keyword"
@@ -59,6 +63,10 @@
                   "description": "Checks if tickbox is fully filled in a section",
                   "type": "boolean"
                 },
+                "isResurrectionPossible": {
+                  "description": "Checks if a resurrection is possible",
+                  "type": "boolean"
+                },
                 "hasPossession": {
                   "description": "Has a possession",
                   "type": "string"
@@ -79,6 +87,10 @@
                   },
                   "checkTickBox": {
                     "description": "Checks the tickbox",
+                    "type": "boolean"
+                  },
+                  "useResurrectionDeal": {
+                    "description": "Use a resurrection deal",
                     "type": "boolean"
                   },
                   "acquireKeyword": {
@@ -110,6 +122,10 @@
                       },
                       "isTickBoxDone": {
                         "description": "Checks if tickbox is fully filled in a section",
+                        "type": "boolean"
+                      },
+                      "isResurrectionPossible": {
+                        "description": "Checks if a resurrection is possible",
                         "type": "boolean"
                       },
                       "hasPossession": {
@@ -148,6 +164,10 @@
                     "description": "Checks the tickbox",
                     "type": "boolean"
                   },
+                  "useResurrectionDeal": {
+                    "description": "Use a resurrection deal",
+                    "type": "boolean"
+                  },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -174,6 +194,10 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "isResurrectionPossible": {
+                        "description": "Checks if a resurrection is possible",
+                        "type": "boolean"
                       },
                       "isTickBoxDone": {
                         "description": "Checks if tickbox is fully filled in a section",
