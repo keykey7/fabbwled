@@ -32,12 +32,12 @@ public class Section14 implements SectionHandler {
                         thug comes for you again with a long dagger.
                       """)
                 .activeIf(current.volatileSectionStore()==null,x -> x.clickable(p -> p.subtractStamina(5).withVolatileSectionStore(true), z -> z.text("Lose 5 Stamina points.")))
-                .activeElseIf(Objects.requireNonNull(current.volatileSectionStore()).equals(true), x -> x.text(""" 
+                .activeElseIf(current.volatileSectionStore()!= null && current.volatileSectionStore().equals(true), x -> x.text(""" 
                      ‘Get the snooping swine!’ yells the man with the eyepatch.
                      You must fight.
                      Thug, COMBAT 3, Defence 6, Stamina 13
                      If you lose, you are dead, unless you have a resurrection deal.""").activeIf( current.baseStats().combat() > 3 && current.defence() > 6 && current.stamina() > 13, z -> z.clickableTurnTo(473))
-                        .activeIf(current.isResurrectionPossible(), z -> z.clickableTurnTo(current.resurrectionArrangement().sectionIdToTurnTo().sectionId()))
+                        .activeIf(current.isResurrectionPossible()&&current.resurrectionArrangement()!=null, z -> z.clickableTurnTo(Objects.requireNonNull(current.resurrectionArrangement()).sectionIdToTurnTo().sectionId()))
                         .clickableTurnTo(1))
                 ;
     }
