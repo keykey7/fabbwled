@@ -1,0 +1,106 @@
+#TODO: SCOUTING roll
+#- number: 541
+#  content:
+#    - text: |
+#        Burdened by the heavy chest full of coins, the three figures have
+#        left deep footprints in the grass.
+#        Make a SCOUTING roll at a Difficulty of 10.
+#        Burdened by the heavy chest full of coins, the three figures haveleft deep footprints in the grass.
+#        Make a SCOUTING roll at a Difficulty of 10.
+#        Successful SCOUTING roll turn to 326
+#        Failed SCOUTING roll turn to 245
+#TODO: COMBAT roll
+#- number: 542
+#  content:
+#    - text: |
+#        Burdened by the heavy chest full of coins, the three figures have
+#        left deep footprints in the grass.
+#        Make a SCOUTING roll at a Difficulty of 10.
+#        Burdened by the heavy chest full of coins, the three figures haveleft deep footprints in the grass.
+#        Make a SCOUTING roll at a Difficulty of 10.
+#        Successful SCOUTING roll turn to 326
+#        Failed SCOUTING roll turn to 245
+- number: 543
+  content:
+    - text: |
+        Guildmaster Vernon is too busy to see you. It seems he doesn’t want
+        to  know  you,  now  that  he  doesn’t  need  you  anymore.
+        Such is life.
+    - turnTo: 405
+- number: 544
+  content:
+    - text: |
+        The shrine is set in a wooded  grove.  Birds  twitter  in  the  trees,
+        and a deer darts away into the forest at you approach.
+        A priestess is tending a low altar, where food and drink has been laid out in
+        honour of Lacuna, the Goddess of the Wilderness. She  is  the patron
+        of  hunters,  trappers,  woodsmen,  and  all  those  who  seek oneness with nature.
+    - choice:
+        - text: Become an initiate of Lacuna turn to
+          then:
+            - turnTo: 618
+        - text: Renounce the worship of Lacuna turn to
+          then:
+            - turnTo: 334
+        - text: Seek a blessing turn to
+          then:
+            - turnTo: 52
+        - text: Talk to the priestess turn to
+          then:
+            - turnTo: 471
+        - text: Leave the temple turn to
+          then:
+            - turnTo: 195
+- number: 545
+  content:
+    - text: |
+        You are given the cage. The trau speaks to you so quickly that
+        you can barely distinguish the syllables.
+        ‘Let me out of here, and I’ll reward you!’ it says.
+    - choice:
+        - text: Free it
+          then:
+            - turnTo: 642
+        - text: Sell it to the mines in the Bronze Hills
+          then:
+            - turnTo: 651
+# TODO: Getting Moonstone to Teleportation to a Section
+#- number: 546
+#  content:
+#    - text: |
+#        With a heroic effort, you manage to get to the woman.
+#        Gathering her up, you run for the door, and stagger out into
+#        the cool night air, smoke and flame licking at your heels.
+#        The townsfolk give you a rousing cheer and the girl
+#        thanks you effusively for saving her mother.
+#        Later, it transpires that the woman is actually a powerful
+#        sorceress whose experiments in fire magic went slightly wrong.
+#        Her name is Elissia the Traveller and she gives you a gift – a pale moonstone.
+#        Note moonstone of teleportation – The War-Torn Kingdom, 650 on your Adventure Sheet.
+#        Elissia tells that you can use the moonstone by rubbing it,
+#        and you will be instantly teleported to the vicinity of the
+#        sunstone – which she carries on a necklace.
+#        ‘I will be here in Marlock City. Whenever you are
+#        desperate, at the end of your tether, or just want to get
+#        here fast,use the moonstone and you will appear beside me. I will do
+#        everything in my power to aid you, and then my debt to you
+#        will be repaid.‘
+#    - choice:
+#        - text: Whenever you want to use the moonstone.
+#          then:
+#            - turnTo: 650
+#        - text: Now
+#          then:
+#            - turnTo: 100
+- number: 547
+  content:
+    - text: |
+          You instinct was correct. The sea bed suddenly drops away, to
+        reveal the ruins of the Sunken City of Ziusudra. Crumbling
+        towers climb out of the hazy green depths, and shoals of flashing
+        silverfish dart through the abandoned windows and doors of
+        coral-encrusted buildings.The creature you are following arrows down towards a large
+        dome-like structure covered in waving tendrils of seaweed. It
+        disappears through a hole in the roof of the dome.Carefully, you swim down
+        to the hole and look through,into the palace of the repulsive ones.
+    - turnTo: 41
