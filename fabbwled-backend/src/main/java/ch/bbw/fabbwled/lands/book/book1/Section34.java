@@ -23,10 +23,10 @@ public class Section34 implements SectionHandler {
     public SectionNode getBody(PlayerDto current) {
         return SectionNode.root().text("""
                         You make it only 50 feet up the sheer rockface before you lose
-                        your footing and fall to the ground. Lose 4 Stamina points. If
-                        you still live.""")
+                        your footing and fall to the ground.""")
 
-                .activeIf(current.volatileSectionStore()==null,x -> x.clickable(y -> y.subtractStamina(4).withVolatileSectionStore(true),z -> z.clickableTurnTo(658)));
+                .activeIf(current.volatileSectionStore()==null,x -> x.clickable(y -> y.subtractStamina(4).withVolatileSectionStore(true), z -> z.text("Lose 4 Stamina points.")))
+                .activeElse(z -> z.text("If you still live.").clickableTurnTo(658));
     }
 
 

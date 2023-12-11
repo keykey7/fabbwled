@@ -25,10 +25,10 @@ public class Section36 implements SectionHandler {
         return SectionNode.root().text("""
                             Soon you realize you are completely lost in this strange, magical
                             forest. You wander around for days, barely able to find enough
-                            food and water. Lose 4 Stamina points. If you still live, you
-                            eventually stagger out of the forest to the coast.""")
+                            food and water.""")
 
-                .activeIf(current.volatileSectionStore()==null,a -> a.clickable(x -> x.subtractStamina(4).withVolatileSectionStore(true),z -> z.clickableTurnTo(128)));
+                .activeIf(current.volatileSectionStore()==null,a -> a.clickable(x -> x.subtractStamina(4).withVolatileSectionStore(true),z -> z.text("Lose 4 Stamina points.")))
+                .activeElse(z -> z.text("If you still live, you eventually stagger out of the forest to the coast.").clickableTurnTo(128));
     }
 
 }

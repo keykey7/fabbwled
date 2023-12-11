@@ -30,7 +30,7 @@ public class Section6 implements SectionHandler {
                         which reveals that one of the gods of the Uttakin is called Ebron, and that he has fourteen angles.""")
                 .activeIf(current.volatileSectionStore()==null,p -> p.clickable(x -> x.addShards(60).addPossession("potion of healing").withVolatileSectionStore(true).addPossession("mandolin  (CHARISMA  +1)"), x -> x.text("Inside you find 60 Shards, a mandolin  ( CHARISMA  +1 ),  and  a  potion  of  healing.\n" +
                         "                        The potion can be used once, at any time (even in combat) to restore 5  Stamina  points.")))
-                .clickableTurnTo(10);
+                .activeElse(x -> x.clickableTurnTo(10));
     }
 
 }
