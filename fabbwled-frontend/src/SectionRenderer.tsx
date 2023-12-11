@@ -37,7 +37,6 @@ export type SectionElement = Simple | Clickable | Container;
 
 type OnClickCallBack = (clickId: Clickable["clickId"]) => void;
 
-
 export function convertToElement(
   element: SectionElement,
   onClick: OnClickCallBack,
@@ -51,22 +50,14 @@ export function convertToElement(
       );
     case "SIMPLE": {
       if (element.style === "SECTION") {
-        return (
-          <span
-            style={convertStyle(element.style)}
-          >
-            {element.text}
-          </span>
-        );
+        return <span style={convertStyle(element.style)}>{element.text}</span>;
       }
       return <p style={convertStyle(element.style)}>{element.text}</p>;
     }
     case "CONTAINER":
       return (
         <div style={convertStyle(element.style)}>
-          {element.children.map((el) =>
-            convertToElement(el, onClick),
-          )}
+          {element.children.map((el) => convertToElement(el, onClick))}
         </div>
       );
     default:

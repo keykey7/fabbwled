@@ -84,9 +84,8 @@ export default function Game() {
             </p>
             <p className={styles.pageText}>
               {section?.body
-                ? convertToElement(
-                    section.body,
-                    (id) => clickItem(id).then(setSection),
+                ? convertToElement(section.body, (id) =>
+                    clickItem(id).then(setSection),
                   )
                 : "Section not implemented"}
             </p>
