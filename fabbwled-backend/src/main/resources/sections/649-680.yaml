@@ -1,3 +1,12 @@
+- number: 651
+  content:
+    - text: |
+        The trau, realizing its fate, sinks into a dark clouding silence.
+        You haul it off to the mines where the overseer, a fat, cruel-
+        looking man, gives you 150 Shards for the trau.
+        You return to town.
+    - spendShards: -150
+    - turnTo: 400
 - number: 654
   content:
     - text: |
@@ -36,7 +45,7 @@
         in the palanquin wryly, ‘Mannekyn People can’t be trusted,
         believe me.’
         You leave the slave market.
-    # TODO: acquireKeyword: Altruist
+    - acquireKeyword: "Altruist"
     - turnTo: 400
 - number: 660
   content:
