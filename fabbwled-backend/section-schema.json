@@ -26,7 +26,11 @@
             "checkTickBox": {
               "description": "Checks the tickbox",
               "type": "boolean"
-            }
+            },
+            "useResurrectionDeal": {
+              "description": "Use a resurrection deal",
+              "type": "boolean"
+            },
             "acquireKeyword": {
               "description": "Acquires a keyword",
               "type": "keyword"
@@ -34,6 +38,10 @@
             "acquirePossession": {
               "description": "Possession to be acquired",
               "type": "string"
+            },
+            "spendShards": {
+              "description": "How many shards should be spent",
+              "type": "number"
             },
             "if": {
               "description": "A conditional. Also needs then and maybe else.",
@@ -54,7 +62,11 @@
                 "isTickBoxDone": {
                   "description": "Checks if tickbox is fully filled in a section",
                   "type": "boolean"
-                }
+                },
+                "isResurrectionPossible": {
+                  "description": "Checks if a resurrection is possible",
+                  "type": "boolean"
+                },
                 "hasPossession": {
                   "description": "Has a possession",
                   "type": "string"
@@ -76,7 +88,11 @@
                   "checkTickBox": {
                     "description": "Checks the tickbox",
                     "type": "boolean"
-                  }
+                  },
+                  "useResurrectionDeal": {
+                    "description": "Use a resurrection deal",
+                    "type": "boolean"
+                  },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -84,6 +100,10 @@
                   "acquirePossession": {
                     "description": "Possession to be acquired",
                     "type": "string"
+                  },
+                  "spendShards": {
+                    "description": "How many shards should be spent",
+                    "type": "number"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
@@ -102,6 +122,10 @@
                       },
                       "isTickBoxDone": {
                         "description": "Checks if tickbox is fully filled in a section",
+                        "type": "boolean"
+                      },
+                      "isResurrectionPossible": {
+                        "description": "Checks if a resurrection is possible",
                         "type": "boolean"
                       },
                       "hasPossession": {
@@ -139,7 +163,11 @@
                   "checkTickBox": {
                     "description": "Checks the tickbox",
                     "type": "boolean"
-                  }
+                  },
+                  "useResurrectionDeal": {
+                    "description": "Use a resurrection deal",
+                    "type": "boolean"
+                  },
                   "acquireKeyword": {
                     "description": "Acquires a keyword",
                     "type": "string"
@@ -147,6 +175,10 @@
                   "acquirePossession": {
                     "description": "Possession to be acquired",
                     "type": "string"
+                  },
+                  "spendShards": {
+                    "description": "How many shards should be spent",
+                    "type": "number"
                   },
                   "if": {
                     "description": "A conditional. Also needs then and maybe else.",
@@ -162,6 +194,10 @@
                       "needsAtLeastShards": {
                         "description": "Needs at least this many shards (inclusive)",
                         "type": "number"
+                      },
+                      "isResurrectionPossible": {
+                        "description": "Checks if a resurrection is possible",
+                        "type": "boolean"
                       },
                       "isTickBoxDone": {
                         "description": "Checks if tickbox is fully filled in a section",
