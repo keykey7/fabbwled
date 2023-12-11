@@ -52,6 +52,7 @@ public class ActionBuilder {
             }),
             new ActionKind("acquireKeyword", RawAction::acquireKeyword, raw -> new Action.AcquireKeywordAction(raw.acquireKeyword())),
             new ActionKind("checkTickBox", RawAction::checkTickBox, raw -> new Action.CheckTickBoxAction(raw.checkTickBox())),
+            new ActionKind("useResurrectionDeal", RawAction::checkTickBox, raw -> new Action.UseResurrectionDealAction(raw.useResurrectionDeal())),
             new ActionKind("acquirePossession", RawAction::acquirePossession, raw -> new Action.AcquirePosessionAction(raw.acquirePossession())),
             new ActionKind("spendShards", RawAction::spendShards, raw -> new Action.SpendShardsAction(raw.spendShards())),
             new ActionKind("turnTo", RawAction::turnTo, raw -> new Action.TurnToAction(new SectionId(1, raw.turnTo())))
@@ -63,6 +64,7 @@ public class ActionBuilder {
             assertNull(raw.needsAtLeastShards(), "needsAtLeastShards", "hasTitle");
             assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasTitle");
             assertNull(raw.hasPossession(), "hasPossession", "hasTitle");
+            assertNull(raw.isResurrectionPossible(), "isResurrectionPossible", "hasTitle");
             assertNull(raw.hasProfession(), "hasProfession", "hasTitle");
 
             return new Condition.HasTitle(raw.hasTitle());
@@ -73,6 +75,7 @@ public class ActionBuilder {
             assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasKeyword");
             assertNull(raw.hasPossession(), "hasPossession", "hasKeyword");
             assertNull(raw.hasProfession(), "hasProfession", "hasKeyword");
+            assertNull(raw.isResurrectionPossible(), "isResurrectionPossible", "hasKeyword");
 
             return new Condition.HasKeyword(raw.hasKeyword());
         }
@@ -86,6 +89,9 @@ public class ActionBuilder {
         }
         if (raw.hasPossession() != null) {
             return new Condition.HasPossession(raw.hasPossession());
+        }
+        if (raw.isResurrectionPossible() != null) {
+            return new Condition.IsResurrectionPossible(raw.isResurrectionPossible());
         }
         if (raw.hasProfession() != null) {
             return new Condition.HasProfession(raw.hasProfession());

@@ -38,3 +38,12 @@
         them spot you, and once they have gone you step out, smiling
         to yourself.
     - turnTo: 580
+- number: 279
+  content:
+    - text: |
+        What you have just done is probably a sacrilege, desecrating the
+        Temple of Tyrnai, but you don’t care. You sneak out of the
+        temple unseen, and head back to town with your prize. Who
+        else could have stolen something from right under the noses of
+        the warrior priests of Tyrnai!
+    - turnTo: 400
