@@ -14,7 +14,6 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class Section4 implements SectionHandler {
-    private final PlayerSession playerSession;
 
     @Override
     public SectionId getId() {
@@ -27,7 +26,7 @@ public class Section4 implements SectionHandler {
         return SectionNode.root().text("""
                         The  priests of Alvir and  Valmir  are  overjoyed  that  you  have returned the golden net.
                                 """)
-                .clickable(p -> p.addShards(100).addPossession("trident  (COMBAT  +1)"), x -> x.text("     The high priest rewards you with 100 Shards  and  a  magic  weapon,  a  rune-engraved  trident. Note the weapon, a trident  (COMBAT  +1),  on your  Adventure  Sheet."))
+                .activeIf(current.volatileSectionStore()== null,y -> y.clickable(p -> p.addShards(100).addPossession("trident  (COMBAT  +1)").withVolatileSectionStore(true), x -> x.text("     The high priest rewards you with 100 Shards  and  a  magic  weapon,  a  rune-engraved  trident. Note the weapon, a trident  (COMBAT  +1),  on your  Adventure  Sheet.")))
 
                 .clickableTurnTo(220);
     }

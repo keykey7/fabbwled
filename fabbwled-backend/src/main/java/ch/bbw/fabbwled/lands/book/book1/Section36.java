@@ -28,7 +28,7 @@ public class Section36 implements SectionHandler {
                             food and water. Lose 4 Stamina points. If you still live, you
                             eventually stagger out of the forest to the coast.""")
 
-                .clickable(x -> x.subtractStamina(4),z -> z.clickableTurnTo(128));
+                .activeIf(current.volatileSectionStore()==null,a -> a.clickable(x -> x.subtractStamina(4).withVolatileSectionStore(true),z -> z.clickableTurnTo(128)));
     }
 
 }

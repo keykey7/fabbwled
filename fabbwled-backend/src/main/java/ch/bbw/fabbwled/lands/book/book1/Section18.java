@@ -31,6 +31,6 @@ public class Section18 implements SectionHandler {
                         by your eloquent speech – they end up having a whip-round
                         among themselves for your brother, and they give you 15
                         Shards! Chuckling to yourself, you return to the city centre.""")
-                .clickable(x -> x.addShards(15), x -> x.clickableTurnTo(10));
+                .activeIf(current.volatileSectionStore()==null,a -> a.clickable(x -> x.addShards(15).withVolatileSectionStore(true), x -> x.clickableTurnTo(10)));
     }
 }

@@ -28,8 +28,8 @@ public class Section6 implements SectionHandler {
                         The chest springs open with a click.
                         There  is  also  an  ancient  religious  text  about the  gods  of  the  Uttaku,  called  the  scroll  of  Ebron,
                         which reveals that one of the gods of the Uttakin is called Ebron, and that he has fourteen angles.""")
-                .clickable(p -> p.addShards(60).addPossession("potion of healing").addPossession("mandolin  (CHARISMA  +1)"), x -> x.text("Inside you find 60 Shards, a mandolin  ( CHARISMA  +1 ),  and  a  potion  of  healing.\n" +
-                        "                        The potion can be used once, at any time (even in combat) to restore 5  Stamina  points."))
+                .activeIf(current.volatileSectionStore()==null,p -> p.clickable(x -> x.addShards(60).addPossession("potion of healing").withVolatileSectionStore(true).addPossession("mandolin  (CHARISMA  +1)"), x -> x.text("Inside you find 60 Shards, a mandolin  ( CHARISMA  +1 ),  and  a  potion  of  healing.\n" +
+                        "                        The potion can be used once, at any time (even in combat) to restore 5  Stamina  points.")))
                 .clickableTurnTo(10);
     }
 

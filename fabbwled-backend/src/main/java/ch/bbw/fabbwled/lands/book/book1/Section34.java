@@ -26,7 +26,7 @@ public class Section34 implements SectionHandler {
                         your footing and fall to the ground. Lose 4 Stamina points. If
                         you still live.""")
 
-                .clickable(x -> x.subtractStamina(4),x -> x.clickableTurnTo(658));
+                .activeIf(current.volatileSectionStore()==null,x -> x.clickable(y -> y.subtractStamina(4).withVolatileSectionStore(true),z -> z.clickableTurnTo(658)));
     }
 
 
