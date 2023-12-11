@@ -35,7 +35,8 @@ public class Section14 implements SectionHandler {
                         Thug, COMBAT 3, Defence 6, Stamina 13
                         If you lose, you are dead, unless you have a resurrection deal.""")
                 .activeIf( current.baseStats().combat() > 3 && current.defence() > 6 && playerSession.getPlayer().stamina() > 13, x -> x.clickableTurnTo(473))
-                .clickableTurnTo(1); // TODO set gameover variable where player is reset
+                .activeIf(current.isResurrectionPossible(), x -> x.clickableTurnTo(current.resurrectionArrangement().sectionIdToTurnTo().sectionId()))
+                .clickableTurnTo(1);
     }
 
 
