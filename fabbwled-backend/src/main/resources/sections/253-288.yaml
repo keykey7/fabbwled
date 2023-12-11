@@ -95,3 +95,6 @@
         - text: Head east into the country side
           then:
             - turnTo: 278
+        - text: Go west to the main road
+          then:
+            - turnTo: 558
