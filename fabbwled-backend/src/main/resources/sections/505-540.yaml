@@ -117,13 +117,13 @@
             - text: Want to give it to the guildmaster?
               then:
                 - turnTo: 163
-            - text: Want to keep it
+            - text: |
+                  Want to keep it 
+                  ‘Do you have the head of Amcha the Pirate?’ asks the
+                  guildmaster. ‘No! The what are you doing here? He is plying his
+                  evil trade in the seas to the south, and his base lies to the east of
+                  the Sorcerers’ Isle. Now go!‘
               then:
-                - text: |
-                    ‘Do you have the head of Amcha the Pirate?’ asks the
-                    guildmaster. ‘No! The what are you doing here? He is plying his
-                    evil trade in the seas to the south, and his base lies to the east of
-                    the Sorcerers’ Isle. Now go!’
                 - turnTo: 100
       else:
         - text: |
@@ -333,7 +333,6 @@
         - text: North into open countryside
           then:
             - turnTo: 278
-# TODO: implement 529
 # TODO: loose 1 cargo unit
 - number: 530
   content:

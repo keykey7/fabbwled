@@ -179,4 +179,8 @@ public record PlayerDto(String name,
     public PlayerDto setStamina(int amount) {
         return withStamina(amount);
     }
+
+    public boolean doIStillLive() {
+        return stamina >= 0;
+    }
 }
