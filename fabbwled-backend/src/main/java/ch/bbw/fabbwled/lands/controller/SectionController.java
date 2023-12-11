@@ -34,7 +34,7 @@ public class SectionController {
 		return sectionService.onClick(click.clickId());
 	}
 
-    @GetMapping("/display-marketplace/")
+    @GetMapping("/display-marketplace")
     public List<MarketPlace> displayMarketplace(
         @RequestBody @Valid List<MarketPlace> marketPlaceValues
     ) {
