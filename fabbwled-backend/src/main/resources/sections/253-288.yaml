@@ -47,3 +47,63 @@
         else could have stolen something from right under the noses of
         the warrior priests of Tyrnai!
     - turnTo: 400
+- number: 280
+  content:
+    - text: |
+        There are too many wolves to contend with. You withdraw
+        before they get angry.
+    - turnTo: 3
+- number: 281
+  content:
+    - text: |
+        Your tale of valour and derring-do falls on an unappreciative
+        audience. The mer-folk slip beneath the waves with snorts of
+        derision, leaving you alone on the desolate beach. There is
+        nothing for you to do but return to the clifftop tor.
+    - choice:
+        - text: Take the road to Trefoille
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 166
+- number: 283
+  content:
+    - text: |
+        ‘What goes on here?’ you ask. ‘Why do you behave so oddly?’
+        The villagers seem quite frightened of you, but one old
+        fellow has nerve enough to reply.
+        ‘This banquet is for the ghosts of three travellers who lost
+        their way in a storm, fell into our millpond and were drowned.’
+        ‘When was this?’ you ask.
+        ‘Seven years since. They come every year on this night, and
+        if we didn’t placate them with victuals and treasure, there’d be a
+        mess of trouble.’
+        ‘How do you know that?’
+        ‘Old Megan told us,’ he says. ‘She knows much about such
+        things.’
+    - choice:
+        - text: Stay out at night and watch for the ghosts
+          then:
+            - turnTo: 590
+        - text: Follow the river north
+          then:
+            - turnTo: 576
+        - text: Follow the river south
+          then:
+            - turnTo: 82
+        - text: Head east into the country side
+          then:
+            - turnTo: 278
+        - text: Go west to the main road
+          then:
+            - turnTo: 558
+- number: 287
+  content:
+    - text: |
+        You wait for an hour. At dusk, something emerges. It is the
+        gorlock, a beast with legs like a bird, a body like a reptile, with
+        two short forelimbs and a beaked, lizard-like head. You see that
+        its two legs do have backward pointing feet. The beast heads off
+        into the hills, and you creep forwards.
+    - turnTo: 315
