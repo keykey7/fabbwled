@@ -86,7 +86,6 @@ export default function Game() {
               {section?.body
                 ? convertToElement(
                     section.body,
-                    () => {},
                     (id) => clickItem(id).then(setSection),
                   )
                 : "Section not implemented"}
