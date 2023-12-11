@@ -42,4 +42,11 @@ public interface Condition {
         }
     }
 
+    record IsResurrectionPossible(boolean isResurrectionPossible) implements Condition {
+        @Override
+        public boolean isActive(PlayerSession session, SectionId section) {
+            return session.getPlayer().isResurrectionPossible();
+        }
+    }
+
 }
