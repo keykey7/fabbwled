@@ -53,3 +53,17 @@
         There are too many wolves to contend with. You withdraw
         before they get angry.
     - turnTo: 3
+- number: 281
+  content:
+    - text: |
+        Your tale of valour and derring-do falls on an unappreciative
+        audience. The mer-folk slip beneath the waves with snorts of
+        derision, leaving you alone on the desolate beach. There is
+        nothing for you to do but return to the clifftop tor.
+    - choice:
+        - text: Take the road to Trefoille
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 166
