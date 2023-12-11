@@ -19,6 +19,6 @@ public class Section44 implements SectionHandler {
         return SectionNode.root().text("You decide that discretion would be the better part of valour in this case, "
                         + "and step aside. The officers laugh contemptuously, and swagger past. "
                         + "Nothing else happens tonight. ")
-                .clickableTurnTo(100); // capital "Turn"!
+                .clickableTurnTo(100);
 	}
 }
