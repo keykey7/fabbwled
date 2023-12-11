@@ -49,7 +49,7 @@ export default function Game() {
           <button className={styles.eraser} title={"Exit the current game"}>
             <img src={"/eraser.png"} />
           </button>
-          <Inventory/>
+          <Inventory onAction={() => console.log("action")}/>
         </div>
       </div>
     </div>
