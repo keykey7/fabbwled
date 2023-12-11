@@ -47,3 +47,9 @@
         else could have stolen something from right under the noses of
         the warrior priests of Tyrnai!
     - turnTo: 400
+- number: 280
+  content:
+    - text: |
+        There are too many wolves to contend with. You withdraw
+        before they get angry.
+    - turnTo: 3
