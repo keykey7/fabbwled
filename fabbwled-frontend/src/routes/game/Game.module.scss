@@ -47,7 +47,6 @@
         flex-direction: column;
         align-self: center;
 
-
         &:nth-child(1) {
           grid-area: pageOne;
 
@@ -55,7 +54,6 @@
             overflow-y: auto;
             max-height: 57vh;
           }
-
         }
         &:nth-child(2) {
           grid-area: pageTwo;
@@ -63,7 +61,6 @@
       }
     }
   }
-
 
   .side {
     grid-area: side;

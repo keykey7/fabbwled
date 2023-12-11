@@ -1,6 +1,9 @@
-import {Container} from "../SectionRenderer.tsx";
+import { Container } from "../SectionRenderer.tsx";
 
-interface CharacterCreateDto {
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore we need this later
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export interface CharacterCreateDto {
   player: Player;
   description: string;
 }
@@ -50,8 +53,8 @@ export interface Section {
   body: Container;
   ticks: {
     total: number;
-    ticked: number
-  }
+    ticked: number;
+  };
 }
 
 interface Shards {
