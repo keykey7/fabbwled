@@ -53,6 +53,11 @@ public interface Condition {
     }
 
 
-    record HasProfession(ProfessionEnum profession) implements Condition {}
+    record HasProfession(ProfessionEnum profession) implements Condition {
+        @Override
+        public boolean isActive(PlayerSession session, SectionId section) {
+            return session.getPlayer().profession().equals(profession);
+        }
+    }
 
 }
