@@ -34,16 +34,18 @@ export default function Game() {
     window.location.href = "about:blank";
   }
 
-  const clickItem = (clickId: string) =>
-    fetch(`http://localhost:8080/api/section/click`, {
+  const clickItem = (clickId: number) => {
+    console.log(clickId)
+    return fetch(`http://localhost:8080/api/section/click`, {
       method: "POST",
       body: JSON.stringify({
-        clickId: parseInt(clickId, 10),
+        clickId: clickId,
       }),
       headers: {
         "Content-Type": "application/json",
       },
     }).then((res) => res.json());
+  }
 
   const getSection = async (sectionId: string): Promise<Section> => {
     try {

@@ -44,7 +44,6 @@ export function convertToElement(
 ): React.ReactElement {
   switch (element.type) {
     case "CLICKABLE":
-      console.log(element.clickId)
       return (
         <a onClick={() => onClick(element.clickId)}>
           {convertToElement(element.child, onClick, onSectionChange)}
@@ -52,7 +51,7 @@ export function convertToElement(
       );
     case "SIMPLE": {
       if(element.style === "SECTION") {
-        return <a onClick={() => onSectionChange(element.clickId)} href="#" style={convertStyle(element.style)}>{element.text}</a>
+        return <a onClick={() => onSectionChange(parseInt(element.text))} href={"#"} style={convertStyle(element.style)}>{element.text}</a>
       }
       return <p style={convertStyle(element.style)}>{element.text}</p>
     }
