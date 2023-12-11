@@ -1,12 +1,3 @@
-- number: 651
-  content:
-    - text: |
-        The trau, realizing its fate, sinks into a dark clouding silence.
-        You haul it off to the mines where the overseer, a fat, cruel-
-        looking man, gives you 150 Shards for the trau.
-        You return to town.
-    # TODO: acquireShards: 150
-    - turnTo: 400
 - number: 654
   content:
     - text: |
