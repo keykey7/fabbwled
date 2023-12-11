@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface Action {
-    void simpleVerify();
+    default void simpleVerify() {
+    }
 
-    YamlReachabilityResult verifyReachability();
+    default YamlReachabilityResult verifyReachability() {
+        return YamlReachabilityResult.NORMAL;
+    }
 
     /**
      * Render the YAML action into a section node.
@@ -27,11 +30,6 @@ public interface Action {
             if (this.text().contains("  ")) {
                 throw new FabledTechnicalException("Text contains double spaces. Replace all double spaces with a single space.");
             }
-        }
-
-        @Override
-        public YamlReachabilityResult verifyReachability() {
-            return YamlReachabilityResult.NORMAL;
         }
 
         @Override
@@ -70,7 +68,8 @@ public interface Action {
 
     record TurnToAction(SectionId sectionId) implements Action {
         @Override
-        public void simpleVerify() {}
+        public void simpleVerify() {
+        }
 
         @Override
         public YamlReachabilityResult verifyReachability() {
@@ -80,8 +79,39 @@ public interface Action {
 
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            var id = writer.addHandler(player -> player.withCurrentSection(sectionId));
-            return parent.clickableTurnTo(id, sectionId.sectionId());
+            return parent.clickableTurnTo(sectionId.sectionId());
+        }
+    }
+
+    record AcquireKeywordAction(String keyword) implements Action {
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            return parent.clickable(player -> player.addCodeWord(keyword), node -> node.text("Acquire keyword " + keyword));
+        }
+    }
+
+
+    record AcquirePosessionAction(String possession) implements Action {
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            return parent.clickable(player -> player.addPossession(possession), node -> node.text("Acquire possession " + possession));
+        }
+    }
+
+    record CheckTickBoxAction(boolean set) implements Action {
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            return parent.clickable(player -> player.addTick(), node -> node.text("Tick one more box."));
+        }
+    }
+
+    record SpendShardsAction(int amount) implements Action {
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            var msg = amount > 0 ? ("Buy for " + amount + " shards") : ("Get " + -amount + " shards");
+            var canBuy = writer.getSession().getPlayer().shards() > amount;
+            return parent.activeIf(canBuy,
+                    node -> node.clickable(player -> player.addShards(-amount), node1 -> node1.text(msg)));
         }
     }
 
@@ -122,15 +152,14 @@ public interface Action {
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
             for (SingleChoice choice : choices) {
                 var turnTo = (Action.TurnToAction) choice.actions.get(0);
-                var id = writer.addHandler(player -> player.withCurrentSection(turnTo.sectionId));
-
                 parent = parent.choice(c -> c.text(choice.text),
-                                       a -> a.clickableTurnTo(id, turnTo.sectionId.sectionId())
+                                       a -> a.clickableTurnTo(turnTo.sectionId.sectionId())
                 );
             }
             return parent;
         }
 
-        record SingleChoice(String text, List<Action> actions) {}
+        record SingleChoice(String text, List<Action> actions) {
+        }
     }
 }

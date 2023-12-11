@@ -1,119 +1,57 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
-import ch.bbw.fabbwled.lands.character.Character;
-import ch.bbw.fabbwled.lands.character.*;
-import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.With;
+import ch.bbw.fabbwled.lands.character.PlayerDto;
+import ch.bbw.fabbwled.lands.service.effects.OnAttributeRefresh;
+import ch.bbw.fabbwled.lands.service.effects.OnPlayerChange;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.function.UnaryOperator;
 
 /**
  * A simple session (cookie) based player state.
  */
-@Getter
 @Component
 @SessionScope
+@RequiredArgsConstructor
 public class PlayerSession {
 
-    private final CharacterService characterService = new CharacterService();
+    private final List<OnPlayerChange> allPlayerChangeEffects;
 
+    private final Set<OnAttributeRefresh> allAttributeRefreshEffects;
 
-    private final Character.CharacterCreateDto initialCharacter = characterService.getAllCharacters(1).get(0);
-    private PlayerDto player = initialCharacter.player();
-    @Setter
-    private boolean initialCreation;
+    private PlayerDto player;
 
-    public void validateInitialCreation(PlayerDto playerDto) {
-        Character.BaseStatsDto stats = playerDto.baseStats();
-        int charisma = stats.charisma();
-        int combat = stats.combat();
-        int magic = stats.magic();
-        int sanctity = stats.sanctity();
-        int scouting = stats.scouting();
-        int thievery = stats.thievery();
-        if (charisma < 1 || charisma > 6
-                || combat < 1 || combat > 6
-                || magic < 1 || magic > 6
-                || sanctity < 1 || sanctity > 6
-                || scouting < 1 || scouting > 6
-                || thievery < 1 || thievery > 6) {
-            throw new FabledBusinessException("Stats can only range between 1 and 6");
-        }
-        if (!playerDto.rank().equals(RankEnum.OUTCAST)) {
-            throw new FabledBusinessException("Character possession size not allowed over 12");
-        }
+    public void forceSetNewPlayer(PlayerDto newPlayer) {
+        player = newPlayer;
     }
 
-    public void validatePlayer(PlayerDto playerDto) {
-        try {
-            if (this.initialCreation) {
-                validateInitialCreation(playerDto);
-            }
-            if (playerDto.shards().shardCount() > player.shards().shardCount()){
-                int ShardsAmount = playerDto.shards().shardCount() - player.shards().shardCount();
-                playerDto.shards().addShards(ShardsAmount);
-            }
-            if (playerDto.shards().shardCount() < player.shards().shardCount()){
-                int ShardsAmount = player.shards().shardCount() - playerDto.shards().shardCount();
-                playerDto.shards().subtractShards(ShardsAmount);
-            }
-            if (playerDto.possessions().size() > 12) {
-                throw new FabledBusinessException("Character possession size not allowed over 12");
-            }
-            if(playerDto.stamina > playerDto.getMaxStamina()) {
-                throw new FabledBusinessException("Stamina can't be bigger than max stamina");
-            }
-
-        } catch (FabledBusinessException e) {
-            throw new FabledBusinessException(e);
+    public PlayerDto getPlayer() {
+        var basePlayer = player;
+        for (var effect : allAttributeRefreshEffects) {
+            basePlayer = effect.applyEffect(player);
         }
-
+        return basePlayer; // the raw "player" is not exposed... only the one which has all effects (like DEFENCE) applied
     }
 
     public void update(UnaryOperator<PlayerDto> modifier) {
-        var temporaryPlayer = modifier.apply(player);
-        validatePlayer(temporaryPlayer);
-        player = modifier.apply(player);
+        var newPlayer = modifier.apply(player); // updating the raw player (not getPlayer)
+        for (var effect : allPlayerChangeEffects) { // then run all automated rules on it
+            newPlayer = effect.applyEffect(player, newPlayer);
+        }
+        player = newPlayer; // all rules passed, persist it
     }
 
-    @With
-    @Builder
-    public record PlayerDto(String name,
-                            SectionId currentSection,
-                            Set<String> titlesAndHonours,
-                            RankEnum rank,
-                            ProfessionEnum profession,
-                            int stamina,
-                            String god,
-                            int staminaWhenUnwounded,
-                            Character.BaseStatsDto baseStats,
-                            List<String> possessions, 
-                            ShardSystem shards,
-                            Map<SectionId, Integer> tickBoxes,
-                            Set<String> codeWords,
-                            boolean isResurrectionPossible,
-                            Resurrection resurrectionArrangement,
-                            Set<BlessingEnum> blessings,
-                            Map<SectionId, Integer> playerClicks
-                            ) {
-
-
-
-        public int getDefence() {
-            return this.rank().getRankNumber() + this.baseStats().combat();
-        }
-        public int getMaxStamina() {
-            return ( this.rank().getRankNumber() - 1 ) + this.staminaWhenUnwounded;
-        }
+    @PostConstruct
+    public void setAnyPlayer() {
+        // just convenience for now to always have a player...
+        // can be dropped once we always start with the character-creation step
+        player = PlayerDto.empty()
+                .withCurrentSection(SectionId.book1(44));
     }
-
 }
