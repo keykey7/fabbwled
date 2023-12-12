@@ -20,7 +20,6 @@ export default function Game() {
     return response.json();
   };
 
-  console.log(character);
   function rollDice(diceNumber: number) {
     console.log(diceNumber);
   }
