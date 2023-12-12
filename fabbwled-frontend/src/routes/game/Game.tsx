@@ -34,7 +34,6 @@ export default function Game() {
   }
 
   const clickItem = (clickId: number) => {
-    console.log(clickId);
     return fetch(`http://localhost:8080/api/section/click`, {
       method: "POST",
       body: JSON.stringify({
