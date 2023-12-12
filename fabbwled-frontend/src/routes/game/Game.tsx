@@ -60,7 +60,7 @@ export default function Game() {
           children: [
             {
               type: "SIMPLE",
-              text: "Haha existiert nicht",
+              text: `No Section for sectionId: ${sectionId} found`,
               style: "NONE",
             },
           ],
