@@ -53,7 +53,6 @@ export default function Game() {
         `http://localhost:8080/api/section/1/${sectionId}`,
       ); //${character?.currentSection.sectionId}
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (e) {
       return {
