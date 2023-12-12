@@ -103,7 +103,7 @@ export default function Game() {
                 </ul>
                 <ul>
                   <li>Charisma: {character?.baseStats?.charisma}</li>
-                  <li>Combo: {character?.baseStats?.combat}</li>
+                  <li>Combat: {character?.baseStats?.combat}</li>
                   <li>Magic: {character?.baseStats?.magic}</li>
                   <li>Sanctity: {character?.baseStats?.sanctity}</li>
                   <li>Scouting: {character?.baseStats?.scouting}</li>
