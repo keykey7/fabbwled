@@ -21,7 +21,6 @@ export default function Game() {
   };
 
   function rollDice(diceNumber: number) {
-    console.log(diceNumber);
   }
 
   function newGame() {
