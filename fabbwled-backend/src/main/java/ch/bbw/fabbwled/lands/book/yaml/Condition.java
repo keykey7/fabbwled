@@ -1,7 +1,10 @@
 package ch.bbw.fabbwled.lands.book.yaml;
 
+
+import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.service.PlayerSession;
+
 
 public interface Condition {
     boolean isActive(PlayerSession session, SectionId section);
@@ -39,6 +42,21 @@ public interface Condition {
         @Override
         public boolean isActive(PlayerSession session, SectionId section) {
             return session.getPlayer().possessions().contains(possession);
+        }
+    }
+
+    record IsResurrectionPossible(boolean isResurrectionPossible) implements Condition {
+        @Override
+        public boolean isActive(PlayerSession session, SectionId section) {
+            return session.getPlayer().isResurrectionPossible();
+        }
+    }
+
+
+    record HasProfession(ProfessionEnum profession) implements Condition {
+        @Override
+        public boolean isActive(PlayerSession session, SectionId section) {
+            return session.getPlayer().profession().equals(profession);
         }
     }
 
