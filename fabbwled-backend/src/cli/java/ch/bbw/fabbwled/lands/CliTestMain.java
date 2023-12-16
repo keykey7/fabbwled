@@ -35,7 +35,7 @@ class CliTestMain {
 
 	@Test
 	void run() {
-		playerSession.update(x -> x.withCurrentSection(SectionId.book1(14)));
+		playerSession.update(x -> x.withCurrentSection(SectionId.book1(5)));
 		while (true) {
 			var me = playerController.whoami();
 			var section = sectionController.byId(me.currentSection().bookId(), me.currentSection().sectionId());

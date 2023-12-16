@@ -43,7 +43,7 @@ public class Section10 implements SectionHandler {
                 .activeIf(current.hasCodeword("Assasin"), x -> x.clickableTurnTo(50))
                 .activeIf(current.volatileSectionStore()==null, x -> x.clickable(p -> p.addTick().withVolatileSectionStore(true), y -> y.text("tick the first empty box above")))
                 .activeIf(current.getTicks() == this.getMaxTicks(), x -> x.clickableTurnTo(273))
-                .choice(x -> x.text("Buy townhouse for 200 shards"),  x ->  x.clickable( y -> y.addShards(-200).addPersistentSectionStorage(true), z -> z.text("You can buy a town house in Yellowport for 200 Shards.")))
+                .activeIf(current.shards() >= 200, t -> t.choice(x -> x.text("Buy townhouse for 200 shards"),  x ->  x.clickable( y -> y.addShards(-200).addPersistentSectionStorage(true), z -> z.text("You can buy a town house in Yellowport for 200 Shards."))))
                 .activeIf(current.hasCodeword("Artefact") && current.possessions().contains("Book of the Seven Sages"), x -> x.clickableTurnTo(40))
                 .activeIf(current.persistentSectionStore().get(current.currentSection())!=null, x -> x.clickableTurnTo(300))
                 .choice(x -> x.text("Seek an audience with the provost marshal"), x -> x.clickableTurnTo(523))

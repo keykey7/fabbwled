@@ -37,7 +37,11 @@ public class Section14 implements SectionHandler {
                      You must fight.
                      Thug, COMBAT 3, Defence 6, Stamina 13
                      If you lose, you are dead, unless you have a resurrection deal.""").activeIf( current.baseStats().combat() > 3 && current.defence() > 6 && current.stamina() > 13, z -> z.clickableTurnTo(473))
-                        .activeIf(current.isResurrectionPossible()&&current.resurrectionArrangement()!=null, z -> z.clickableTurnTo(Objects.requireNonNull(current.resurrectionArrangement()).sectionIdToTurnTo().sectionId()))
+                        .activeIf(current.isResurrectionPossible()&&current.resurrectionArrangement()!=null, z -> {
+                            if (current.resurrectionArrangement() != null) {
+                                z.clickableTurnTo(current.resurrectionArrangement().sectionIdToTurnTo().sectionId());
+                            }
+                        })
                         .clickableTurnTo(1))
                 ;
     }
