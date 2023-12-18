@@ -105,6 +105,14 @@ public interface Action {
         }
     }
 
+    record UseResurrectionDealAction(boolean useResurrectionDeal) implements Action {
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            writer.getSession().update(x -> x.withResurrectionPossible(false));
+            return parent.clickableTurnTo(writer.getSession().getPlayer().resurrectionArrangement().sectionIdToTurnTo().sectionId());
+        }
+    }
+
     record SpendShardsAction(int amount) implements Action {
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
