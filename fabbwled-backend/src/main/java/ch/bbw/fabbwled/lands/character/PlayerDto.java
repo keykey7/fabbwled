@@ -130,6 +130,10 @@ public record PlayerDto(String name,
         return withBaseStats(mod.apply(baseStats));
     }
 
+    public PlayerDto subtractStamina(int amount) {
+        return withStamina(stamina()-amount);
+    }
+
     public PlayerDto removePossession(String item) {
         var tmp = new ArrayList<>(possessions);
         tmp.remove(item);
@@ -138,6 +142,10 @@ public record PlayerDto(String name,
 
     public boolean hasCodeword(String codeword) {
         return codeWords.contains(codeword);
+    }
+
+    public boolean hasPossession(String possession) {
+        return possessions().contains(possession);
     }
 
     public boolean hasTitleOrHonor(String titleOrHonor) {
@@ -152,11 +160,33 @@ public record PlayerDto(String name,
         return withCodeWords(Stream.concat(codeWords.stream(), Stream.of(keyword)).collect(Collectors.toUnmodifiableSet()));
     }
 
+    public PlayerDto addPersistentSectionStorage(Serializable persistentSectionValue) {
+        var tmp = new HashMap<>(persistentSectionStore);
+        tmp.put(currentSection,persistentSectionValue);
+        return withPersistentSectionStore(Collections.unmodifiableMap(tmp));
+    }
+
     public PlayerDto addShards(int amount) {
         return withShards(shards + amount);
     }
 
+    public boolean hasEnoughShards(int amount) {
+        return (shards - amount) >= 0;
+    }
+
     public boolean hasDiceRolled() {
         return !mostRecentDiceRoll.isEmpty();
+    }
+
+    public PlayerDto addStamina(int amount) {
+        return withStamina(Math.min(stamina + amount, staminaWhenUnwounded()));
+    }
+
+    public PlayerDto setStamina(int amount) {
+        return withStamina(amount);
+    }
+
+    public boolean doIStillLive() {
+        return stamina >= 0;
     }
 }
