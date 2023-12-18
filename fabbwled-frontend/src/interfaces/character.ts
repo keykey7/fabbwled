@@ -1,11 +1,16 @@
-interface CharacterCreateDto {
+import { Container } from "../SectionRenderer.tsx";
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore we need this later
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export interface CharacterCreateDto {
   player: Player;
   description: string;
 }
 
-interface Player {
+export interface Player {
   name: string;
-  currentSection: Section;
+  currentSection: `1-${number}`;
   titlesAndHonours: string[];
   rank:
     | "OUTCAST"
@@ -43,9 +48,13 @@ interface BaseStats {
   thievery: number;
 }
 
-interface Section {
-  bookId: number;
-  sectionId: number;
+export interface Section {
+  id: string;
+  body: Container;
+  ticks: {
+    total: number;
+    ticked: number;
+  };
 }
 
 interface Shards {

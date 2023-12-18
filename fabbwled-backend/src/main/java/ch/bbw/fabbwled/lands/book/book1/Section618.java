@@ -6,8 +6,6 @@ import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
 import org.springframework.stereotype.Component;
 
-import java.util.Objects;
-
 @Component
 public class Section618 implements SectionHandler {
     @Override
