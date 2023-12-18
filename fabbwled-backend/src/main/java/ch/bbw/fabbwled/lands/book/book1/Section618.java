@@ -22,7 +22,7 @@ public class Section618 implements SectionHandler {
                         30 Shards to become an initiate. You cannot do this if you are
                         already an initiate of another temple.
                         """)
-                .activeIf(!current.god().isEmpty(), a -> a.text("Become an initiate of Lacuna")
+                .activeIf(!current.god().isEmpty() && current.shards() >= 30, a -> a.text("Become an initiate of Lacuna")
                         .choice(b -> b.text("Become an initiate and pay 30 Shards"), c -> c.clickable(playerDto -> playerDto.withShards(current.shards() - 30).withGod("Lacuna"), d -> d.text("Become an initiate and pay 30 Shards")))
                         .clickableTurnTo(544));
     }
