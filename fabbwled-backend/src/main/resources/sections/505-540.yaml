@@ -1,0 +1,376 @@
+- number: 505
+  content:
+    - text: |
+        Cross the silver nugget off your Adventure Sheet.
+        ‘Excellent,’ says the dragon, catching the nugget in one of its clawed forelimbs.
+        With that, it rolls over, and dives down into the lake. 
+        At the last second, its tail whips up out of the water, inches from your face.
+        You could reach out and grab it, if you wanted to.
+    - choice:
+        - text: Catch the tail
+          then:
+            - turnTo: 362
+        - text: Leave it well alone
+          then:
+            - turnTo: 561
+- number: 506
+  content:
+    - text: |
+        The Gold Dust Tavern is a plush inn besides the city gates. The
+        tavern costs you 1 Shard a day. Each day you spend here, you
+        can recover 1 Stamina point if injured, up to the limit of your
+        normal unwounded Stamina score.
+    - choice:
+        - text: Want to spend a further 3 Shards buying drinks all round at the bar, and listen for rumours?
+          then:
+            - turnTo: 331
+        - text: Otherwise
+          then:
+            - turnTo: 10
+- number: 507
+  content:
+    - text: |
+        You are sailing across the Sea of Whispers with a clear, blue sky
+        and a salty wind to help you on your way.
+    - choice:
+        - text: Dock at the Isle of Druids
+          then:
+            - turnTo: 195
+        - text: Sail west towards Scorpion Bight
+          then:
+            - turnTo: 430
+        - text: Sail north west into coastal waters
+          then:
+            - turnTo: 190
+        - text: Sail north into coastal waters
+          then:
+            - turnTo: 312
+        - text: Sail south into the Violet Ocean
+          then:
+            - turnTo: 13
+        - text: Sail east into the Unbounded Ocean
+          then:
+            - turnTo: 206
+# TODO: You have been stripped of all your possessions
+- number: 508
+  content:
+    - text: |
+        You come round inside a disused warehouse, enmeshed in the
+        net. You have been stripped of all your possessions – they are in
+        a tidy pile nearby. Several men surround you. They are dressed
+        in furs and robes that are adorned with hundreds of multi-
+        coloured feathers. Each man wears a necklace of animal skulls
+        and has his teeth sharpened to needle-like points.
+        ‘Hallo,’ the leader says reasonably. ‘We are the Unspeakable
+        Ones – it is our way to eat people in sacrifice of our god.’
+        He points to a squat wooden idol of a grossly fat half-man,
+        half ape with ivory needles for teeth. You notice the name
+        ‘Badogor the Unspoken’ inscribed on a plaque at the base of the
+        idol.
+        ‘Badogor the Unspoken - who’s he?’ you ask.
+        ‘Do not speak his name!’ shouts the cannibal, ‘Or you will
+        be forever cursed!’
+        You notice a large cauldron of boiling water into which
+        another cultist is tossing herbs and garlic. He stares at you and
+        licks his lips.
+    - turnTo: 320
+- number: 510
+  content:
+    - text: |
+        The village of Blessed Springs, nestling at the foot of a tall hill,
+        has grown up around the holy waters, a special spring said to
+        have healing powers. It has been fenced off by the villagers, and
+        a priesthood appointed to supervise the supplicants who come to
+        bathe, or drink of the spring’s waters. There is no market, but an
+        alchemist has set up shop here.
+    - choice:
+        - text: Visit the Holy Waters
+          then:
+            - turnTo: 450
+        - text: Visit the alchemist’s shop
+          then:
+            - turnTo: 342
+        - text: Visit the Blessed Ale Tavern
+          then:
+            - turnTo: 483
+        - text: Explore the hill
+          then:
+            - turnTo: 398
+        - text: Head north towards Fort Brilon
+          then:
+            - turnTo: 466
+        - text: South towards to Venefax
+          then:
+            - turnTo: 87
+        - text: West into the countryside
+          then:
+            - turnTo: 278
+        - text: North west into farmlands
+          then:
+            - turnTo: 548
+- number: 512
+  content:
+    - if:
+        hasPossession: "pirate captain’s head"
+      then:
+        - choice:
+            - text: Want to give it to the guildmaster?
+              then:
+                - turnTo: 163
+            - text: |
+                  Want to keep it 
+                  ‘Do you have the head of Amcha the Pirate?’ asks the
+                  guildmaster. ‘No! The what are you doing here? He is plying his
+                  evil trade in the seas to the south, and his base lies to the east of
+                  the Sorcerers’ Isle. Now go!‘
+              then:
+                - turnTo: 100
+      else:
+        - text: |
+            ‘Do you have the head of Amcha the Pirate?’ asks the
+            guildmaster. ‘No! The what are you doing here? He is plying his
+            evil trade in the seas to the south, and his base lies to the east of
+            the Sorcerers’ Isle. Now go!’
+        - turnTo: 100
+- number: 513
+  content:
+    - text: |
+        One of them gives you a conch shell full of a greenish liquid.
+        You drink it, and dive into the sea. Miraculously, you can
+        breathe underwater! You follow the sea centaurs down into the
+        depths until you arrive at a sunken ship, which is encrusted in
+        barnacles and seaweed.
+        Suddenly, the sea centaurs swim away, leaving you alone.
+        You notice that you are giving off a glow like the sea centaurs.
+        Looking down, you see that the lower half of your body has
+        turned into that of a sea centaur! You have been taken and
+        transformed to replace their lost companion.
+    - choice:
+        - text: Explore the sunken wreck
+          then:
+            - turnTo: 429
+        - text: Swim back up to your ship
+          then:
+            - turnTo: 616
+# TODO: implement 514
+- number: 516
+  content:
+    - text: |
+        You pull the wolf pelt over you, and drop to all fours.
+        Gingerly, you crawl in. In the dark, you now look and smell like
+        a wolf. At the back of the cave, you find a hole in the roof and
+        an iron ladder leading up to it.
+    - choice:
+        - text: Climb the ladder
+          then:
+            - turnTo: 350
+        - text: Leave the cave
+          then:
+            - turnTo: 3
+- number: 517
+  content:
+    - if:
+        hasPossession: "ghoul’s head"
+      then:
+        - turnTo: 597
+      else:
+        - text: If not, a priest asks which service you require.
+        - choice:
+            - text: Become an initiate
+              then:
+                - turnTo: 409
+            - text: Renounce worship
+              then:
+                - turnTo: 187
+            - text: Make resurrection arrangements
+              then:
+                - turnTo: 478
+            - text: Leave the temple
+              then:
+                - turnTo: 100
+# TODO: Cargo unit?
+- number: 519
+  content:
+    - text: |
+        You crew have driven off the other ker’ilk, which dive into the
+        sea. The ship was carrying 1 Cargo Unit of furs, which you can
+        take if your ship has room. You clean up the dead sailors, and
+        give them a proper burial at sea. There is nothing else of interest,
+        so you sail on. Turn to 209 .
+    - turnTo: 209
+- number: 521
+  content:
+    - text: |
+        You are looking for the Black Dragon Knight on a quest that
+        was set for you by Yanryt the Son. You ask the knights if he is
+        here.
+        ‘The Black Dragon Knight? Yes, he is,’ replies one of them.
+        ‘But he fights only to the death – there is no wager save the
+        greatest of all for him, that is to say, life itself.’
+    - choice:
+        - text: Fight the Black Dragon Knight
+          then:
+            - turnTo: 321
+        - text: Don’t fight and leave instead
+          then:
+            - turnTo: 276
+- number: 522
+  content:
+    - text: |
+        That night several sea centaurs emerge from the waters, their
+        spiny skins glittering with phosphorescent flashes of light.
+        One of them speaks in a burbling voice. ‘Where is our
+        brother, whom you caught in your cruel nets, this day?’
+        ‘He is dead, I’m afraid’, you reply, readying yourself for a
+        fight.
+        The sea centaurs remain silent for a few moments, then the
+        leader says, ‘His destiny was always bleak. We would be grateful
+        if you were to return his body to us.’
+        You cannot think of a reason not to, so you pass the body
+        down to them.
+        ‘We thank you,’ burbles the sea centaur. ‘If you wish, we
+        will give you the power to breathe the waters, so that you may
+        swim down to the wreck that lies below, and take its treasures,
+        those things that the surface-dwellers hold dear.’
+    - choice:
+        - text: Accept the offer
+          then:
+            - turnTo: 513
+        - text: Refuse the offer
+          then:
+            - turnTo: 408
+- number: 524
+  content:
+    - text: |
+        You struggle on. Only your iron will and hardiness keep you
+        alive. Eventually, the path leads to a bubbling well of spring-
+        water in the rocks, just at the opening of a cave. You drink your
+        fill, and soon you feel much better. Turn to 232 .
+    - turnTo: 232
+- number: 525
+  content:
+    - text: |
+        ‘They’re vicious, evil devils,’ says an old peasant. ‘Like huge
+        scorpions they are, save they have the head and shoulders of a
+        man – intelligent too, forever seeking to pillage our town, but
+        they can’t climb up the ladders!”
+        A soldier in the local militia speaks up, ‘They hate fire, too.
+        All we have to do is sit atop the town, and pepper them with
+        flaming arrows. They can’t stand that for long. Mind you, things
+        are getting bad – they’ve got a sorcerer now!’
+        A young man, blind in one eye and paralysed down one side,
+        says, ‘They got a terrible sting as well – their venom did this to
+        me,’ pointing at his eye and side.
+        There’s not much else to hear, so you leave.
+    - turnTo: 427
+- number: 526
+  content:
+    - text: |
+        The temple of Tyrnai, the God of War, is built in the shape of a
+        spear with a long, pillared nave, and an altar at the far end. Two
+        massive stone warriors guard its gates.
+        Tyrnai is depicted here as the insensate spirit of war – a
+        blood-drenched warrior with the head of a maddened jaguar.
+    - choice:
+        - text: Become an initiate
+          then:
+            - turnTo: 435
+        - text: Renounce his worship
+          then:
+            - turnTo: 69
+        - text: Seek a blessing
+          then:
+            - turnTo: 373
+        - text: Make resurrection arrangements
+          then:
+            - turnTo: 599
+        - text: Leave the temple
+          then:
+            - turnTo: 10
+- number: 527
+  content:
+    - text: |
+        You run off, leaving the terrible Gob-gobbler behind. The
+        villagers of Venefax greet you with snorts of derision and
+        contempt, and the young boy, Mikail, looks away, disappointed.
+        It would be prudent to leave Venefax for a while.
+    - choice:
+        - text: South into Scorpion Bight
+          then:
+            - turnTo: 492
+        - text: North east towards Blessed Springs
+          then:
+            - turnTo: 87
+        - text: South west on the road to Yellowport
+          then:
+            - turnTo: 621
+        - text: North into open countryside
+          then:
+            - turnTo: 278
+# TODO: loose 1 cargo unit
+- number: 530
+  content:
+    - text: |
+        Your ship is thrown about like flotsam and jetsam. When the
+        storm subsides, you take stock. Much has been swept overboard
+        – you lose 1 Cargo Unit, if you had any, of your choice. Also,
+        the ship has been swept way off course and the mate has no idea
+        where you are. ‘We’re lost at sea, Cap’n!’ he moans.
+    - turnTo: 90
+- number: 531
+  content:
+    - if:
+        hasPossession: "golden net"
+      then:
+        - turnTo: 4
+      else:
+        - turnTo: 462
+# TODO: implement 532
+- number: 533
+  content:
+    - text: |
+        The man takes the money, bites a coin and spits. Satisfied he
+        says, ‘The Witches’ Cauldron – that’s where you’ll find him.’
+        Later, you find the Witches’ Cauldron Tavern in a maze of
+        backstreets. Looking through a window, you spot a man with a
+        velvet eyepatch sitting at a table, eating a meal.
+    - choice:
+        - text: Walk in and challenge him
+          then:
+            - turnTo: 589
+        - text: Ambush him when he leaves
+          then:
+            - turnTo: 211
+- number: 534
+  content:
+    - text: |
+        A long time passes. After a while, you risk calling up to Lauria in
+        a whisper. Your voice sounds thick, rasping – choked with
+        growing fear. Lauria does not reply.
+        Each second you remain in the house increases the risk of
+        discovery.
+    - choice:
+        - text: Wait a little longer
+          then:
+            - turnTo: 119
+        - text: Go upstairs to find Lauria
+          then:
+            - turnTo: 386
+        - text: Leave at once
+          then:
+            - turnTo: 10
+- number: 540
+  content:
+    - text: |
+        Sure enough, when the scholar leaves, purse bulging with
+        Shards, the two ruffians also leave. You follow at a slight
+        distance. As you suspected, the ruffians wait for a suitable
+        moment and then set about the scholar.
+        ‘Help, help! Thieves!’ cries the scholar in a thin, reedy voice.
+    - choice:
+        - text: Return to the city centre
+          then:
+            - turnTo: 100
+        - text: Chase the muggers off
+          then:
+            - turnTo: 433
