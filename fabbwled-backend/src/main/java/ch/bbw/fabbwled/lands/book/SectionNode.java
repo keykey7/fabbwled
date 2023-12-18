@@ -1,11 +1,13 @@
 package ch.bbw.fabbwled.lands.book;
 
+import ch.bbw.fabbwled.lands.character.AbilityEnum;
+import ch.bbw.fabbwled.lands.character.PlayerDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NonNull;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -16,8 +18,11 @@ import java.util.stream.Stream;
  */
 public interface SectionNode {
 
+    interface PlayerChange extends UnaryOperator<PlayerDto> {
+    }
+
 	static ContainerNode root() {
-		return ContainerNode.empty();
+		return ContainerNode.root();
 	}
 
 	NodeType getType();
@@ -33,13 +38,14 @@ public interface SectionNode {
 		};
 	}
 
-	default Set<Integer> allClickIds() {
+	default Set<ClickableNode> allActiveClickIds() {
 		return switch (getType()) {
 			case SIMPLE -> Collections.emptySet();
-			case CLICKABLE -> Collections.singleton(((ClickableNode) this).clickId()); // not supporting nested clicks
-			case CONTAINER -> ((ContainerNode) this).children()
-					.stream()
-					.map(SectionNode::allClickIds)
+			case CLICKABLE -> Collections.singleton((ClickableNode) this); // not supporting nested clicks
+			case CONTAINER -> Stream.of((ContainerNode) this)
+                    .filter(x -> x.style != ContainerNode.ContainerStyle.DISABLED)
+                    .flatMap(x -> x.children.stream())
+					.map(SectionNode::allActiveClickIds)
 					.flatMap(Collection::stream)
 					.collect(Collectors.toMap(x -> x, x -> 0))
 					.keySet(); // toMap().keySet() instead of toSet() to crash on duplicates
@@ -61,15 +67,19 @@ public interface SectionNode {
 		SIMPLE,
 	}
 
-	record ContainerNode(ContainerStyle style, @NonNull List<SectionNode> children) implements SectionNode {
+    record ContainerNode(@JsonIgnore AtomicInteger clickId, ContainerStyle style, @NonNull List<SectionNode> children) implements SectionNode {
 
-		static ContainerNode empty() {
-			return empty(ContainerStyle.NONE);
+		public static ContainerNode root() {
+            return new ContainerNode(new AtomicInteger(0), ContainerStyle.NONE, new ArrayList<>());
+        }
+
+		public ContainerNode empty() {
+            return empty(ContainerStyle.NONE);
 		}
 
-		static ContainerNode empty(@NonNull ContainerStyle style) {
-			return new ContainerNode(style, Collections.emptyList());
-		}
+        ContainerNode empty(@NonNull ContainerStyle style) {
+            return new ContainerNode(clickId, style, new ArrayList<>());
+        }
 
 		@Override
 		public NodeType getType() {
@@ -79,7 +89,7 @@ public interface SectionNode {
 		@Override
 		public String asPlainText() {
 			return switch (style) {
-				case NONE -> children()
+                case NONE, ENABLED -> children()
 						.stream()
 						.map(SectionNode::asPlainText)
 						.collect(Collectors.joining());
@@ -91,12 +101,9 @@ public interface SectionNode {
 			};
 		}
 
-		ContainerNode append(SectionNode child) {
-			return new ContainerNode(style, Stream.concat(children.stream(), Stream.of(child)).toList());
-		}
-
-		ContainerNode append(UnaryOperator<ContainerNode> children) {
-			return append(children.apply(empty()));
+		public ContainerNode append(SectionNode child) {
+            children.add(child);
+            return this;
 		}
 
 		/**
@@ -108,22 +115,16 @@ public interface SectionNode {
 
 		/**
 		 * a shortform for the commen "turn to XY"-action
-		 *
-		 * @see #clickable(int, UnaryOperator)
 		 */
-		public ContainerNode clickableTurnTo(int clickId, int section) {
-			return clickable(clickId, x -> x.text("turn to ").section(section));
+		public ContainerNode clickableTurnTo(int section) {
+            return text("turn to ").clickable(playerDto -> playerDto.withCurrentSectionId(section), x -> x.section(section));
 		}
 
-        public ContainerNode clickableDice(int clickId, int dice) {
+        public ContainerNode clickableRollDice(int dice) {
             if (dice == 1 ) {
-                return clickable(clickId, x -> x.text("Roll a dice"));
+                return clickable(x -> x.withDiceRoll(dice), x -> x.text("Roll a die"));
             }
-           return clickable(clickId, x -> x.text("Roll " + dice + " dices"));
-        }
-
-        public ContainerNode clickableDiceOption(int clickId, int min, int max) {
-            return clickable(clickId, x -> x.text("Score " + min + "-" + max));
+           return clickable(x -> x.withDiceRoll(dice), x -> x.text("Roll " + dice + " dices"));
         }
 
 		/**
@@ -140,22 +141,83 @@ public interface SectionNode {
 			return append(SimpleNode.item(itemName));
 		}
 
-		/**
-		 * @param clickId  per-section-unique id, will be used later to reference the clicked action
-		 * @param children content of the click (like what's inside an {@code <a>-tag}.
-		 */
-		public ContainerNode clickable(int clickId, UnaryOperator<ContainerNode> children) {
-			return append(new ClickableNode(clickId, children.apply(ContainerNode.empty())));
-		}
+        /**
+         * @param action what would change if the player would click on it
+         * @param child  content of the click like what's inside an {@code <a>-tag}.
+         */
+        public ContainerNode clickable(PlayerChange action, Consumer<ContainerNode> child) {
+            var childNode = empty();
+            child.accept(childNode);
+            return append(new ClickableNode(action, clickId.getAndIncrement(), childNode));
+        }
 
 		/**
 		 * @param condition if {@code false}, this section is drawn as disabled (unclickable or greyed out)
-		 * @param children  the content (all the grey text)
+		 * @param child  the content (all the grey text)
+         * @see #activeElseIf(boolean, Consumer) 
+         * @see #activeElse(Consumer) 
 		 */
-		public ContainerNode activeIf(boolean condition, UnaryOperator<ContainerNode> children) {
-			var style = condition ? ContainerStyle.NONE : ContainerStyle.DISABLED;
-			return append(children.apply(empty(style)));
+		public ContainerNode activeIf(boolean condition, Consumer<ContainerNode> child) {
+            var childNode = empty(condition ? ContainerStyle.ENABLED : ContainerStyle.DISABLED);
+            child.accept(childNode);
+			return append(childNode);
 		}
+
+        private boolean isPreviousIfActive() {
+            var previous = children.stream().filter(ContainerNode.class::isInstance)
+                    .map(x -> (ContainerNode) x)
+                    .filter(x -> List.of(ContainerStyle.ENABLED, ContainerStyle.DISABLED).contains(x.style))
+                    .toList();
+            if (previous.isEmpty()) {
+                throw new IllegalStateException("cannot construct an if-else without previous if");
+            }
+            return previous.stream().anyMatch(x -> x.style == ContainerStyle.ENABLED);
+        }
+
+        public ContainerNode activeElseIf(boolean condition, Consumer<ContainerNode> child) {
+            return activeIf(!isPreviousIfActive() && condition, child);
+        }
+
+        public ContainerNode activeElse(Consumer<ContainerNode> child) {
+            return activeIf(!isPreviousIfActive(), child);
+        }
+
+        /**
+         * Full difficulty dialog like:
+         * Make a ??? roll at Difficulty ??<br>
+         * Successful ??? roll (onSuccess)<br>
+         * Failed ??? roll (onFailure)
+         */
+        public ContainerNode clickableDifficultyRollWithOptions(PlayerDto current, AbilityEnum type, int difficulty,
+                                                                Consumer<ContainerNode> onSuccess,
+                                                                Consumer<ContainerNode> onFailure) {
+            return clickableDifficultyRoll(current, type, difficulty)
+                    .text(".\n")
+                    .activeIfDifficultySuccess(current, difficulty, x -> x
+                            .choice(l -> l.text("Successful ").append(SimpleNode.ability(type)).text(" roll"), onSuccess))
+                    .activeElseIf(current.lastDifficultyRoll() != null, x -> x
+                            .choice(l -> l.text("Failed ").append(SimpleNode.ability(type)).text(" roll"), onFailure));
+        }
+
+        /**
+         * Standard dialog "Make a ??? roll at Difficulty ??".
+         * Note: this isn't good enough if there are multiple difficulty rolls...
+         */
+        public ContainerNode clickableDifficultyRoll(PlayerDto current, AbilityEnum type, int difficulty) {
+            return append(empty().activeIf(current.lastDifficultyRoll() != type, a -> a
+                    .clickable(player -> player.withDiceRoll(2).withLastDifficultyRoll(type), b -> b
+                            .text("Make a ")
+                            .append(SimpleNode.ability(type))
+                            .text(" roll at Difficulty " + difficulty))));
+        }
+
+        /**
+         * selectable on successful {@code #clickableDifficultyRoll}.
+         */
+        public ContainerNode activeIfDifficultySuccess(PlayerDto current, int difficulty, Consumer<ContainerNode> child) {
+            return activeIf(current.lastDifficultyRoll() != null &&
+                    current.getLastRollSum() + current.baseStats().getByType(current.lastDifficultyRoll()) > difficulty, child);
+        }
 
 		/**
 		 * A choice is usually at the end of a section and has a left-aligned description and a right-aligned action.
@@ -164,9 +226,13 @@ public interface SectionNode {
 		 * @param right an action like "turn to 44"
 		 * @return the new node
 		 */
-		public ContainerNode choice(UnaryOperator<ContainerNode> left,
-									UnaryOperator<ContainerNode> right) {
-			return append(empty(ContainerStyle.CHOICE).append(left.apply(empty())).append(right.apply(empty())));
+		public ContainerNode choice(Consumer<ContainerNode> left,
+                                    Consumer<ContainerNode> right) {
+            var leftNode = empty();
+            left.accept(leftNode);
+            var rightNode = empty();
+            right.accept(rightNode);
+			return append(empty(ContainerStyle.CHOICE).append(leftNode).append(rightNode));
 		}
 
 		enum ContainerStyle {
@@ -174,6 +240,10 @@ public interface SectionNode {
 			 * No special style, simply a container for {@code #children}. Similar to a {@code <div>-tag}.
 			 */
 			NONE,
+            /**
+             * Similar to NONE, but explicitly enabled.
+             */
+            ENABLED,
 			/**
 			 * All child nodes are disabled/deactivated and cannot be interacted with
 			 */
@@ -186,7 +256,7 @@ public interface SectionNode {
 		}
 	}
 
-	record ClickableNode(int clickId, SectionNode child) implements SectionNode {
+	record ClickableNode(@JsonIgnore PlayerChange playerChange, int clickId, SectionNode child) implements SectionNode {
 
 		@Override
 		public NodeType getType() {
@@ -212,8 +282,8 @@ public interface SectionNode {
 			return new SimpleNode(SimpleStyleType.ITEM, itemName);
 		}
 
-		public static SimpleNode ability(String abilityName) {
-			return new SimpleNode(SimpleStyleType.ABILITY, abilityName);
+		public static SimpleNode ability(AbilityEnum type) {
+			return new SimpleNode(SimpleStyleType.ABILITY, type.name());
 		}
 
 		public static SimpleNode tickbox(boolean active) {

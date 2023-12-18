@@ -5,6 +5,7 @@ import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.yaml.YamlSectionHandler;
 import ch.bbw.fabbwled.lands.book.yaml.YamlSectionLoader;
+import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
@@ -40,19 +41,28 @@ public class SectionService {
 
 	public SectionDto byId(@NonNull SectionId id) {
 		var handler = getSectionHandler(id);
-		var sectionDto = new SectionDto(handler.getId(), handler.getTicks(), handler.getBody());
+        var player = playerSession.getPlayer();
+        var ticks = new SectionDto.SectionTicks(handler.getMaxTicks(), player.getTicks());
+		var sectionDto = new SectionDto(handler.getId(), ticks, handler.getBody(player));
 		if (log.isDebugEnabled()) { // because it's expensive
 			log.debug("returning {}: {}", sectionDto.id(), sectionDto.body().asPlainText());
-			log.debug("available clickIds: {}", sectionDto.body().allClickIds());
+			log.debug("available clickIds: {}", sectionDto.body().allActiveClickIds());
 		}
 		return sectionDto;
 	}
 
 	public SectionDto onClick(int clickId) {
 		var activeSectionId = playerSession.getPlayer().currentSection();
-		var handler = getSectionHandler(activeSectionId);
-		log.info("handling clickId={} on {}", clickId, activeSectionId);
-		handler.onClick(clickId);
+        log.info("handling clickId={} on {}", clickId, activeSectionId);
+        // we render the current section to obtain all clickable actions
+        var section = byId(activeSectionId);
+        playerSession.update(oldPlayer -> section.body().allActiveClickIds()
+                .stream()
+                .filter(x -> x.clickId() == clickId)
+                .findAny()
+                .orElseThrow(() -> new FabledBusinessException("ClickId " + clickId + " is unavailable or disabled."))
+                .playerChange()
+                .apply(oldPlayer));
 		// we have to re-render as we changed state
 		return byId(playerSession.getPlayer().currentSection());
 	}

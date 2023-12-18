@@ -2,11 +2,13 @@ package ch.bbw.fabbwled.lands.controller;
 
 import ch.bbw.fabbwled.lands.FabledTestBase;
 import ch.bbw.fabbwled.lands.character.Character;
-import ch.bbw.fabbwled.lands.service.PlayerSession;
+import ch.bbw.fabbwled.lands.character.PlayerDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.test.web.reactive.server.WebTestClient;
+
+import java.util.Objects;
 
 @AutoConfigureMockMvc
 class PlayerControllerTest extends FabledTestBase {
@@ -21,21 +23,22 @@ class PlayerControllerTest extends FabledTestBase {
                 .exchange()
                 .expectStatus()
                 .is2xxSuccessful()
-                .expectBody(PlayerSession.PlayerDto.class);
+                .expectBody(PlayerDto.class);
     }
 
     @Test
     void getAndSetCharacters() {
-        var any = client.get()
-                .uri("/api/player/{bookId}/all", 1)
-                .exchange()
-                .expectStatus()
-                .is2xxSuccessful()
-                .expectBodyList(Character.CharacterCreateDto.class)
-                .value(list -> assertThat(list).isNotEmpty())
-                .returnResult()
-                .getResponseBody()
-                .get(0);
+        var any = Objects.requireNonNull(client.get()
+                        .uri("/api/player/{bookId}/all", 1)
+                        .exchange()
+                        .expectStatus()
+                        .is2xxSuccessful()
+                        .expectBodyList(Character.CharacterCreateDto.class)
+                        .value(list -> assertThat(list).isNotEmpty())
+                        .returnResult()
+                        .getResponseBody())
+                .get(0)
+                .player();
         client.post()
                 .uri("/api/player")
                 .bodyValue(any)

@@ -1,7 +1,6 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.FabledTestBase;
-import ch.bbw.fabbwled.lands.book.SectionDto;
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import org.junit.jupiter.api.Test;

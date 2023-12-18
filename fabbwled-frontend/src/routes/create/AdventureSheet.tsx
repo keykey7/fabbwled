@@ -14,6 +14,7 @@ import "./adventure-sheet.scss";
 import { useFormik } from "formik";
 import validationSchema from "./AdventureSheetSchema.ts";
 import { setCharacter } from "../../api/character.ts";
+import { CharacterCreateDto } from "../../interfaces/character.ts";
 
 const defaultPossessions = ["sword", "leather jerkin (Defence +1)", "map"];
 export default function AdventureSheet() {
@@ -44,7 +45,7 @@ export default function AdventureSheet() {
       const characterCreateDto: CharacterCreateDto = {
         player: {
           name: formik.values.name,
-          currentSection: { bookId: 0, sectionId: 0 },
+          currentSection: "1-1",
           titlesAndHonours: formik.values.titlesAndHonours
             .split(",")
             .map((title) => title.trim()),

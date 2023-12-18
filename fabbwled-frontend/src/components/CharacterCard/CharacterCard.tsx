@@ -1,5 +1,6 @@
 import "./character-card.scss";
 import { setCharacter } from "../../api/character.ts";
+import { CharacterCreateDto } from "../../interfaces/character.ts";
 
 type CharacterCardProps = {
   character: CharacterCreateDto;
