@@ -173,7 +173,7 @@ public record PlayerDto(String name,
     }
 
     public PlayerDto addStamina(int amount) {
-        return withStamina(Math.min(stamina + amount, 6));
+        return withStamina(Math.min(stamina + amount, staminaWhenUnwounded()));
     }
 
     public PlayerDto setStamina(int amount) {
