@@ -144,6 +144,10 @@ public record PlayerDto(String name,
         return codeWords.contains(codeword);
     }
 
+    public boolean hasPossession(String possession) {
+        return possessions().contains(possession);
+    }
+
     public boolean hasTitleOrHonor(String titleOrHonor) {
         return titlesAndHonours.contains(titleOrHonor);
     }
@@ -166,7 +170,23 @@ public record PlayerDto(String name,
         return withShards(shards + amount);
     }
 
+    public boolean hasEnoughShards(int amount) {
+        return (shards - amount) >= 0;
+    }
+
     public boolean hasDiceRolled() {
         return !mostRecentDiceRoll.isEmpty();
+    }
+
+    public PlayerDto addStamina(int amount) {
+        return withStamina(Math.min(stamina + amount, staminaWhenUnwounded()));
+    }
+
+    public PlayerDto setStamina(int amount) {
+        return withStamina(amount);
+    }
+
+    public boolean doIStillLive() {
+        return stamina >= 0;
     }
 }

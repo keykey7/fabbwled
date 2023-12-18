@@ -4,3 +4,4 @@ import ch.bbw.fabbwled.lands.book.SectionId;
 
 public record Resurrection(String resurrectionTitle, SectionId sectionIdToTurnTo) {
 }
+
