@@ -74,17 +74,6 @@
         another cultist is tossing herbs and garlic. He stares at you and
         licks his lips.
     - turnTo: 320
-# TODO: SANCTITY ROLL
-#- number: 509
-#  content:
-#    - text: |
-#        You spot a pressure pad at the base of the idol just in time –
-#        who knows what unpleasant trap that would have set off!
-#        Quickly, you remove the chain mail and sling it over your
-#        shoulder. Note the gold chain mail of Tyrnai on your
-#        Adventure Sheet – as it is gold, it is useless as actual armour.
-#        The eyes of the jaguar headed idol seem to turn to look at
-#        you. Make a SANCTITY roll at Difficulty 10.
 - number: 510
   content:
     - text: |
@@ -119,46 +108,30 @@
         - text: North west into farmlands
           then:
             - turnTo: 548
-# TODO: Buy ingredients, SCOUTING roll
-#- number: 511
-#  content:
-#    - text: |
-#        Your arcane knowledge tells you much about the undead.
-#        Ghouls are known to eat the flesh of the dead as well as the
-#        living. They like to make their homes in crypts and graveyards
-#        and they never venture out during the day, as sunlight burns
-#        their pallid undead flesh. Also, they cannot abide a powder of
-#        salt and iron filings mixed together.
-#        You can purchase these ingredients for 15 Shards at many a
-#        market stall. If you make the purchase, note you have salt and
-#        iron filings on your Adventure Sheet.
-#        When you are ready, you set off to search the cemeteries of
-#        Marlock City. Make a SCOUTING roll at Difficulty 9.
-# TODO: Implement when backend is capable of
-#- number: 512
-#  content:
-#    - if:
-#        hasKeyword: "pirateCaptain’sHead"
-#      then:
-#        - choice:
-#            - text: Want to give it to the guildmaster?
-#              then:
-#                - turnTo: 163
-#            - text: Want to keep it
-#              then:
-#                - text: |
-#                    ‘Do you have the head of Amcha the Pirate?’ asks the
-#                    guildmaster. ‘No! The what are you doing here? He is plying his
-#                    evil trade in the seas to the south, and his base lies to the east of
-#                    the Sorcerers’ Isle. Now go!’
-#                - turnTo: 100
-#      else:
-#        - text: |
-#            ‘Do you have the head of Amcha the Pirate?’ asks the
-#            guildmaster. ‘No! The what are you doing here? He is plying his
-#            evil trade in the seas to the south, and his base lies to the east of
-#            the Sorcerers’ Isle. Now go!’
-#        - turnTo: 100
+- number: 512
+  content:
+    - if:
+        hasPossession: "pirate captain’s head"
+      then:
+        - choice:
+            - text: Want to give it to the guildmaster?
+              then:
+                - turnTo: 163
+            - text: |
+                  Want to keep it 
+                  ‘Do you have the head of Amcha the Pirate?’ asks the
+                  guildmaster. ‘No! The what are you doing here? He is plying his
+                  evil trade in the seas to the south, and his base lies to the east of
+                  the Sorcerers’ Isle. Now go!‘
+              then:
+                - turnTo: 100
+      else:
+        - text: |
+            ‘Do you have the head of Amcha the Pirate?’ asks the
+            guildmaster. ‘No! The what are you doing here? He is plying his
+            evil trade in the seas to the south, and his base lies to the east of
+            the Sorcerers’ Isle. Now go!’
+        - turnTo: 100
 - number: 513
   content:
     - text: |
@@ -180,7 +153,6 @@
           then:
             - turnTo: 616
 # TODO: implement 514
-# TODO: implement 515
 - number: 516
   content:
     - text: |
@@ -198,7 +170,7 @@
 - number: 517
   content:
     - if:
-        hasKeyword: "ghoul’s head"
+        hasPossession: "ghoul’s head"
       then:
         - turnTo: 597
       else:
@@ -216,7 +188,6 @@
             - text: Leave the temple
               then:
                 - turnTo: 100
-# TODO: implement 518
 # TODO: Cargo unit?
 - number: 519
   content:
@@ -227,7 +198,6 @@
         give them a proper burial at sea. There is nothing else of interest,
         so you sail on. Turn to 209 .
     - turnTo: 209
-# TODO: implement 520
 - number: 521
   content:
     - text: |
@@ -269,7 +239,6 @@
         - text: Refuse the offer
           then:
             - turnTo: 408
-# TODO: implement 523
 - number: 524
   content:
     - text: |
@@ -338,9 +307,7 @@
         - text: North into open countryside
           then:
             - turnTo: 278
-# TODO: implement 528
-# TODO: implement 529
-# loose 1 cargo unit
+# TODO: loose 1 cargo unit
 - number: 530
   content:
     - text: |
@@ -353,7 +320,7 @@
 - number: 531
   content:
     - if:
-        hasKeyword: "golden net"
+        hasPossession: "golden net"
       then:
         - turnTo: 4
       else:
@@ -392,41 +359,6 @@
         - text: Leave at once
           then:
             - turnTo: 10
-# TODO: check if hasProfession is implemented
-#- number: 535
-#  content:
-#    - text: |
-#        The House of Priests is an impressive building, a roundhouse of
-#        multi-coloured bricks. The myriad colours give it a bizarre and
-#        garish look, calculated to unsettle the visitor. Inside, a hundred
-#        offices team with the administration of the polytheistic religion
-#        of Sokara and Golnir.
-#    - if:
-#        hasProfession: "Priest"
-#      then:
-#        - turnTo: 9
-#      else:
-#        - turnTo: 100
-# TODO: implement 536
-# TODO: check if correct
-- number: 537
-  content:
-    - if:
-        needsAtLeastShards: 20
-      then:
-        - choice:
-            - text: "Buy bag of pearls"
-              then:
-#                - spendShards: 20
-                - turnTo: 106
-            - text: "Leave and resume your journey"
-              then:
-                - turnTo: 85
-      else:
-        - text: "Leave and resume your journey"
-        - turnTo: 85
-# TODO: implement 538
-# TODO: implement 539
 - number: 540
   content:
     - text: |
