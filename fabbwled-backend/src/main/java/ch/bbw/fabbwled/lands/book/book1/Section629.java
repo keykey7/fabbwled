@@ -4,7 +4,9 @@ import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Section629 implements SectionHandler {
     @Override
     public SectionId getId() {
