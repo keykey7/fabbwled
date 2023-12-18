@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class YamlVerificationTest implements WithAssertions {
+class YamlVerificationTest implements WithAssertions {
     private static final SectionId DUMMY_ID = new SectionId(1, 1);
 
     @Test

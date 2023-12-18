@@ -70,6 +70,10 @@
                 "hasPossession": {
                   "description": "Has a possession",
                   "type": "string"
+                },
+                "hasProfession": {
+                  "description": "Has a profession",
+                  "type": "string"
                 }
               }
             },
@@ -130,6 +134,10 @@
                       },
                       "hasPossession": {
                         "description": "Has a possession",
+                        "type": "string"
+                      },
+                      "hasProfession": {
+                        "description": "Has a profession",
                         "type": "string"
                       }
                     }
@@ -205,6 +213,10 @@
                       },
                       "hasPossession": {
                         "description": "Has a possession",
+                        "type": "string"
+                      },
+                      "hasProfession": {
+                        "description": "Has a profession",
                         "type": "string"
                       }
                     }
