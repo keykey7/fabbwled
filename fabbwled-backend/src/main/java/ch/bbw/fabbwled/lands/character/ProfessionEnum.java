@@ -8,7 +8,7 @@ public enum ProfessionEnum {
     PRIEST("Priest"),
     TROUBADOUR("Troubadour");
 
-    private String name;
+    private final String name;
     ProfessionEnum(String name) {
         this.name = name;
     }

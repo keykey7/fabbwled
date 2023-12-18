@@ -28,6 +28,26 @@
         Wary of danger, you lose no time in getting to your feet. Confronting you is an old man clad in a dirty loin-cloth.
         His eyes have a feverish bright look that is suggestive of either a mystic or a mad man.
     - turnTo: 20
+- number: 2
+  content:
+    - text: |
+        The soldier recognizes you.
+        He bows and says, ‘Welcome,my lord. I will take you see King Nergan.’
+        He leads you to Nergan’s mountain stockade, where the king greets you warmly.‘
+        Ah, my local champion!
+        It is always a pleasure to see you.However, I was hoping you had spoken with General Beladai of the allied army –
+        we need that citadel. Now go. That is a royal command!’You leave, climbing down to the foothills of the mountains.
+    - if:
+        hasPossession: coded missive
+      then:
+        - turnTo: 676
+      else:
+        - if:
+            hasKeyword: Deliver
+          then:
+            - turnTo: 98
+          else:
+            - turnTo: 474
 - number: 3
   content:
     - text: |
@@ -58,6 +78,32 @@
         A vile stink of brimstone permeates the air. 
         You wrinkle your face up in disgust and gag involuntarily. ‘Welcome to Yellowport!’ says a passing merchant.
     - turnTo: 10
+- number: 9
+  content:
+    - text: |
+        If you have the codeword Altitude, turn to 272 immediately.
+        If not, read on. A notice has been pinned up in the foyer. ‘Adventurer priest wanted. 
+        See the Chief Administrator.’ Naturally, you present yourself, and the Chief Administrator, a grey-whiskered priest of Elnir, 
+        takes you into his office. He shows you a special crystal ball that displays an aerial view of Marlock City. 
+        You notice several strange-looking clouds hanging over the city. They are shaped like gigantic demons reaching 
+        down to claw at the city laid out below them. ‘The crystal ball shows things as they are in the spirit world,’ explains the priest. 
+        ‘These storm demons cannot be seen under normal circumstances, but they are there, almost ready to destroy the city.’ 
+        He goes on to tell you that Sul Veneris, the divine Lord of Thunder is one of the sons of Elnir, the Sky God, chief among the gods. 
+        He is responsible for keeping the storm demons under control, and thunder is thought to be the sound of Sul Veneris smiting the demons 
+        in his wrath. ‘Unfortunately, the storm demons have found a way to put Sul Veneris into an enchanted sleep. He lies at the very top of 
+        Devil’s Peak, a single spire of volcanic rock, reaching up into the clouds. The peak lies north of Marlock City and the Curstmoor. 
+        We need an enterprising priest to get to the top of the peak and free Sul Veneris from his sleep. 
+        But I must warn you that several priests have already tried, and we never saw them again.’ 
+        If you take up the quest, record the codeword Altitude.
+    - if:
+        hasKeyword: "Altitude"
+      then:
+        - turnTo: 272
+      else:
+        - acquireKeyword: "Altitude"
+          then:
+            - turnTo: 100
+    - turnTo: 100 # There to 'fix section loader'
 - number: 11
   content:
     - text: |
@@ -88,22 +134,6 @@
         - turnTo: 116
       else:
         - turnTo: 238
-- number: 15
-  content:
-    - text: Three drunken army officers...
-    - if:
-        hasTitle: "Protector of Sokara"
-      then:
-        - turnTo: 542
-      else:
-        - text: If not, read on.
-        - choice:
-            - text: Step out of the way
-              then:
-                - turnTo: 44
-            - text: Return the insult
-              then:
-                - turnTo: 266
 - number: 20
   content:
     - text: |
@@ -152,6 +182,33 @@
         - text: Call on your god to banish them
           then:
             - turnTo: 520
+- number: 25
+  content:
+    - text: |
+        Captain Vorkung is impressed with your claims of loyalty to the
+        rightful king. He decides you might be useful to their cause, and
+        you are led, blindfolded, through a secret pass to a mountain
+        stockade.
+        King Nergan gives you an audience in a makeshift throne
+        room. He is a young, and handsome man, who seems
+        committed to his country. He leads you aside, into a private
+        chamber.
+        ‘I have need of one such as you,’ he says. ‘Yellowport groans
+        under the yoke of Governor Marloes Marlock, the brother of
+        General Grieve Marlock. If you can get into the palace at
+        Yellowport and assassinate Marloes, I will be eternally grateful.’
+        When you are ready, the King wishes you well, and you are
+        lead out of the stockade, and back down to the foothills of the
+        Coldbleak Mountains.
+    - if:
+        hasKeyword: "Artery"
+      then:
+        - turnTo: 399
+      else:
+        - acquireKeyword: "Ambuscade"
+          then:
+            - turnTo: 474
+    - turnTo: 474 # There to 'fix' section loader
 - number: 26
   content:
     - text: |
@@ -192,6 +249,29 @@
         - text: West towards the River Grimm
           then:
             - turnTo: 99
+- number: 31
+  content:
+    - text: |
+        A dark emptiness surrounds you. Then, as if in your sleep, you
+        see a tiny glimmer of light off in the distance. Suddenly you
+        wake up, and find yourself coughing and spluttering, up to your
+        neck in water. You look around – you are floundering in the
+        holy waters of Blessed Springs.
+        Standing at the side of the pool is a tall, slim, moustached
+        man who says ‘I am Aklar the Bold. I found you as bottled dust
+        in the lair of Vayss the Sea Dragon. By sprinkling your ashes into
+        the holy waters, I have brought you back to life. I think a
+        reward is in order, don’t you?’
+        You explain that you have nothing to give. Aklar frowns in
+        annoyance: ‘Blast, I knew I should have taken one of the other
+        bottles! Well, you’ll just have to owe me a favour. A big
+        favour.’.
+        You can hardly refuse. Record the codeword Aklar.
+        ‘Well, I must be about my business – we shall meet again,
+        count on it.’ With that he leaves.
+        You stagger out of the pool.
+    - acquireKeyword: "Aklar"
+    - turnTo: 510
 - number: 32
   content:
     - text: |
@@ -232,11 +312,3 @@
         - text: Take the road to Marlock City
           then:
             - turnTo: 166
-- number: 36
-  content:
-    - text: |
-        Soon you realize you are completely lost in this strange, magical
-        forest. You wander around for days, barely able to find enough
-        food and water. Lose 4 Stamina points. If you still live, you
-        eventually stagger out of the forest to the coast.
-    - turnTo: 128
