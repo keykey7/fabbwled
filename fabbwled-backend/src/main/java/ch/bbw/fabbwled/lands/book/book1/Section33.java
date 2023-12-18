@@ -39,8 +39,17 @@ public class Section33 implements SectionHandler {
                         time. If you arrange another resurrection later at a different
                         temple, the original one is cancelled. Cross it off your Adventure
                         Sheet. You do not get a refund.""")
-                .activeIf(current.shards() >= 200 && isInitiate, x -> x.clickable(n -> n.subtractStamina(200).withResurrectionArrangement(new Resurrection("Temple of Tyrnai, The War-Torn Kingdom 640", SectionId.book1(640))), c -> c.text("Resurrection costs 200 Shards if you are an initiate.").clickableTurnTo(282)))
-                .activeIf(current.shards() >= 800 && !isInitiate, x -> x.clickable(n -> n.subtractStamina(800).withResurrectionArrangement(new Resurrection("Temple of Tyrnai, The War-Torn Kingdom 640", SectionId.book1(640))), g -> g.text("Resurrection costs 800 Shards if you are not an initiate").clickableTurnTo(282)))
+                .activeIf(current.shards() >= 200 && isInitiate,
+                        x -> x.clickable(n -> n
+                                        .subtractStamina(200).withResurrectionPossible(true)
+                                        .withResurrectionArrangement(new Resurrection("Temple of Tyrnai, The War-Torn Kingdom 640",
+                                                SectionId.book1(640))),
+                                c -> c.text("Resurrection costs 200 Shards if you are an initiate.").clickableTurnTo(282)))
+                .activeIf(current.shards() >= 800 && !isInitiate, x -> x
+                        .clickable(n -> n.subtractStamina(800).withResurrectionPossible(true)
+                                .withResurrectionArrangement(new Resurrection("Temple of Tyrnai, The War-Torn Kingdom 640",
+                                        SectionId.book1(640))),
+                                g -> g.text("Resurrection costs 800 Shards if you are not an initiate").clickableTurnTo(282)))
                 .clickableTurnTo(282);
 
 
