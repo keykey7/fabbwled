@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import DiceComponent from "../../DiceComponent.tsx";
 import { convertToElement } from "../../SectionRenderer.tsx";
 import { Player, Section } from "../../interfaces/character.ts";
+import { Link } from "react-router-dom";
 
 export default function Game() {
   const [character, setCharacter] = useState<Player>();
@@ -22,10 +23,6 @@ export default function Game() {
 
   function rollDice(diceNumber: number) {
     console.log(diceNumber);
-  }
-
-  function newGame() {
-    document.cookie = "";
   }
 
   function exitGame() {
@@ -119,13 +116,17 @@ export default function Game() {
           ></DiceComponent>
         </div>
         <div className={styles.buttons}>
-          <button
-            className={styles.pencil}
-            title={"New Game"}
-            onClick={newGame}
-          >
-            <img src={"/pencil.png"} />
-          </button>
+          <Link to={`/create`}>
+            <button
+              className={styles.pencil}
+              title={"New Game"}
+              onClick={() => {
+                document.cookie = "";
+              }}
+            >
+              <img src={"/pencil.png"} />
+            </button>
+          </Link>
           <button
             className={styles.eraser}
             title={"Exit the current game"}
