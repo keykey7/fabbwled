@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import java.util.Objects;
+
 @AutoConfigureMockMvc
 class PlayerControllerTest extends FabledTestBase {
 
@@ -26,15 +28,15 @@ class PlayerControllerTest extends FabledTestBase {
 
     @Test
     void getAndSetCharacters() {
-        var any = client.get()
-                .uri("/api/player/{bookId}/all", 1)
-                .exchange()
-                .expectStatus()
-                .is2xxSuccessful()
-                .expectBodyList(Character.CharacterCreateDto.class)
-                .value(list -> assertThat(list).isNotEmpty())
-                .returnResult()
-                .getResponseBody()
+        var any = Objects.requireNonNull(client.get()
+                        .uri("/api/player/{bookId}/all", 1)
+                        .exchange()
+                        .expectStatus()
+                        .is2xxSuccessful()
+                        .expectBodyList(Character.CharacterCreateDto.class)
+                        .value(list -> assertThat(list).isNotEmpty())
+                        .returnResult()
+                        .getResponseBody())
                 .get(0)
                 .player();
         client.post()
