@@ -23,11 +23,11 @@ public class Section511 implements SectionHandler {
                         living. They like to make their homes in crypts and graveyards
                         and they never venture out during the day, as sunlight burns
                         their pallid undead flesh. Also, they cannot abide a powder of
-                        salt and iron filings mixed together.
+                        salt and iron filings mixed together. You can purchase these
+                        ingredients for 15 Shards at many a market stall.
+                        If you make the purchase, note you have salt and iron
+                        filings on your Adventure Sheet.
                         """)
-// TODO: You can purchase these ingredients for 15 Shards at many a
-//market stall. If you make the purchase, note you have salt and
-//iron filings on your Adventure Sheet.
                 .clickableDifficultyRollWithOptions(current, AbilityEnum.SCOUTING, 9,
                         success -> success.clickableTurnTo(419),
                         failure -> failure.clickableTurnTo(360));

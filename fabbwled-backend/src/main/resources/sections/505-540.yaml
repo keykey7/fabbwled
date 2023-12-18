@@ -198,32 +198,6 @@
         give them a proper burial at sea. There is nothing else of interest,
         so you sail on. Turn to 209 .
     - turnTo: 209
-- number: 520
-  content:
-    - text: |
-        You hold up your arms and utter the mightiest prayer that you
-        know. It has no effect.
-        The three white figures pelt you with a barrage of plates and
-        knives. Something heavy hits you on the side of the head and
-        you fall with a groan. The ghosts take advantage of this to snatch
-        up the casket of silver and run off.
-# TODO: Loose 2 stamina points, if you still live...
-    - choice:
-        - text: Try to track them down
-          then:
-            - turnTo: 541
-        - text: Follow the river north
-          then:
-            - turnTo: 576
-        - text: Follow the river south
-          then:
-            - turnTo: 82
-        - text: Head east into the countryside
-          then:
-            - turnTo: 278
-        - text: West to the main road
-          then:
-            - turnTo: 558
 - number: 521
   content:
     - text: |
@@ -385,23 +359,6 @@
         - text: Leave at once
           then:
             - turnTo: 10
-# TODO: check if correct
-- number: 537
-  content:
-    - if:
-        needsAtLeastShards: 20
-      then:
-        - choice:
-            - text: "Buy bag of pearls"
-              then:
-                #                - spendShards: 20
-                - turnTo: 106
-            - text: "Leave and resume your journey"
-              then:
-                - turnTo: 85
-      else:
-        - text: "Leave and resume your journey"
-        - turnTo: 85
 - number: 540
   content:
     - text: |

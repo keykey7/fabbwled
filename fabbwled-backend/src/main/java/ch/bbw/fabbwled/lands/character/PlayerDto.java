@@ -140,10 +140,6 @@ public record PlayerDto(String name,
         return codeWords.contains(codeword);
     }
 
-    public boolean hasProfession(String profession) {
-        return profession().toString().equalsIgnoreCase(profession);
-    }
-
     public boolean hasPossession(String possession) {
         return possessions().contains(possession);
     }

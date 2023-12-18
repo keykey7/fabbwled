@@ -24,6 +24,7 @@ public class Section529 implements SectionHandler {
                 .activeIf(current.doIStillLive(), a -> a
                         .text("You still live!")
                         .clickableTurnTo(474));
+        //TODO: YOU DIED
     }
 }
 

@@ -4,6 +4,7 @@ import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
+import ch.bbw.fabbwled.lands.character.ProfessionEnum;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,7 +24,7 @@ public class Section535 implements SectionHandler {
                         offices team with the administration of the polytheistic religion
                         of Sokara and Golnir.
                         """)
-                .activeIf(current.hasProfession("Priest"), a -> a
+                .activeIf(current.profession() == ProfessionEnum.PRIEST, a -> a
                         .text("If you are a Priest, ")
                         .clickableTurnTo(9)
                         .text("."))
