@@ -61,8 +61,8 @@
     - text: |
         The slave market is a large, canvas-covered square. The poor unfortunate slaves, people from all over Harkuna – from theFeathered Lands, Golnir, criminals of Sokara, nomads from the steppes, are paraded in chains on a dais.
         Merchants and nobles bid for the slaves they want. If there is a tick in the above box,turn to 610 immediately.
-        If not, read on.An unusual sale has come up – a little, furry, bat-wingedhumanoid.
-        It  is  one  of  the  Mannekyn  People  from  SkyMountain in the north and it is going for 50 Shards.
+        If not, read on. An unusual sale has come up – a little, furry, bat-wingedhumanoid.
+        It is one of the Mannekyn People from SkyMountain in the north and it is going for 50 Shards.
     - choice:
         - text: If you want to buy it.
           then:
