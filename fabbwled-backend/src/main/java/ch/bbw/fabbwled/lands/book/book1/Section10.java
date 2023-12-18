@@ -35,15 +35,16 @@ public class Section10 implements SectionHandler {
                         The old and corrupt king of Sokara, Corin VII, has been deposed and executed in a military coup. General Grieve Marlock and the army now control Sokara.
                         The old Council of Yellowport has been ‘indefinitely dissolved’ and a provost marshal, Marloes Marlock, the general’s brother, appointed as military governor of the town.
 
-                        Owning a house gives you a place to rest, and to store equipment.
-                        If you buy one, tick the box by the town house option and cross off 200 Shards from your Adventure Sheet.
-                        To leave Yellowport by sea, buy or sell ships and cargo, go to the harbourmaster.
+                       
                               """)
 
                 .activeIf(current.hasCodeword("Assasin"), x -> x.clickableTurnTo(50))
                 .activeIf(current.volatileSectionStore()==null, x -> x.clickable(p -> p.addTick().withVolatileSectionStore(true), y -> y.text("tick the first empty box above")))
                 .activeIf(current.getTicks() == this.getMaxTicks(), x -> x.clickableTurnTo(273))
-                .activeIf(current.shards() >= 200, t -> t.choice(x -> x.text("Buy townhouse for 200 shards"),  x ->  x.clickable( y -> y.addShards(-200).addPersistentSectionStorage(true), z -> z.text("You can buy a town house in Yellowport for 200 Shards."))))
+                .activeIf(current.shards() >= 200, t -> t.choice(x -> x.text(""" 
+                       Buy townhouse for 200 shards.  Owning a house gives you a place to rest, and to store equipment.
+                       If you buy one, tick the box by the town house option and cross off 200 Shards from your Adventure Sheet.
+                       To leave Yellowport by sea, buy or sell ships and cargo, go to the harbourmaster."""),  x ->  x.clickable( y -> y.addShards(-200).addPersistentSectionStorage(true), z -> z.text("You can buy a town house in Yellowport for 200 Shards."))))
                 .activeIf(current.hasCodeword("Artefact") && current.possessions().contains("Book of the Seven Sages"), x -> x.clickableTurnTo(40))
                 .activeIf(current.persistentSectionStore().get(current.currentSection())!=null, x -> x.clickableTurnTo(300))
                 .choice(x -> x.text("Seek an audience with the provost marshal"), x -> x.clickableTurnTo(523))
