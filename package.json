@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "sass": "^1.67.0"
+  },
+  "dependencies": {
+    "@mui/material": "^5.14.10"
+  }
+}
