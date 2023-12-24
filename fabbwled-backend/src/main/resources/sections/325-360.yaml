@@ -26,6 +26,24 @@
         ‘Bah!’ he exclaims, ‘It’s not worth the trouble. I’ll let it pass this time.
         ’With that, he returns to his ship, and departs
     - turnTo: 439
+- number: 336
+  content:
+    - text: |
+        You step in, saying, ‘I have a message for King Skabb...’ The ratmen stare at you in amazement.
+        ‘A human! Get it!’ screams Skabb. The four ratmen charge toward you with a roar, wielding swords
+        before you can say anything more. Soon they have been joined by many others and you have little
+        choice but to turn and flee for your life! Desperately, you race down the sewer tunnels, with an
+        army of ratmen in hot pursuit.
+  choices:
+    - text: Lose them in the tunnels
+      then:
+        - turnTo: 79
+    - text: Try some magic
+      then:
+        - turnTo: 296
+    - text: Hide
+      then:
+        - turnTo: 127
 - number: 341
   content:
     - text: |
