@@ -49,6 +49,22 @@
         and run off into the shadowy backstreets of Caran Baru.
         Cursing your luck, you consider your next move.
     - turnTo: 400
+- number: 351
+  content:
+    - text: |
+        One day, a new slave is brought in to work beside you. Much to your astonishment,
+        it is Lauria, the thief who left you in the lurch when you burgled a wizard’s house in Yellowport.
+        ‘Sorry about the last time,’ she says, ‘Business – you know. Now’s my chance to make it up to you.’
+        She explains that she has discovered an escape route.
+        This time, she promises to set up a diversion while you make for a tunnel where a cave-in has left an opening to the outside.
+        Lauria says she will meet you later.
+  choices:
+    - text: Go along with her plan
+      then:
+        - turnTo: 662
+    - text: Escape on your own
+      then:
+        - turnTo: 565
 - number: 352
   content:
     - text: |
