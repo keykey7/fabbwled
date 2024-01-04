@@ -1,40 +1,40 @@
-import {Container} from "../SectionRenderer.tsx";
+import { Container } from "../SectionRenderer.tsx";
 
-interface CharacterCreateDto {
+export interface CharacterCreateDto {
   player: Player;
   description: string;
 }
 
 export interface Player {
-    name: string;
-    currentSection: `1-${number}`;
-    titlesAndHonours: string[];
-    rank:
-        | "OUTCAST"
-        | "COMMONER"
-        | "GUILDMEMBER"
-        | "MASTER"
-        | "GENTLEMAN"
-        | "BARON"
-        | "COUNT"
-        | "EARL"
-        | "MARQUIS"
-        | "DUKE";
-    profession:
-        | "Wayfarer"
-        | "Warrior"
-        | "Mage"
-        | "Rogue"
-        | "Priest"
-        | "Troubadour";
-    stamina: number;
-    staminaWhenUnwounded: number;
-    baseStats: BaseStats;
-    possessions: string[];
-    shards: Shards;
-    tickBoxes: TickBoxes;
-    codeWords: string[];
-    defence: number;
+  name: string;
+  currentSection: `1-${number}`;
+  titlesAndHonours: string[];
+  rank:
+    | "OUTCAST"
+    | "COMMONER"
+    | "GUILDMEMBER"
+    | "MASTER"
+    | "GENTLEMAN"
+    | "BARON"
+    | "COUNT"
+    | "EARL"
+    | "MARQUIS"
+    | "DUKE";
+  profession: Profession;
+  stamina: number;
+  staminaWhenUnwounded: number;
+  baseStats: BaseStats;
+  possessions: string[];
+  shards: number;
+  codeWords: string[];
+  defence: number;
+  blessings: string[];
+  tickBoxes: {};
+  poisons: string[];
+  disease: string[];
+  curses: string[];
+  persistentSectionStore: {};
+  mostRecentDiceRoll: number[];
 }
 
 interface BaseStats {
@@ -53,13 +53,4 @@ export interface Section {
     total: number;
     ticked: number;
   };
-}
-
-interface Shards {
-  shardCount: number;
-}
-
-interface SectionId {
-  sectionId?: number;
-  bookId?: number;
 }

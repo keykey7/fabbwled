@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import CharacterCard from "../../../components/CharacterCard/CharacterCard.tsx";
 import "./existing-characters.scss";
-import {getAllCharacters} from "../../api/character.ts";
-import { CharacterCreateDto } from "../../interfaces/character.ts";
+import { getAllCharacters } from "../../../api/character.ts";
+import { CharacterCreateDto } from "../../../interfaces/character.ts";
 
 export default function ExistingCharacters() {
   const [characters, setCharacters] = useState<CharacterCreateDto[]>([]);

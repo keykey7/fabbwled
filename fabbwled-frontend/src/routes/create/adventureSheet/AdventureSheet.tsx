@@ -17,8 +17,7 @@ import { setCharacter } from "../../../api/character.ts";
 import { useState } from "react";
 import AlertMessage from "../../../components/AlertMessage/AlertMessage.tsx";
 import { useNavigate } from "react-router";
-import { CharacterCreateDto } from "../../interfaces/character.ts";
-
+import { Player } from "../../../interfaces/character.ts";
 
 const professions: Profession[] = [
   "WAYFARER",
@@ -57,40 +56,40 @@ export default function AdventureSheet() {
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: async (values) => {
-      console.log("Form submitted with values:", values);
-
-      const characterCreateDto: CharacterCreateDto = {
-        player: {
-          name: formik.values.name,
-          currentSection: "1-1",
-          titlesAndHonours: formik.values.titlesAndHonours
-            .split(",")
-            .map((title) => title.trim()),
-          rank: "OUTCAST", // must be OUTCAST (starting rank 1)
-          profession: formik.values.profession,
-          stamina: formik.values.staminaCurrent,
-          staminaWhenUnwounded: formik.values.staminaWhenUnwounded,
-          baseStats: {
-            charisma: formik.values.charisma,
-            combat: formik.values.combat,
-            magic: formik.values.magic,
-            sanctity: formik.values.sanctity,
-            scouting: formik.values.scouting,
-            thievery: formik.values.thievery,
-          },
-          possessions: formik.values.possessions,
-          shards: { shardCount: formik.values.money },
-          defence: 0, // This value will be calculated in the backend
-          tickBoxes: {},
-          codeWords: [],
+    onSubmit: async () => {
+      const player: Player = {
+        name: formik.values.name,
+        currentSection: "1-1",
+        titlesAndHonours: formik.values.titlesAndHonours
+          .split(",")
+          .map((title) => title.trim()),
+        rank: "OUTCAST", // must be OUTCAST (starting rank 1)
+        profession: formik.values.profession,
+        stamina: formik.values.staminaCurrent,
+        staminaWhenUnwounded: formik.values.staminaWhenUnwounded,
+        baseStats: {
+          charisma: formik.values.charisma,
+          combat: formik.values.combat,
+          magic: formik.values.magic,
+          sanctity: formik.values.sanctity,
+          scouting: formik.values.scouting,
+          thievery: formik.values.thievery,
         },
-        description: formik.values.description,
+        possessions: formik.values.possessions,
+        shards: formik.values.money,
+        defence: 0, // This value will be calculated in the backend
+        tickBoxes: {},
+        codeWords: [],
+        blessings: formik.values.blessings.split(","),
+        poisons: [],
+        disease: [],
+        curses: [],
+        persistentSectionStore: {},
+        mostRecentDiceRoll: [],
       };
       try {
-        await setCharacter(characterCreateDto);
+        await setCharacter(player);
         setErrorMessage("");
-
         navigate("/game");
       } catch (error) {
         setErrorMessage("Failed to create character. Please try again.");
@@ -106,10 +105,10 @@ export default function AdventureSheet() {
         <Typography variant="h4" gutterBottom style={{ textAlign: "center" }}>
           Adventure Sheet
         </Typography>
-          <hr />
-          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-              Base stats
-          </Typography>
+        <hr />
+        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+          Base stats
+        </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Grid container>
             {/* Row 1 */}
@@ -170,7 +169,7 @@ export default function AdventureSheet() {
             </Grid>
             <Grid item xs={4} />
           </Grid>
-            <br/>
+          <br />
 
           <hr />
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
@@ -321,8 +320,8 @@ export default function AdventureSheet() {
           <br />
 
           {/* Row 5 */}
-            <hr />
-            <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+          <hr />
+          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Possessions
           </Typography>
 
@@ -348,9 +347,9 @@ export default function AdventureSheet() {
             </Grid>
           </Grid>
           <br />
-            <hr />
-            <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-              Other values
+          <hr />
+          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+            Other values
           </Typography>
           {/* Row 7 */}
           <Grid container>

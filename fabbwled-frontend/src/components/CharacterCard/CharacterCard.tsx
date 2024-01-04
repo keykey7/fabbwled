@@ -1,7 +1,7 @@
 import "./character-card.scss";
 import { setCharacter } from "../../api/character.ts";
 import { CharacterCreateDto } from "../../interfaces/character.ts";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type CharacterCardProps = {
   character: CharacterCreateDto;
