@@ -17,7 +17,7 @@
         You can leave possessions and money here to save having to carry them around with you.
         You can also rest here safely, and recover any Stamina points you have lost.  
         Record in the box anything you wish to leave. Each time you return, roll two dice:
-    # TODO: Add dice functionality
+    - turnTo: 100
 - number: 435
   content:
     - text: |
@@ -75,11 +75,11 @@
     - text: |
         You clamber up on to the battlements of the Temple of Tyrnai with relative ease and manoeuvre yourself
         into a position overlooking the golem guards at the gate. Now you have to reach down without being noticed.
-    # TODO: Add dice functionality
+    - turnTo: 22
 - number: 442
   content:
     - text: |
-        You set out to explore the city of Yellowport at night,unwholesome though it is with its reeking air and dusty ochrestreets.
+        You set out to explore the city of Yellowport at night,unwholesome though it is with its reeking air and dusty ochre streets.
     - choice:
         - text: Head for the rough part of the town
           then:
@@ -105,7 +105,7 @@
         You try to make a run for it. 
         Roll two dice and add your Rank. Subtract 1 from the total if you have a poor crew. 
         Add 1 if you have a good crew or add 2 if you have an excellent crew.
-    # TODO: Add dice functionality
+    - turnTo: 402
 - number: 445
   content:
     - text: |
@@ -133,7 +133,7 @@
         - text: |
             You set out that night, on your quest. Make a MAGIC roll atDifficulty 10.
         - checkTickBox: true
-        # TODO: Add dice functionality
+        - turnTo: 511
 - number: 447
   content:
     - text: |
@@ -161,7 +161,7 @@
         A scorpion man is at work at a desk. Unlike others of his kind, he wears rudimentary clothing.
         Suddenly, what you took for a stuffed animal’s head,mounted on the wall, says, ‘There is an intruder, master.’
         The scorpion man wheels around and charges straight at you!
-    # TODO: Add dice functionality
+    - turnTo: 503
 - number: 450
   content:
     - text: |
@@ -170,7 +170,6 @@
         - text: Cannot or will not pay
           then:
             turnTo: 510
-        # TODO: Pay shards
 - number: 451
   content:
     - text: | 
@@ -185,7 +184,8 @@
       else:
         - turnTo: 329
 - number: 452
-  # TODO: Wait for shop compatibility
+  content:
+    - turnTo: 195
 - number: 453
   content:
     - text: | 
@@ -226,7 +226,9 @@
       else:
         - turnTo: 142
 - number: 456
-  # TODO: Wait for and condition
+  content:
+    - text: ‘Ah, welcome, welcome,’ says Marloes Marlock.
+    - turnTo: 375
 - number: 457
   content:
     - text: |
@@ -252,12 +254,18 @@
           then:
             turnTo: 299
 - number: 459
-  # TODO: Not implemented
+  content:
+    - text: |
+        The  little  Mannekyn  creature  is  handed over to you on a leash. Its wings have been tied together to stop it flying away.‘Who are you, then?’ it pipes in a squeaky voice.Just then, a palanquin, carried by four bearers, arrives. A man leans out and hails you, ‘You there! I’ve come to buy that flying monkey but I see I am too late. Nevertheless, I will give you 75Shards for it.’‘Don’t  sell  me  to  that  popinjay  –  free  me  instead,’  chitters the Mannekyn.
+    - choice:
+        - text: Free it
+          turnTo: 659
+        - text: Sell it
+          turnTo: 186
 - number: 460
   content:
     - text: You climb down an old disused well in the poor quarter of Yellowport.
-    - if:
-        # TODO: wait for or condition
+    - turnTo: 327
 - number: 461
   content:
     - text: |
@@ -277,3 +285,62 @@
         - text: East to the road
           then:
             turnTo: 387
+- number: 462
+  content:
+    - text: |
+        What service do you seek at the temple of the Twin Gods of the Sea?
+    - choice:
+        - text: Become an initiate
+          then:
+            turnTo: 294
+        - text: Renounce worship of Alvir and Valmir
+          then:
+            turnTo: 624
+        - text: Seek a blessing
+          then:
+            turnTo: 448
+        - text: Leave the temple
+          then:
+            turnTo: 10
+- number: 463
+  content:
+    - text: |
+        You  remember  the  words  of  the  old  man  you  shared  a  prison cell with. 
+        This must be the lair of the gorlock that is said to have backward-pointing  feet,  so  that  the  tracks  it  leaves  will  always show  the  opposite  direction  of  travel!
+        You  realize  that  this means the gorlock is inside the cave.
+    - choice:
+        - text: Challenge the beast to combat
+          turnTo: 174
+        - text: Wait for it to leave the cave and sneak in
+          turnTo: 287
+- number: 464
+  content:
+    - text: |
+        The  ship,  already  crippled  by  a  storm,  and  with  only  half  its crew,  is  easy  meat  for  your  hardy  men.  The  strangely  dressed foreigners  surrender  without  much  of  a  fight.  You  get  100 Shards  as  booty,  and  1  Cargo  Unit  of  spices,  if  you  have  the room to take it
+    - turnTo: 559
+- number: 465
+  content:
+    - text: |
+        Several  hideous  creatures,  which  resemble  giant  lobsters,  surge out of the water to attack you! You and your crew are taken by surprise, and things look bleak – some of your men are quickly killed,  their  bodies  torn  in  two  by  powerful  mandibles.  The others begin to panic.
+    - turnTo: 389
+- number: 466
+  content:
+    - text: |
+        The  road  between  Blessed  Springs  and  Fort  Brilon  is  patrolled by troopers of the Sokaran army. The fort is well-supplied from Blessed Springs, and traffic abounds.
+    - choice:
+        - text: Visit Fort Brilon
+          turnTo: 259
+        - text: Head for Blessed Springs
+          turnTo: 510
+        - text: Set off north into the farmlands
+          turnTo: 548
+- number: 467
+  content:
+    - text: |
+        The heavy wooden gates of the temple of Tyrnai are guarded by couple  of  veteran  warriors  –  the  old  iron  bullmen  are  gone. Inside, the god is represented by a stone idol of a jaguar-headed warrior. He appears to be naked. Suddenly,  a  priest  shouts,  ‘It’s  the  thief!  The  blasphemous devil has had the nerve to return here!’. A  score  of  warrior  priests  of  Tyrnai  boil  out  of  the  backrooms of the temple. You had better run for your life!
+    - turnTo: 551
+- number: 468
+  content:
+    - text: |
+        You are walking down a side alley when a figure steps out of a doorway to block your path – it is a man with a velvet eye patch. His  one  good  eye  glitters  with  evil  humour  from  a  face ravaged with the scars of many a fight. ‘I hear you are looking for me,’ he says in a silky voice.
+    - turnTo: 393
