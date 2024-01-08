@@ -6,5 +6,6 @@ public enum BlessingEnum {
     MAGIC,
     SANCTITY,
     SCOUTING,
-    THIEVERY
+    THIEVERY,
+    ALVIR_AND_VALMIR
 }
