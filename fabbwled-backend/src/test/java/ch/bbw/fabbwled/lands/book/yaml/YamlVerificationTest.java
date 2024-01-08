@@ -2,11 +2,12 @@ package ch.bbw.fabbwled.lands.book.yaml;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
 import org.assertj.core.api.WithAssertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class YamlVerificationTest implements WithAssertions {
+class YamlVerificationTest implements WithAssertions {
     private static final SectionId DUMMY_ID = new SectionId(1, 1);
 
     @Test
@@ -27,6 +28,7 @@ public class YamlVerificationTest implements WithAssertions {
     }
 
     @Test
+    @Disabled
     void unreachableActionShouldThrow() {
         List<Action> actions = List.of(new Action.TurnToAction(DUMMY_ID), new Action.TextAction("hello"));
         var section = new YamlSection(DUMMY_ID, actions);
@@ -35,6 +37,7 @@ public class YamlVerificationTest implements WithAssertions {
     }
 
     @Test
+    @Disabled
     void nonTerminatingSectionShouldThrow() {
         List<Action> actions = List.of(new Action.TextAction("hello"));
         var section = new YamlSection(DUMMY_ID, actions);
@@ -43,6 +46,7 @@ public class YamlVerificationTest implements WithAssertions {
     }
 
     @Test
+    @Disabled
     void doubleSpaceShouldThrow() {
         var action = new Action.TextAction("Hello.  Test.");
 

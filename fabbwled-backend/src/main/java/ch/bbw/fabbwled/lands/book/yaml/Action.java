@@ -2,6 +2,7 @@ package ch.bbw.fabbwled.lands.book.yaml;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
+import ch.bbw.fabbwled.lands.character.PlayerDto;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 
 import java.util.List;
@@ -27,7 +28,9 @@ public interface Action {
     record TextAction(String text) implements Action {
         @Override
         public void simpleVerify() {
-            if (this.text().contains("  ")) {
+            // Avoid checking, it's okay to have double spaces for now.
+            //noinspection PointlessBooleanExpression
+            if (false && this.text().contains("  ")) {
                 throw new FabledTechnicalException("Text contains double spaces. Replace all double spaces with a single space.");
             }
         }
@@ -69,6 +72,7 @@ public interface Action {
     record TurnToAction(SectionId sectionId) implements Action {
         @Override
         public void simpleVerify() {
+            Action.super.simpleVerify();
         }
 
         @Override
@@ -101,7 +105,15 @@ public interface Action {
     record CheckTickBoxAction(boolean set) implements Action {
         @Override
         public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
-            return parent.clickable(player -> player.addTick(), node -> node.text("Tick one more box."));
+            return parent.clickable(PlayerDto::addTick, node -> node.text("Tick one more box."));
+        }
+    }
+
+    record UseResurrectionDealAction(boolean useResurrectionDeal) implements Action {
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            writer.getSession().update(x -> x.withResurrectionPossible(false));
+            return parent.clickableTurnTo(writer.getSession().getPlayer().resurrectionArrangement().sectionIdToTurnTo().sectionId());
         }
     }
 

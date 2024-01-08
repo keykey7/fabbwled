@@ -17,7 +17,7 @@ public class Section528 implements SectionHandler {
     @Override
     public SectionNode getBody(PlayerDto current) {
         return SectionNode.root()
-                .text("You attempt to sneak in through the back of the temple that night. ")
+                .text("You attempt to sneak in through the back of the temple that night.")
                 .clickableDifficultyRollWithOptions(current, AbilityEnum.THIEVERY, 11,
                         success -> success.clickableTurnTo(445),
                         failure -> failure.clickableTurnTo(284));
