@@ -28,9 +28,7 @@ public interface Action {
     record TextAction(String text) implements Action {
         @Override
         public void simpleVerify() {
-            // Avoid checking, it's okay to have double spaces for now.
-            //noinspection PointlessBooleanExpression
-            if (false && this.text().contains("  ")) {
+            if (this.text().contains("  ")) {
                 throw new FabledTechnicalException("Text contains double spaces. Replace all double spaces with a single space.");
             }
         }
