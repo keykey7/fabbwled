@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router";
-import AdventureSheet from "./routes/create/AdventureSheet.tsx";
+import AdventureSheet from "./routes/create/adventureSheet/AdventureSheet.tsx";
 import Game from "./routes/game/Game.tsx";
-import ChooseCreate from "./routes/create/ChooseCreate.tsx";
-import ExistingCharacters from "./routes/create/ExistingCharacters.tsx";
+import ChooseCreate from "./routes/create/chooseCreate/ChooseCreate.tsx";
+import ExistingCharacters from "./routes/create/existingCharacters/ExistingCharacters.tsx";
+import "./app.scss";
 
 function App() {
   return (
