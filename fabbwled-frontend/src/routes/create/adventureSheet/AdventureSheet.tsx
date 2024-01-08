@@ -416,7 +416,7 @@ export default function AdventureSheet() {
               <FormControl variant="standard" sx={{ width: "100%" }}>
                 <InputLabel>Blessings</InputLabel>
                 <Select
-                  defaultValue={"Charisma"}
+                  defaultValue={[blessings[0]]}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   multiple
