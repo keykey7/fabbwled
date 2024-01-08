@@ -5,3 +5,11 @@ type Profession =
   | "ROGUE"
   | "PRIEST"
   | "TROUBADOUR";
+
+type Blessings =
+  | "CHARISMA"
+  | "COMBAT"
+  | "MAGIC"
+  | "SANCTITY"
+  | "SCOUTING"
+  | "THIEVERY";

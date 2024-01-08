@@ -28,6 +28,15 @@ const professions: Profession[] = [
   "TROUBADOUR",
 ];
 
+const blessings: Blessings[] = [
+  "CHARISMA",
+  "COMBAT",
+  "MAGIC",
+  "SANCTITY",
+  "SCOUTING",
+  "THIEVERY",
+];
+
 const defaultPossessions = ["sword", "leather jerkin (Defence +1)", "map"];
 
 const initialValues = {
@@ -47,7 +56,7 @@ const initialValues = {
   money: 16,
   description: "",
   god: "",
-  blessings: "",
+  blessings: [blessings[0]],
 };
 export default function AdventureSheet() {
   const navigate = useNavigate();
@@ -80,7 +89,7 @@ export default function AdventureSheet() {
         defence: 0, // This value will be calculated in the backend
         tickBoxes: {},
         codeWords: [],
-        blessings: formik.values.blessings.split(","),
+        blessings: formik.values.blessings,
         poisons: [],
         disease: [],
         curses: [],
@@ -404,19 +413,23 @@ export default function AdventureSheet() {
               />
             </Grid>
             <Grid item xs={3}>
-              <TextField
-                label="Blessings"
-                variant="standard"
-                multiline
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.blessings}
-                error={
-                  formik.touched.blessings && Boolean(formik.errors.blessings)
-                }
-                helperText={formik.touched.blessings && formik.errors.blessings}
-                name="blessings"
-              />
+              <FormControl variant="standard" sx={{ width: "100%" }}>
+                <InputLabel>Blessings</InputLabel>
+                <Select
+                  defaultValue={"Charisma"}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  multiple
+                  value={formik.values.blessings}
+                  name="blessings"
+                >
+                  {blessings.map((blessing) => (
+                    <MenuItem key={blessing} value={blessing}>
+                      {blessing}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
           </Grid>
           <br />

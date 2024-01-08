@@ -23,5 +23,4 @@ export default Yup.object().shape({
   thievery: numericRangeValidation("Thievery", 1, 6),
   description: Yup.string().required("Description is required"),
   titlesAndHonours: Yup.string().required("Titles and honours is required"),
-  blessings: Yup.string().required("Blessings is required"),
 });
