@@ -1,0 +1,348 @@
+- number: 433
+  content:
+    - text: |
+        You rush in, taking the ruffians by surprise.  
+        A couple of good buffets around the head, and they run off.  
+        The scholar lies groaning on the ground.
+    - choice:
+        - text: Help him up
+          then:
+            - turnTo: 172
+        - text: Rob him
+          then:
+            - turnTo: 379
+- number: 434
+  content:
+    - text: |
+        You can leave possessions and money here to save having to carry them around with you.
+        You can also rest here safely, and recover any Stamina points you have lost.  
+        Record in the box anything you wish to leave. Each time you return, roll two dice:
+    - turnTo: 100
+- number: 435
+  content:
+    - text: |
+        Becoming an initiate of Tyrnai gives you the benefit of paying less for blessings
+        and other services the temple can offer. To qualify as an initiate you must have a COMBAT score of at least 6.
+        You cannot become an initiate of Tyrnai if you are already an initiate of another temple.
+        If you choose to become an initiate (and meet the qualification) write Tyrnai in the God box on your AdventureSheet.
+    - turnTo: 526
+- number: 436
+  content:
+    - text: |
+        You find yourself washed up on a rocky shore, battered and cold, but lucky to be alive. 
+        You haul yourself up the beach on to land. Fortunately to you, you are near the Trading Post on the Isle of Druids.
+    - turnTo: 195
+- number: 437
+  content:
+    - text: |
+        Becoming an initiate of Sig gives you the benefit of paying less for blessings and other services.
+        Also, you can add 1 to your THIEVERY score, as Sig will watch over your pilfering activities and keep you safe from the law.
+        It costs 50 Shards to become an initiate. You cannot become an initiate if you are already an initiate of any other temple.
+        If you choose to become an initiate. Write Sig in the Godbox on your Adventure Sheet – and cross off 50 Shards.
+    - turnTo: 235
+- number: 438
+  content:
+    - text: |
+        The climb is too arduous for you. The air becomes too thin to breathe,
+        and you cannot find the footholds you need to pull yourself up.
+        You are forced to abandon the attempt and climb back down.
+    - turnTo: 244
+- number: 439
+  content:
+    - text: Your ship is sailing in the coastal waters beside Yellowport.
+    - choice:
+        - text: Sail into Yellowport Harbour
+          then:
+            - turnTo: 555
+        - text: Sail north east towards Scorpion Bight
+          then:
+            - turnTo: 430
+        - text: Sail south west along the coast
+          then:
+            - turnTo: 120
+        - text: Sail south into the Violet Ocean
+          then:
+            - turnTo: 366
+- number: 440
+  content:
+    - text: |
+        Becoming an initiate of Elnir gives you the benefit of paying less for blessings and other services the Temple can offer.
+        It costs 60Shards to become and initiate. You cannot become an initiate of Elnir if you are already an initiate of another temple.
+        If you choose to become an initiate, write Elnir in the Godbox on your Adventure Sheet – and then cross 60 shards off your Adventure Sheet.
+    - turnTo: 568
+- number: 441
+  content:
+    - text: |
+        You clamber up on to the battlements of the Temple of Tyrnai with relative ease and manoeuvre yourself
+        into a position overlooking the golem guards at the gate. Now you have to reach down without being noticed.
+    - turnTo: 22
+- number: 442
+  content:
+    - text: |
+        You set out to explore the city of Yellowport at night,unwholesome though it is with its reeking air and dusty ochre streets.
+    - choice:
+        - text: Head for the rough part of the town
+          then:
+            - turnTo: 21
+        - text: Go to the wealthy area
+          then:
+            - turnTo: 178
+        - text: Explore the merchants’ storehouses
+          then:
+            - turnTo: 265
+- number: 443
+  content:
+    - text: |
+        You are witness to a major sea battle, involving at least 40warships, between the Sokaran navy,
+        and a pirate fleet. Arrows fill the air,
+        and smoking fireballs are launched from catapults mounted on some of the ships.
+        The shrieks of the dying carry across the waves.  
+        You decide it would be better not to get involved in such a conflict
+    - turnTo: 420
+- number: 444
+  content:
+    - text: |
+        You try to make a run for it. 
+        Roll two dice and add your Rank. Subtract 1 from the total if you have a poor crew. 
+        Add 1 if you have a good crew or add 2 if you have an excellent crew.
+    - turnTo: 402
+- number: 445
+  content:
+    - text: |
+        You climb up, and squeeze through an open window into along hall.
+        Thin wires are stretched across the room, 
+        but you are an able enough rogue to crawl through without touching any of them and setting off possible traps or alarms.
+        Inside the temple, it is cool and dark, filled with an unearthly stillness.
+        Suddenly, the temple doors are flung open, and two figures lumber into the room.
+        You realize with a thrill of horror that the bull-headed iron statues outside the gates have come to life. 
+        They are golems, set here to guard the temple.
+    - choice:
+        - text: Run for your life
+          then:
+            - turnTo: 349
+        - text: Fight them
+          then:
+            - turnTo: 569
+- number: 446
+  content:
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 226
+      else:
+        - text: |
+            You set out that night, on your quest. Make a MAGIC roll atDifficulty 10.
+        - turnTo: 511
+- number: 447
+  content:
+    - text: |
+        You find yourself washed up on a rocky shore, beneath towering cliffs.
+        You are battered and cold, but lucky to be alive.Eventually, you find a path up the cliff.
+        You climb up, to find yourself at the Shadar Tor
+    - turnTo: 35
+- number: 448
+  content:
+    - text: |
+        If you are an initiate it costs only 5 Shards to propitiate the twin gods of the sea. A non-initiate must pay 20 Shards.
+        Cross off the money and mark Safety from Storms in the Blessings box on your Adventure Sheet.
+        The blessing works by allowing you to ignore any one storm at sea. 
+        When you use the blessing, cross it off your Adventure Sheet. 
+        You can have only one Safety fromStorms blessing at any one time.
+        Once it is used up, you can return to any branch of the temple of Alvir and Valmir to buy anew one.
+    - turnTo: 220
+- number: 449
+  content:
+    - text: |
+        You creep past a scorpion man guard, which is dozing at the entrance to one of the burrows. 
+        The stench inside the mound is foul – a kind of acrid, rotting vegetable smell.
+        You head for the centre of the mound, past tunnels, rooms and egg chambers, avoiding the inhabitants by skulking in the shadows.
+        Finally, you come to a room which is more like the laboratory of a sorcerer than a scorpion den – jars, alembics and scrolls lie all over the place.
+        A scorpion man is at work at a desk. Unlike others of his kind, he wears rudimentary clothing.
+        Suddenly, what you took for a stuffed animal’s head,mounted on the wall, says, ‘There is an intruder, master.’
+        The scorpion man wheels around and charges straight at you!
+    - turnTo: 503
+- number: 450
+  content:
+    - text: |
+        A wooden stockade encloses the springs. At the gate, two militiamen stand on guard, and a priest, dressed in blue robes, sits behind a desk.
+    - turnTo: 378
+- number: 451
+  content:
+    - text: | 
+        You ask the innkeeper about Yanryt the Son. He looks at you oddly, clearly unsettled by your question. 
+        ‘Some say he is the son of a mortal woman, and the god Tyrnai. 
+        But he has not been here for some time...’ Suddenly he stops, and stares in amazement at the corner of the tavern.
+        You turn to look, and there, hunched over a stoop of ale, is Yanryt the Son. He greets you.
+    - if:
+        hasPossession: black dragon shield
+      then:
+        - turnTo: 575
+      else:
+        - turnTo: 329
+- number: 452
+  content:
+    - turnTo: 195
+- number: 453
+  content:
+    - text: | 
+        You find yourself washed up on a long, sandy beach, battered and cold, but lucky to be alive.
+        You head inland until you realize you have arrived at the river mouth delta of the River Grimm.
+    - turnTo: 579
+- number: 454
+  content:
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 188
+      else:
+        - text: |
+            You are thrown into a stinking prison cell. Your cell-mate, a half-dead old man with long white hair tells you his tale:
+            ‘The lair of the gorlock! A hideous beast that has backward-pointing feet – Krine and I, fleeing with our
+            stolen treasure sought refuge in the cave near Blessed Springs. The tracks led us to believe it had just left its cave,
+            but we didn’t know about its feet – in fact it was at home. It took Krine but I managed to escape with my life, only to be taken by the militia. 
+            I will never live to see the treasure but you, forewarned, may defeat the gorlock and take the riches it guards...’
+            Gain the codeword Apache. A few days later, you learn your own fate. You are to be sold into slavery, and taken to Caran Baru to work in the tin mines.
+        - turnTo: 118
+- number: 455
+  content:
+    - text: |
+        A merchant ship, sailing for Wishport, will take you for 15 Shards.
+        You must have Cities of Gold and Glory before you can travel to Wishport.
+    - if:
+        hasPossession: Cities of Gold and Glory
+      then:
+        - choice:
+            - text: If you do not want to make the trip
+              then:
+                - turnTo: 142
+            - text: Otherwise, pay the 15 Shards and read on.You have an uneventful journey and arrive in Wishport safely.
+              then:
+                - turnTo: 217
+      else:
+        - turnTo: 142
+- number: 456
+  content:
+    - text: ‘Ah, welcome, welcome,’ says Marloes Marlock.
+    - turnTo: 375
+- number: 457
+  content:
+    - text: |
+        They are unimpressed with your musical ability. The king waves his hand irritably. 
+        Suddenly, you wake up in your cabin, puzzled by your peculiar dream.
+        If you have a blessing of Safety from Storms it is now gone – delete it from your blessings box.
+        There are no other effects.
+    - turnTo: 507
+- number: 458
+  content:
+    - text: The road between Caran Baru and Fort Mereth is another military highway for transporting troops and supplies.
+    - choice:
+        - text: North into the country
+          then:
+            - turnTo: 60
+        - text: South to the farmlands
+          then:
+            - turnTo: 548
+        - text: South west to Caran Baru
+          then:
+            - turnTo: 400
+        - text: North east to Fort Mereth
+          then:
+            - turnTo: 299
+- number: 459
+  content:
+    - text: |
+        The  little  Mannekyn  creature  is  handed over to you on a leash. Its wings have been tied together to stop it flying away.‘Who are you, then?’ it pipes in a squeaky voice.Just then, a palanquin, carried by four bearers, arrives. A man leans out and hails you, ‘You there! I’ve come to buy that flying monkey but I see I am too late. Nevertheless, I will give you 75Shards for it.’‘Don’t  sell  me  to  that  popinjay  –  free  me  instead,’  chitters the Mannekyn.
+    - choice:
+        - text: Free it
+          then:
+            - turnTo: 659
+        - text: Sell it
+          then:
+            - turnTo: 186
+- number: 460
+  content:
+    - text: You climb down an old disused well in the poor quarter of Yellowport.
+    - turnTo: 327
+- number: 461
+  content:
+    - text: |
+        You say the password ‘Rebirth’ to the door. ‘Sorry,’ says the Demon Door. 
+        ‘The password changes once it has been used.’ says the door smugly. ‘I can’t open for you.’
+        You will just have to leave.
+    - choice:
+        - text: North to the Bronze Hills
+          then:
+            - turnTo: 110
+        - text: West to the River Grimm
+          then:
+            - turnTo: 333
+        - text: South to the country
+          then:
+            - turnTo: 560
+        - text: East to the road
+          then:
+            - turnTo: 387
+- number: 462
+  content:
+    - text: |
+        What service do you seek at the temple of the Twin Gods of the Sea?
+    - choice:
+        - text: Become an initiate
+          then:
+            - turnTo: 294
+        - text: Renounce worship of Alvir and Valmir
+          then:
+            - turnTo: 624
+        - text: Seek a blessing
+          then:
+            - turnTo: 448
+        - text: Leave the temple
+          then:
+            - turnTo: 10
+- number: 463
+  content:
+    - text: |
+        You  remember  the  words  of  the  old  man  you  shared  a  prison cell with. 
+        This must be the lair of the gorlock that is said to have backward-pointing  feet,  so  that  the  tracks  it  leaves  will  always show  the  opposite  direction  of  travel!
+        You  realize  that  this means the gorlock is inside the cave.
+    - choice:
+        - text: Challenge the beast to combat
+          then:
+            - turnTo: 174
+        - text: Wait for it to leave the cave and sneak in
+          then:
+            - turnTo: 287
+- number: 464
+  content:
+    - text: |
+        The  ship,  already  crippled  by  a  storm,  and  with  only  half  its crew,  is  easy  meat  for  your  hardy  men.  The  strangely  dressed foreigners  surrender  without  much  of  a  fight.  You  get  100 Shards  as  booty,  and  1  Cargo  Unit  of  spices,  if  you  have  the room to take it
+    - turnTo: 559
+- number: 465
+  content:
+    - text: |
+        Several  hideous  creatures,  which  resemble  giant  lobsters,  surge out of the water to attack you! You and your crew are taken by surprise, and things look bleak – some of your men are quickly killed,  their  bodies  torn  in  two  by  powerful  mandibles.  The others begin to panic.
+    - turnTo: 389
+- number: 466
+  content:
+    - text: |
+        The  road  between  Blessed  Springs  and  Fort  Brilon  is  patrolled by troopers of the Sokaran army. The fort is well-supplied from Blessed Springs, and traffic abounds.
+    - choice:
+        - text: Visit Fort Brilon
+          then:
+            - turnTo: 259
+        - text: Head for Blessed Springs
+          then:
+            - turnTo: 510
+        - text: Set off north into the farmlands
+          then:
+            - turnTo: 548
+- number: 467
+  content:
+    - text: |
+        The heavy wooden gates of the temple of Tyrnai are guarded by couple  of  veteran  warriors  –  the  old  iron  bullmen  are  gone. Inside, the god is represented by a stone idol of a jaguar-headed warrior. He appears to be naked. Suddenly,  a  priest  shouts,  ‘It’s  the  thief!  The  blasphemous devil has had the nerve to return here!’. A  score  of  warrior  priests  of  Tyrnai  boil  out  of  the  backrooms of the temple. You had better run for your life!
+    - turnTo: 551
+- number: 468
+  content:
+    - text: |
+        You are walking down a side alley when a figure steps out of a doorway to block your path – it is a man with a velvet eye patch. His  one  good  eye  glitters  with  evil  humour  from  a  face ravaged with the scars of many a fight. ‘I hear you are looking for me,’ he says in a silky voice.
+    - turnTo: 393
