@@ -7,10 +7,10 @@
     - choice:
         - text: Help him up
           then:
-            turnTo: 172
+            - turnTo: 172
         - text: Rob him
           then:
-            turnTo: 379
+            - turnTo: 379
 - number: 434
   content:
     - text: |
@@ -53,16 +53,16 @@
     - choice:
         - text: Sail into Yellowport Harbour
           then:
-            turnTo: 555
+            - turnTo: 555
         - text: Sail north east towards Scorpion Bight
           then:
-            turnTo: 430
+            - turnTo: 430
         - text: Sail south west along the coast
           then:
-            turnTo: 120
+            - turnTo: 120
         - text: Sail south into the Violet Ocean
           then:
-            turnTo: 366
+            - turnTo: 366
 - number: 440
   content:
     - text: |
@@ -83,13 +83,13 @@
     - choice:
         - text: Head for the rough part of the town
           then:
-            turnTo: 21
+            - turnTo: 21
         - text: Go to the wealthy area
           then:
-            turnTo: 178
+            - turnTo: 178
         - text: Explore the merchants’ storehouses
           then:
-            turnTo: 265
+            - turnTo: 265
 - number: 443
   content:
     - text: |
@@ -119,10 +119,10 @@
     - choice:
         - text: Run for your life
           then:
-            turnTo: 349
+            - turnTo: 349
         - text: Fight them
           then:
-            turnTo: 569
+            - turnTo: 569
 - number: 446
   content:
     - if:
@@ -132,7 +132,6 @@
       else:
         - text: |
             You set out that night, on your quest. Make a MAGIC roll atDifficulty 10.
-        - checkTickBox: true
         - turnTo: 511
 - number: 447
   content:
@@ -166,10 +165,7 @@
   content:
     - text: |
         A wooden stockade encloses the springs. At the gate, two militiamen stand on guard, and a priest, dressed in blue robes, sits behind a desk.
-    - choice:
-        - text: Cannot or will not pay
-          then:
-            turnTo: 510
+    - turnTo: 378
 - number: 451
   content:
     - text: | 
@@ -206,8 +202,7 @@
             but we didn’t know about its feet – in fact it was at home. It took Krine but I managed to escape with my life, only to be taken by the militia. 
             I will never live to see the treasure but you, forewarned, may defeat the gorlock and take the riches it guards...’
             Gain the codeword Apache. A few days later, you learn your own fate. You are to be sold into slavery, and taken to Caran Baru to work in the tin mines.
-          checkTickBox: true
-          turnTo: 118
+        - turnTo: 118
 - number: 455
   content:
     - text: |
@@ -219,10 +214,10 @@
         - choice:
             - text: If you do not want to make the trip
               then:
-                turnTo: 142
+                - turnTo: 142
             - text: Otherwise, pay the 15 Shards and read on.You have an uneventful journey and arrive in Wishport safely.
               then:
-                turnTo: 217
+                - turnTo: 217
       else:
         - turnTo: 142
 - number: 456
@@ -243,25 +238,27 @@
     - choice:
         - text: North into the country
           then:
-            turnTo: 60
+            - turnTo: 60
         - text: South to the farmlands
           then:
-            turnTo: 548
+            - turnTo: 548
         - text: South west to Caran Baru
           then:
-            turnTo: 400
+            - turnTo: 400
         - text: North east to Fort Mereth
           then:
-            turnTo: 299
+            - turnTo: 299
 - number: 459
   content:
     - text: |
         The  little  Mannekyn  creature  is  handed over to you on a leash. Its wings have been tied together to stop it flying away.‘Who are you, then?’ it pipes in a squeaky voice.Just then, a palanquin, carried by four bearers, arrives. A man leans out and hails you, ‘You there! I’ve come to buy that flying monkey but I see I am too late. Nevertheless, I will give you 75Shards for it.’‘Don’t  sell  me  to  that  popinjay  –  free  me  instead,’  chitters the Mannekyn.
     - choice:
         - text: Free it
-          turnTo: 659
+          then:
+            - turnTo: 659
         - text: Sell it
-          turnTo: 186
+          then:
+            - turnTo: 186
 - number: 460
   content:
     - text: You climb down an old disused well in the poor quarter of Yellowport.
@@ -275,16 +272,16 @@
     - choice:
         - text: North to the Bronze Hills
           then:
-            turnTo: 110
+            - turnTo: 110
         - text: West to the River Grimm
           then:
-            turnTo: 333
+            - turnTo: 333
         - text: South to the country
           then:
-            turnTo: 560
+            - turnTo: 560
         - text: East to the road
           then:
-            turnTo: 387
+            - turnTo: 387
 - number: 462
   content:
     - text: |
@@ -292,16 +289,16 @@
     - choice:
         - text: Become an initiate
           then:
-            turnTo: 294
+            - turnTo: 294
         - text: Renounce worship of Alvir and Valmir
           then:
-            turnTo: 624
+            - turnTo: 624
         - text: Seek a blessing
           then:
-            turnTo: 448
+            - turnTo: 448
         - text: Leave the temple
           then:
-            turnTo: 10
+            - turnTo: 10
 - number: 463
   content:
     - text: |
@@ -310,9 +307,11 @@
         You  realize  that  this means the gorlock is inside the cave.
     - choice:
         - text: Challenge the beast to combat
-          turnTo: 174
+          then:
+            - turnTo: 174
         - text: Wait for it to leave the cave and sneak in
-          turnTo: 287
+          then:
+            - turnTo: 287
 - number: 464
   content:
     - text: |
@@ -329,11 +328,14 @@
         The  road  between  Blessed  Springs  and  Fort  Brilon  is  patrolled by troopers of the Sokaran army. The fort is well-supplied from Blessed Springs, and traffic abounds.
     - choice:
         - text: Visit Fort Brilon
-          turnTo: 259
+          then:
+            - turnTo: 259
         - text: Head for Blessed Springs
-          turnTo: 510
+          then:
+            - turnTo: 510
         - text: Set off north into the farmlands
-          turnTo: 548
+          then:
+            - turnTo: 548
 - number: 467
   content:
     - text: |
