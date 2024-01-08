@@ -1,0 +1,162 @@
+- number: 469
+  content:
+    - text: |
+        He tells you of his life-long quest to find the ‘Greatest StoryEver Told’.
+        It is said that the god, Sig, in his aspect as the Divine Bard, passed this knowledge to a mystic called Damor theHermit.
+        He lives alone in a lost cave, awaiting the day when he can pass on the story to the one who finds him.
+        ‘I am too old now to pursue the quest – so I pass it on to you.
+        I believe he can be found in the foothills of the Spine of Harkun, the mountains to the north.
+        If you find Damor you will become a great Troubadour!’
+    - turnTo: 100
+- number: 470
+  content:
+    - text: |
+        You grab the woman’s wrist and give it a painful twist.
+        You are not being cruel for the sake of it – she was about to steal your money! ‘Oh, let me go,’ she pleads, showing you the little infant son she’s carrying in her other arm.
+        ‘I need the money for my starving children and my poor crippled husband.
+        ’Yellowport is full of wretched like this.
+        With a snarl, you push her away, tossing a coin after her for good measure (cross 1 Shard off your Adventure Sheet).
+        Later, strolling down by the canal, you find a small bundle lying on the slick cobblestones. 
+        It is a doll wrapped in swaddling clothes to make it look like a baby
+    - turnTo: 10
+- number: 471
+  content:
+    - text: |
+        The priestess, dressed in silken robes, and wearing a wreathof oak leaves, says, ‘I have need of an adventurer like yourself.
+        For arcane reasons involving the secret mysteries of Lacuna, I need the tusk of a boar.
+        A were-boar, in fact. I believe they can be found in the Forest of the Forsaken, in northern Golnir.
+        Hunt down a were-boar, and bring me a boar’s tusk. In returnI will teach you how to be a better scout.
+    - if:
+        hasKeyword: Animal
+      then:
+        - turnTo: 369
+      else:
+        - turnTo: 544
+- number: 472
+  content:
+    - text: |
+        Fort Estgard is one of three forts along the wall that runs right along the border.
+        Their purpose is to defend Sokara against the ravening man beasts of Nerech, which are constantly trying to break through to raid the interior.
+        The commander of the fort desperately wants to see you.‘My daughter, Alissia, has been kidnapped by the man beasts!’ he says.
+        ‘They are asking that I let one of their raiding parties through, to attack the farmlands.
+        I’m delaying my response as long as possible, but if I don’t do something soon, they will kill her! Please, I need a brave adventurer to rescue her!’
+    - if:
+        hasKeyword: Dotage
+      then:
+        - turnTo: 667
+      else:
+        - text: If not, read on.
+        - choice:
+            - text: North west to Fort Mereth
+              then:
+                - turnTo: 299
+            - text: South east to Fort Brilon
+              then:
+                - turnTo: 259
+            - text: West into the farmlands
+              then:
+                - turnTo: 259
+- number: 473
+  content:
+    - text: |
+        The slave market is a large, canvas-covered square. The poor unfortunate slaves, people from all over Harkuna – from theFeathered Lands, Golnir, criminals of Sokara, nomads from the steppes, are paraded in chains on a dais.
+        Merchants and nobles bid for the slaves they want. If there is a tick in the above box,turn to 610 immediately.
+        If not, read on. An unusual sale has come up – a little, furry, bat-wingedhumanoid.
+        It is one of the Mannekyn People from SkyMountain in the north and it is going for 50 Shards.
+    - choice:
+        - text: If you want to buy it.
+          then:
+            - turnTo: 459
+        - text: If not, you head back in to town.
+          then:
+            - turnTo: 400
+- number: 474
+  content:
+    - text: |
+        The Coldbleak Mountains look as inhospitable and forbidding ast heir name implies,
+        their frozen flanks climbing high into the icy clouds.
+    - choice:
+        - text: Climb into the mountains.
+          then:
+            - turnTo: 5
+        - text: Enter Caran Baru.
+          then:
+            - turnTo: 400
+        - text: Go west to the road.
+          then:
+            - turnTo: 347
+        - text: Head into the farmlands.
+          then:
+            - turnTo: 548
+        - text: Go south to the Lake of the Sea Dragon.
+          then:
+            - turnTo: 135
+# Hier noch 476 hinzufügen sobald das Kampfsystem existiert
+# Hier noch 477 hinzufügen sobald Resurection und Gameover existieren
+# Hier noch 478 hinzufügen sobald das Shards-System existiert
+# Hier noch 479 hinzufügen sobald das Kampfsystem existiert
+- number: 480
+  content:
+    - text: |
+        Well, tell you what – I’ll teach you a few tricks, and then you can go away.
+        What do you say? You’ve got nothing to lose so you accept. Damor was once aTroubadour, and he instructs you in its arts.
+        Gain 1 CHARISMA point permanently. Afterwards, for a few hours, he lifts the curse that soured your water so you can make it down the mountain path safely.
+    - turnTo: 244
+- number: 489
+  content:
+    - text: |
+        Later, in your cabin, you examine the pearls more closely.
+        To your horror, they lose their pearly sheen and return to their natural state – tiny pebbles.
+        Some enchantment had been laid upon them to make them look like pearls.
+        Cursing the youngSea Gypsy, you vow to be more careful next time
+    - turnTo: 85
+- number: 492
+  content:
+    - text: |
+        You are on a rough track that runs between Venefax and the territories of the scorpion men, slogging your way through hot,dry scrubland.
+        A hawk circles overhead, cawing harshly.
+    - choice:
+        - text: Go north to Venefax.
+          then:
+            - turnTo: 427
+        - text: Go south into Scorpion Bight.
+          then:
+            - turnTo: 318
+- number: 494
+  content:
+    - text: |
+        You dodge down a side tunnel, and mutter an enchantment intended to give you the appearance of a rat man.
+        Your pursuer some bundling around a corner – one of them stops to shout at you, ‘Where’d the human go?
+        ’Nonchalantly, you point down the tunnel, and the ratmengo haring off down it, whooping and yelling.
+        You turn and walkthe other way, a smile on your face
+    - turnTo: 580
+- number: 495
+  content:
+    - text: |
+        You arrive at Disaster Bay, where you find a community of fisher men.
+        Judging by their wealth, they also make a living by other means – you suspect by looting the ships that get wrecked in the stormy waters of the bay.
+    - choice:
+        - text: Head north to the mountains.
+          then:
+            - turnTo: 244
+        - text: Head for the road.
+          then:
+            - turnTo: 518
+        - text: Head for Fort Mereth.
+          then:
+            - turnTo: 299
+- number: 497
+  content:
+    - text: |
+        You arrive at Disaster Bay, where you find a community of fisher men.
+        Judging by their wealth, they also make a living by other means – you suspect by looting the ships that get wrecked in the stormy waters of the bay.
+    - choice:
+        - text: Head north to the mountains.
+          then:
+            - turnTo: 244
+        - text: Head for the road.
+          then:
+            - turnTo: 518
+        - text: Head for Fort Mereth.
+          then:
+            - turnTo: 299
