@@ -93,7 +93,7 @@ export default function Game() {
                   <li>Profession: {character?.profession}</li>
                   <li>Stamina: {character?.stamina}</li>
                   <li>Defence: {character?.defence}</li>
-                  <li>Money: {character?.shards?.shardCount}</li>
+                  <li>Money: {character?.shards}</li>
                 </ul>
                 <ul>
                   <li>Charisma: {character?.baseStats?.charisma}</li>
