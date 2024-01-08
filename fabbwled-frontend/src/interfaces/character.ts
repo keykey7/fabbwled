@@ -1,8 +1,5 @@
 import { Container } from "../SectionRenderer.tsx";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore we need this later
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export interface CharacterCreateDto {
   player: Player;
   description: string;
@@ -23,20 +20,21 @@ export interface Player {
     | "EARL"
     | "MARQUIS"
     | "DUKE";
-  profession:
-    | "Wayfarer"
-    | "Warrior"
-    | "Mage"
-    | "Rogue"
-    | "Priest"
-    | "Troubadour";
+  profession: Profession;
   stamina: number;
+  staminaWhenUnwounded: number;
   baseStats: BaseStats;
   possessions: string[];
-  shards: Shards;
-  tickBoxes: TickBoxes;
+  shards: number;
   codeWords: string[];
   defence: number;
+  blessings: string[];
+  tickBoxes: {};
+  poisons: string[];
+  disease: string[];
+  curses: string[];
+  persistentSectionStore: {};
+  mostRecentDiceRoll: number[];
 }
 
 interface BaseStats {
@@ -55,14 +53,4 @@ export interface Section {
     total: number;
     ticked: number;
   };
-}
-
-interface Shards {
-  shardCount: number;
-}
-
-interface TickBoxes {
-  additionalProp1: number;
-  additionalProp2: number;
-  additionalProp3: number;
 }
