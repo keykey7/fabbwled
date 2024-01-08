@@ -2,6 +2,7 @@ package ch.bbw.fabbwled.lands.book;
 
 import ch.bbw.fabbwled.lands.character.AbilityEnum;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
+import ch.bbw.fabbwled.lands.marketplace.MarketPlace;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NonNull;
 
@@ -162,6 +163,19 @@ public interface SectionNode {
             child.accept(childNode);
 			return append(childNode);
 		}
+
+        public ContainerNode marketplace(List<MarketPlace> marketPlaces, PlayerDto current) {
+            var node = this;
+            for (MarketPlace marketPlace : marketPlaces) {
+                node = node
+                        .item(marketPlace.getName())
+                        .activeIf(current.shards() >= marketPlace.getBuyPrice(), x -> x.clickable(p -> p.addShards(-marketPlace.getSellPrice())
+                                .addPossession(marketPlace.getName()), a -> a.text(marketPlace.getBuyPrice() + " Shards")))
+                        .activeIf(current.possessions().contains(marketPlace.getName()), x -> x.clickable(p -> p.addShards(marketPlace.getSellPrice())
+                                .removePossession(marketPlace.getName()), a -> a.text(marketPlace.getSellPrice() + " Shards")));
+            }
+            return node;
+        }
 
         private boolean isPreviousIfActive() {
             var previous = children.stream().filter(ContainerNode.class::isInstance)
