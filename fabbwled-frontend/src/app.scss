@@ -1,6 +1,8 @@
 #root {
-  background-color: beige; // until we got a book
+  background-image: url("assets/desk.jpg");
+  margin: 0;
+  background-size: cover;
 
-  height: 100vh;
+  height: auto;
   width: 100vw;
 }
