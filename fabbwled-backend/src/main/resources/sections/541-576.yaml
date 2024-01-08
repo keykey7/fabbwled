@@ -24,17 +24,17 @@
   content:
     - text: |
         Guildmaster Vernon is too busy to see you. It seems he doesn’t want
-        to  know  you,  now  that  he  doesn’t  need  you  anymore.
+        to know you, now that he doesn’t need you anymore.
         Such is life.
     - turnTo: 405
 - number: 544
   content:
     - text: |
-        The shrine is set in a wooded  grove.  Birds  twitter  in  the  trees,
+        The shrine is set in a wooded grove. Birds twitter in the trees,
         and a deer darts away into the forest at you approach.
         A priestess is tending a low altar, where food and drink has been laid out in
-        honour of Lacuna, the Goddess of the Wilderness. She  is  the patron
-        of  hunters,  trappers,  woodsmen,  and  all  those  who  seek oneness with nature.
+        honour of Lacuna, the Goddess of the Wilderness. She is the patron
+        of hunters, trappers, woodsmen, and all those who seek oneness with nature.
     - choice:
         - text: Become an initiate of Lacuna turn to
           then:
@@ -95,7 +95,7 @@
 - number: 547
   content:
     - text: |
-          You instinct was correct. The sea bed suddenly drops away, to
+        You instinct was correct. The sea bed suddenly drops away, to
         reveal the ruins of the Sunken City of Ziusudra. Crumbling
         towers climb out of the hazy green depths, and shoals of flashing
         silverfish dart through the abandoned windows and doors of
@@ -104,3 +104,290 @@
         disappears through a hole in the roof of the dome.Carefully, you swim down
         to the hole and look through,into the palace of the repulsive ones.
     - turnTo: 41
+- number: 548
+  content:
+    - text: |
+        You are crossing an area of fertile farmland, where much of the
+        food is grown to feed the army. Little farmsteads dot the
+        landscape, and the ploughed fields have the appearance of a
+        patchwork quilt. Roll one die.
+        Find some leather armour (Defence +1)
+        When you are ready, you can go:
+    - choice:
+        - text: Score 1 or 2 - Mistaken for a murderer! Forced to flee into the mountains
+          then:
+            - turnTo: 474
+        - text: East to Fort Estgard
+          then:
+            - turnTo: 472
+        - text: North to the road
+          then:
+            - turnTo: 458
+        - text: South to Blessed Springs
+          then:
+            - turnTo: 510
+        - text: To the Coldbleak Mountains
+          then:
+            - turnTo: 474
+        - text: To the Lake of the Sea Dragon
+          then:
+            - turnTo: 135
+- number: 549
+  content:
+    - text: |
+        The priestess, dressed in a cloak made entirely of the leaves of
+        trees, with her face smeared with moss, greets you. ‘A tusk!’ she
+        exclaims. ‘But I have no need of another.’You ask if she might need
+        it for the next time. ‘Next time?Mmm, maybe you have a point.’She
+        offers you 15 Shards. If you accept, cross off the boar’stusk. 
+        Either way, when you leave.
+    - spendShards: -15
+    - turnTo: 195
+- number: 550
+  content:
+    - text: |
+    - if:
+        hasKeyword: gold chain mail of Tyrnai
+      then:
+        - turnTo: 380
+      else:
+        - turnTo: 134
+- number: 551
+  content:
+    - text: |
+        You cannot escape – there are too many of them and all of the
+        mare seasoned warriors of Tyrnai. You are overpowered and given
+        a savage beating – you are reduced to only 1 Stamina point.
+        They take all your money and possessions. Cross them off your Adventure Sheet.
+        The priests do not have you sacrificed to Tyrnai – instead you are
+        sold into slavery and set to work in the tin mines outside the city. Turn to 118.
+    - turnTo: 118
+- number: 552
+  content:
+    - text: |
+        A swaggering Sokaran captain marches on board with acomplement of marines.
+        ‘I don’t think you’ve paid your harbour duties,’ he says.‘Harbour duties!
+        We’re in the middle of the sea!’ youexclaim angrily.The captain smiles smugly at you.
+        ‘You’d better cough up 50Shards, or I’ll impound your ship and its cargo.’
+        ‘But that’s no better than common piracy!’ says your firstmate, outraged.
+        ‘The duty will be 60 Shards now, for calling a captain in the
+        Sokaran Imperial Navy a pirate!’ he sneers.
+        Several of his men burst into laughter.
+    - if:
+        hasKeyword: title Protector of Sokara
+      then:
+        - turnTo: 185
+      else:
+        - text: If not, read on.
+        - choice:
+            - text: Otherwise, you can Hand over the money (if you have it!)
+              then:
+                - turnTo: 401
+            - text: Refuse outright
+              then:
+                - turnTo: 311
+- number: 553
+  content:
+    - text: |
+        You convince her that you mean no harm. The little girl tells
+        you that she was placing flowers at the grave of her father, when
+        a horrible monster came for her. Fortunately, she was able to runaway.
+        She points to a large tomb behind which the thing washiding.You tell the
+        girl to go home and then you set out warily for the tomb. Suddenly,
+        a foul stench fills your nostrils, and a figure rises up out of the 
+        shadows! Yellow eyes glow with feral blood-lust, and the creature’s
+        talons, encrusted with dried blood, reach for you hungrily. You’ve found the ghoul!
+    - choice:
+        - text: Fight it
+          then:
+            - turnTo: 617
+        - text: Invoke the power of the gods
+          then:
+            - turnTo: 144
+        - text: Use some salt and iron filings
+          then:
+            - turnTo: 303
+- number: 554
+  content:
+    - text: |
+        King Skabb’s rusty iron crown shattered when he fell, so you
+        take the copper amulet from around his neck. Note it on your
+        Adventure Sheet. You also find a chest in the corner of the
+        room but it is clearly booby-trapped. You can open it using
+        magic, or your skills as a thief. To pick the lock, make a
+        THIEVERY roll at Difficulty 9. To use sorcery, make a MAGIC
+        roll at Difficulty 9.
+    - choice:
+        - text: Successful roll
+          then:
+            - turnTo: 6
+        - text: Failed roll
+          then:
+            - turnTo: 64
+        - text: Leave the chest and return to the surface
+          then:
+            - turnTo: 10
+# TODO: Section 555 - Ship things implementing
+#  All  shipping  in  and  out  of  Yellowport  must  come  through  theoffices  of  the  harbourmaster.  Here  you  can  buy  passage  to  farlands, or even a ship of your own, to fill with cargo and crew.You  can  buy  one-way  passage  on  a  ship  to  the  followingdestinations:
+#  Marlock City, cost 10 Shardsturn to 150
+#  Isle of the Druids, cost 15 Shardsturn to 301
+#  Sorcerer’s Isle, cost 30 Shardsturn to 234
+#  Copper Island, cost 30 Shardsturn to 424
+#
+#  If you buy a ship, you are the captain and can take it where youwish, exploring or trading. Three types of ship are available.
+#  The War-Torn Kingdom 53Barque250 Shards1 Cargo Unit
+#  Brigantine450 Shards2 Cargo Units
+#  Galleon900 Shards3 Cargo Units
+#
+#  If  you  buy  a  ship,  add  it  to  the  Ship’s  Manifest,  and  name  it  asyou  wish.  The  quality  of  the  ship’s  crew  is  poor,  unless  youupgrade it. If you already own a ship you can sell it back to theharbourmaster at half the above prices.It  costs  50  Shards  to  upgrade  a  poor  crew  to  average,  and100  Shards  to  upgrade  an  average  crew  to  good.  Excellentquality is not available in Yellowport.If you own a ship, you can buy as many Cargo Units as it hasroom for. You may also sell cargo, if you have any. Prices are forsingle Cargo Units.
+#  Cargo To buy To sell
+#  Furs 190 Shards 170 Shards
+#  Grain 200 Shards 180 Shards
+#  Metals600 Shards500 Shards
+#  Minerals350 Shards250 Shards
+#  Spices900 Shards810 Shards
+#  Textiles350 Shards300 Shards
+#  Timber180 Shards160 Shards
+- number: 556
+  content:
+    - text: |
+        Gain the codeword Amends. You scatter the powder on the surface of the waters.
+        Cross the vial of yellow dust off your Adventure Sheet.
+        There is a flash, and a cloud of yellow smoke billows up out
+        of the pond. When it clears, you find yourself face to face with a
+        white-bearded bespectacled old man, floating a few feet off the
+        water! He is dressed in long, flowing ornate robes.
+        He blinks at you for a moment before saying, ‘Thank you,
+        thank you. That worthless apprentice of mine! Can you imagine–
+        I told him to throw the dust into the holy waters but the idiot
+        couldn’t even be trusted to do that!’The old man’s name is Oliphard the Wizardly.
+        As a reward,he casts a spell that enhances your skill – add one to the ability of
+        your choice, permanently.
+        If not, he thanks you and says, ‘If you ever need some help,
+        look for me in Trefoille.’ Then he leaves.
+    - choice:
+        - text: If you are a Mage
+          then:
+            - turnTo: 426
+        - text: If not
+          then:
+            - turnTo: 378
+- number: 557
+  content:
+    - text: |
+            ‘Who is the rightful ruler of Sokara – General Grieve Marlock,
+            or the son of the old king, Nergan Corin?’ asks the soldier.
+    - choice:
+        - text: Grieve Marlock
+          then:
+            - turnTo: 631
+        - text: Nergan Corin
+          then:
+            - turnTo: 664
+- number: 558
+  content:
+    - text: |
+        You join the much-travelled road that connects Trefoille and Caran Baru.
+        The traffic mostly consists of convoys of troops and supplies.
+    - choice:
+        - text: Go to Trefoille
+          then:
+            - turnTo: 250
+        - text: Follow the road north
+          then:
+            - turnTo: 387
+        - text: Go north into the Curstmoor
+          then:
+            - turnTo: 175  
+        - text: Go east to the river
+          then:
+            - turnTo: 310        
+- number: 559
+  content:
+    - text: |
+        You ship is sailing in the coastal waters off Shadar Tor.
+    - choice:
+        - text: Sail north west towards Marlock City
+          then:
+            - turnTo: 222
+        - text: Sail north east towards Yellowport
+          then:
+            - turnTo: 29
+        - text: Sail south into the Violet Ocean
+          then:
+            - turnTo: 416
+- number: 560
+  content:
+    - text: |
+        You are crossing the western wilderness, an expanse of wild,
+        sparsely-populated countryside. A few trappers and woodsmen
+        make a living from the natural resources of the area.
+        A tall spire of rock, a towering anomaly of geology, rises up
+        into the clouds, dominating the horizon. A local hunter tells you
+        it is known as Devil’s Peak and that the summit is infested with demons.
+    - choice:
+        - text: Climb the peak
+          then:
+            - turnTo: 658
+        - text: Head west to the river
+          then:
+            - turnTo: 99
+        - text: Head north into the Forest of Larun
+          then:
+            - turnTo: 47
+        - text: Go south to the Curstmoor
+          then:
+            - turnTo: 175    
+        - text: Travel east to the road
+          then:
+            - turnTo: 558      
+- number: 561
+  content:
+    - text: |
+        You are left alone, free to trawl for smoulder fish. Roll one die– 
+        the result is the number of smoulder fish you catch. When
+        you are ready, you return to shore and give the boat back.
+    - turnTo: 135
+- number: 562
+  content:
+    - text: |
+        After a gruelling climb of some hours, you are halfway up the
+        side of a mountain, when you discover a thin, precarious path,leading up.
+        You take a swig of water from your canteen andproceed up the path.
+        After a while you have to stop to take more water. To your
+        horror, your water supply has turned sour and undrinkable!
+        Make a MAGIC roll at Difficulty 10.
+    - choice:
+        - text: Successful MAGIC roll
+          then:
+            - turnTo: 374
+        - text: Failed MAGIC roll
+          then:
+            - turnTo: 643
+- number: 563
+  content:
+    - text: |
+        To renounce the worship of Sig, you must pay 50 Shards incompensation to the priesthood.
+        ‘Sig will no longer watch over you!’ says a priest.
+        If you are certain you want to renounce Sig’s worship, cross
+        off the 50 Shards, erase Sig from the God box on your Adventure Sheet, 
+        and lose 1 point of THIEVERY.‘The dungeons are full of would-be rogues who
+        renouncedthe faith!’ yells a priest as you leave.
+    - turnTo: 100
+- number: 564
+  content:
+    - text: |
+        You tell the high priest about the Curse of Tyrnai.‘Ah, I see. Well,
+        you have to appease the god. You need aweapon (COMBAT +1),
+        which you can buy in most markets,or acquire by some other means.
+        Throw the weapon into theholy waters at the village of Blessed Springs,
+        and ask for his forgiveness.’
+        Acquire the codeword Appease.
+    - turnTo: 100
+- number: 565
+  content:
+    - text: |
+        Make a THIEVERY roll at Difficulty 10.
+        Successful THIEVERY roll turn to 654
+        Failed THIEVERY roll turn to 376
+    - turnTo: 100
