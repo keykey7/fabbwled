@@ -72,7 +72,7 @@ export function convertStyle(style: SectionElementStyle): React.CSSProperties {
     case "ITEM":
       return { fontWeight: "bold" };
     case "SECTION":
-      return { fontWeight: "bold" };
+      return { fontWeight: "bold", cursor: "pointer" };
     case "ABILITY":
       return { textTransform: "uppercase" };
     default:
