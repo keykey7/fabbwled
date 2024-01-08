@@ -1,3 +1,23 @@
+- number: 325
+  content:
+    - text: |
+        Your ship, crew, and cargo are lost to the deep,
+        dark sea. Cross them off your Adventure Sheet.
+        Your only thought now is to save yourself.
+
+        Roll two dice. If the score is greater than your Rank,
+        you are drowned – turn to 680. If the score is less
+        than or equal to your Rank, you manage to find some
+        driftwood and make it back to shore. Lose Stamina
+        points equal to the score of one die, and if you can
+        survive that, turn to 173.
+    - choice:
+        - text: turn to 680
+          then:
+            - turnTo: 680
+        - text: turn to 173
+          then:
+            - turnTo: 173
 - number: 326
   content:
     - text: |
@@ -34,16 +54,16 @@
         before you can say anything more. Soon they have been joined by many others and you have little
         choice but to turn and flee for your life! Desperately, you race down the sewer tunnels, with an
         army of ratmen in hot pursuit.
-  choices:
-    - text: Lose them in the tunnels
-      then:
-        - turnTo: 79
-    - text: Try some magic
-      then:
-        - turnTo: 296
-    - text: Hide
-      then:
-        - turnTo: 127
+    - choice:
+        - text: Lose them in the tunnels
+          then:
+            - turnTo: 79
+        - text: Try some magic
+          then:
+            - turnTo: 296
+        - text: Hide
+          then:
+            - turnTo: 127
 - number: 341
   content:
     - text: |
@@ -76,13 +96,13 @@
         She explains that she has discovered an escape route.
         This time, she promises to set up a diversion while you make for a tunnel where a cave-in has left an opening to the outside.
         Lauria says she will meet you later.
-  choices:
-    - text: Go along with her plan
-      then:
-        - turnTo: 662
-    - text: Escape on your own
-      then:
-        - turnTo: 565
+    - choice:
+        - text: Go along with her plan
+          then:
+            - turnTo: 662
+        - text: Escape on your own
+          then:
+            - turnTo: 565
 - number: 352
   content:
     - text: |
