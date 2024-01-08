@@ -10,8 +10,8 @@ type CharacterCardProps = {
 
 export default function CharacterCard(props: CharacterCardProps) {
   const { character } = props;
-  const player = props.character.player;
-  const baseStats = player.baseStats;
+  const { player } = character;
+  const { baseStats } = player;
 
   return (
     <div className="character-card">
@@ -29,7 +29,7 @@ export default function CharacterCard(props: CharacterCardProps) {
         <p className="attribute">Profession: {player.profession}</p>
         <p className="attribute">Stamina: {player.stamina}</p>
         <p className="attribute">Defence: {player.defence}</p>
-        <p className="attribute">Shards: {player.shards.shardCount}</p>
+        <p className="attribute">Shards: {player.shards}</p>
         <h3>Abilities</h3>
         <p className="attribute">Charisma: {baseStats.charisma}</p>
         <p className="attribute">Combat: {baseStats.combat}</p>
@@ -44,7 +44,7 @@ export default function CharacterCard(props: CharacterCardProps) {
         <Link to={"/game"}>
           <button
             className="character-select-button"
-            onClick={() => setCharacter(character)}
+            onClick={() => setCharacter(character.player)}
           >
             Select
           </button>

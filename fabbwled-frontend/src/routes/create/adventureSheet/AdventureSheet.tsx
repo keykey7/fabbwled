@@ -351,6 +351,7 @@ export default function AdventureSheet() {
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Other values
           </Typography>
+
           {/* Row 7 */}
           <Grid container>
             <Grid item xs={3} />
@@ -442,6 +443,7 @@ export default function AdventureSheet() {
               />
             </Grid>
           </Grid>
+
           {/* Row 8 */}
           <Grid container>
             <Grid item xs={4} />
