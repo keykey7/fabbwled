@@ -418,7 +418,9 @@
 - number: 674
   content:
     - text: |
-        You realize from your magical studies that there is a safe path through the pentacle. If you step off the correct symbols, drawn on the ground, there is no telling what sorcerous trap you will set off.
+        You realize from your magical studies that there is a safe path through the pentacle. 
+        If you step off the correct symbols,
+        drawn on the ground, there is no telling what sorcerous trap you will set off.
     - choice:
         - text: If you decide the whole thing is too dangerous, and leave
           then:
