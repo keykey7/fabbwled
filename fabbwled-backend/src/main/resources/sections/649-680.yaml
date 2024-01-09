@@ -78,51 +78,41 @@
 - number: 656
   content:
     - text: |
-        You find a large, red pavillion which has been erected over a ruin. 
-        Oliphard the Wizardly is inside. He greets you warmly.
+        You find a large, red pavilion which has been erected over a ruin. Oliphard the Wizardly is inside. He greets you warmly.
     - choice:
         - text: If you have a magic chest
           then:
             - turnTo: 672
-        - text: If not, but you have a verdigris key
+        - text: If you have a verdigris key
           then:
             - turnTo: 431
-        - text: |
-            If you do not have either, Oliphard can use his sorcery to teleport you instantly 
-            to certain places at a cost of 100 Shards a journey. If you want to be teleported, 
-            cross off the money and choose from the following destinations:
+        - text: Be teleported by Oliphard for 100 Shards to Marlock City
           then:
-            - choice:
-                - text: Marlock City
-                  then:
-                    - turnTo: 100
-                - text: Caran Baru
-                  then:
-                    - turnTo: 400
-                - text: Wishport Cities of Gold and Glory
-                  then:
-                    - turnTo: 217
-                - text: Dweomer Over the Blood-Sea
-                  then:
-                    - turnTo: 100
-        - text: Otherwise you can travel more conventionally.
+            - turnTo: 100
+        - text: Be teleported by Oliphard for 100 Shards to Caran Baru
           then:
-            - choice:
-                - text: Take the road to the Shadar Tor
-                  then:
-                    - turnTo: 602
-                - text: Take the road to Marlock City
-                  then:
-                    - turnTo: 377
-                - text: Head into the Curstmoor
-                  then:
-                    - turnTo: 175
-                - text: Take the road north
-                  then:
-                    - turnTo: 558
-                - text: Take the road to Yellowport
-                  then:
-                    - turnTo: 233
+            - turnTo: 400
+        - text: Be teleported by Oliphard for 100 Shards to Wishport Cities of Gold and Glory
+          then:
+            - turnTo: 217
+        - text: Be teleported by Oliphard for 100 Shards to Dweomer Over the Blood-Sea
+          then:
+            - turnTo: 100
+        - text: Take the road to the Shadar Tor
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 377
+        - text: Head into the Curstmoor
+          then:
+            - turnTo: 175
+        - text: Take the road north
+          then:
+            - turnTo: 558
+        - text: Take the road to Yellowport
+          then:
+            - turnTo: 233
 - number: 657
   content:
     - text: |
@@ -223,6 +213,7 @@
     - text: |
         They are too fast. You are caught and overwhelmed. You end up as food for scorpion larvae. 
         Your adventuring days are over, unless you have a resurrection deal.
+    - turnTo: 1
     # Noch keine Funktion für Sterben/Wiederbelebung.
 - number: 664
   content:
@@ -335,34 +326,31 @@
 - number: 669
   content:
     - text: |
-        You are recognised by an official, and a few moments later, you are summoned to see 
-        the general himself! You are taken to the throne room, which has been converted to a 
-        military style headquarters.
+        You are recognised by an official, and a few moments later, 
+        you are summoned to see the general himself! 
+        You are taken to the throne room, which has been converted to a military style headquarters. 
+        Grieve Marlock is a tall, hook-nosed man, with cold, penetrating green eyes. 
+        ‘You come highly recommended by my brother, the governor of Yellowport – 
+        I was hoping you would turn up,’ he says in a commanding voice. 
+        ‘You did me a great service by getting rid of that pompous fool, Nergan. 
+        ‘Now there is one more thing I need you for. The Citadel of Velis Corin, which 
+        sits astride the Pass of Eagles in the far north, is under imminent attack from an 
+        army of the steppes. The attackers are a rag-tag bunch of malcontents – 
+        nomads, Mannekyn People, some trau even, and of course, the usual traitorous dogs 
+        still loyal to the old king – may his soul burn in the hells, ha, ha, ha!’ 
+        ‘I need you to go to the citadel, discuss the situation with Commandant Orin Telana, 
+        and do all you can to make sure that the citadel doesn’t fall. I’m relying on you!’ 
+        Record the codeword Assist.
     - choice:
         - text: If you have the codeword Assist
           then:
             - turnTo: 102
-        - text: |
-            If not, Grieve Marlock is a tall, hook-nosed man, with cold, penetrating green eyes. 
-            ‘You come highly recommended by my brother, the governor of Yellowport – 
-            I was hoping you would turn up,’ he says in a commanding voice. 
-            ‘You did me a great service by getting rid of that pompous fool, 
-            Nergan. ‘Now there is one more thing I need you for. 
-            The Citadel of Velis Corin, which sits astride the Pass of Eagles in the far north, 
-            is under imminent attack from an army of the steppes. The attackers are a rag-tag 
-            bunch of malcontents – nomads, Mannekyn People, some trau even, and of course, 
-            the usual traitorous dogs still loyal to the old king – may his soul burn in the hells, 
-            ha, ha, ha!’ ‘I need you to go to the citadel, discuss the situation with Commandant Orin Telana, 
-            and do all you can to make sure that the citadel doesn’t fall. I’m relying on you!’ 
-            Record the codeword Assist.
+        - text: If you have a coded missive
           then:
-            - choice:
-                - text: If you have a coded missive
-                  then:
-                    - turnTo: 677
-                - text: If not, you are escorted out.
-                  then:
-                    - turnTo: 100
+            - turnTo: 677
+        - text: If not, you are escorted out.
+          then:
+            - turnTo: 100
 - number: 670
   content:
     - text: |
@@ -430,22 +418,17 @@
 - number: 674
   content:
     - text: |
-        You realize from your magical studies that there is a safe path through the pentacle. 
-        If you step off the correct symbols, drawn on the ground, there is no telling what sorcerous 
-        trap you will set off.
+        You realize from your magical studies that there is a safe path through the pentacle. If you step off the correct symbols, drawn on the ground, there is no telling what sorcerous trap you will set off.
     - choice:
         - text: If you decide the whole thing is too dangerous, and leave
           then:
             - turnTo: 47
-        - text: If you want to try the path to the sarcophagus, make a THIEVERY roll at Difficulty 9.
+        - text: If you want to try the path to the sarcophagus, make a THIEVERY roll at Difficulty 9 and succeed
           then:
-            - choice:
-                - text: Successful THIEVERY roll
-                  then:
-                    - turnTo: 606
-                - text: Failed THIEVERY roll
-                  then:
-                    - turnTo: 661
+            - turnTo: 606
+        - text: If you want to try the path to the sarcophagus, make a THIEVERY roll at Difficulty 9 and fail
+          then:
+            - turnTo: 661
 - number: 675
   content:
     - text: |
@@ -487,21 +470,20 @@
     - turnTo: 100
 - number: 678
   content:
+    - text: | 
+        You realize from your magical studies that there is a safe path through the pentacle. 
+        If you step off the correct symbols, drawn on the ground, there is no telling what 
+        sorcerous trap you will set off.
     - choice:
         - text: If you have the codeword Aspen
           then:
             - turnTo: 195
-        - text: |
-            Otherwise read on. The journey through the trees proves as difficult as when you first 
-            ventured into the Old Forest. Make a SCOUTING roll at Difficulty 10.
+        - text: If you want to try the path through the Old Forest and succeed on the SCOUTING roll at Difficulty 10
           then:
-            - choice:
-                - text: Successful SCOUTING roll
-                  then:
-                    - turnTo: 679
-                - text: Failed SCOUTING roll
-                  then:
-                    - turnTo: 36
+            - turnTo: 679
+        - text: If you want to try the path through the Old Forest and fail on the SCOUTING roll at Difficulty 10
+          then:
+            - turnTo: 36
 - number: 679
   content:
     - text: |
@@ -518,5 +500,5 @@
         this is the end and you can only start afresh with a new character. 
         First make sure to erase all ticks, codewords, and Adventure Sheet details in all your Fabled Lands books.
         You can begin at 1 in any of the books of the series.
-    # Noch keine Funktion für Sterben/Wiederbelebung.
+    - turnTo: 1
 
