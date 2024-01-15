@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { getAllCharacters } from "../../api/character.ts";
-import CharacterCard from "../../components/CharacterCard/CharacterCard.tsx";
+import CharacterCard from "../../../components/CharacterCard/CharacterCard.tsx";
 import "./existing-characters.scss";
-import { CharacterCreateDto } from "../../interfaces/character.ts";
+import { getAllCharacters } from "../../../api/character.ts";
+import { CharacterCreateDto } from "../../../interfaces/character.ts";
 
 export default function ExistingCharacters() {
   const [characters, setCharacters] = useState<CharacterCreateDto[]>([]);
   const BOOK_ID = 1; // The only book we implement
-  const getAllCharactersTest = async () => {
+  const fetchCharacters = async () => {
     setCharacters(await getAllCharacters(BOOK_ID));
   };
 
   useEffect(() => {
-    getAllCharactersTest();
+    fetchCharacters();
   }, []);
 
   return (

@@ -23,8 +23,10 @@ public class Section529 implements SectionHandler {
                 .clickable(a -> a.withStamina(current.stamina() - 4), b -> b.text("Loose 4 Stamina"))
                 .activeIf(current.doIStillLive(), a -> a
                         .text("You still live!")
-                        .clickableTurnTo(474));
-        //TODO: YOU DIED
+                        .clickableTurnTo(474))
+                .activeElse(d -> d
+                        .text("You died. Start from the beginning!")
+                        .clickableTurnTo(1));
     }
 }
 
