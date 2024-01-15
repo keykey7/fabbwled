@@ -7,6 +7,17 @@
         pouch, you find a bag of pearls, which you can take if you
         wish.
     - turnTo: 507
+# ISNOTIMPLEMENTABLE: gain title and lose codeword
+- number: 40
+  content:
+    - text: |
+        You take the Book of the Seven Sages to Pyletes the Sage at
+        the Gold Dust Tavern. He thanks you effusively for bringing it
+        to him. Your reward is secret learning from the temple of
+        Molhern, god of knowledge. Gain the title Illuminate of Molhern.
+        Lose the codeword Artefact and cross off the Book of the
+        Seven Sages.
+    - turnTo: 10
 - number: 41
   content:
     - text: |
@@ -37,6 +48,15 @@
         this case, and step aside. The officers laugh contemptuously, and
         swagger past. Nothing else happens tonight.
     - turnTo: 100
+# ISNOTIMPLEMENTABLE: guild money
+- number: 46
+  content:
+    - text: |
+        You can invest money in multiples of 100 Shards. The guild
+        will buy and sell commodities on your behalf using this money
+        until you return to collect it. ‘Don’t forget that you can lose
+        money as well,’ mutters a sullen merchant.
+    - turnTo: 405
 - number: 47
   content:
     - text: |
@@ -59,6 +79,21 @@
         - text: East to the road
           then:
             - turnTo: 387
+- number: 48
+  content:
+    - text: |
+        The warden is in charge of security. ‘We have had an
+        unfortunate, umm… accident,’ he says worriedly. ‘In the crypt
+        below the temple we sometimes experiment with the corpses of
+        the dead – you know, the occasional zombie, part of the rituals
+        in honour of the particular aspect of Nagil we revere here. It
+        seems a ghoul has escaped from these pits, and is terrorizing the
+        city at night. We’d rather someone like you sorted the problem
+        out before the city militia got to hear of it. Destroy it and bring
+        me the ghoul’s head.’
+        ‘Search for it at night!’ says the warden as you leave.
+    - acquireKeyword: "Ague"
+    - turnTo: 100
 - number: 50
   content:
     - text: |
@@ -69,6 +104,27 @@
         You will have to be careful not to get yourself recognised.
         Choose an option from the list on page 10.
     - turnTo: 10
+# ISNOTIMPLEMENTABLE: several dices and crew quality and check profession
+- number: 51
+  content:
+    - text: |
+        The war galley puts alongside, and grappling hooks fly through
+        the air, fastening your ships together. The captain leaps across
+        and his men swarm on to your ship. A battle ensues.
+    - turnTo: 62
+# ISNOTIMPLEMENTABLE: how to declare an initiate
+- number: 52
+  content:
+    - text: |
+        If you are an initiate it costs only 10 Shards to purchase Lacuna’s
+        blessing. A non-initiate must pay 25 Shards. Cross off the money.
+        The blessing works by allowing you to try again when you
+        fail a SCOUTING roll. It is good for only one reroll. When you
+        use the blessing, cross it off your Adventure Sheet. Once it is
+        used up, you can return to any branch of the Temple of Lacuna to
+        buy a new one.
+        When you are finished here, move along.
+    - turnTo: 544
 - number: 54
   content:
     - text: |
@@ -96,6 +152,25 @@
     - text: |
         You manage to lose them amid the backstreets of Yellowport.
         Once the heat is off, you return to the city centre.
+    - turnTo: 10
+# ISNOTIMPLEMENTABLE: change title
+- number: 61
+  content:
+    - text: |
+        ‘Wait,’ you cry, ‘I have seen the light! I wish to join your cult!’
+        ‘What!’ yells the chef. Then his shoulders sag in resignation.
+        ‘We cannot refuse a new member,’ says the leader with
+        obvious disappointment. ‘And we cannot eat our own people,’
+        he adds sadly.
+        A short ceremony later – fortunately, the initiation does not
+        involve any cannibalistic rites – and you are a full member of the
+        Cult of Badogor.
+        You take your leave, and they wish you well, all smiles and
+        friendship.
+        ‘Remember, never say his name! And don’t forget to bring
+        us new recruits,’ says the leader. ‘And some people for dinner!’
+        adds the chef.
+        Hastily, you head for the city centre.
     - turnTo: 10
 - number: 63
   content:
@@ -166,6 +241,19 @@
         - text: Leap off
           then:
             - turnTo: 28
+# ISNOTIMPLEMENTABLE: initiate status
+- number: 69
+  content:
+    - text: |
+        To renounce the worship of Tyrnai, you must pay 50 Shards to
+        the warrior priests, and suffer the Ceremony of the Wrathful
+        Blow. A priest will strike you once – it is better to be struck by a
+        priest than by Tyrnai himself!
+        If you are determined to renounce your initiate status, pay
+        the 50 Shards, delete Tyrnai from the God box on your
+        Adventure Sheet. The High Priest smashes you across the jaw,
+        saying ‘I’m doing you a favour – believe me!’.
+    - turnTo: 526
 - number: 71
   content:
     - text: |
