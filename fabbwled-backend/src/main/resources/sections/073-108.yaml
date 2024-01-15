@@ -4,12 +4,9 @@
     - text: |
         A fisherman will take you all the way to Yellowport for 15
         Shards. Cross the money of your Adventure Sheet. Amazingly,
-        despite the apparent fragility of the small vessel, you arrive
-        without incident.
-    - choice:
-        - text: Turn to 10.
-          then:
-            - turnTo: 10
+        despite the apparent fragility of the small vessel,
+        you arrive without incident.
+    - turnTo: 10
 - number: 80
   content:
     - text: |
@@ -214,11 +211,8 @@
         blessing, cross it off your Adventure Sheet. You can only have
         one COMBAT blessing at any one time. Once it is used up, you
         can return to any branch of the temple of Tyrnai to buy a new
-        one.
-    - choice:
-        - text: When you are finished
-          then:
-            - turnTo: 282
+        one. When you are finished
+    - turnTo: 282
 # not yet finished: no blessings possible as well fighting system
 - number: 105
   content:
@@ -244,10 +238,7 @@
         sullen merchant who leaves the guild penniless.
         Write the sum you are investing in the box here – or
         withdraw a sum invested previously.
-    - choice:
-        - text: Then
-          then:
-            - turnTo: 571
+    - turnTo: 571
 - number: 102
   content:
     - if:
@@ -287,15 +278,13 @@
           then:
             - turnTo: 218
 # aquire keyword not possible yet in yaml? not implemented because of missing time
-- section: 92
+- number: 92
   content:
     - text: |
         He falls dead at your feet. Searching him, you find 25 Shards
         you can take if you wish. Then you flip up his eyepatch.
         Nestling in the eye-socket is a sparkling gem, a flame opal. You
         pluck it free. Note the flame opal eye on your Adventure
-        Sheet and lose the codeword Barnacle.
-    - choice:
-        - text: You hurry off, before a patrol arrives.
-          then:
-            - turnTo: 400
+        Sheet and lose the codeword Barnacle. You hurry off, before a 
+        patrol arrives.
+    - turnTo: 400
