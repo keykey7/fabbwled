@@ -51,7 +51,7 @@
         - text: Sail east into the Unbounded Ocean
           then:
             - turnTo: 206
-# TODO: You have been stripped of all your possessions
+# ISNOTIMPLEMENTABLE: You have been stripped of all your possessions
 - number: 508
   content:
     - text: |
@@ -152,7 +152,6 @@
         - text: Swim back up to your ship
           then:
             - turnTo: 616
-# TODO: implement 514
 - number: 516
   content:
     - text: |
@@ -188,7 +187,7 @@
             - text: Leave the temple
               then:
                 - turnTo: 100
-# TODO: Cargo unit?
+# ISNOTIMPLEMENTABLE: Take one cargo Unit
 - number: 519
   content:
     - text: |
@@ -307,7 +306,7 @@
         - text: North into open countryside
           then:
             - turnTo: 278
-# TODO: loose 1 cargo unit
+# ISNOTIMPLEMENTABLE: loose 1 cargo unit
 - number: 530
   content:
     - text: |
@@ -325,7 +324,22 @@
         - turnTo: 4
       else:
         - turnTo: 462
-# TODO: implement 532
+- number: 532
+  content:
+    - text: |
+        The scorpion men’s shaman falls dead with an uncannily human
+        cry. If you were wounded in that fight, you have been poisoned
+        by the scorpion man’s venom. Subtract 1 from your COMBAT ,
+        THIEVERY and SCOUTING abilities, as you are severely
+        weakened (though no ability can drop to zero). Note that you
+        are poisoned – you can restore your ratings to normal if you get
+        cured. If you have some scorpion antidote , it will cure the
+        poison immediately (cross off the antidote ).
+        A quick search reveals what you were looking for – the
+        Book of the Seven Sages . Note it on your Adventure Sheet.
+        You steal out of the mound unnoticed and make it safely
+        back to the village of Venefax, to the north.
+    - turnTo: 427
 - number: 533
   content:
     - text: |
