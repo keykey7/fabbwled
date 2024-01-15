@@ -1,0 +1,10 @@
+.existing-characters-container {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}

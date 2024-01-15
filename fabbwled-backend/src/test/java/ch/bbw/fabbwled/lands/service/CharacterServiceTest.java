@@ -1,19 +1,14 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.FabledTestBase;
-import ch.bbw.fabbwled.lands.book.SectionId;
-import ch.bbw.fabbwled.lands.character.Character;
-import ch.bbw.fabbwled.lands.character.ProfessionEnum;
+import ch.bbw.fabbwled.lands.character.PlayerDto;
 import ch.bbw.fabbwled.lands.character.RankEnum;
 import ch.bbw.fabbwled.lands.exception.FabledBusinessException;
-import ch.bbw.fabbwled.lands.service.ShardSystem;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest
 class CharacterServiceTest extends FabledTestBase {
@@ -27,79 +22,30 @@ class CharacterServiceTest extends FabledTestBase {
 
     @Test
     void byWrongBookId() {
-        var id = 2;
-        assertThat(characterService.getAllCharacters(id)).isEqualTo(List.of());
+        assertThat(characterService.getAllCharacters(2)).isEqualTo(List.of());
     }
+
     @Test
     void byCorrectBookId() {
-        var id = 1;
-        assertThat(characterService.getAllCharacters(id)).hasSize(6);
+        assertThat(characterService.getAllCharacters(1)).hasSize(6);
     }
 
     @Test
     void validateCharacterWithValidStats() {
-        Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(15), Collections.emptySet(),RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,"Ebron",9,
-
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16), Map.of(),Collections.emptySet(),Collections.emptySet()),
-                """
-                        Liana prefers to make her home in mountain grottos
-                        and woodland groves rather than in the squalid streets
-                        of cities. She has the agility of a gazelle, the cunning of
-                        a fox and the ferocity of an eagle. She has heard of a
-                        City of Trees, deep within the forest of the Isle of
-                        "Druids.""")
-                ; // Create a character with valid stats
-        testPlayerSession.validatePlayer(character.player());
+        characterService.validateInitialCreation(PlayerDto.empty());
+        characterService.getAllCharacters(1).forEach(player -> characterService.validateInitialCreation(player.player()));
     }
 
     @Test
     void validateCharacterWithInvalidStats() {
-        Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(15),Collections.emptySet(),RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,"Ebron",9,
-
-                new Character.BaseStatsDto(2, 5, 2, 3, 7, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet(),Collections.emptySet()),
-
-                """
-                        Liana prefers to make her home in mountain grottos
-                        and woodland groves rather than in the squalid streets
-                        of cities. She has the agility of a gazelle, the cunning of
-                        a fox and the ferocity of an eagle. She has heard of a
-                        City of Trees, deep within the forest of the Isle of
-                        "Druids.""");  // Create a character with invalid stats
-        assertThatThrownBy(() -> testPlayerSession.validateInitialCreation(character.player())).isInstanceOfAny(FabledBusinessException.class); // Expect the validation error message
-    }
-
-    @Test
-    void validateCharacterWithLargePossessionSize() {
-        Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift",SectionId.book1(15),Collections.emptySet(), RankEnum.OUTCAST, ProfessionEnum.WAYFARER, 9,"Ebron",9,
-
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield", "sword", "shield"),new ShardSystem(16),Map.of(),Collections.emptySet(),Collections.emptySet()),
-                """
-                        Liana prefers to make her home in mountain grottos
-                        and woodland groves rather than in the squalid streets
-                        of cities. She has the agility of a gazelle, the cunning of
-                        a fox and the ferocity of an eagle. She has heard of a
-                        City of Trees, deep within the forest of the Isle of
-                        "Druids."""
-        );// Create a character with a large possession size
-        assertThatThrownBy(() -> testPlayerSession.validatePlayer(character.player())).isInstanceOfAny(FabledBusinessException.class); // Expect the validation error message
+        assertThatThrownBy(() ->  characterService.validateInitialCreation(PlayerDto.empty().withStats(x -> x.withScouting(7))))
+                .isInstanceOfAny(FabledBusinessException.class); // Expect the validation error message
     }
 
     @Test
     void validateCharacterWithNonOutcastRank() {
-        Character.CharacterCreateDto character = new Character.CharacterCreateDto(new PlayerSession.PlayerDto("Liana The Swift", SectionId.book1(15),Collections.emptySet(),RankEnum.COMMONER, ProfessionEnum.WAYFARER, 9,"Ebron",9,
-
-                new Character.BaseStatsDto(2, 5, 2, 3, 6, 4), List.of("spear", "leather jerkin (Defence +1)", "map"),new ShardSystem(16),Map.of(),Collections.emptySet(),Collections.emptySet()),
-
-
-                """
-                        Liana prefers to make her home in mountain grottos
-                        and woodland groves rather than in the squalid streets
-                        of cities. She has the agility of a gazelle, the cunning of
-                        a fox and the ferocity of an eagle. She has heard of a
-                        City of Trees, deep within the forest of the Isle of
-                        "Druids."""
-        ); // Create a character with a non-outcast rank
-        assertThatThrownBy(() -> testPlayerSession.validateInitialCreation(character.player())).isInstanceOfAny(FabledBusinessException.class); // Expect the validation error message
+        assertThatThrownBy(() ->  characterService.validateInitialCreation(PlayerDto.empty().withRank(RankEnum.EARL)))
+                .isInstanceOfAny(FabledBusinessException.class); // Expect the validation error message
     }
 
 }

@@ -2,8 +2,10 @@ package ch.bbw.fabbwled.lands;
 
 import ch.bbw.fabbwled.lands.book.SectionDto;
 import ch.bbw.fabbwled.lands.book.SectionId;
+import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.controller.PlayerController;
 import ch.bbw.fabbwled.lands.controller.SectionController;
+import ch.bbw.fabbwled.lands.character.PlayerDto;
 import ch.bbw.fabbwled.lands.service.PlayerSession;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.swing.*;
+import java.util.Comparator;
 import java.util.stream.Stream;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, properties = {"logging.level.ch.bbw.fabbwled=WARN"})
@@ -32,7 +35,7 @@ class CliTestMain {
 
 	@Test
 	void run() {
-		playerSession.update(x -> x.withCurrentSection(SectionId.book1(15)));
+		playerSession.update(x -> x.withCurrentSection(SectionId.book1(30)));
 		while (true) {
 			var me = playerController.whoami();
 			var section = sectionController.byId(me.currentSection().bookId(), me.currentSection().sectionId());
@@ -44,9 +47,11 @@ class CliTestMain {
 		}
 	}
 
-	private boolean askForNextAction(PlayerSession.PlayerDto me, SectionDto section) {
-		var validOptions = Stream.concat(section.body().allClickIds().stream().sorted().map(i -> "" + i),
-				Stream.of("stats")).toList();
+	private boolean askForNextAction(PlayerDto me, SectionDto section) {
+        var validOptions = Stream.concat(section.body().allActiveClickIds().stream()
+                        .sorted(Comparator.comparingInt(SectionNode.ClickableNode::clickId))
+                        .map(i -> i.asPlainText().replaceAll("\033\\[\\d+m", "")),
+                Stream.of("stats")).toList();
 		var selectedId = JOptionPane.showOptionDialog(null,
 				"Pick an option",
 				"What to do next",
@@ -63,7 +68,8 @@ class CliTestMain {
 			System.out.println(me.toString()); // not very nice, but it works
 		}
 		else {
-			sectionController.click(new SectionController.SectionClick(Integer.parseInt(action)));
+            var clickId = Integer.parseInt(action.replaceAll(".+\\[(\\d+)]", "$1"));
+			sectionController.click(new SectionController.SectionClick(clickId));
 		}
 		return true;
 	}

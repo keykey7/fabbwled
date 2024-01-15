@@ -1,0 +1,25 @@
+.submitContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  width: 75vw !important;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 60px;
+  border: none;
+  background-color: #e0c29d;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.submitButton {
+  background-color: #5c4f47 !important;
+}
+
+hr {
+  width: 60%;
+  color: #e0c29d;
+}
