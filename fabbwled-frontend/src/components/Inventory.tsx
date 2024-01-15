@@ -52,7 +52,7 @@ const Inventory = ({ onAction }: InventoryProps) => {
       alert(`Action performed for ${selectedItem.name}`);
       onAction();
     }
-  };
+
 
   return (
     <div>
