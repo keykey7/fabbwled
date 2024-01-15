@@ -456,10 +456,9 @@
           then:
             - turnTo: 98
         - text: |
-            If not, the king goes on, ‘However, I was hoping you had spoken with General Beladai of the 
-            allied army by now –
-            we need that citadel. Now go. That is a Royal command!’ 
-            You leave, climbing down to the foothills of the mountains.
+            If not, the king goes on, ‘However, I was hoping you had spoken with General 
+            Beladai of the allied army by now – we need that citadel. 
+            Now go. That is a Royal command!’ You leave, climbing down to the foothills of the mountains.
           then:
             - turnTo: 474
 - number: 677
