@@ -14,10 +14,13 @@ const numericRangeValidation = (
 };
 export default Yup.object().shape({
   name: Yup.string().required("Name is required"),
+  god: Yup.string().required("God is required"),
   charisma: numericRangeValidation("Charisma", 1, 6),
   combat: numericRangeValidation("Combat", 1, 6),
   magic: numericRangeValidation("Magic", 1, 6),
   sanctity: numericRangeValidation("Sanctity", 1, 6),
   scouting: numericRangeValidation("Scouting", 1, 6),
   thievery: numericRangeValidation("Thievery", 1, 6),
+  description: Yup.string().required("Description is required"),
+  titlesAndHonours: Yup.string().required("Titles and honours is required"),
 });
