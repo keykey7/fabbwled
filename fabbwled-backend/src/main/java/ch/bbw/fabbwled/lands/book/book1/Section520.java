@@ -36,7 +36,9 @@ public class Section520 implements SectionHandler {
                                         d -> d.clickableTurnTo(278))
                                 .choice(d -> d.text("West to the main road"),
                                         d -> d.clickableTurnTo(558))
-                        ));
-        //TODO: YOU DIED
+                        )
+                        .activeElse(d -> d
+                                .text("You died. Start from the beginning!")
+                                .clickableTurnTo(1)));
     }
 }
