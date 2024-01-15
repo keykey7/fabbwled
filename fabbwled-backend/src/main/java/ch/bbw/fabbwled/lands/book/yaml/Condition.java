@@ -42,4 +42,13 @@ public interface Condition {
         }
     }
 
+    record HasWon(boolean hasWon) implements Condition {
+
+        @Override
+        public boolean isActive(PlayerSession session, SectionId section) {
+           // return session.getPlayer().enemies().;
+            return false;
+        }
+    }
+
 }

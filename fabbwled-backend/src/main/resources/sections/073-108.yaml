@@ -1,3 +1,35 @@
+- number: 74
+  content:
+    - text: |
+        A fisherman will take you all the way to Yellowport for 15
+        Shards. Cross the money of your Adventure Sheet. Amazingly,
+        despite the apparent fragility of the small vessel, you arrive
+        without incident.
+    - spendShards: 15
+    - turnTo: 10
+- number: 75
+  content:
+    - text: |
+        The high priest takes you to a private chamber.
+        ‘You may be just what the temple needs,’ he says, ‘a good,
+        old-fashioned thief! There is a suit of armour made entirely of
+        gold – ceremonial only of course. Nevertheless, we would like
+        to, er, have it donated to us.’
+        ‘I see,’ you reply, ‘and where is the armour?’
+        ‘Well that’s the tricky part – it’s in the Temple of Tyrnai, in
+        Caran Baru. In fact, it’s worn by the idol of Tyrnai himself in
+        the temple! Can you bring us the gold chain mail of Tyrnai? In
+        return, we will instruct you in the roguish arts.’
+    - choice:
+        - text: |
+            If you want to take up the mission for the Temple of Sig,
+            record the codeword Armour.
+          then:
+            - acquireKeyword: Armour
+            - turnTo: 235
+        - text: If not
+          then:
+            - turnTo: 235
 - number: 80
   content:
     - text: |
@@ -15,6 +47,21 @@
         - text: Refuse and leave
           then:
             - turnTo: 10
+- number: 81
+  content:
+    - text: This could be a tough fight.
+    - fight: toDeath
+    - currentEnemies:
+        - name: GOLEM
+          combat: 5
+          defence: 10
+          stamina: 10
+    - if:
+        hasWon: true
+      then:
+        - turnTo: 94
+      else:
+        - turnTo: 488
 - number: 84
   content:
     - text: |

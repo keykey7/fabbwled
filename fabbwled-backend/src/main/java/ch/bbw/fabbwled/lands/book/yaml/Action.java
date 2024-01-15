@@ -2,6 +2,7 @@ package ch.bbw.fabbwled.lands.book.yaml;
 
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.book.SectionNode;
+import ch.bbw.fabbwled.lands.character.FightingType;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 
 import java.util.List;
@@ -160,6 +161,24 @@ public interface Action {
         }
 
         record SingleChoice(String text, List<Action> actions) {
+        }
+    }
+
+    record Fight(FightingType fightingType) implements Action {
+
+        @Override
+        public void simpleVerify() {
+            Action.super.simpleVerify();
+        }
+
+        @Override
+        public YamlReachabilityResult verifyReachability() {
+            return Action.super.verifyReachability();
+        }
+
+        @Override
+        public SectionNode.ContainerNode writeToNode(YamlSectionWriter writer, SectionNode.ContainerNode parent) {
+            return null;
         }
     }
 }

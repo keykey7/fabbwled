@@ -28,6 +28,11 @@ public class SectionController {
 		return sectionService.onClick(click.clickId());
 	}
 
+    @PostMapping("/api/section/fight")
+    public SectionDto fight(@PathVariable int sectionId) {
+        return null;
+    }
+
 	public record SectionClick(int clickId) {
 	}
 }

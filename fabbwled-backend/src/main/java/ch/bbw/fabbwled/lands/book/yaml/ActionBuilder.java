@@ -54,7 +54,8 @@ public class ActionBuilder {
             new ActionKind("checkTickBox", RawAction::checkTickBox, raw -> new Action.CheckTickBoxAction(raw.checkTickBox())),
             new ActionKind("acquirePossession", RawAction::acquirePossession, raw -> new Action.AcquirePosessionAction(raw.acquirePossession())),
             new ActionKind("spendShards", RawAction::spendShards, raw -> new Action.SpendShardsAction(raw.spendShards())),
-            new ActionKind("turnTo", RawAction::turnTo, raw -> new Action.TurnToAction(new SectionId(1, raw.turnTo())))
+            new ActionKind("turnTo", RawAction::turnTo, raw -> new Action.TurnToAction(new SectionId(1, raw.turnTo()))),
+            new ActionKind("hasWon", RawAction::fight, raw -> new Action.Fight(raw.fight()))
     );
 
     private Condition buildCondition(RawCondition raw) {
@@ -84,6 +85,9 @@ public class ActionBuilder {
         }
         if (raw.hasPossession() != null) {
             return new Condition.HasPossession(raw.hasPossession());
+        }
+        if (raw.hasWon() != null) {
+            return new Condition.HasWon(raw.hasWon());
         }
 
         throw new FabledTechnicalException("Condition must have one property");

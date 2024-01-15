@@ -64,7 +64,8 @@ public record PlayerDto(String name,
                         // remember the last type off difficulty roll, such that it can be rolled back using a blessing
                         AbilityEnum lastDifficultyRoll,
                         // a bunch of dice (1-6) most recently rolled
-                        @NonNull List<Integer> mostRecentDiceRoll
+                        @NonNull List<Integer> mostRecentDiceRoll,
+                        @NonNull List<Enemy> enemies
 ) implements Serializable {
 
     public static PlayerDtoBuilder builder() {
