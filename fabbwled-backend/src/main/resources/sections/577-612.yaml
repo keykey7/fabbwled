@@ -1,0 +1,587 @@
+- number: 577
+  content:
+    - text: |
+        You recognize the tracks as those of the legendary gorlock. You
+        remember that it is said to have backward-pointing feet, so that
+        the tracks it leaves will always show the opposite direction of
+        travel! This means that the gorlock is currently inside the cave.
+    - choice:
+        - text: Challenge the beast to combat
+          then:
+            - turnTo: 174
+        - text: Wait for it to leave the cave
+          then:
+            - turnTo: 287
+- number: 578
+  content:
+    - text: |
+        The villagers welcome you as the one who brought Fourze to
+        justice, and saved their people from slavery.
+    - turnTo: 427
+- number: 579
+  content:
+    - text: |
+        You are travelling across flatlands. The River Grimm splits into
+        a delta here, spilling its waters into the sea. Long, sandy beaches
+        stretch out to sea. Roll one die.
+        Score 1 or 2 Bitten by a crab! Lose 1 Stamina
+        Score 3 or 4 Nothing happens
+        Score 5 or 6 Find an ink sac washed up on the shore
+        **Reference features required (if any)**
+        When you are ready, you can:
+    - choice:
+        - text: Go to Marlock City
+          then:
+            - turnTo: 100
+        - text: Follow the river north
+          then:
+            - turnTo: 99
+        - text: Travel west into Golnir Cities of Gold and Glory
+          then:
+            - turnTo: 219
+- number: 580
+  content:
+    - text: |
+        You wait for things to die down, and make your way back to
+        the door marked ‘Thrown Rum’. Ignoring the kitchens, you go
+        through.
+    - turnTo: 202
+- number: 581
+  content:
+    - text: |
+        You try to cut the king down, but at the last moment, he
+        catches your wrist. His face is a mask of hate and rage.
+        ‘Traitorous viper!’ he hisses, before shouting for the guards. You
+        are forced to flee for your life.
+        Although you make it out of the stockade, you are caught in
+        a narrow defile and seized by many men. You are hauled before
+        Captain Vorkung, who looks sick and ashen-faced – he let you
+        in to see the king in the first place.
+        You are sentenced to be hanged; the sentence is carried out
+        immediately. Your adventures are over, unless you have a
+        resurrection deal.
+    - turnTo: 1
+- number: 582
+  content:
+    - text: |
+        Before you have time to react, the dragon’s massive tail smashes
+        into the keel of your boat, lifting it out of the water, and
+        breaking it in two. You are pitched into the sulphurous lake,
+        with a rabid sea dragon closing in, intent on swallowing you
+        whole!
+        Roll one die.
+    - choice:
+        - text: If you score less than or equal to your Rank
+          then:
+            - turnTo: 637
+        - text: Otherwise
+          then:
+            - turnTo: 477
+- number: 583
+  content:
+    - text: |
+        Your ship is thrown about like flotsam and jetsam. When the
+        storm subsides, you take stock. Much has been swept overboard
+        – you lose 1 Cargo Unit, if you had any, of your choice. Also,
+        the ship has been blown way off course and the mate has no idea
+        where you are. ‘We’re lost at sea, Cap’n!’ he moans.
+    - turnTo: 90
+- number: 584
+  content:
+    - text: |
+        ‘How can I come out to you? I would drown in the sea – is that
+        what you plan?’ you ask angrily.
+        ‘Don’t you know?’ sighs one of them. ‘The kiss of the merfolk gives the power to breathe the waters to one of your kind
+        for a short time!’
+        The others laugh mischieveously.
+    - choice:
+        - text: Be kissed by the merfolk
+          then:
+            - turnTo: 254
+        - text: Return to the clifftop tor
+          then:
+            - turnTo: 35
+- number: 585
+  content:
+    - text: |
+        You trail Fourze to the old farm. He goes inside, and you creep
+        to see what he is doing.
+        Two rough-looking thugs are helping Fourze get into what
+        is obviously a monster suit! It’s a bit like a giant hairy toad, made
+        of the hide of some animal stretched over a wooden framework.
+        So much for the dreaded Gob-gobbler!
+        You wait by the door. As the thugs emerge, you club one to
+        the ground, but you will have to fight the other one.
+        Bandit, COMBAT 4, Defence 6, Stamina 6
+    - choice:
+        - text: If you win
+          then:
+            - turnTo: 236
+        - text: If you lose, you are dead have a resurrection deal.
+          then:
+            - turnTo: 1
+- number: 586
+  content:
+    - text: |
+        Heavy black clouds race towards you across the sky, whipping
+        the waves into a frenzy. The crew mutter among themselves
+        fearfully. If you have the blessing of Alvir and Valmir, which
+        confers Safety from Storms, you can ignore the storm. Cross off
+        the blessing and turn to 85. Otherwise the storm hits with full
+        fury. Roll one die if your ship is a barque, two dice if it is a
+        brigantine, or three dice if a galleon. Add 1 to the roll if you
+        have a good crew; add 2 if it is an excellent crew.
+    - choice:
+        - text: Score 1-3, Ship sinks
+          then:
+            - turnTo: 182
+        - text: Score 4-5, The mast splits
+          then:
+            - turnTo: 530
+        - text: Score 6-20 You weather the storm
+          then:
+            - turnTo: 85
+- number: 587
+  content:
+    - text: |
+        While taking a stroll through the busy harbour area, you
+        overhear a conversation between two merchants and learn the
+        most profitable trading routes between Sokara and Golnir.
+        Record the codeword Almanac.
+    - turnTo: 10
+- number: 588
+  content:
+    - text: |
+        You break past the militia, leap over the table and rush out of
+        the door. From behind you can hear muffled curses and then a
+        fiery blast which sizzles wetly in the damp yellow fog, but you
+        don’t look back and you don’t stop running until you are well
+        clear of the house.
+    - turnTo: 10
+- number: 589
+  content:
+    - text: |
+        Striding purposefully into the tavern, you walk straight up to
+        him and say, ‘I want what you’ve got under that eyepatch.’
+        His one good eye widens in surprise, and he jumps back,
+        drawing his sword.
+        ‘We’ll see about that, by Sig!’ he cries.
+        The other people in the tavern draw back to give you room
+        and start taking bets on the outcome of the fight.
+        Man with eyepatch, COMBAT 5, Defence 8, Stamina 12
+
+        56 The War-Torn Kingdom
+    - choice:
+        - text: If you win
+          then:
+            - turnTo: 92
+        - text:  |
+            If you lose, the man with the eyepatch
+            kills you – your adventuring days are over, unless you have a
+            resurrection deal.
+          then:
+            - turnTo: 1
+- number: 590
+  content:
+    - text: |
+        From the cover of a hedge you wait until dusk. By now all the
+        villagers are safely indoors with their shutters tightly barred.
+        As the sky is turning from velvet indigo to the starlit
+        blackness of night, you see three pale figures come loping across
+        the green from the direction of the millpond. They must be the
+        ghosts.
+        Seeing the banquet, they utter gleeful cries and start to
+        devour what has been set out for them.
+        Make a MAGIC roll at a Difficulty of 11.
+    - choice:
+        - text: Successful MAGIC roll
+          then:
+            - turnTo: 231
+        - text: Failed MAGIC roll
+          then:
+            - turnTo: 357
+- number: 591
+  content:
+    - text: |
+        You find yourself washed up on a rocky shore, battered and
+        cold, but lucky to be alive. You are almost certain you have cast
+        away on the beaches of Scorpion Bight. You have no choice but
+        to head inland.
+    - turnTo: 32
+- number: 592
+  content:
+    - text: |
+        Make a MAGIC roll at Difficulty 11.
+    - choice:
+        - text: Successful MAGIC roll
+          then:
+            - turnTo: 638
+        - text: Failed MAGIC roll
+          then:
+            - turnTo: 111
+- number: 593
+  content:
+    - text: |
+        You are under a curse. You remember what you were told – to
+        life the curse, you have to throw a weapon (COMBAT +1) into
+        the waters.
+    - choice:
+        - text: If you have such a weapon, and want to throw it away
+          then:
+            - turnTo: 354
+        - text: If not
+          then:
+            - turnTo: 450
+- number: 594
+  content:
+    - text: |
+        ‘Oh, it’s you again,’ says the tree grumpily. ‘All right, off you
+        go.’ The tree uproots itself and shuffles out of your way, leaving
+        you free to visit the City of Trees once more.
+    - turnTo: 358
+- number: 595
+  content:
+    - text: |
+        You will have to sneak in around the hall to get behind the
+        king. There are plenty of shadows to hide in but it will not be
+        easy. Make a THIEVERY roll at Difficulty 11.
+    - choice:
+        - text: Successful THIEVERY roll
+          then:
+            - turnTo: 608
+        - text: Failed THIEVERY roll
+          then:
+            - turnTo: 474
+- number: 596
+  content:
+    - text: |
+        You thread your way through the ranks of trees. In places, the
+        forest canopy almost blocks out the sunlight completely, and you
+        are wandering in deep shadow, haunted by the cries of the
+        creatures of the forest.
+    - choice:
+        - text: If you have an oak staff
+          then:
+            - turnTo: 653
+        - text: |
+            immediately. If not, read on.
+            You hack your way through the undergrowth until you
+            stumble across an old ruin. Creepers, and forest moss have
+            grown over most of it, but you can see mask-like faces set into
+            the walls, glaring down at you as if in angry outrage at your
+            intrusion. You come to a massive stone slab – clearly a door. Set
+            into the middle of it is a round, granite face, the visage of a
+            sleeping demon. Suddenly, an eye pops open, and regards you
+            curiously.
+
+            ‘By the Tentacles of Tantallon!’ exclaims the face in a
+            gravelly voice. ‘A human! I haven’t seen one of you lot for a
+            hundred years.’ An expression of suspicion forms on its rocky
+            features. ‘What do you want, anyway?’
+            ‘Just passing through,’ you comment airily.
+            ‘Well you can’t pass through me unless you know the
+            password. And that was given to me by Astrallus the Wizard
+            King, umm... let me see, now... a thousand years ago, by Ebron!
+            This is his tomb, you know.’
+            If you have the codeword Crag,
+          then:
+            - turnTo: 160
+        - text: |
+            ‘How do I find the password then?’ you ask.
+            ‘Well,’ says the demon door, ‘Astrallus was a wizard, so why
+            don't you ask some wizards?’
+            ‘Where would I find some wizards?’ you ask.
+            ‘How would I know?’ replies the door testily. ‘I’ve been
+            stuck here for a thousand years!’
+            You decide it is time to leave.
+            North to the Bronze Hills
+          then:
+            - turnTo: 110
+        - text: West to the River Grimm
+          then:
+            - turnTo: 333
+        - text: South into the country
+          then:
+            - turnTo: 560
+        - text: East to the road
+          then:
+            - turnTo: 387
+- number: 597
+  content:
+    - text: |
+        ‘You did it!’ exclaims the warden happily, taking the ghoul’s
+        head and placing it in a jar. Cross it off your Adventure Sheet.
+        You can have a choice of reward: an amber wand (+1
+        MAGIC), 500 Shards, or a free resurrection deal, if you do not
+        have one already. You can choose only one of these three
+        rewards.
+        To arrange resurrection, write ‘Temple of Nagil – The WarTorn Kingdom 350)’ in the Resurrection box on your Adventure
+        Sheet. If you are later killed, turn to 350.
+    - choice:
+        - text: if you are suffering from Ghoulbite disease
+          then:
+            - turnTo: 156
+        - text: Otherwise, you return to town
+          then:
+            - turnTo: 100
+- number: 598
+  content:
+    - text: |
+        You strip off, and wade into the bubbling waters. The effect is
+        astonishing! You feel a sense of well-being coursing through
+        your body. If you are suffering from disease or poison, you are
+        cured instantly, and can restore your abilities to normal.
+        When you are ready to leave,
+    - turnTo: 510
+- number: 599
+  content:
+    - text: |
+        Resurrection costs 200 Shards if you are an initiate, and 800
+        Shards if not. It is the last word in insurance. Once you have
+        arranged for resurrection you need not fear death, as you will be
+        magically restored to life here at the temple.
+        To arranged resurrection, pay the fee and write ‘Temple of
+        Tyrnai – The War-Torn Kingdom 500’ in the Resurrection box
+        on your Adventure Sheet. If you are later killed, turn to 500 in
+        this book. You can have only one resurrection arranged at any
+        one time. If you arranged another resurrection later at a different
+        temple, the original one is cancelled – cross it off your
+        Adventure Sheet, you do not get a refund.
+        When you are finished here,
+    - turnTo: 526
+- number: 600
+  content:
+    - text: |
+        You wait until Thursday. Lynn tells you that the disappearances
+        happened a little way out of town, near an old farmhouse.
+        
+        The War-Torn Kingdom 57
+        As you leave town, you notice Fourze, the Master of the
+        Market, heading in the opposite direction.
+    - choice:
+        - text: Follow Fourze
+          then:
+            - turnTo: 383
+        - text: Head for the old farm
+          then:
+            - turnTo: 263
+- number: 601
+  content:
+    - text: |
+        The palace, the home of Protector General Grieve Marlock, is
+        an imposing building of astonishing luxury. You get as far a
+        huge reception area, manned by many guards and staffed by
+        government officials.
+    - choice:
+        - text: If you have the title Protector of Sokara
+          then:
+            - turnTo: 669
+        - text: If not, you are thrown out.
+          then:
+            - turnTo: 100
+- number: 602
+  content:
+    - text: |
+        You are travelling the road between the Shadar Tor and
+        Trefoille. You pass a convoy of masons, carpenters and builders
+        heading for Trefoille with an escort of Sokaran soldiers.
+    - choice:
+        - text: Go to Trefoille
+          then:
+            - turnTo: 250
+        - text: Head for the Shadar Tor
+          then:
+            - turnTo: 35
+- number: 603
+  content:
+    - text: |
+        If you are an initiate it costs only 20 Shards to purchase the
+        Three Fortunes’ blessing. A non-initiate must pay 80 Shards.
+        Cross off the money and mark Luck in the Blessings box on
+        your Adventure Sheet. The blessing works by allowing you to
+        reroll any dice result once. When you use the blessing, cross it
+        off your Adventure Sheet. You can have only one Luck blessing
+        at any one time. Once it is used up, you can return to any
+        branch of the temple of the Three Fortunes to buy a new one.
+        When you are finished here
+    - turnTo: 86
+- number: 604
+  content:
+    - text: |
+        The men mutter among themselves at your decision, but you
+        insist. The sea centaur lies barely able to move on the deck. Nor
+        does it speak.
+        That night, you see a strange glow rising up out of the
+        depths. The sailors back away, muttering superstitiously, as
+        several sea centaurs emerge from the waters, their spiny skins
+        glittering with phosphorescent flashes of light.
+        One of the sea centaurs asks in a burbling voice, ‘Where is
+        our brother, whom you caught in your cruel nets, this day?’
+        ‘Why, here he is,’ you say, indicating the half-conscious sea
+        centaur on deck.
+        ‘Return him to us, we beg you,’ one of them warbles.
+        Your men, anxious to be rid of the creature, hand him down
+        to his friends.
+        ‘We thank you, landwalkers,’ says the leader.
+        He gives you a conch of safety from storms x 3. When
+        you blow it, it confers the blessing of Safety from Storms. It can
+        be used three times only (each time you use it reduce the
+        number of charges by one). When it is out of charges, it has
+        become useless – cross it off your Adventure Sheet.
+    - turnTo: 507
+- number: 605
+  content:
+    - text: |
+        You can bank money with the merchants’ guild simply by
+        writing the sum you wish to deposit in the box here.
+        (Remember to cross it off your Adventure Sheet.) If you have
+        banked any money with the guild in another book in the Fabled
+        Land series, add it now to this box and erase it from the other
+        book.
+        
+        To withdraw money from your account, simply transfer it
+        from the box to your Adventure Sheet. The guild charges 10%
+        on any withdrawals. (So if you withdrew 50 Shards, for
+        example, the guild would deduct 5 Shards as its cut. Round
+        fractions in the guild’s favour.)
+        When you are ready to leave:
+    - choice:
+        - text: In Yellowport
+          then:
+            - turnTo: 10
+        - text: In Marlock City
+          then:
+            - turnTo: 100
+        - text: In Caran Baru
+          then:
+            - turnTo: 400
+        - text: If paying a ransom
+          then:
+            - turnTo: 501
+- number: 606
+  content:
+    - text: |
+        You thread your way carefully through the maze of magical
+        symbols, until you reach the sarcophagus safely. Inside you find
+        the mouldering bones of a long dead wizard, in whose skeletal
+        hands you find the Book of Excellence.
+        As you scan the pages, you learn all sorts of new tricks – add
+        one to the ability of your choice (such as SCOUTING or
+        COMBAT) permanently. Once you have read it, the book
+        disappears with a flash.
+        You thread your way out of the Tomb of the Wizard King,
+        back into the Forest of Larun.
+    - turnTo: 47
+- number: 607
+  content:
+    - text: |
+        Your ship, crew and cargo are lost to the deep, dark sea. Cross
+        them off the Ship’s Manifest.
+        Your only thought now is to save yourself. Roll two dice.
+    - choice:
+        - text: If the score is greater than your Rank, you are drowned
+          then:
+            - turnTo: 680
+        - text: |
+            If the score is less than or equal to your Rank, you manage
+            to find some driftwood, and make it back to shore. Lose Stamina
+            points equal to the score of one die roll and, if you can survive
+            that
+          then:
+            - turnTo: 447
+- number: 608
+  content:
+    - text: |
+        You inch your way slowly around the edge of the old temple.
+        Suddenly, you burst out of the shadows and cut the king down,
+        catching the ratmen by surprise.
+        At the sight of you standing over their dead king, the four
+        remaining ratmen flee in terror. Without their king, they have
+        no spirit for a fight.
+    - turnTo: 554
+- number: 609
+  content:
+    - text: |
+        You recognise the two iron statues of bull-men that guard the
+        temple. They are golems, creatures created by powerful sorcery.
+        They will animate and attempt to kill any intruders that steal
+        into the temple. Golems are almost impossible to defeat in
+        combat, but they have one weakness – a ceramic plug, about the
+        size of an apple, set into the backs of their heads. If the plug can
+        be pulled out, the enchanted liquid that energizes the golem will
+        pour out, and the creature will die.
+        That night, you resolve to try to get on to the roof of the
+        temple, hang down from the gables above the entrance, and pull
+        the plugs on the golems, before going for the chain mail.
+        
+        58 The War-Torn Kingdom
+    - turnTo: 441
+- number: 610
+  content:
+    - text: |
+        If there is a tick in the box, you find nothing of interest at the
+        market – turn back to 400 immediately. Otherwise, put a tick in
+        the box and read on.
+        At nightfall, the market is kept open for a special sale. A cage
+        with a steel floor is wheeled out. Inside is a dark, manlike shape.
+        It seems to radiate shadows, for you can barely make it out.
+        The slaver says, ‘A trau, ladies and gentlemen. Excellent
+        miners, though they have to be chained with cold iron at all
+        times.’
+        The price is 100 Shards.
+    - choice:
+        - text: To buy the trau, cross off the money
+          then:
+            - turnTo: 545
+        - text: Otherwise, you leave the market
+          then:
+            - turnTo: 400
+- number: 611
+  content:
+    - text: |
+        As you draw nearer, you see that the pennants all represent
+        different coloured dragons – the red dragon, black dragon, green
+        dragon and so on. Outside the gates, a jousting list has been set
+        up, and a few warriors are trying their hand against some knights
+        who have dragon symbols on their shields.
+        A knight, in full plate armour, rides up and says, ‘Welcome
+        to the Castle of the Dragon Knights. It is our custom to joust
+        against all who would come here – for a wager, of course.’
+        He explains that you must bet the weapon and the suit of
+        armour that you will use for the joust. If you lose, you forfeit the
+        weapon and armour. If you win, you get the armour and
+        weapon of the knight you defeat. Most of your potential
+        opponents, you note, would be using a sword and plate armour.
+    - choice:
+        - text: If you have the codeword Anvil,
+          then:
+            - turnTo: 130
+        - text: If you have the codeword Axe
+          then:
+            - turnTo: 521
+        - text: Otherwise, you can leave
+          then:
+            - turnTo: 276
+        - text: |
+            or take the wager and
+            joust, you must have a weapon and at least leather
+            armour.
+          then:
+            - turnTo: 297
+- number: 612
+  content:
+    - choice:
+        - text: If there is a tick in the box
+          then:
+            - turnTo: 549
+        - text: |
+            If not, put a tick there now, and read on.
+            The priestess, who is wearing the skin of a wolf, and is
+            covered in red paint, welcomes you gleefully.
+            ‘At last, the tusk of a were-boar! Now the ceremony can go
+            ahead.’
+            Cross the boar’s tusk off your Adventure Sheet. The
+            priestess rewards you with knowledge. Add 1 to your
+            SCOUTING rating permanently.
+          then:
+            - turnTo: 195

@@ -6,12 +6,11 @@ import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class ActionBuilder {
 
     public List<Action> buildActions(List<RawAction> rawActions) {
-        return rawActions.stream().map(this::build).collect(Collectors.toList());
+        return rawActions.stream().map(this::build).toList();
     }
 
     public Action build(RawAction raw) {
@@ -19,10 +18,9 @@ public class ActionBuilder {
                 .findFirst().orElseThrow(() -> new FabledTechnicalException("no action kind registered for action. you need to add your action to the allActionKinds list in ActionBuilder"));
 
         allActionKinds.forEach(actionKind -> {
-            if (actionKind != selectedKind) {
-                if (actionKind.extractor.apply(raw) != null) {
+            if (actionKind != selectedKind && (actionKind.extractor.apply(raw) != null)) {
                     throw new FabledTechnicalException("Invalid action. Cannot have both " + selectedKind.name + " and " + actionKind.name);
-                }
+
             }
         });
 
@@ -46,7 +44,7 @@ public class ActionBuilder {
                     var actions = buildActions(choice.then());
 
                     return new Action.Choice.SingleChoice(choice.text(), actions);
-                }).collect(Collectors.toList());
+                }).toList();
 
                 return new Action.Choice(choices);
             }),
@@ -58,6 +56,7 @@ public class ActionBuilder {
             new ActionKind("turnTo", RawAction::turnTo, raw -> new Action.TurnToAction(new SectionId(1, raw.turnTo())))
     );
 
+
     private Condition buildCondition(RawCondition raw) {
         if (raw.hasTitle() != null) {
             assertNull(raw.hasKeyword(), "hasKeyword", "hasTitle");
@@ -65,6 +64,7 @@ public class ActionBuilder {
             assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasTitle");
             assertNull(raw.hasPossession(), "hasPossession", "hasTitle");
             assertNull(raw.isResurrectionPossible(), "isResurrectionPossible", "hasTitle");
+            assertNull(raw.hasProfession(), "hasProfession", "hasTitle");
 
             return new Condition.HasTitle(raw.hasTitle());
         }
@@ -73,6 +73,7 @@ public class ActionBuilder {
             assertNull(raw.needsAtLeastShards(), "needsAtLeastShards", "hasKeyword");
             assertNull(raw.isTickBoxDone(), "isTickBoxDone", "hasKeyword");
             assertNull(raw.hasPossession(), "hasPossession", "hasKeyword");
+            assertNull(raw.hasProfession(), "hasProfession", "hasKeyword");
             assertNull(raw.isResurrectionPossible(), "isResurrectionPossible", "hasKeyword");
 
             return new Condition.HasKeyword(raw.hasKeyword());
@@ -90,6 +91,9 @@ public class ActionBuilder {
         }
         if (raw.isResurrectionPossible() != null) {
             return new Condition.IsResurrectionPossible(raw.isResurrectionPossible());
+        }
+        if (raw.hasProfession() != null) {
+            return new Condition.HasProfession(raw.hasProfession());
         }
 
         throw new FabledTechnicalException("Condition must have one property");

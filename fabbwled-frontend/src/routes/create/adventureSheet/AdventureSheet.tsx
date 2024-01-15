@@ -13,65 +13,97 @@ import {
 import "./adventure-sheet.scss";
 import { useFormik } from "formik";
 import validationSchema from "./AdventureSheetSchema.ts";
-import { setCharacter } from "../../api/character.ts";
+import { setCharacter } from "../../../api/character.ts";
+import { useState } from "react";
+import AlertMessage from "../../../components/AlertMessage/AlertMessage.tsx";
+import { useNavigate } from "react-router";
+import { Player } from "../../../interfaces/character.ts";
+
+const professions: Profession[] = [
+  "WAYFARER",
+  "WARRIOR",
+  "MAGE",
+  "ROGUE",
+  "PRIEST",
+  "TROUBADOUR",
+];
+
+const blessings: Blessings[] = [
+  "CHARISMA",
+  "COMBAT",
+  "MAGIC",
+  "SANCTITY",
+  "SCOUTING",
+  "THIEVERY",
+];
 
 const defaultPossessions = ["sword", "leather jerkin (Defence +1)", "map"];
+
+const initialValues = {
+  name: "",
+  profession: professions[0],
+  rank: 1,
+  charisma: 1,
+  combat: 1,
+  magic: 1,
+  sanctity: 1,
+  scouting: 1,
+  thievery: 1,
+  staminaCurrent: 9,
+  staminaWhenUnwounded: 9,
+  possessions: defaultPossessions,
+  titlesAndHonours: "",
+  money: 16,
+  description: "",
+  god: "",
+  blessings: [blessings[0]],
+};
 export default function AdventureSheet() {
-  const initialValues = {
-    name: "",
-    profession: "Wayfarer",
-    rank: 1,
-    charisma: 1,
-    combat: 1,
-    magic: 1,
-    sanctity: 1,
-    scouting: 1,
-    thievery: 1,
-    staminaUnwounded: 9,
-    staminaCurrent: 9,
-    possessions: defaultPossessions,
-    titlesAndHonours: "",
-    money: 16,
-    description: "",
-  };
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
 
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => {
-      console.log("Form submitted with values:", values);
-
-      const characterCreateDto: CharacterCreateDto = {
-        player: {
-          name: formik.values.name,
-          currentSection: { bookId: 0, sectionId: 0 },
-          titlesAndHonours: formik.values.titlesAndHonours
-            .split(",")
-            .map((title) => title.trim()),
-          rank: "OUTCAST", // must be OUTCAST (starting rank 1)
-          profession: "Wayfarer",
-          stamina: formik.values.staminaCurrent,
-          baseStats: {
-            charisma: formik.values.charisma,
-            combat: formik.values.combat,
-            magic: formik.values.magic,
-            sanctity: formik.values.sanctity,
-            scouting: formik.values.scouting,
-            thievery: formik.values.thievery,
-          },
-          possessions: formik.values.possessions,
-          shards: { shardCount: formik.values.money },
-          defence: 0, // This value will be calculated in the backend
-          tickBoxes: {
-            additionalProp1: 0,
-            additionalProp2: 0,
-            additionalProp3: 0,
-          },
-          codeWords: [],
+    onSubmit: async () => {
+      const player: Player = {
+        name: formik.values.name,
+        currentSection: "1-1",
+        titlesAndHonours: formik.values.titlesAndHonours
+          .split(",")
+          .map((title) => title.trim()),
+        rank: "OUTCAST", // must be OUTCAST (starting rank 1)
+        profession: formik.values.profession,
+        stamina: formik.values.staminaCurrent,
+        staminaWhenUnwounded: formik.values.staminaWhenUnwounded,
+        baseStats: {
+          charisma: formik.values.charisma,
+          combat: formik.values.combat,
+          magic: formik.values.magic,
+          sanctity: formik.values.sanctity,
+          scouting: formik.values.scouting,
+          thievery: formik.values.thievery,
         },
-        description: formik.values.description,
+        possessions: formik.values.possessions,
+        shards: formik.values.money,
+        defence: 0, // This value will be calculated in the backend
+        tickBoxes: {},
+        codeWords: [],
+        blessings: formik.values.blessings,
+        poisons: [],
+        disease: [],
+        curses: [],
+        persistentSectionStore: {},
+        mostRecentDiceRoll: [],
       };
-      setCharacter(characterCreateDto).then((r) => console.log(r));
+      try {
+        await setCharacter(player);
+        setErrorMessage("");
+        navigate("/game");
+      } catch (error) {
+        setErrorMessage("Failed to create character. Please try again.");
+        console.error(error);
+      }
     },
   });
 
@@ -81,6 +113,10 @@ export default function AdventureSheet() {
       <Container className="background">
         <Typography variant="h4" gutterBottom style={{ textAlign: "center" }}>
           Adventure Sheet
+        </Typography>
+        <hr />
+        <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
+          Base stats
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Grid container>
@@ -107,12 +143,11 @@ export default function AdventureSheet() {
                   value={formik.values.profession}
                   name="profession"
                 >
-                  <MenuItem value={"Wayfarer"}>Wayfarer</MenuItem>
-                  <MenuItem value={"Warrior"}>Warrior</MenuItem>
-                  <MenuItem value={"Mage"}>Mage</MenuItem>
-                  <MenuItem value={"Rogue"}>Rogue</MenuItem>
-                  <MenuItem value={"Priest"}>Priest</MenuItem>
-                  <MenuItem value={"Troubadour"}>Troubadour</MenuItem>
+                  {professions.map((profession) => (
+                    <MenuItem key={profession} value={profession}>
+                      {profession}
+                    </MenuItem>
+                  ))}
                 </Select>
               </FormControl>
             </Grid>
@@ -121,7 +156,16 @@ export default function AdventureSheet() {
             {/* Row 2 */}
             <Grid item xs={3} />
             <Grid item xs={3}>
-              <TextField label="God" variant="standard" />
+              <TextField
+                label="God"
+                variant="standard"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.god}
+                error={formik.touched.god && Boolean(formik.errors.god)}
+                helperText={formik.touched.god && formik.errors.god}
+                name="god"
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField
@@ -135,6 +179,8 @@ export default function AdventureSheet() {
             <Grid item xs={4} />
           </Grid>
           <br />
+
+          <hr />
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Abilities
           </Typography>
@@ -281,49 +327,9 @@ export default function AdventureSheet() {
             <Grid item xs={3} />
           </Grid>
           <br />
-          <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
-            Stamina
-          </Typography>
 
           {/* Row 5 */}
-          <Grid container>
-            <Grid item xs={3} />
-            <Grid item xs={3}>
-              <TextField
-                label="When unwounded"
-                variant="standard"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                inputProps={{
-                  min: 1,
-                  max: 6,
-                }}
-                disabled
-                value={formik.values.staminaUnwounded}
-                name="staminaUnwounded"
-              />
-            </Grid>
-            <Grid item xs={3}>
-              <TextField
-                label="Current"
-                variant="standard"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                inputProps={{
-                  min: 1,
-                  max: 6,
-                }}
-                disabled
-                value={formik.values.staminaCurrent}
-                name="staminaCurrent"
-              />
-            </Grid>
-          </Grid>
-          <br />
+          <hr />
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Possessions
           </Typography>
@@ -350,6 +356,7 @@ export default function AdventureSheet() {
             </Grid>
           </Grid>
           <br />
+          <hr />
           <Typography variant="h5" gutterBottom style={{ textAlign: "center" }}>
             Other values
           </Typography>
@@ -380,7 +387,21 @@ export default function AdventureSheet() {
               />
             </Grid>
             <Grid item xs={3}>
-              <TextField label="Blessings" variant="standard" multiline />
+              <TextField
+                label="Stamina"
+                variant="standard"
+                type="number"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                inputProps={{
+                  min: 1,
+                  max: 6,
+                }}
+                disabled
+                value={formik.values.staminaCurrent}
+                name="staminaCurrent"
+              />
             </Grid>
             <Grid item xs={3} />
             <Grid item xs={3} />
@@ -392,8 +413,32 @@ export default function AdventureSheet() {
               />
             </Grid>
             <Grid item xs={3}>
+              <FormControl variant="standard" sx={{ width: "100%" }}>
+                <InputLabel>Blessings</InputLabel>
+                <Select
+                  defaultValue={[blessings[0]]}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  multiple
+                  value={formik.values.blessings}
+                  name="blessings"
+                >
+                  {blessings.map((blessing) => (
+                    <MenuItem key={blessing} value={blessing}>
+                      {blessing}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+          </Grid>
+          <br />
+          <Grid container>
+            <Grid item xs={4} />
+            <Grid item xs={4}>
               <TextField
-                label="Titles and honours"
+                label="Titles and honours (comma separated)"
+                fullWidth
                 variant="standard"
                 multiline
                 onChange={formik.handleChange}
@@ -411,7 +456,6 @@ export default function AdventureSheet() {
               />
             </Grid>
           </Grid>
-          <br />
 
           {/* Row 8 */}
           <Grid container>
@@ -425,17 +469,32 @@ export default function AdventureSheet() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.description}
+                error={
+                  formik.touched.description &&
+                  Boolean(formik.errors.description)
+                }
+                helperText={
+                  formik.touched.description && formik.errors.description
+                }
                 name="description"
               />
             </Grid>
           </Grid>
           <br />
           <div className={"submitContainer"}>
-            <Button variant="contained" type="submit">
+            <Button className="submitButton" variant="contained" type="submit">
               Create Character
             </Button>
           </div>
         </form>
+        <br />
+        {errorMessage && (
+          <AlertMessage
+            severity="error"
+            message={errorMessage}
+            onClose={() => setErrorMessage("")}
+          />
+        )}
         <br />
       </Container>
       <br />

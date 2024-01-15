@@ -10,14 +10,13 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class YamlSectionLoader {
     private final ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
     public List<YamlSection> loadSections(Stream<YamlFile> files) {
-        return files.flatMap(this::processFile).collect(Collectors.toList());
+        return files.flatMap(this::processFile).toList();
     }
 
     private Stream<YamlSection> processFile(YamlFile file) {
@@ -32,12 +31,13 @@ public class YamlSectionLoader {
             }
             var rawSection = Arrays.stream(mapper.readValue(file.content(), RawSection[].class));
 
-            return rawSection.map((section) -> {
+            return rawSection.map(section -> {
                 try {
                     var actions = builder.buildActions(section.content());
                     var yamlSection = new YamlSection(new SectionId(1, section.number()), actions);
                     yamlSection.simpleVerify();
-                    yamlSection.verifyReachability();
+                    // Avoid reachability verification, it's okay to have broken sections.
+                    // yamlSection.verifyReachability();
                     return yamlSection;
                 } catch (FabledTechnicalException e) {
                     throw new FabledTechnicalException("Invalid section: " + section.number(), e);

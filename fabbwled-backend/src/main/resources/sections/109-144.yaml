@@ -12,6 +12,30 @@
           then:
             - turnTo: 100
 
+- number: 110
+  content:
+    - text: |
+        You are walking through Bronze Hills. Virtually the whole area has been given over to mining. 
+        Everywhere, quarries and mineshafts abound. It is a horrible expanse of torn-up earth – hardly any areas of green are left. 
+        Great heaps of excavated rock, leeched of their useful minerals, mar the landscape. 
+        You find a quarry that is open to the public. That is to say, if you pay 50 Shards, you can dig for an hour in a silver mine.
+    - choice:
+        - text: Pay 50 Shards and mine for silver
+          then:
+            - turnTo: 668
+        - text: Go to Caran Baru
+          then:
+            - turnTo: 400
+        - text: Go South into the Forest of Larun
+          then:
+            - turnTo: 47
+        - text: Go West to the River Grimm
+          then:
+            - turnTo: 333
+        - text: Go North west to the Western Wilderness
+          then:
+            - turnTo: 276
+
 - number: 111
   content:
     - text: Your knowledge of the arcane arts is too limited to help you here.
@@ -23,6 +47,34 @@
           then:
             - turnTo: 35
 
+- number: 112
+  content:
+    - text: |
+        The merchants’ guild is comparatively small here. Most of its work involves financial services for the army.
+        Here you can bank your money for safe-keeping, but there are no facilities for investment.
+        You can deposit or withdraw money
+    - choice:
+        - text: note that you are in Caran Baru
+          then:
+            - turnTo: 605
+        - text: or return to the town centre
+          then:
+            - turnTo: 400
+
+- number: 113
+  content:
+    - text: |
+    - choice:
+        - text: If you have the codeword Armour
+          then:
+            - turnTo: 550
+        - text: If not, but you are a Rogue
+          then:
+            - turnTo: 75
+        - text: Otherwise, the high priest has little to say to you; your audience is cut short.
+          then:
+            - turnTo: 235
+
 - number: 114
   content:
     - text: |
@@ -32,6 +84,46 @@
         He cannot, however, lift a curse. ‘Whenever you need help, come to me!’ he says.
     - text: When you are ready
     - turnTo: 100
+
+- number: 115
+  content:
+    - text: |
+    - choice:
+        - text: If you are on a quest for the temple of Nagil, to bring them the head of an escaped ghoul
+          then:
+            - turnTo: 446
+        - text: If you do not want to look for the ghoul yet, or have already done so
+          then:
+            - turnTo: 226
+
+- number: 116
+  content:
+    - text: |
+        Put a tick in the box. If there is one there already, turn to 322
+        immediately. Otherwise read on.
+        You realize the creature is one of the legendary repulsive ones.
+        It is swimming past you, intent on its own business, so you follow it, 
+        in the hope it will lead you to the sunken city of Ziusudra. Turn to 547.
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 322
+      else:
+        - turnTo: 547
+
+- number: 117
+  content:
+    - text: |
+        There are several people with eyepatches but none with a velvet one. 
+        You ask around among the taverns and bars of the rougher areas in Caran Baru.
+        Make a CHARISMA roll at Difficulty 11.
+    - choice:
+        - text: Successful CHARISMA roll
+          then:
+            - turnTo: 149
+        - text: Failed CHARISMA roll
+          then:
+            - turnTo: 468
 
 - number: 118
   content:
@@ -47,6 +139,169 @@
         - turnTo: 351
       else:
         - turnTo: 565
+
+- number: 119
+  content:
+    - text: |
+        Gain the codeword Ashen.
+        You hear the shouts from outside, muffled by the swirling
+        sulphurous fog. A stab of icy panic pulses at your heart, and an instant later the door bursts open. Three militiamen armed with maces burst through the doorway. Behind them, a tall cadaverous gentleman wrapped in a cape is stamping in fury.
+        ‘A thief in my house!’ he rages. ‘Do your duty!’
+        You realize the truth: Lauria has used you as a decoy to cover her escape. You’ll get even later – if you survive.
+        The militiamen race forward to seize you. Make a COMBAT roll at a Difficulty of 12.
+    - acquireKeyword: "Ambuscade"
+    - choice:
+        - text: Successful COMBAT roll
+          then:
+            - turnTo: 588
+        - text: Failed COMBAT roll
+          then:
+            - turnTo: 96
+
+- number: 120
+  content:
+    - text: |
+        You ship is sailing in the coastal waters off the Shadar Tor. 
+        You can just see the tor, a jumbled mass of rocks, sitting on the clifftops as it has done for a thousand years. 
+        Roll two dice:
+    - choice:
+        - text: Score 2-4 Storm
+          then:
+            - turnTo: 324
+        - text: Score 5-9 An uneventful voyage
+          then:
+            - turnTo: 559
+        - text: Score 10-12 A merchant ship
+          then:
+            - turnTo: 207
+
+- number: 121
+  content:
+    - text: |
+        You wait outside, hoping to take the repulsive ones singly as they emerge. 
+        You will have to fight the three of them, but you may do so one at a time.
+        First Repulsive One, COMBAT 4, Defence 6 Stamina 10
+        Second Repulsive One, COMBAT 3, Defence 5, Stamina 10
+        Third Repulsive One, COMBAT 4, Defence 6, Stamina 10
+        Subtract 1 from your dice rolls for every fight because you are unused to underwater combat.
+        If you beat all three
+    - turnTo: 213
+
+- number: 122
+  content:
+    - text: |
+        If you have the codeword Acid, turn to 543 immediately. If not, but you have a copper amulet, turn to 384 immediately.
+        Otherwise, read on.
+        Guildmaster Vernon of Yellowport is surprisingly eager to see you.
+        He is a hugely fat and bejewelled merchant, and he tells you that a group of ratmen have made a base in the sewers beneath the city.
+        They come out at night to raid the warehouses and homes of the merchants of Yellowport.
+        ‘We need an adventurer like yourself to destroy their king,’ explains the guildmaster.
+        ‘Without him, the ratmen wouldn’t be able to organize a feast in a larder.
+        We will pay you 450 Shards if you succeed.’
+        Vernon tells you that the sewers can be entered via an old disused well in the poor quarter.
+        Whenever you are ready to enter the sewers, and you are in Yellowport, turn to 460.
+        Note this option on your Adventure Sheet. Now you can return to the city centre, turn to 10, or go down the sewers straight away.
+    - if:
+        hasKeyword: "Acid"
+      then:
+        - turnTo: 543
+      else:
+        - if:
+            hasPossession: "copper amulet"
+          then:
+            - turnTo: 384
+          else:
+          - choice:
+              - text: go down the sewers straight away
+                then:
+                  - turnTo: 460
+              - text: return to the city centre
+                then:
+                  - turnTo: 10
+
+- number: 123
+  content:
+    - text: |
+        This is the east bank of the River Grimm, near its source in the Spine of Harkun, far to the north.
+        You reach a ford where you can travel to the west bank for 1 Shard. You could try swimming across instead, but the current is
+        strong: you need to succeed at a SCOUTING roll at a Difficulty of 10 to do so.
+    - choice:
+        - text: Swim or pay to cross Cities of Gold and Glory
+          then:
+            - turnTo: 53
+        - text: Failed attempt to swim Cities of Gold and Glory
+          then:
+            - turnTo: 76
+        - text: East into the wilderness
+          then:
+            - turnTo: 276
+        - text: North to the mountains
+          then:
+            - turnTo: 3
+        - text: Follow the riverbank south
+          then:
+            - turnTo: 333
+
+- number: 124
+  content:
+    - text: |
+        Heavy black clouds race towards you across the sky, whipping the waves into a frenzy. 
+        The crew mutter among themselves fearfully. If you have the blessing of Alvir and Valmir,
+        which confers Safety from Storms, you can ignore the storm.
+        Cross off your blessing and turn to 420. Otherwise the storm hits with full fury.
+        Roll one die if your ship is a barque, two dice if it is a brigantine, or three dice if a galleon.
+        Add 1 to the roll if you have a good crew; add 2 if you have an excellent crew.
+    - choice:
+        - text: Score 1-3 Ship sinks
+          then:
+            - turnTo: 346
+        - text: Score 4-5 The mast splits
+          then:
+            - turnTo: 583
+        - text: Score 6-20 You weather the storm
+          then:
+            - turnTo: 420
+
+- number: 125
+  content:
+    - text: |
+        You mumble a prayer to the gods, but you’re not sure if you got the ritual right.
+        The beggar thanks you and babbles,
+        ‘Yes, yes, a new doublet for an old beggar – I shall wear it with pride!’
+        He wanders off, stopping passersby to show off what he thinks are his new clothes.
+        Poor old fool.
+    - turnTo: 10
+
+- number: 126
+  content:
+    - text: |
+        If you have the codeword Aloft, turn to 199 immediately. If not, read on.
+        You come across a strange sight. A man lies staked out on the ground, asleep.
+        Blue energy crackles up and down his body, and a hefty-looking hammer, glowing red, is still attached to his belt.
+        It is Sul Veneris, the one you have come to free.
+        As you are about to lift the stakes, a whistling, keening blast of ferocious wind engulfs you.
+        You are surrounded by whirling storm demons – vaguely man-shaped creatures of thunderous energy which try to sweep you into the air and off the edge of the peak.
+        You try to recite the rituals of dismissal associated with such demons.
+        Make a SANCTITY roll at Difficulty 12.
+    - choice:
+        - text: Successful SANCTITY roll
+          then:
+            - turnTo: 421
+        - text: Failed SANCTITY roll
+          then:
+            - turnTo: 210
+
+- number: 127
+  content:
+    - text: |
+        Make a THIEVERY roll at Difficulty 9.
+    - choice:
+        - text: Successful THIEVERY roll
+          then:
+            - turnTo: 269
+        - text: Failed THIEVERY roll
+          then:
+            - turnTo: 183
 
 - number: 128
   content:
@@ -87,6 +342,22 @@
         Rapid activity takes place, and within seconds a huge sail has been raised,
         and the island scuds away – it seems they would rather not meet you a second time.
     - turnTo: 85
+
+- number: 132
+  content:
+    - text: |
+        You play the flute like never before. 
+        The king and the queen are enchanted by the haunting melodies you are able to coax from the enchanted flute.
+        Unfortunately, you have played too well.
+        The king puts you under a spell, so that you find you cannot stop.
+        Make a SANCTITY roll at Difficulty 11.
+    - choice:
+        - text: Successful SANCTITY roll
+          then:
+            - turnTo: 413
+        - text: Failed SANCTITY roll
+          then:
+            - turnTo: 307
 
 - number: 133
   content:
@@ -134,6 +405,26 @@
           then:
             - turnTo: 387
 
+- number: 136
+  content:
+    - text: |
+        The Sea of Whispers. The sea is uncannily quiet and flat as a pane of glass under a grey-blue sky. 
+        At night, however, the waters seem to come alive with an eerie whispering. 
+        One of your crew tells you that the sounds you heard at night are the sea centaurs speaking to one another across the waves.
+    - choice:
+        - text: Score 2-4 Storm
+          then:
+            - turnTo: 639
+        - text: Score 5-7 An uneventful voyage
+          then:
+            - turnTo: 507
+        - text: Score 8-10 An unusual catch
+          then:
+            - turnTo: 337
+        - text: Score 11-12 A strange dream
+          then:
+            - turnTo: 108
+
 - number: 137
   content:
     - text: The merchantman appears to be from Golnir. It keeps well away from you, no doubt fearing piracy.
@@ -158,7 +449,91 @@
               then:
                 - turnTo: 619
 
+- number: 139
+  content:
+    - text: |
+        You are spotted by a spear-armed guard. It gives an ululating cry of alarm, and many others swarm out of the mound.
+        You have little choice but to run – with a pack of deadly killers close behind. 
+        Desperately, you try to lose them in the night.
+        Roll a die, and subtract one from the score. 
+        If the result is less than or equal to your Rank, turn to 295. Otherwise, turn to 663.
+    - choice:
+        - text: less than or equal to your Rank
+          then:
+            - turnTo: 295
+        - text: More than your Rank
+          then:
+            - turnTo: 663
+
 - number: 140
   content:
     - text: The ship drops you at Yellowport docks. You make your way to the city centre.
     - turnTo: 10
+
+- number: 141
+  content:
+    - text: |
+        The Temple of Maka, the terrible goddess of disease and famine, 
+        is a large underground chamber accessible via an ornate entrance in the middle of the Plaza of the Gods, 
+        where all the temples stand in Yellowport.
+        Down below, the walls are bare earth; the ceiling is covered in the roots of growing plants, 
+        for Maka is also the goddess of the harvest, who must be kept happy else disease and famine will strike the people, 
+        their crops and their livestock, bringing ruin to all.
+    - choice:
+        - text: Become an initiate
+          then:
+            - turnTo: 368
+        - text: Renounce her worship
+          then:
+            - turnTo: 261
+        - text: Seek a blessing
+          then:
+            - turnTo: 481
+        - text: Ask to be cured of disease or poison
+          then:
+            - turnTo: 77
+        - text: Leave the temple
+          then:
+            - turnTo: 10
+
+- number: 142
+  content:
+    - text: |
+        All shipping in and out of Marlock City must come through the offices of the harbourmaster.
+        Here you can buy passage to far lands, or even a ship of your own, to fill with cargo and crew.
+        You can buy one-way passage on a ship to the following destinations:
+    - choice:
+        - text: Yellowport, cost 10 Shards
+          then:
+            - turnTo: 372
+        - text: Wishport, cost 15 Shards
+          then:
+            - turnTo: 455
+        - text: Sorcerer’s Isle, cost 30 Shards
+          then:
+            - turnTo: 234
+        - text: Copper Island, cost 30 Shards
+          then:
+            - turnTo: 30
+
+- number: 143
+  content:
+    - text: |
+        To renounce the worship of Elnir, you must pay 40 Shards to the priesthood by way of compensation. A passing noble says disdainfully, ‘Ha! Only those born to rule have the fibre to worship the Sky Lord. Those who renounce Elnir never reach the top!’
+        Do you want to change your mind? If you are determined to renounce your faith, pay the 40 Shards and delete Elnir from the God box on your Adventure Sheet.
+        When you have finished here, turn to 316.
+    - turnTo: 316
+
+- number: 144
+  content:
+    - text: |
+        You call on the powers of the gods, to banish this foul, blasphemous travesty of life. 
+        The Ghoul shrinks back for a moment, snarling. Make a SANCTITY roll at Difficulty 10.
+    - choice:
+        - text: Successful SANCTITY roll
+          then:
+            - turnTo: 223
+        - text: Failed SANCTITY roll
+          then:
+            - turnTo: 289
+

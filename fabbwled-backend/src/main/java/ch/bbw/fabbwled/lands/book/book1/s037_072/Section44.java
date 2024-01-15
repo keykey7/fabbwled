@@ -1,4 +1,4 @@
-package ch.bbw.fabbwled.lands.book.book1;
+package ch.bbw.fabbwled.lands.book.book1.s037_072;
 
 import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
@@ -19,6 +19,6 @@ public class Section44 implements SectionHandler {
         return SectionNode.root().text("You decide that discretion would be the better part of valour in this case, "
                         + "and step aside. The officers laugh contemptuously, and swagger past. "
                         + "Nothing else happens tonight. ")
-                .clickable(player -> player.withCurrentSectionId(100), x -> x.text("Turn to ").section(100)); // capital "Turn"!
+                .clickableTurnTo(100);
 	}
 }

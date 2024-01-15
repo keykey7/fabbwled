@@ -13,7 +13,152 @@
         - text: Remain an initiate after all
           then:
             - turnTo: 615
-- number: 264
+- number: 255 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        The provost marshal takes you to an empty side chamber, away
+        from prying ears. Over a glass of fine wine you tell him of your
+        adventures in the Coldbleak Mountains. When you give him the
+        Royal Ring of the House of Corin, he knows that Nergan is
+        dead. Cross the royal ring off your Adventure Sheet.
+        Marloes Marlock is pleased indeed. He pays you 500 Shards
+        and awards you the title Protector of Sokara. Note it in your
+        Titles and Honours box. The title will give you instant respect
+        and command obedience in Sokara.
+        Also, after completing such a difficult test, you find the
+        experience has taught you much – gain 1 Rank and roll one die.
+        The result is the number of Stamina points you gain
+        permanently. Note the increase on your Adventure Sheet. Also,
+        don’t forget to increase your Defence by 1 as a result of your
+        gain in Rank.
+    #- spendShards: -500
+    - turnTo: 10
+- number: 256 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        The king is overjoyed with the news. ‘Excellent! At this rate I
+        will be able to take my rightful place in the throne room of Old
+        Sokar.’
+        He rewards you with the title King’s Champion. Note this
+        in the Titles and Honours box on your Adventure Sheet. The
+        title comes with a cash gift of 500 Shards as well.
+        You also go up one Rank. Roll one die – the result is the
+        number of Stamina points you gain permanently. Note the
+        increase on your Adventure Sheet. Also, don’t forget to increase
+        your Defence by 1 as a result of your gain in Rank.
+        The king has another mission for you. He explains that an
+        army of steppe Nomads, Trau, Mannekyn people, and Sokaran
+        troops still loyal to Nergan, have gathered on the steppes, and
+        are moving to siege the Citadel of Velis Corin, which guards the
+        Pass of Eagles through the Spine of Harkun. Nergan tells you
+        that an alliance of northern nations has declared war on the new
+        Sokaran regime. A certain General Beladai leads the Northern
+        Alliance, and King Nergan has joined forces with him. He asks
+        you to travel to the Steppes and talk to General Beladai.
+        ‘An adventurer like yourself might be able to steal into the
+        citadel, and bring about its downfall from within, or some such.
+        If the citadel falls we will have Sokara at our mercy.’
+        If you want to take up this mission for the King, record the
+        codeword Assault. When you are ready, you are led back down
+        to the foothills of the mountains.
+    #- spendShards: -500
+    - turnTo: 474
+- number: 258 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        Becoming an initiate of the Three Fortunes gives you the
+        benefit of paying less for blessings and other services the temple
+        can offer. It costs 75 Shards to become an initiate. You cannot
+        do this if you are already an initiate of another temple. If you
+        choose to become an initiate, write The Three Fortunes in the
+        God box on your Adventure Sheet – and cross off the 75 Shards.
+        Once you have finished here, turn to 86.
+    - turnTo: 86
+- number: 259 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        Fort Brilon, named after a Sokaran King of the first dynasty, is
+        the southernmost castle on the fortified wall that keeps out the
+        rabid, savage manbeasts. What the soldiers fear most is what they
+        call ‘Death Duty’ – going out on patrols beyond the wall, into
+        Nerech itself. Roll one die.
+        Score 1 or 2 Thief steals one item from you (your choice)
+        Score 3 or 4 Nothing happens
+        Score 5 or 6 Find a manbeast’s helmet
+        When you are ready, you can head:
+    - choice:
+        - text: East into Nerech The Plains of Howling Darkness
+          then:
+            - turnTo: 365
+        - text: North west to Fort Estgard
+          then:
+            - turnTo: 472
+        - text: West into the farmlands
+          then:
+            - turnTo: 548
+        - text: South to Blessed Springs
+          then:
+            - turnTo: 466
+- number: 260 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You are shocked to find that you cannot damage the tomb
+        guardian at all! You have no choice but to run for the door.
+        Roll one die – if the result is less than or equal to your Rank,
+        you make it back out into the Forest – turn to 47. Otherwise,
+        the whirlwind guardian catches you, and buffets you against the
+        stone walls until you are dead – your adventures are over unless
+        you have a resurrection deal.
+    - turnTo: 47
+- number: 261 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        To renounce the worship of Maka, you must pay 15 Shards to
+        the priesthood by way of compensation.
+        A man, lying on a pallet, groans, ‘I renounced the goddess,
+        and look at me now...’ He is ravaged by disease.
+        Do you want to change your mind? If you are determined to
+        renounce your faith, pay the 15 Shards and delete Maka from
+        the God box on your Adventure Sheet. When you have finished
+        here, turn to 141.
+    - turnTo: 141
+- number: 262 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You charge into the burning building in search of the child’s
+        mother. You see her lying unconscious at the bottom of the
+        stairs. Desperately, you try to get to her but a burning beam has
+        fallen across your way and the smoke is making you choke.
+        Roll a die and subtract one from the result. If you score less
+        than or equal to your Rank, turn to 546. Otherwise, turn to
+        133.
+    - choice:
+        - text: If you score less than or equal to your Rank, turn to 546.
+          then:
+            - turnTo: 546
+        - text: Otherwise, turn to 133.
+          then:
+            - turnTo: 133
+- number: 263 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You are passing through a wooded glade when you here a
+        horrendous trumpeting noise. Suddenly, a massive bear-like
+        form about the size of a large bull appears in front of you. It
+        looks rather like a huge hairy toad, with a gaping, toothy mouth.
+        The creature breathes a billowing cloud of noxious,
+        sulphurous gas at you. You feel your head swim as you start to
+        fall asleep.
+        Roll one die, and subtract one from the total. If the total is
+        greater than your Rank, turn to 491. Otherwise, turn to 72.
+    - choice:
+        - text: If the total is greater than your Rank, turn to 491.
+          then:
+            - turnTo: 491
+        - text: Otherwise, turn to 72.
+          then:
+            - turnTo: 72
+- number: 264 #TODO MAKE IT WORK IN THE FUTURE
   content:
     - text: |
         If there is a tick in the box, turn to 131. If not, put a tick there
@@ -29,6 +174,69 @@
         - turnTo: 131
       else:
         - turnTo: 537
+- number: 265 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        If you have the title Unspeakable Cultist, turn to 404. If not,
+        read on.
+        You hear a muffled cry of distress from a dark alley.
+    - if:
+        hasTitle: "Unspeakable Cultist"
+      then:
+        - turnTo: 404
+      else:
+        - choice:
+            - text: Investigate
+              then:
+                - turnTo: 361
+            - text: Walk on
+              then:
+                - turnTo: 10
+- number: 267 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You row out into the lake, spread the net, and wait to see what
+        happens.
+        After an hour or so, a great bubbling and frothing of the lake
+        disturbs your solitude. A massive scaly head, the size of your
+        boat, erupts out of the ochre-coloured water on the end of a
+        long, sinuous neck. Great luminous green eyes look down at
+        you. The creature is covered in brown scales, with a bright red
+        crest running from the head down its thick, ropy neck.
+        ‘I am Vayss the Sea Dragon,’ it says in a rich, creamy voice,
+        tinged with evil greed. ‘To fish in my lake, you have to pay
+        tribute – to wit, one silver nugget. Pay now, or face my wrath.’
+    - if:
+        hasPossession: "silver nugget"
+      then:
+        - choice:
+            - text: Hand over a silver nugget
+              then:
+                - turnTo: 505
+            - text: refuse to pay
+              then:
+                - turnTo: 582
+      else:
+        - text: Unable to pay
+        - turnTo: 582
+- number: 268 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        The goblin-folk swarm over you. You try to put up a fight, but
+        there are too many of them. Everything goes black...
+        You wake up, spluttering, face down on a beach! A wave has
+        just soaked you.
+        ‘Going for a swim, are we?’ asks an old woman who is
+        gathering shells on the beach. You learn from her that a month
+        has passed since your adventure in the faery mound, and you can
+        remember none if it.
+        If you were wounded, you are now back to full Stamina.
+        However, you realize you have lost all the money and items you
+        were carrying. Cross them off your Adventure Sheet. Instead,
+        you have a wolf pelt that you are wearing, some rat poison
+        and a silver nugget. The old lady tells you that you are on the
+        delta of the River Grimm.
+    - turnTo: 579
 - number: 269
   content:
     - text: |
@@ -38,6 +246,169 @@
         them spot you, and once they have gone you step out, smiling
         to yourself.
     - turnTo: 580
+- number: 271
+  content:
+    - text: |
+        You arrive at the Pass of Eagles, a thin chasm sliced right
+        through the Spine of Harkun, as if Tyrnai himself had split the
+        mountains with his sword.
+        A vast citadel has been built right across the southern end of
+        the pass, bottling it up, so that none can travel into Sokara
+        without passing through the castle. Its white walls and flag-
+        topped towers shine brightly in the sunlight.
+        Enter the citadel The Plains of Howling Darkness 400
+    - choice:
+        - text: Go to the western foothills
+          then:
+            - turnTo: 3
+        - text: The eastern foothills
+          then:
+            - turnTo: 244
+        - text: South on the road to Caran Baru
+          then:
+            - turnTo: 201
+        - text: Take the road to Fort Mereth
+          then:
+            - turnTo: 518
+- number: 272
+  content:
+    - text: |
+        If you have the codeword Aloft, turn to 649 immediately. If not,
+        read on.
+        The chief administrator is not happy to see you.
+        ‘What are you doing here?’ he demands. ‘You should be at
+        Devil’s Peak, north of here! The storm demons still threaten our
+        city. Come back when you have succeeded.’
+    - if:
+        hasKeyword: "Aloft"
+      then:
+        - turnTo: 649
+      else:
+        - turnTo: 100
+- number: 273 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You find the city is in turmoil. A rebel group, loyal to the old
+        king, led an uprising against the army. Vicious fighting ensued
+        and the streets ran with blood before the rebellion was brutally
+        put down. Unfortunately, much damage was done during the
+        battle. If you own a town house in Yellowport it has been
+        looted – any possessions you may have cached there have gone.
+        Make a note of this paragraph number, turn to 300, cross off
+        anything you had stored there, and return here to read on.
+        If you have the codeword Artefact and the Book of the
+        Seven Sages, turn to 40. If not, turn back to 10 and choose
+        from the options listed there.
+    - turnTo: 300
+- number: 274
+  content:
+    - text: |
+        Desperately, you try to sneak behind a pile of coins but the
+        dragon spots you.
+        ‘A sneaky little thief, eh! Can’t have that, oh no, not at all!’
+        hisses the dragon, and it breathes a cloud of billowing acidic gas
+        all over you. You watch in horror as the coins in front of you
+        begin to melt, and then the cloud engulfs you.
+        If you have an amulet of protection, turn to 298.
+        Otherwise, turn to 212
+    - if:
+        hasPossession: "amulet of protection"
+      then:
+        - turnTo: 298
+      else:
+        - turnTo: 212
+- number: 275 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        If you are an initiate it costs only 5 Shards to propitiate the twin
+        gods of the sea. A non-initiate must pay 20 Shards. Cross off the
+        money and mark Safety from Storms in the Blessings box on
+        your Adventure Sheet. The blessing works by allowing you to
+        ignore any one storm at sea. When you use the blessing, cross it
+        off your Adventure Sheet. You can only have one Safety from
+        Storms blessing at any one time. Once it is used up, you can
+        return to any branch of the temple of Alvir and Valmir to buy a
+        new one.
+    - turnTo: 154
+- number: 276
+  content:
+    - text: |
+        You are wandering across the wilderness of north-western
+        Sokara. There is a magnificent castle nearby, with many different
+        pennants flying from its towers
+    - choice:
+        - text: Visit the castle
+          then:
+            - turnTo: 611
+        - text: Head west to the River Grimm
+          then:
+            - turnTo: 123
+        - text: Travel north to the mountains
+          then:
+            - turnTo: 3
+        - text: Head north-east
+          then:
+            - turnTo: 201
+        - text: Head east into the Bronze Hills
+          then:
+            - turnTo: 110
+        - text: Go south into the Forest of Larun
+          then:
+            - turnTo: 47
+- number: 277 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        patrol of militiamen – mercenaries in the pay of the dictator,
+        General Grieve Marlock – stop you in the street.
+        If you have the codeword Assassin, turn to 221 immediately.
+        If not, but you are a Protector of Sokara, they greet you
+        politely and salute. You return to the city centre without
+        incident – turn to 10.
+        Otherwise they decide you will be arrested unless you pay 15
+        Shards as ‘taxes’. If you refuse, or don’t have 15 Shards, turn to
+        538. If you hand over the money, cross it off and the militiamen
+        leave you alone – turn back to 10
+    - if:
+        hasKeyword: "Assassin"
+      then:
+        - turnTo: 221
+      else:
+        - if:
+            hasTitle: "Protector of Sokara"
+          then:
+            - turnTo: 10
+          else:
+            - choice:
+                - text: pay
+                  then:
+                    - turnTo: 10
+                - text: don't pay or can't pay
+                  then:
+                    - turnTo: 538
+- number: 278 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You are crossing an open expanse of flinty ground. A few herds
+        of sheep roam the low hills. Roll a die.
+        Score 1 or 2 You get lost. Turn to 82.
+        Score 3 or 4 Nothing happens
+        Score 5 or 6 A shepherd gives you a wolf pelt
+    - choice:
+        - text: Scored 1 or 2
+          then:
+            - turnTo: 82
+        - text: To Venefax
+          then:
+            - turnTo: 427
+        - text: West to the Stinking River
+          then:
+            - turnTo: 310
+        - text: North to the lake
+          then:
+            - turnTo: 135
+        - text: East
+          then:
+            - turnTo: 87
 - number: 279
   content:
     - text: |
@@ -47,3 +418,149 @@
         else could have stolen something from right under the noses of
         the warrior priests of Tyrnai!
     - turnTo: 400
+- number: 280
+  content:
+    - text: |
+        There are too many wolves to contend with. You withdraw
+        before they get angry.
+    - turnTo: 3
+- number: 281
+  content:
+    - text: |
+        Your tale of valour and derring-do falls on an unappreciative
+        audience. The mer-folk slip beneath the waves with snorts of
+        derision, leaving you alone on the desolate beach. There is
+        nothing for you to do but return to the clifftop tor.
+    - choice:
+        - text: Take the road to Trefoille
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 166
+- number: 282
+  content:
+    - text: |
+        If you have the codeword Armour, turn to 246 immediately. If
+        not, read on.
+        The Temple of Tyrnai, the God of Battle, Chaos and Strife,
+        is built like a small fortress in one corner of the city, near the
+        barracks. Its heavy wooden gates are flanked by iron statues of
+        bull-headed men wielding clubs. The workmanship is uncannily
+        life-like. Inside, the god is represented by a stone idol of a
+        jaguar-headed warrior. A beautiful suit of gold chain mail adorns
+        the idol.
+    - if:
+        hasKeyword: "Armour"
+      then:
+        - turnTo: 246
+      else:
+        - choice:
+            - text: Become an initiate
+              then:
+                - turnTo: 636
+            - text: Renounce worship
+              then:
+                - turnTo: 514
+            - text: Seek a blessing
+              then:
+                - turnTo: 107
+            - text: Make resurrection arrangements
+              then:
+                - turnTo: 33
+            - text: Leave the temple
+              then:
+                - turnTo: 400
+- number: 283
+  content:
+    - text: |
+        ‘What goes on here?’ you ask. ‘Why do you behave so oddly?’
+        The villagers seem quite frightened of you, but one old
+        fellow has nerve enough to reply.
+        ‘This banquet is for the ghosts of three travellers who lost
+        their way in a storm, fell into our millpond and were drowned.’
+        ‘When was this?’ you ask.
+        ‘Seven years since. They come every year on this night, and
+        if we didn’t placate them with victuals and treasure, there’d be a
+        mess of trouble.’
+        ‘How do you know that?’
+        ‘Old Megan told us,’ he says. ‘She knows much about such
+        things.’
+    - choice:
+        - text: Stay out at night and watch for the ghosts
+          then:
+            - turnTo: 590
+        - text: Follow the river north
+          then:
+            - turnTo: 576
+        - text: Follow the river south
+          then:
+            - turnTo: 82
+        - text: Head east into the country side
+          then:
+            - turnTo: 278
+        - text: Go west to the main road
+          then:
+            - turnTo: 558
+- number: 284 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You find an open window and squeeze through into a long hall.
+        Your foot, however, snags on a thin wire stretched across the
+        floor. The wire triggers a loud bell-like gonging that alerts the
+        temple. You have little choice but to run for your life – warrior
+        priests swarm out of the temple and the iron statues at its gates
+        come to life to join in the case.
+        Roll a die, and subtract one from the total.
+    - choice:
+        - text: If the result is less than or equal to your Rank
+          then:
+            - turnTo: 395
+        - text: Otherwise
+          then:
+            - turnTo: 551
+- number: 285 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You remember a bard in a tavern told you about Damor the
+        Hermit, and that he knew the secret of the Greatest Story Ever
+        Told so you ask him about it.
+        ‘Ahh,’ says Damor. ‘I have waited for one such as you.’ He
+        tells you the secret of the Greatest Story. ‘Well, my young
+        adventurer, destiny beckons, for it is fated that your life will be
+        the Greatest Story Ever Told.’
+        As you consider this, you feel a sense of momentary
+        enlightenment. Gain one Rank and roll one die. The result is
+        the number of Stamina points you gain permanently. Also, don’t
+        forget to increase your Defence by 1 as a result of your gain in
+        Rank.
+        ‘Right, that’s that,’ says Damor. ‘Now, go away and don’t
+        come back!’
+        For a few hours, he lifts the curse that soured your water so
+        you can make it down again safely.
+    - turnTo: 244
+- number: 286 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        When you and your crew join the fray, the battle is short-lived.
+        The pirates are overpowered, though they fight to the last man,
+        preferring death to enslavement or execution. The Sokaran
+        leader, an admiral in the navy, thanks you gravely for your help.
+        He rewards you with a share of the pirates booty – you get 400
+        Shards and 1 Cargo Unit of spices, if you have room for it in
+        your ship’s hold. You sail on.
+    - turnTo: 420
+- number: 287
+  content:
+    - text: |
+        You wait for an hour. At dusk, something emerges. It is the
+        gorlock, a beast with legs like a bird, a body like a reptile, with
+        two short forelimbs and a beaked, lizard-like head. You see that
+        its two legs do have backward pointing feet. The beast heads off
+        into the hills, and you creep forwards.
+    - turnTo: 315
+- number: 288 #TODO MAKE IT WORK IN THE FUTURE
+  content:
+    - text: |
+        You end dead in an alleyway with your throat cut. Your
+        adventures are over, unless you have a resurrection deal.

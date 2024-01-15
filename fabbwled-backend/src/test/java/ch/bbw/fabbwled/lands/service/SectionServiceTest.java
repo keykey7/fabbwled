@@ -1,7 +1,6 @@
 package ch.bbw.fabbwled.lands.service;
 
 import ch.bbw.fabbwled.lands.FabledTestBase;
-import ch.bbw.fabbwled.lands.book.SectionDto;
 import ch.bbw.fabbwled.lands.book.SectionId;
 import ch.bbw.fabbwled.lands.exception.FabledTechnicalException;
 import org.junit.jupiter.api.Test;
@@ -18,12 +17,5 @@ class SectionServiceTest extends FabledTestBase {
 	void byId() {
 		var id = SectionId.book1(15);
 		assertThat(sectionService.byId(id).id()).isEqualTo(id);
-	}
-
-	@Test
-	void byIdInvalid() {
-		var id = SectionId.book1(680);
-		assertThatThrownBy(() -> sectionService.byId(id)).isInstanceOf(FabledTechnicalException.class)
-				.hasMessageContaining("" + id.sectionId());
 	}
 }

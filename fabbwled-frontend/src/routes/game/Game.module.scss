@@ -4,43 +4,112 @@
   background-image: url("desk.jpg");
   background-size: cover;
   display: grid;
+  grid-template-areas: "side book";
+  grid-auto-columns: auto 75vw;
   place-items: center;
 
-  .book {
-    font-size: 12px;
-    background-image: url("book.png");
-    height: 100vh;
-    width: 70vw;
-    background-size: contain;
-    background-repeat: no-repeat;
-    padding: 7.5% 15% 7.5% 12%;
-    display: flex;
-    justify-content: space-between;
+  @media (max-width: 960px) {
+    grid-template-areas:
+      "book"
+      "side";
+    grid-template-columns: 1fr;
+    grid-template-rows: 75vh auto;
+  }
 
-    .page {
-      width: 45%;
+  .bookWrapper {
+    display: grid;
+    place-items: center;
+
+    .book {
+      font-size: 12px;
+      grid-area: book;
+      background-image: url("book.png");
+      background-position: center;
+      height: 85vh;
+      width: 70vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      display: grid;
+      grid-template-areas: "pageOne pageTwo";
+      grid-auto-columns: 1fr 1fr;
+      grid-auto-rows: auto;
+      padding: 10vh 12vw;
+      align-items: center;
+      justify-content: center;
+
+      .page {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-self: center;
+
+        &:nth-child(1) {
+          grid-area: pageOne;
+
+          .pageText {
+            overflow-y: auto;
+            max-height: 57vh;
+          }
+        }
+        &:nth-child(2) {
+          grid-area: pageTwo;
+        }
+      }
     }
   }
 
   .side {
+    grid-area: side;
     font-size: 12px;
-    height: fit-content;
-    width: fit-content;
     display: flex;
-    position: absolute;
-    left: 0;
-    top: 70%;
-    translate: 0 -50%;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-evenly;
+    align-content: center;
+    height: 100%;
+    flex-direction: column;
     padding-left: 1%;
+
+    @media (max-width: 960px) {
+      flex-direction: row;
+      justify-content: center;
+      align-content: space-evenly;
+    }
+
+    .dices {
+      font-size: 12px;
+      height: fit-content;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: space-around;
+      padding-left: 1%;
+
+      @media (max-width: 960px) {
+        flex-direction: row;
+        justify-content: center;
+        align-content: space-evenly;
+      }
+    }
 
     .buttons {
       font-size: 12px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-around;
       gap: 2vh;
+      width: 100%;
+
+      @media (max-width: 960px) {
+        flex-direction: row;
+        justify-content: center;
+        align-content: space-around;
+        margin: 0 auto;
+      }
 
       .eraser {
         all: unset;
@@ -61,15 +130,15 @@
           translate: -50% -50%;
         }
       }
+
       .pencil {
         all: unset;
-        height: fit-content;
-        width: fit-content;
         position: relative;
         cursor: pointer;
 
         img {
           height: 4vh;
+          width: 100%;
         }
 
         &:after {
@@ -103,6 +172,9 @@
 }
 
 .pageIndicator {
+  position: sticky;
+  top: 0;
+  left: 0;
   text-align: center;
   margin-top: 0;
   font-weight: bold;

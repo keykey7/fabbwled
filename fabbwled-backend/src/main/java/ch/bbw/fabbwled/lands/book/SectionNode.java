@@ -2,6 +2,7 @@ package ch.bbw.fabbwled.lands.book;
 
 import ch.bbw.fabbwled.lands.character.AbilityEnum;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
+import ch.bbw.fabbwled.lands.marketplace.MarketPlace;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NonNull;
 
@@ -117,7 +118,7 @@ public interface SectionNode {
 		 * a shortform for the commen "turn to XY"-action
 		 */
 		public ContainerNode clickableTurnTo(int section) {
-            return clickable(playerDto -> playerDto.withCurrentSectionId(section), x -> x.text("turn to ").section(section));
+            return text("turn to ").clickable(playerDto -> playerDto.withCurrentSectionId(section), x -> x.section(section));
 		}
 
         public ContainerNode clickableRollDice(int dice) {
@@ -143,7 +144,7 @@ public interface SectionNode {
 
         /**
          * @param action what would change if the player would click on it
-         * @param child  content of the click (like what's inside an {@code <a>-tag}.
+         * @param child  content of the click like what's inside an {@code <a>-tag}.
          */
         public ContainerNode clickable(PlayerChange action, Consumer<ContainerNode> child) {
             var childNode = empty();
@@ -162,6 +163,19 @@ public interface SectionNode {
             child.accept(childNode);
 			return append(childNode);
 		}
+
+        public ContainerNode marketplace(List<MarketPlace> marketPlaces, PlayerDto current) {
+            var node = this;
+            for (MarketPlace marketPlace : marketPlaces) {
+                node = node
+                        .item(marketPlace.getName())
+                        .activeIf(current.shards() >= marketPlace.getBuyPrice(), x -> x.clickable(p -> p.addShards(-marketPlace.getSellPrice())
+                                .addPossession(marketPlace.getName()), a -> a.text(marketPlace.getBuyPrice() + " Shards")))
+                        .activeIf(current.possessions().contains(marketPlace.getName()), x -> x.clickable(p -> p.addShards(marketPlace.getSellPrice())
+                                .removePossession(marketPlace.getName()), a -> a.text(marketPlace.getSellPrice() + " Shards")));
+            }
+            return node;
+        }
 
         private boolean isPreviousIfActive() {
             var previous = children.stream().filter(ContainerNode.class::isInstance)

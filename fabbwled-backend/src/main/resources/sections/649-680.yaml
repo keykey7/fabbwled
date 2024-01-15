@@ -7,13 +7,132 @@
         You return to town.
     - spendShards: -150
     - turnTo: 400
+- number: 652
+  content:
+    - text: |
+        You clamber up until you come to a mountain track.
+        It rises up between a cleft in the rock, ahead of you.
+        A man steps out in front of you. He is clearly a soldier, 
+        but his clothes are rough and ready, as if he had been living in the wild for some time. 
+        The soldier looks you over critically. He signals that he wants to parley with you.
+    - choice:
+        - text: Talk to him
+          then:
+            - turnTo: 557
+        - text: Attack him straight away
+          then:
+            - turnTo: 49
+        - text: If you have the title King’s Champion
+          then:
+            - turnTo: 2
+        - text: If not, but you have the codeword Ambuscade
+          then:
+            - turnTo: 629
+        - text: If you have neither of the above, but you do have the codeword Ark
+          then:
+            - turnTo: 353
+- number: 653
+  content:
+    - text: |
+        You are on a quest to take the oak staff to the Willow Druid who lives in a 
+        sacred grove somewhere in the forest. You wander around, looking for unusual tracks, 
+        strange creatures, anything that might lead you to a druid’s den. Make a SCOUTING roll at 
+        Difficulty 12.
+    - choice:
+        - text: Successful SCOUTING roll
+          then:
+            - turnTo: 217
+        - text: Failed SCOUTING roll
+          then:
+            - turnTo: 7
 - number: 654
   content:
     - text: |
-        You slip out of your chains, and hide inside an ore-laden 
-        miningcart. When it is taken out of the mine, you creep out, 
-        and runoff into the hills. Eventually you reach Caran Baru.
+        You slip out of your chains, and hide inside an ore-laden mining cart. 
+        When it is taken out of the mine, you creep out, and run off into the hills. 
+        Eventually you reach Caran Baru.
     - turnTo: 400
+- number: 655
+  content:
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 574
+      else:
+        - text: |
+            Put a tick in the box now. The general greets you with a smile and embraces you, saying, 
+            ‘You have served me beyond my expectations, my friend!’ 
+            A servant drags over a heavy chest, and Grieve Marlock flips open the lid with his sword. 
+            Inside is 1000 Shards! ‘Yours’, he says with a grin. Note the money on your Adventure Sheet. 
+            He also gives you a title – in this case, whatever the title is of your next Rank. Gain 1 Rank, 
+            and roll a die. The result is the number of Stamina points you gain permanently. 
+            Also, don’t forget to increase your Defence by 1 as a result of your gain in Rank. 
+            As you leave, he says, ‘Don’t hesitate to ask, if you need anything.’
+        - choice:
+            - text: If you have a coded missive
+              then:
+                - turnTo: 677
+            - text: If not
+              then:
+                - turnTo: 100
+- number: 656
+  content:
+    - text: |
+        You find a large, red pavilion which has been erected over a ruin. Oliphard the Wizardly is inside. He greets you warmly.
+    - choice:
+        - text: If you have a magic chest
+          then:
+            - turnTo: 672
+        - text: If you have a verdigris key
+          then:
+            - turnTo: 431
+        - text: Be teleported by Oliphard for 100 Shards to Marlock City
+          then:
+            - turnTo: 100
+        - text: Be teleported by Oliphard for 100 Shards to Caran Baru
+          then:
+            - turnTo: 400
+        - text: Be teleported by Oliphard for 100 Shards to Wishport Cities of Gold and Glory
+          then:
+            - turnTo: 217
+        - text: Be teleported by Oliphard for 100 Shards to Dweomer Over the Blood-Sea
+          then:
+            - turnTo: 100
+        - text: Take the road to the Shadar Tor
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 377
+        - text: Head into the Curstmoor
+          then:
+            - turnTo: 175
+        - text: Take the road north
+          then:
+            - turnTo: 558
+        - text: Take the road to Yellowport
+          then:
+            - turnTo: 233
+- number: 657
+  content:
+    - text: |
+        The creature falls dead. You can squeeze a little of its venom from its sting – 
+        if you do so, note the scorpion venom on your Adventure Sheet. 
+        If you were wounded in the fight, you have been poisoned by the scorpion man’s venom. 
+        Subtract 1 from your COMBAT, THIEVERY, and SCOUTING abilities, 
+        as you are severely weakened (although no ability can drop to zero). 
+        Note that you are poisoned – you can restore your abilities to normal if you get cured. 
+        If you have some scorpion antidote, it will cure the poison immediately – 
+        cross the antidote off your Adventure Sheet. You wander on until you come to a ridge. 
+        Down below, in a shallow valley, is a great mound of earth. Many burrows have been dug through it, 
+        and scorpion men are crawling in and out. This is the mound of the scorpion men – their home.
+    - choice:
+        - text: If you have the codeword Artefact
+          then:
+            - turnTo: 406
+        - text: If not, you realize that it would simply be too dangerous to venture down there. You head back towards Venefax.
+          then:
+            - turnTo: 492
 - number: 658
   content:
     - text: |
@@ -36,16 +155,12 @@
 - number: 659
   content:
     - text: |
-        You untie the little creature from its bonds. It gives a jubilant
-        cry, and soars upwards.
-        ‘Thank you, large one!’ it chatters, ‘My name is Pikalik the
-        Wing-warrior! We never forget – one day I will pay my debt.’
-        With that, he flitters away into the clouds.
-        ‘That’s 75 Shards you just let fly away,’ comments the man
-        in the palanquin wryly, ‘Mannekyn People can’t be trusted,
-        believe me.’
-        You leave the slave market.
-    - acquireKeyword: "Altruist"
+        You untie the little creature from its bonds. It gives a jubilant cry, and soars upwards. 
+        ‘Thank you, large one!’ it chatters, ‘My name is Pikalik the Wing-warrior! We never forget – 
+        one day I will pay my debt.’ With that, he flitters away into the clouds. 
+        ‘That’s 75 Shards you just let fly away,’ comments the man in the palanquin wryly, 
+        ‘Mannekyn People can’t be trusted, believe me.’ You leave the slave market.
+    - text: Acquire the codeword Altruist.
     - turnTo: 400
 - number: 660
   content:
@@ -68,31 +183,73 @@
         - text: West into the farmlands
           then:
             - turnTo: 548
+- number: 661
+  content:
+    - text: |
+        With a thrill of horror, you realize you have missed your footing, 
+        crossing the wrong line by millimetres. The lid of the sarcophagus explodes into the 
+        air with a deafening crash, and a pillar of black smoke erupts out of the stone coffin! 
+        The column of smoke hurtles towards you, like a miniature tornado.
+    - choice:
+        - text: If you have a weapon with a +1 COMBAT bonus or greater
+          then:
+            - turnTo: 43
+        - text: If you have only an ordinary weapon or no weapon at all
+          then:
+            - turnTo: 260
+- number: 662
+  content:
+    - text: |
+        That night, after Lauria has picked the locks on your chains, 
+        you head off for the tunnel rendezvous. You find there has been a cave-in, 
+        but the overseer and a troop of guards are waiting for you! Lauria steps out laughing. 
+        In return for her betraying you, the overseer has transferred her to work on the surface, 
+        from which she will be able to escape more easily. You have been stitched up again! 
+        The overseer has you whipped for trying to escape and you are left with some nasty scars. 
+        Lose 1 point of CHARISMA permanently. Gain the codeword Anger, and lose the codeword Ashen.
+    - turnTo: 565
 - number: 663
   content:
     - text: |
-        They are too fast. You are caught and overwhelmed. You end
-        up as food for scorpion larvae. Your adventuring days are over,
-        unless you have a resurrection deal.
-    - if:
-        hasPossession: "resurrection deal"
-      then:
-          - turnTo: 295
-      else:
-        - text: You died. Start from the beginning
-        - turnTo: 1
+        They are too fast. You are caught and overwhelmed. You end up as food for scorpion larvae. 
+        Your adventuring days are over, unless you have a resurrection deal.
+    - turnTo: 1
+    # Noch keine Funktion für Sterben/Wiederbelebung.
+- number: 664
+  content:
+    - text: |
+        ‘That is fortunate – for you,’ says the soldier. 
+        Several archers stand up from their hiding places behind the rocks overhead. 
+        Another soldier, a captain, comes up to you and introduces himself as Captain Vorkung. 
+        He is clearly one of the old aristocracy, the nobles loyal to the king and the old regime, 
+        before General Marlock and the army seized power, and executed the old king. 
+        Vorkung tells you to leave the mountains. You have found a rebel base – 
+        men still loyal to Nergan Corin, the heir to the throne. 
+        Nergan went into hiding when General Marlock killed his father and took control of Sokara. 
+        You can attempt to convince Captain Vorkung that you are on his side by making a CHARISMA roll at 
+        Difficulty 9. You can add 1 to your roll if you are a Warrior, Rogue, or Wayfarer.
+    - choice:
+        - text: If you succeed on the CHARISMA roll
+          then:
+            - turnTo: 25
+        - text: If you fail on the CHARISMA roll
+          then:
+            - turnTo: 179
+        - text: Otherwise, you can climb down the mountains
+          then:
+            - turnTo: 474
 - number: 665
   content:
     - text: |
-        You enter the cave – it is large and dark. Unfortunately, it is the
-        lair of a pack of wolves – a very big pack of wolves.
-    - if:
-        hasPossession: "wolf pelt"
-      then:
-        - turnTo: 516
-      else:
-        - text: If not, read on.
-        - turnTo: 280
+        You enter the cave – it is large and dark. Unfortunately, it is the lair of a pack of wolves – 
+        a very big pack of wolves.
+    - choice:
+        - text: If you have a wolf pelt
+          then:
+            - turnTo: 516
+        - text: If not
+          then:
+            - turnTo: 280
 - number: 666
   content:
     - text: |
@@ -121,6 +278,79 @@
         - text: East to the lake and Cadmium
           then:
             - turnTo: 135
+- number: 667
+  content:
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 660
+      else:
+        - text: |
+            Put a tick there now and read on. You have rescued Alissia, the commander’s daughter, 
+            from the manbeasts! They have a tearful, joyous reunion – all thanks to you! The commander 
+            rewards you with combat training. Add one to your COMBAT ability permanently.
+        - choice:
+            - text: When you are ready, you can leave East into Nerech The Plains of Howling Darkness
+              then:
+                - turnTo: 225
+            - text: North west to Fort Mereth
+              then:
+                - turnTo: 299
+            - text: South east to Fort Brilon
+              then:
+                - turnTo: 259
+            - text: West into the Farmlands
+              then:
+                - turnTo: 548
+- number: 668
+  content:
+    - text: |
+        You are led to a rockface in the mine. You start digging. Roll two dice and consult the table.
+          Score 2-4: Rockfall! You lose 2 Stamina
+          Score 5-8: No luck, and your hour is up
+          Score 9-12: A silver nugget!
+        When you are finished (if you are still alive), you leave the Bronze Hills.
+    - choice:
+        - text: To Caran Baru
+          then:
+            - turnTo: 400
+        - text: South into the Forest of Larun
+          then:
+            - turnTo: 47
+        - text: West to the River Grimm
+          then:
+            - turnTo: 333
+        - text: North into the Western Wilderness
+          then:
+            - turnTo: 276
+- number: 669
+  content:
+    - text: |
+        You are recognised by an official, and a few moments later, 
+        you are summoned to see the general himself! 
+        You are taken to the throne room, which has been converted to a military style headquarters. 
+        Grieve Marlock is a tall, hook-nosed man, with cold, penetrating green eyes. 
+        ‘You come highly recommended by my brother, the governor of Yellowport – 
+        I was hoping you would turn up,’ he says in a commanding voice. 
+        ‘You did me a great service by getting rid of that pompous fool, Nergan. 
+        ‘Now there is one more thing I need you for. The Citadel of Velis Corin, which 
+        sits astride the Pass of Eagles in the far north, is under imminent attack from an 
+        army of the steppes. The attackers are a rag-tag bunch of malcontents – 
+        nomads, Mannekyn People, some trau even, and of course, the usual traitorous dogs 
+        still loyal to the old king – may his soul burn in the hells, ha, ha, ha!’ 
+        ‘I need you to go to the citadel, discuss the situation with Commandant Orin Telana, 
+        and do all you can to make sure that the citadel doesn’t fall. I’m relying on you!’ 
+        Record the codeword Assist.
+    - choice:
+        - text: If you have the codeword Assist
+          then:
+            - turnTo: 102
+        - text: If you have a coded missive
+          then:
+            - turnTo: 677
+        - text: If not, you are escorted out.
+          then:
+            - turnTo: 100
 - number: 670
   content:
     - text: |
@@ -129,6 +359,78 @@
         passing builder stares at you in horror, unsure whether you are a
         human or a demon. Quickly, you hurry away.
     - turnTo: 250
+- number: 671
+  content:
+    - text: |
+        Out of gratitude the villagers present you with 80 Shards. 
+        You do not wait around to see what fate befalls Old Megan and her accomplices. 
+        In theory they should be taken to the assizes in the nearest town, 
+        but feelings run so deep in this case that you suspect there will be some rough justice meted out. 
+        You resume your journey.
+    - choice:
+        - text: Follow the river north
+          then:
+            - turnTo: 576
+        - text: Follow the river south
+          then:
+            - turnTo: 82
+        - text: Head east into the countryside
+          then:
+            - turnTo: 278
+        - text: Go west to the main road
+          then:
+            - turnTo: 558
+- number: 672
+  content:
+    - text: |
+        ‘My chest!’ yells Oliphard joyfully as you hand it over. Cross the magic chest off your Adventure Sheet. 
+        Oliphard thanks you and teaches you how to be a better Mage. Gain 1 Rank and roll a die. 
+        The result is the number of Stamina points you gain permanently. 
+        Also, don’t forget to increase your Defence by 1 as a result of your gain in Rank.
+    - turnTo: 656
+- number: 673
+  content:
+    - text: |
+        You are trekking across the aptly named Curstmoor. 
+        A great rolling expanse of blasted heath stretches before you. Grey clouds hang over a mournful, 
+        dirty-water coloured plain, studded with rocky outcrops and low hills. Roll one die.
+          Score 1 or 2: You are attacked by a wolf. Wolf, COMBAT 3, Defence 5, Stamina 7. If you win, 
+        you get a wolf pelt.
+          Score 3 or 4: Nothing happens.
+          Score 5 or 6: You find 10 Shards on an old skeleton.
+        When you are ready, you can go:
+    - choice:
+        - text: North across the country
+          then:
+            - turnTo: 560
+        - text: East to the road
+          then:
+            - turnTo: 558
+        - text: To Trefoille
+          then:
+            - turnTo: 250
+        - text: To Marlock City
+          then:
+            - turnTo: 100
+        - text: West towards the River Grimm
+          then:
+            - turnTo: 99
+- number: 674
+  content:
+    - text: |
+        You realize from your magical studies that there is a safe path through the pentacle. 
+        If you step off the correct symbols,
+        drawn on the ground, there is no telling what sorcerous trap you will set off.
+    - choice:
+        - text: If you decide the whole thing is too dangerous, and leave
+          then:
+            - turnTo: 47
+        - text: If you want to try the path to the sarcophagus, make a THIEVERY roll at Difficulty 9 and succeed
+          then:
+            - turnTo: 606
+        - text: If you want to try the path to the sarcophagus, make a THIEVERY roll at Difficulty 9 and fail
+          then:
+            - turnTo: 661
 - number: 675
   content:
     - text: |
@@ -142,6 +444,47 @@
         swim for shore. A small settlement crowds the shore – it looks
         like you have arrived at the Trading Post on the Isle of Druids.
     - turnTo: 195
+- number: 676
+  content:
+    - text: |
+        You were given the message to take to the king by some spies in Golnir. 
+        The king takes the coded missive. Cross it off your Adventure Sheet. 
+        He hands it to one of his counsellors to read. ‘You have done well in bringing this to me. 
+        It is important,’ says the king. You are rewarded with 200 Shards.
+    - choice:
+        - text: If you have the codeword Deliver
+          then:
+            - turnTo: 98
+        - text: |
+            If not, the king goes on, ‘However, I was hoping you had spoken with General 
+            Beladai of the allied army by now – we need that citadel. 
+            Now go. That is a Royal command!’ You leave, climbing down to the foothills of the mountains.
+          then:
+            - turnTo: 474
+- number: 677
+  content:
+    - text: |
+        You were given the missive to take to the general by spies in Golnir. 
+        He takes the coded missive and reads it. Cross it off your Adventure Sheet. 
+        ‘Interesting. You have done well in bringing this to me,’ he says. 
+        ‘I thank you, once more!’ He rewards you with 150 Shards.
+    - turnTo: 100
+- number: 678
+  content:
+    - text: | 
+        You realize from your magical studies that there is a safe path through the pentacle. 
+        If you step off the correct symbols, drawn on the ground, there is no telling what 
+        sorcerous trap you will set off.
+    - choice:
+        - text: If you have the codeword Aspen
+          then:
+            - turnTo: 195
+        - text: If you want to try the path through the Old Forest and succeed on the SCOUTING roll at Difficulty 10
+          then:
+            - turnTo: 679
+        - text: If you want to try the path through the Old Forest and fail on the SCOUTING roll at Difficulty 10
+          then:
+            - turnTo: 36
 - number: 679
   content:
     - text: |
@@ -149,3 +492,14 @@
         your nose, you eventually break free of the trees and find
         yourself on the coast.
     - turnTo: 128
+- number: 680
+  content:
+    - text: |
+        You are dead. If you have a resurrection deal, 
+        turn to the section noted on your Adventure Sheet after first erasing your current possessions, 
+        money, and any details on your Ship’s Manifest. If you don’t have a resurrection arranged, 
+        this is the end and you can only start afresh with a new character. 
+        First make sure to erase all ticks, codewords, and Adventure Sheet details in all your Fabled Lands books.
+        You can begin at 1 in any of the books of the series.
+    - turnTo: 1
+

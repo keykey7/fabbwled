@@ -1,11 +1,13 @@
-interface CharacterCreateDto {
+import { Container } from "../SectionRenderer.tsx";
+
+export interface CharacterCreateDto {
   player: Player;
   description: string;
 }
 
-interface Player {
+export interface Player {
   name: string;
-  currentSection: Section;
+  currentSection: `1-${number}`;
   titlesAndHonours: string[];
   rank:
     | "OUTCAST"
@@ -18,20 +20,21 @@ interface Player {
     | "EARL"
     | "MARQUIS"
     | "DUKE";
-  profession:
-    | "Wayfarer"
-    | "Warrior"
-    | "Mage"
-    | "Rogue"
-    | "Priest"
-    | "Troubadour";
+  profession: Profession;
   stamina: number;
+  staminaWhenUnwounded: number;
   baseStats: BaseStats;
   possessions: string[];
-  shards: Shards;
-  tickBoxes: TickBoxes;
+  shards: number;
   codeWords: string[];
   defence: number;
+  blessings: string[];
+  tickBoxes: {};
+  poisons: string[];
+  disease: string[];
+  curses: string[];
+  persistentSectionStore: {};
+  mostRecentDiceRoll: number[];
 }
 
 interface BaseStats {
@@ -43,17 +46,11 @@ interface BaseStats {
   thievery: number;
 }
 
-interface Section {
-  bookId: number;
-  sectionId: number;
-}
-
-interface Shards {
-  shardCount: number;
-}
-
-interface TickBoxes {
-  additionalProp1: number;
-  additionalProp2: number;
-  additionalProp3: number;
+export interface Section {
+  id: string;
+  body: Container;
+  ticks: {
+    total: number;
+    ticked: number;
+  };
 }
