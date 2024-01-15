@@ -1,3 +1,4 @@
+
 - number: 156
   content:
     - text: |
@@ -67,21 +68,35 @@
         cold, but lucky to be alive. You haul yourself up the beach on to
         land. Fortunately for you, you find the village of Blessed Springs.
     - turnTo: 510
+- number: 175
+  content:
+    - text: If there is a tick in the box, turn to 673 immediately. If not, puta tick there now, and read on.You are trekking across the aptly named Curstmoor. A greatrolling  expanse  of  blasted heath stretches before you. Greyclouds hang over a mournful, dirty-water   coloured   plain,studded  with  rocky  outcrops  and  low  hills.  A  raven  flutters  tothe  ground  nearby,  eyeing  you  curiously.  His  brothers  cawloudly into the echoing sky. Dusk falls, and in the dim twilight,a herd of horses comes streaking out of the night, straight at you.As they near, it seems to you that their hooves are not touchingthe  ground,  and  from  their  manes  trail  wispy  clouds  of  sparks,like tiny stars.
+    - choice:
+      - text: Get out of their way.
+        then:
+          - turnTo: 390
+      - text: Mount one of them.
+        then:
+          - turnTo: 66
 
+- number: 176
+  content:
+    - text: The crew are very nervous about your orders. They drop anchorin a bay, and will row you to shore, but they absolutely refuse tocome  with  you.  In  fact,  they  won’t  even  wait  for  you  to  comeback.If  you  insist  on  going  ashore,  your  crew  will  sail  forYellowport and meet you there. ‘If you ever make it back,’ addsthe first mate ominously.If you want to go ashore note on your Adventure Sheet thatyour  ship  is  now  docked  in  Yellowport,  and  turn  to  32.Otherwise, turn to 85 and choose again.
+    - choice:
+        - text: Go ashore
+          then:
+            - turnTo: 32
+        - text: Go back and choose again.
+          then:
+            - turnTo: 250
 - number: 179
   content:
-    - text: |
-        You claim that you have come to swear allegiance to Nergan, 
-        the rightful king of Sokara. Captain Vorkung is not convinced. 
-        He narrows his eyes suspiciously.
-        ‘You’d better leave – now. Before I decide you are a spy, 
-        and have you shot!’
-        One of the archers looses a shaft, and an arrow thuds into the 
-        ground at your feet, quivering menacingly.
-        You realize it is time to leave, and climb down the 
-        mountain.
+    - text: You  claim  that  you  have  come  to  swear  allegiance  to  Nergan,the  rightful  king  of  Sokara.  Captain  Vorkung  is  not  convinced.He narrows his eyes suspiciously.‘You’d  better  leave  –  now.  Before  I  decide  you  are  a  spy,and have you shot!’One of the archers looses a shaft, and an arrow thuds into theground at your feet, quivering menacingly.You  realize  it  is  time  to  leave,  and  climb  down  themountain.
     - turnTo: 474
-
+- number: 180
+  content:
+    - text: You step through the archway. Immediately the symbols on thestone  begin  to  glow  with  red-hot  energy;  your  hair  stands  onend  and  your  body  tingles.  A  crackling  nimbus  of  blue-whiteforce  engulfs  you,  the  sky  darkens  and  thunder  and  lightningcrash  and  leap  across  the  heavens.  Suddenly,  your  vision  fades,and everything goes black.When your sight returns, you find yourself outside the gatesof a huge, fortified city. A guard starts in surprise at the sight ofyou. Then he shakes his head as if to clear it, sure he must haveimagined what he just saw!The gates open, and a troop of heavy cavalry canter past.‘Make way for the Marlock City militia!’, says the guard.When they have passed, you walk into the city.
+    - turnTo: 100
 - number: 180
   content:
     - text: |
