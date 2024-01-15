@@ -45,6 +45,4 @@ public class Section14 implements SectionHandler {
                         .clickableTurnTo(1))
                 ;
     }
-
-
 }

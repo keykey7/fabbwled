@@ -1,0 +1,197 @@
+- number: 183
+  content:
+    - text: |
+        You find a shadowy natural alcove in the rocky wall of a tunnel.
+        Desperately, you squeeze yourself into it, using all your skill to hide in the darkness.
+        Several ratmen run past, but others sniff you out with their highly developed sense of smell.
+        You are overwhelmed by sheer numbers.
+    - turnTo: 308
+- number: 185
+  content:
+    - text: |
+        You tell him who you are, and that General Grieve Marlock’s brother, the Governor of Yellowport, is your personal friend.
+        His eyes widen as recognition dawns on his fat, greedy face.
+        ‘Ah, er... my lord!,’ he cries. ‘I was merely jesting! Umm....
+        We were, I mean to say, perhaps you need an escort?’
+        ‘I think we require a levy in order to carry out the important mission the governor has entrusted to me,’ you say.
+        ‘Sixty Shards ought to do it, Captain!’
+        The Sokaran captain hands over the 60 Shards (add it to your Adventure Sheet) and leads his men off your ship.
+        You sail on.
+    - turnTo: 439
+- number: 188
+  content:
+    - text: |
+        You are thrown into a stinking prison cell.
+        ‘Well, well, we meet again, my old friend,’ says a half-dead old man with white hair.
+        You recognize the poor old man whom you met the last time you were thrown into the dungeons!
+        He launches into the same old story about the gorlock, the creature with the backward-pointing feet.
+        By the end of it, you are looking forward to being sold into slavery and sent to work in the tin mines of Caran Baru.
+    - turnTo: 118
+- number: 189
+  content:
+    - text: There is nothing in your limited knowledge of undersea wildlife to help you.
+    - choice:
+      - text: Swim back to the Shadar Tor
+        then:
+          - turnTo: 35
+      - text: Fight your way to the golden net
+        then:
+          - turnTo: 121
+      - text: Try magic turn to 592
+        then:
+          - turnTo: 592
+- number: 191
+  content:
+    - text: |
+        The provost marshal is a rich and powerful man, cunning and capable.
+        ‘I have need of someone like you,’ he says.
+        ‘A group of rebels, loyal to the old king, are hiding out in the Coldbleak Mountains.
+        Their leader, Nergan Corin, is dangerous to us, as he is heir to the old throne and a rallying point for the rebels.
+        Penetrate their stronghold and slay Nergan Corin, and you will be richly rewarded.
+        I can promise you 500 Shards and a title if you succeed.’
+        If you take the mission, gain the codeword Artery.
+        If you have the codeword Ambuscade, turn to 375.
+        Otherwise, the provost marshal dismisses you. Turn to 10.
+    - if:
+        hasKeyword: Ambuscade
+      then:
+        - choice:
+          - text: Take the Mission and gain the codeword "Artery"
+            then:
+              #TODO IMPLEMENT HAVING MORE THAN JUST TURNTO IN CHOICE - acquireKeyword: Artery
+              - turnTo: 552
+          - text: Dont't take the Mission.
+            then:
+              - turnTo: 375
+      else:
+        - choice:
+            - text: Take the Mission and gain the codeword "Artery"
+              then:
+                #TODO IMPLEMENT HAVING MORE THAN JUST TURNTO IN CHOICE - acquireKeyword: Artery
+                - turnTo: 552
+            - text: Let the provost marshal dismiss you
+              then:
+                - turnTo: 10
+- number: 192
+  content:
+    - text: |
+        During your short trip upward, the old man regales you with tales of your destiny and fate, continuously arguing with himself as he does so.
+        You reach a hill covered with a circle of large obsidian standing stones.
+        Despite the bitter wind that blow across these hills the stones are unweathered and seem almost newly lain.
+        ‘Here are the Gates of the World.’ says the mad old man.
+        The stones are laid in such a way that they form three archways, each carven with mystic symbols and runes of power.
+        ‘Each gate will take you to a part of the world of Harkuna, though I know not where,’ explains the old man.
+        Abruptly, he turns around and sets off down the hill, babbling to himself.
+        His voice fades as he descends the hill, leaving you alone with the brooding stones and the howling wind.
+    - turnTo: 65
+- number: 193
+  content:
+    - text: |
+        You find yourself washed up on a rocky shore, battered and cold, but alive.
+        You head inland until you come to a road.
+    - turnTo: 621
+- number: 195
+  content:
+    - text: |
+        Gain the codeword Aspen if you do not already have it.
+        The Trading Post is a small village, set up here by enterprising settlers from the mainland.
+        Its main export appears to be furs from the forest.
+        The Mayor, a fat genial fellow, who greets you personally, insists that one day the Trading Post will be a thriving town.
+        There is not a lot here yet, however, a small market, a quay, the settler’s houses, and a shrine to Lacuna the Huntress, goddess of nature.
+    - choice:
+      - text: Visit the shrine to Lacuna
+        then:
+          - turnTo: 544
+      - text: Visit the market
+        then:
+          - turnTo: 452
+      - text: Visit the quayside
+        then:
+          - turnTo: 332
+      - text: Visit the Green Man Inn
+        then:
+          - turnTo: 181
+      - text: Climb the hill that overlooks the town
+        then:
+          - turnTo: 11
+      - text: Go inland, into the Old Forest
+        then:
+          - turnTo: 257
+- number: 202
+  content:
+    - text: |
+        Gingerly, you open the door.
+        It leads to a curtained alcove, through which you observe the room beyond.
+        It is a long, low hall – clearly an ancient Uttakin temple, from a time when the Masked Lords of Uttaku ruled all of Harkuna, but now part of the sewers of Yellowport.
+        A cheap wooden chair has been placed on the altar to act as a throne.
+        On it sits a large and extremely ugly ratman.
+        He has a tacky amulet around his neck, and a rusty iron hoop for a crown.
+        About four ratmen are kneeling before him, engaged in conversation.
+        ‘But, Skabb...’ one of the rat men is saying.
+        ‘That’s Great King Skabb to you, dung-breath!!’ bellows the rat on the throne.
+    - choice:
+      - text: Charge in to the attack
+        then:
+          - turnTo: 428
+      - text: Sneak in to assassinate the king
+        then:
+          - turnTo: 595
+      - text: Use sorcery to get close to Skabb
+        then:
+          - turnTo: 24
+      - text: Bluff your way in
+        then:
+          - turnTo: 336
+- number: 203
+  content:
+    - text: |
+        can hire a fishing boat for 15 Shards a day.
+        It comes with a fishing net.
+        Pay 15 Shards and go fishing turn to 267
+        Don’t go fishing turn to 135
+    - choice:
+      - text: Go Fishing and pay 15 Shards
+        then:
+          #TODO IMPLEMENT HAVING MORE THAN JUST TURNTO IN CHOICE - spendShards: 15
+          - turnTo: 267
+      - text: Don’t go fishing
+        then:
+          - turnTo: 135
+- number: 205
+  content:
+    - text: |
+        The runes are written in Old Shadar, an ancient language from thousands of years ago.
+        You realize that the runes form a spell that will give you the power to breathe underwater for a few hours.
+    - choice:
+      - text: Use the spell and swim out to sea
+        then:
+          - turnTo: 493
+      - text: Go down to the beach
+        then:
+          - turnTo: 97
+      - text: Take the road to Trefoille
+        then:
+          - turnTo: 602
+      - text: Take the road to Marlock City
+        then:
+          - turnTo: 166
+- number: 208
+  content:
+    - text: |
+        Using your sorcerous powers you breathe a cloud of greenish vapour over the ratmen.
+        Coughing and gasping, they sink into an enchanted slumber – all but King Skabb.
+        Standing on the altar, he is able to keep his head above the vapours.
+    - turnTo: 145
+- number: 209
+  content:
+    - text: You are sailing in the coastal waters off Fort Brilon, and Blessed Springs.
+    - choice:
+      - text: Sail north along the coast of Nerech
+        then:
+          - turnTo: 249
+      - text: Sail south to Scorpion Bay
+        then:
+          - turnTo: 430
+      - text:  Sail east into the Sea of Whispers
+        then:
+          - turnTo: 136

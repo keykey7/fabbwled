@@ -81,3 +81,36 @@
         - text: Try to steal it without being seen
           then:
             - turnTo: 363
+
+- number: 401
+  content:
+    - text: |
+        Cross off the 60 Shards. The captain gives you a satisfied smile.
+        ‘Harbour duties all paid up. You may proceed,’ he says
+        mockingly.
+        He and his men leave the ship. Several of your crew curse or
+        spit in disgust.
+    - if:
+        needsAtLeastShards: 60
+      then:
+        - spendShards: 60
+        - turnTo: 439
+
+- number: 404
+  content:
+    - text: |
+        One of the cultists of Badogor the Unspoken is feigning distress
+        in the hope of luring a sacrificial victim for dinner. He sits up
+        when he recognizes you as a member of the cult, and says, rather
+        disconsolately, ‘Ah, hallo friend. We were hoping for a big
+        banquet tonight.’
+        Two more cultists step from the shadows, holding a net. ‘Oh
+        well, perhaps another will come along,’ one of them says
+        optimistically.
+        They treat you as one of their own – even giving you a share
+        of the cult’s recent income. You get 20 Shards.
+        ‘May you never speak his name,’ they intone in parting.
+        You return to the city centre
+      then:
+        - spendShards: -20
+        - turnTo: 10
