@@ -152,7 +152,6 @@
         - text: Swim back up to your ship
           then:
             - turnTo: 616
-# TODO: implement 514
 - number: 516
   content:
     - text: |
@@ -188,7 +187,7 @@
             - text: Leave the temple
               then:
                 - turnTo: 100
-# TODO: Cargo unit?
+# ISNOTIMPLEMENTABLE: Take one cargo Unit
 - number: 519
   content:
     - text: |
