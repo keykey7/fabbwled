@@ -1,4 +1,4 @@
-package ch.bbw.fabbwled.lands.book.book1;
+package ch.bbw.fabbwled.lands.book.book1.s037_072;
 
 import ch.bbw.fabbwled.lands.book.SectionHandler;
 import ch.bbw.fabbwled.lands.book.SectionId;
