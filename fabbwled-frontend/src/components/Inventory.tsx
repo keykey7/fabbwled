@@ -46,7 +46,9 @@ const Inventory = ({ onAction }: InventoryProps) => {
   };
 
   const handleActionClick = () => {
-    if (selectedItem) {
+    if (!selectedItem) {
+       return;
+    }
       alert(`Action performed for ${selectedItem.name}`);
       onAction();
     }
