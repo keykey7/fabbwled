@@ -1,4 +1,3 @@
-/* TODO: Impplement fights
 package ch.bbw.fabbwled.lands.book.book1;
 
 import ch.bbw.fabbwled.lands.book.SectionHandler;
@@ -23,9 +22,8 @@ public class Section617 implements SectionHandler {
                         If you win, turn  to  196. If you lose, your adventures are over, unless you have a resurrection
                         deal.
                         """)
-                .activeIf();
+                .choice(a -> a.text("Win the fight"), b -> b.clickableTurnTo(196))
+                .choice(a -> a.text("Lose the fight"), b -> b.clickableTurnTo(196) /* Death not implemented*/);
 
     }
 }
-
- */

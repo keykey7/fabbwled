@@ -1,5 +1,3 @@
-/*
-TODO - Not implementable due to missing shop function
 package ch.bbw.fabbwled.lands.book.book1;
 
 import ch.bbw.fabbwled.lands.book.SectionHandler;
@@ -13,6 +11,7 @@ public class Section623 implements SectionHandler {
         return SectionId.book1(623);
     }
 
+    /* Shop function not provided */
     @Override
     public SectionNode getBody(PlayerDto current) {
         return SectionNode.root()
@@ -30,8 +29,9 @@ public class Section623 implements SectionHandler {
                         Lantern 100 Shards 90 Shards
                         Climbing gear 100 Shards 90 Shards
                         Scorpion antidote 100 Shards 90 Shards
-                        """);
+                         When you are finished, turn to 427 .
+                        """)
+                .clickableTurnTo(427)
+                ;
     }
 }
-
- */
