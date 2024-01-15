@@ -1,3 +1,23 @@
+- number: 325
+  content:
+    - text: |
+        Your ship, crew, and cargo are lost to the deep,
+        dark sea. Cross them off your Adventure Sheet.
+        Your only thought now is to save yourself.
+
+        Roll two dice. If the score is greater than your Rank,
+        you are drowned – turn to 680. If the score is less
+        than or equal to your Rank, you manage to find some
+        driftwood and make it back to shore. Lose Stamina
+        points equal to the score of one die, and if you can
+        survive that, turn to 173.
+    - choice:
+        - text: turn to 680
+          then:
+            - turnTo: 680
+        - text: turn to 173
+          then:
+            - turnTo: 173
 - number: 326
   content:
     - text: |
@@ -10,6 +30,18 @@
         ‘So, you’ve been masquerading as a ghost for these seven years, eh?
         Well, tomorrow we’ll take you to the gallows and then you can play the part for real.
     - turnTo: 671
+- number: 327
+  content:
+    - text: |
+        You have already cleaned the ratmen out of the tunnels below the city,
+        but the old well will make a good cache for equipment and money that
+        you don’t want to carry with you. It has an advantage over a townhouse –
+        there is no risk of burglary or fire.
+
+        You may also rest here as long as you like, restoring any lost Stamina points.
+        Note ‘Secret cache, Yellowport – The War-Torn Kingdom 327’ on your Adventure
+        Sheet so that you can come here whenever you are in Yellowport.
+    - turnTo: 10
 - number: 329
   content:
     - text: |
@@ -18,6 +50,106 @@
         As he turnsand leaves, he says, ‘When you have better tidings, I will return here.
         ’You follow him, but he is nowhere to be seen.
     - turnTo: 400
+- number: 330
+  content:
+    - text: |
+        You must have Cities of Gold and Glory before you can travel to
+        Wishport.
+
+        You step through the archway. Immediately the symbols on
+        the stone begin to glow with red-hot energy; your hair stands on
+        end and your body tingles. A crackling nimbus of blue-white
+        force engulfs you, the sky darkens and rumbles, thunder and
+        lightning crash and leap across the heavens. Suddenly, your
+        vision fades, and everything goes black.
+
+        When your sight returns, moments later, you find yourself at
+        the gates of Wishport. You join the throng of merchants and
+        peasants making their way into the city.
+    - turnTo: 217
+- number: 331
+  content:
+    - text: |
+        If there is a tick in the box
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 627
+      else:
+        - text:
+            You fall into conversation with Pyletes, a kindly old scholar-priest of Molhern, the God of Knowledge.
+    
+            ‘Many years ago, the Book of the Seven Sages was stolen
+            from us,’ he croaks. ‘News suggests that the scorpion men are in
+            possession of it. I need a young adventurer like yourself to travel
+            to Scorpion Bight and return the book to me. In return, I can
+            show you how to improve the skill of your choice.’
+    
+            If you take up the quest, gain the codeword Artefact.
+        - turnTo: 10
+- number: 332
+  content:
+    - text: |
+        The quayside at the Trading Post is a simple affair, without the
+        harbour facilities or the shipwrights of the larger ports. There are
+        no ships available to buy here, but if you already own a ship,
+        you can buy and sell cargo.
+        
+        Cargo                To Buy    To Sell
+        Furs                135 Shards    130 Shards
+        Grain               220 Shards    210 Shards
+        Metals              600 Shards    570 Shards
+        Minerals            400 Shards    310 Shards
+        Spices              900 Shards    820 Shards
+        Textiles            325 Shards    285 Shards
+        Timber              120 Shards    100 Shards
+        
+        Prices are for single Cargo Units. Fill in your current cargo on
+        the Ship’s Manifest.
+        
+        You can buy a one-way passage to Yellowport from here at
+        a cost of 15 Shards – turn to 74.
+    - choice:
+        - text: u own a ship
+          then:
+            - turnTo: 155
+        - text: u don't own a ship
+          then:
+            - turnTo: 195
+- number: 333
+  content:
+    - text: |
+        You are on the east bank of the River Grimm. Roll one die.
+        Score 1 or 2   A water sprite curses you – lose a Blessing, if you have one
+        Score 3 or 4   Nothing happens
+        Score 5 or 6   Catch a smoulder fish while fishing
+      
+        When you are ready, you can:
+        Cross to the west bank
+        Cities of Gold and Glory 99
+    - choice:
+        - text: Head east into the Forest of Larun
+          then:
+            - turnTo: 47
+        - text: Follow the river north
+          then:
+            - turnTo: 123
+        - text: Follow the river south
+          then:
+            - turnTo: 99
+- number: 334
+  content:
+    - text: |
+        To renounce the worship of Lacuna, you must pay 40 Shards in
+        compensation to the shrine.
+        
+        ‘If you forsake the love of the goddess, you will never
+        survive the rigours of the wilderness,’ warns the priestess.
+        
+        If you still want to renounce the worship of Lacuna, cross off
+        the 40 Shards and delete Lacuna from the God box on your
+        Adventure Sheet.
+    - turnTo: 195
 - number: 335
   content:
     - text: |
@@ -26,6 +158,73 @@
         ‘Bah!’ he exclaims, ‘It’s not worth the trouble. I’ll let it pass this time.
         ’With that, he returns to his ship, and departs
     - turnTo: 439
+- number: 336
+  content:
+    - text: |
+        You step in, saying, ‘I have a message for King Skabb...’ The ratmen stare at you in amazement.
+        ‘A human! Get it!’ screams Skabb. The four ratmen charge toward you with a roar, wielding swords
+        before you can say anything more. Soon they have been joined by many others and you have little
+        choice but to turn and flee for your life! Desperately, you race down the sewer tunnels, with an
+        army of ratmen in hot pursuit.
+    - choice:
+        - text: Lose them in the tunnels
+          then:
+            - turnTo: 79
+        - text: Try some magic
+          then:
+            - turnTo: 296
+        - text: Hide
+          then:
+            - turnTo: 127
+- number: 337
+  content:
+    - text: |
+        If there is a tick in the box
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 37
+      else:
+        - text: |
+            The crew have been using a net to catch fish. This time they
+            have caught a sea centaur, a strange-looking creature, with a top
+            half like a man, and a bottom half like a sea horse. It struggles
+            feebly, clutching at the net with webbed fingers, trying to saw it
+            apart with a long, serrated dagger made of some sea shell.
+    
+            ‘We’ll have to kill it, Cap’n – they’re terrible bad luck to
+            have on board,’ says the first mate.
+    
+            One of the sailors is already readying his cutlass.
+        - choice:
+            - text: Give the order to kill it
+              then:
+                - turnTo: 522
+            - text: Spare it
+              then:
+                - turnTo: 604
+- number: 338
+  content:
+    - text: |
+        You climb down the ladder into a house with herbs and plants
+        hanging on the walls, and shelves lined with pots, pans, and
+        bottles of all sorts. The healer, an old woman, can cure you of
+        poison but is unable to cure disease, lift curses, or heal wounds. It
+        will cost you 25 Shards to get cured if you are poisoned. If you
+        pay, you can restore all of your affected abilities to normal.
+    - turnTo: 427
+- number: 339
+  content:
+    - text: |
+        You find a burned-out house in the poor quarter where a trader
+        has set up a stall, selling ash and debris. The merchant, a
+        weaselly-looking old woman, is screeching, ‘Ashes, ashes from
+        the house of a sorceress! Fifteen Shards a packet!’
+
+        If you want to buy some, cross off 15 Shards and note the
+        ashes on your Adventure Sheet. When you are ready, you head
+        back to the center of the town.
+    - turnTo: 100
 - number: 341
   content:
     - text: |
@@ -33,6 +232,60 @@
         Apparently he is plotting against her! ‘Intrigue and treachery in the court of the baroness...’
         mutters a man before his voice fades to a whisper. You leave the tavern.
     - turnTo: 400
+- number: 342
+  content:
+    - text: |
+        The alchemist’s shop is lined with potions, jars of exotic
+        substances, herbs, and so on. Alembics and beakers bubble and
+        boil, full of strangely-coloured liquids. The alchemist, a tall,
+        gangly fellow with a beak of a nose, sells potions. You can buy
+        as many as you can afford – each one costs 50 Shards.
+
+        Potion of strength (COMBAT +1)
+        Potion of comeliness (CHARISMA +1)
+        Potion of intellect (MAGIC +1)
+        Potion of godliness (SANCTITY +1)
+        Potion of stealth (THIEVERY +1)
+        Potion of nature (SCOUTING +1)
+
+        A potion can be used just before an ability roll or a fight to
+        add 1 to the relevant ability for that one roll or fight only. Each
+        potion can be used only once. The alchemist can make you a
+        special potion for 250 Shards, but he needs an ink sac. If you
+        pay the money and have an ink sac (cross it off your Adventure
+        Sheet), he will make you a potion of restoration. It can be
+        used only once to heal all lost Stamina points, cure poison, and
+        disease.
+    - turnTo: 510
+- number: 343
+  content:
+    - text: |
+        Becoming an initiate of Alvir and Valmir gives you the benefit
+        of paying less for blessings and other services the temple can
+        offer. It costs 40 Shards to become an initiate. You cannot
+        become an initiate of Alvir and Valmir if you are an initiate of
+        another temple. If you choose to become an initiate, write Alvir
+        and Valmir in the God box on your Adventure Sheet and cross
+        off the 40 Shards.
+    - turnTo: 154
+- number: 344
+  content:
+    - text: |
+        You must make either a COMBAT or a MAGIC roll at Difficulty
+        14 to slay him.If you are successful, read on.
+
+        You cut him down, or enchant him so that he obeys your
+        every command and falls on his own sword. Note the codeword
+        Assassin.
+
+        Hurriedly, you flee the palace.
+    - choice:
+        - text: unsuccessful roll
+          then:
+            - turnTo: 161
+        - text: successfull roll
+          then:
+            - turnTo: 216
 - number: 345
   content:
     - text: |
@@ -42,6 +295,73 @@
         Inside, a message reads, ‘Never sail at night through rocky waters.’
         You sail on.
     - turnTo: 209
+- number: 346
+  content:
+    - text: |
+        Your ship, crew, and cargo are lost to the deep, dark sea. Cross
+        them off your Adventure Sheet. Your only thought now is to
+        save yourself.
+
+        Roll two dice. If the score is greater than your Rank, you are
+        drowned. If the score is less than or equal to your
+        Rank, you manage to find some driftwood, and make it back
+        to shore. Lose Stamina points equal to the score of one die roll,
+        and if you can survive that.
+    - choice:
+        - text: drowned
+          then:
+            - turnTo: 680
+        - text: survived
+          then:
+            - turnTo: 453
+- number: 347
+  content:
+    - text: |
+        The road is nearly blocked by wagons and supply convoys. A
+        troop of soldiers forces its way through the throng – the men
+        bang heads indiscriminately to clear people out of the way. Roll
+        a die.
+        
+        Score 1 or 2   Banged on the head! Lose 1 Stamina
+        Score 3 or 4   Nothing happens
+        Score 5 or 6   Mistaken for a beggar – receive 10 Shards
+        from a passing priest
+      
+        When you are ready, you can go.
+    - choice:
+        - text: North to Caran Baru
+          then:
+            - turnTo: 400
+        - text: East into the Coldbleak Mountains
+          then:
+            - turnTo: 474
+        - text: South along the road
+          then:
+            - turnTo: 387
+        - text: West into the Forest of Larun
+          then:
+            - turnTo: 47
+- number: 348
+  content:
+    - text: |
+        You remember what the fishermen say – the root of a certain
+        seaweed, when crushed, gives off a cloud of toxic fluid. This sap
+        is harmless to humans but is known to paralyze marine creatures
+        for a short while. Fortunately, the seaweed grows in abundance
+        here. You swim down with a handful of the roots, squeezing its
+        sap into the waters. The hideous creatures shoot towards you,
+        but are paralyzed the instant they enter the cloud of reddish fluid
+        that billows around you.
+
+        You take the golden net (note it on your Adventure Sheet)
+        and swim back to the Shadar Tor as fast as you can.
+    - choice:
+        - text: Take the road to Trefoille
+          then:
+            - turnTo: 602
+        - text: Take the road to Marlock City
+          then:
+            - turnTo: 166
 - number: 349
   content:
     - text: |
@@ -49,6 +369,36 @@
         and run off into the shadowy backstreets of Caran Baru.
         Cursing your luck, you consider your next move.
     - turnTo: 400
+- number: 350
+  content:
+    - text: |
+        You are restored to life at the Temple of Nagil in Marlock City.
+        Your Stamina is back to the normal score. The possessions and cash
+        you were carrying at the time of your death are lost – cross them
+        off your Adventure Sheet. Also, remember to delete the entry in
+        the Resurrection box now it has been used.
+
+        ‘Nagil has taken you from the barge of souls that sails to the
+        lands of the dead and returned you to us,’ declares the high priest.
+
+        You leave the temple.
+    - turnTo: 100
+- number: 351
+  content:
+    - text: |
+        One day, a new slave is brought in to work beside you. Much to your astonishment,
+        it is Lauria, the thief who left you in the lurch when you burgled a wizard’s house in Yellowport.
+        ‘Sorry about the last time,’ she says, ‘Business – you know. Now’s my chance to make it up to you.’
+        She explains that she has discovered an escape route.
+        This time, she promises to set up a diversion while you make for a tunnel where a cave-in has left an opening to the outside.
+        Lauria says she will meet you later.
+    - choice:
+        - text: Go along with her plan
+          then:
+            - turnTo: 662
+        - text: Escape on your own
+          then:
+            - turnTo: 565
 - number: 352
   content:
     - text: |
@@ -58,6 +408,80 @@
         At the sight of you, the rat men redouble their efforts, and you are overwhelmed
         by sheer numbers
     - turnTo: 308
+- number: 353
+  content:
+    - text: |
+        The guard recognizes you and shouts at the top of his lungs,
+        ‘It’s the stinking traitor who killed Nergan. Get him!’
+
+        Several archers pop up from behind the rocks overhead, and
+        start shooting at you. An arrow embeds itself in your shoulder.
+        Lose 3 Stamina points. If you still live, you realize you made a
+        bad mistake in coming back here, and you run for your life. As
+        you climb down, you are shot at again. Roll a dice.
+
+        Score 1 or 2   You are hit twice, lose 6 Stamina
+        Score 3 or 4   Hit once, lose 3 Stamina
+        Score 5 or 6   Missed completely, no wounds
+
+        After that, if you are still alive, you make it back to the
+        foothills of the mountains.
+    - turnTo: 474
+- number: 354
+  content:
+    - text: |
+        You throw, muttering a prayer for forgiveness to the gods. The
+        weapon soars through the air. It turns, and catches the sunlight,
+        sparkling like a flashing star, before sinking beneath the water
+        with barely a splash. No ripples appear. Your heart feels uplifted,
+        and the curse is no more! Delete the curse and its effects, and
+        lose the codeword Appease.
+    - turnTo: 378
+- number: 355
+  content:
+    - text: |
+        To find out how well your investments have done, roll two
+        dice. Add 1 to the dice roll if you are an initiate of the Three
+        Fortunes. Also add 1 if you have the codeword Almanac, add 2 if
+        you have the codeword Brush, and add 3 if you have the
+        codeword Eldritch.
+
+        Score 2-4   Lose entire sum invested
+        Score 5-6   Loss of 50%
+        Score 7-8   Loss of 10%
+        Score 9-10   Investment remains unchanged
+        Score 11-12   Profit of 10%
+        Score 13-14   Profit of 50%
+        Score 15-16   Double initial investment
+        Score 17+   Triple initial investment
+
+        Now go on, where you can withdraw or leave the sum
+        written in the box there after adjusting it according to the result
+        rolled.
+    - turnTo: 46
+- number: 356
+  content:
+    - text: |
+        You are pious enough to be allowed to enter the sacred
+        grove. You step in and knock on the door.
+
+        A kindly old druid opens the door and greets you.
+
+        You hand him the oak staff (cross it from your Adventure
+        Sheet).
+
+        ‘Thank you!’ says the druid, ‘An oak staff, eh! That’s an
+        interesting message, to be sure.’
+
+        He hands you 50 Shards as payment and a willow staff,
+        saying, ‘Please take this staff to the Oak Druid in the City of
+        Trees, on the Isle of Druids – I’m sure he’ll reward you, too.
+        Good day, and thanks again!’
+
+        With that, he shuts the door.
+
+        You head back into the forest.
+    - turnTo: 47
 - number: 357
   content:
     - text: |
@@ -71,6 +495,56 @@
         - text: Stay hidden and follow when they leave
           then:
             - turnTo: 541
+- number: 358
+  content:
+    - text: |
+        ‘Welcome to the City of the Trees,’ says a passing woman,
+        dressed in the garb of a druid.
+
+        The city has been built amid the branches of several mighty
+        oaks. Ladders run up and down the trees to houses that perch
+        like nests in the branches. You are not allowed into any houses,
+        but the druids allow you to barter at the market.
+
+        Items with no purchase price are not available locally.
+
+        **Armour**
+        To buy          To sell
+        Leather (Defence +1)    50 Shards    45 Shards
+        Ring mail (Defence +2)    –    90 Shards
+
+        **Weapons (sword, axe, etc)**
+        To buy          To sell
+        No COMBAT bonus    50 Shards    40 Shards
+        COMBAT bonus +1    250 Shards    200 Shards
+
+        **Magical Equipment**
+        To buy          To sell
+        Amber wand (MAGIC +1)    500 Shards    300 Shards
+        Ebony wand (MAGIC +2)    1000 Shards    800 Shards
+        Cobalt wand (MAGIC +3)    –    1600 Shards
+
+        **Other items**
+        To buy          To sell
+        Mandolin (CHARISMA +1)    –    270 Shards
+        Silver holy symbol (SANCTITY +2)    800 Shards    750 Shards
+        Gold compass (SCOUTING +2)    900 Shards    800 Shards
+        Rope    50 Shards    45 Shards
+        Lantern    100 Shards    90 Shards
+        Silver nugget    –    150 Shards
+    - choice:
+        - text: you are a Wayfarer by profession
+          then:
+            - turnTo: 645
+        - text: you are not a Wayfarer by profession
+          then:
+            - turnTo: 678
+- number: 359
+  content:
+    - text: |
+        A wandering tinker accosts you, selling lanterns for 50 Shards
+        each. You can buy no more than three.
+    - turnTo: 10
 - number: 360
   content:
     - text: |

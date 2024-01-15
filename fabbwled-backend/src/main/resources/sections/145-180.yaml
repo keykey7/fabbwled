@@ -7,6 +7,7 @@
         Yellowport might be able to help. And the holy waters at 
         Blessed Springs are known to be efficacious in this kind of case.’
     - turnTo: 100
+
 - number: 163
   content:
     - text: |
@@ -20,6 +21,7 @@
         The guildmaster has you removed by his guards, and you are 
         dumped into the street.
     - turnTo: 100
+
 - number: 165
   content:
     - text: |
@@ -33,12 +35,14 @@
         - text: Try to escape
           then:
             - turnTo: 444
+
 - number: 167
   content:
     - text: |
         You lose your pursuers in the treacherous rocky passes of the 
         mountains. Eventually, you reach the safety of the foothills.
     - turnTo: 474
+
 - number: 171
   content:
     - text: |
@@ -56,6 +60,7 @@
         ‘There weren’t any ghosts,’ you explain. ‘It was these three all
         along.’
     - turnTo: 671
+
 - number: 173
   content:
     - text: |
@@ -92,19 +97,6 @@
   content:
     - text: You step through the archway. Immediately the symbols on thestone  begin  to  glow  with  red-hot  energy;  your  hair  stands  onend  and  your  body  tingles.  A  crackling  nimbus  of  blue-whiteforce  engulfs  you,  the  sky  darkens  and  thunder  and  lightningcrash  and  leap  across  the  heavens.  Suddenly,  your  vision  fades,and everything goes black.When your sight returns, you find yourself outside the gatesof a huge, fortified city. A guard starts in surprise at the sight ofyou. Then he shakes his head as if to clear it, sure he must haveimagined what he just saw!The gates open, and a troop of heavy cavalry canter past.‘Make way for the Marlock City militia!’, says the guard.When they have passed, you walk into the city.
     - turnTo: 100
-- number: 179
-  content:
-    - text: |
-        You claim that you have come to swear allegiance to Nergan, 
-        the rightful king of Sokara. Captain Vorkung is not convinced. 
-        He narrows his eyes suspiciously.
-        ‘You’d better leave – now. Before I decide you are a spy, 
-        and have you shot!’
-        One of the archers looses a shaft, and an arrow thuds into the 
-        ground at your feet, quivering menacingly.
-        You realize it is time to leave, and climb down the 
-        mountain.
-    - turnTo: 474
 - number: 180
   content:
     - text: |

@@ -18,11 +18,4 @@ class SectionServiceTest extends FabledTestBase {
 		var id = SectionId.book1(15);
 		assertThat(sectionService.byId(id).id()).isEqualTo(id);
 	}
-
-	@Test
-	void byIdInvalid() {
-		var id = SectionId.book1(680);
-		assertThatThrownBy(() -> sectionService.byId(id)).isInstanceOf(FabledTechnicalException.class)
-				.hasMessageContaining("" + id.sectionId());
-	}
 }

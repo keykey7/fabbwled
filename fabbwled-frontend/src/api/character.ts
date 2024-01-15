@@ -1,8 +1,8 @@
-import { CharacterCreateDto } from "../interfaces/character.ts";
+import { CharacterCreateDto, Player } from "../interfaces/character.ts";
 
 const baseApiURL = "http://localhost:8080/api/player";
 
-export async function setCharacter(data: CharacterCreateDto): Promise<unknown> {
+export async function setCharacter(data: Player): Promise<unknown> {
   const response = await fetch(baseApiURL, {
     method: "POST",
     headers: {
@@ -12,7 +12,8 @@ export async function setCharacter(data: CharacterCreateDto): Promise<unknown> {
   });
 
   if (response.ok) {
-    return await response.json();
+    console.log("Character data set successfully");
+    return; // Return nothing as there's no response data from BE
   } else {
     throw new Error(`API request failed with status: ${response.status}`);
   }
