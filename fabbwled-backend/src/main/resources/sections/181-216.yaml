@@ -52,19 +52,26 @@
         If you take the mission, gain the codeword Artery.
         If you have the codeword Ambuscade, turn to 375.
         Otherwise, the provost marshal dismisses you. Turn to 10.
-    - choice:
-      - text: Take the Mission and gain the codeword "Artery"
-        then:
-          - acquireKeyword: Artery
-          - turnTo: 552
-      - text: Move on. If you have the keyword ambuscade it might lead you somehwere special.
-        then:
-          - if:
-              hasKeyword: Ambuscade
+    - if:
+        hasKeyword: Ambuscade
+      then:
+        - choice:
+          - text: Take the Mission and gain the codeword "Artery"
+            then:
+              #TODO IMPLEMENT HAVING MORE THAN JUST TURNTO IN CHOICE - acquireKeyword: Artery
+              - turnTo: 552
+          - text: Dont't take the Mission.
             then:
               - turnTo: 375
-            else:
-              - turnTo: 10
+      else:
+        - choice:
+            - text: Take the Mission and gain the codeword "Artery"
+              then:
+                #TODO IMPLEMENT HAVING MORE THAN JUST TURNTO IN CHOICE - acquireKeyword: Artery
+                - turnTo: 552
+            - text: Let the provost marshal dismiss you
+              then:
+                - turnTo: 10
 - number: 192
   content:
     - text: |
@@ -145,7 +152,7 @@
     - choice:
       - text: Go Fishing and pay 15 Shards
         then:
-          - SpendShards: 15
+          #TODO IMPLEMENT HAVING MORE THAN JUST TURNTO IN CHOICE - spendShards: 15
           - turnTo: 267
       - text: Don’t go fishing
         then:
