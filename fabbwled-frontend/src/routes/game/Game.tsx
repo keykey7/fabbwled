@@ -4,6 +4,7 @@ import DiceComponent from "../../DiceComponent.tsx";
 import { convertToElement } from "../../SectionRenderer.tsx";
 import { Player, Section } from "../../interfaces/character.ts";
 import { Link } from "react-router-dom";
+import Inventory from "../../components/Inventory";
 
 export default function Game() {
   const [character, setCharacter] = useState<Player>();
@@ -134,6 +135,7 @@ export default function Game() {
           >
             <img src={"/eraser.png"} />
           </button>
+          <Inventory onAction={() => console.log("action")} />
         </div>
       </div>
     </div>
