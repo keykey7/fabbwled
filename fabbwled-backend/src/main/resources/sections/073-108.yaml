@@ -1,3 +1,15 @@
+# not finished yet, because of missing time
+- number: 74
+  content:
+    - text: |
+        A fisherman will take you all the way to Yellowport for 15
+        Shards. Cross the money of your Adventure Sheet. Amazingly,
+        despite the apparent fragility of the small vessel, you arrive
+        without incident.
+    - choice:
+        - text: Turn to 10.
+          then:
+            - turnTo: 10
 - number: 80
   content:
     - text: |
@@ -113,3 +125,177 @@
         - text: Go to Marlock City
           then:
             - turnTo: 100
+# Spending shards is not possible yet
+- number: 100
+  content:
+    - text: |
+        Marlock City is a huge sprawling metropolis, enclosed in a
+        fortified wall said to have been built one thousand years ago by
+        the ancient Shadar Empire. It is the capital city of Sokara.
+        Marlock City was once known as Sokar, until General Grieve
+        Marlock led the army in bloody revolt against the old king,
+        Corin VII, and had him executed. The general renamed the city
+        after himself – it is now a crime to call it Sokar.
+        The general lives in the old king’s palace, and calls himself
+        the Protector-General of all Sokara. Whereas the old king was
+        corrupt, the general rules with a fist of iron. Some people like
+        the new regime; others are royalists, still loyal to Nergan, the
+        heir to the throne, who has gone into hiding somewhere.
+        Outside the city gates hang the bodies of many dead people
+        – labels around their necks read: ‘Rebels, executed by the state
+        for the good of the people’.
+        ‘You’d best behave yourself if you don’t want to end up like
+        one of them,’ grates a guardsman, nodding towards the swinging
+        corpses, as you pass through the great eagle-headed gates of
+        Marlock City.
+    - choice:
+        - text: Visit the Three Rings Tavern
+          then:
+            - turnTo: 158
+        - text: Visit the temple of Alvir and Valmir
+          then:
+            - turnTo: 154
+        - text: Visit the temple of Nagil
+          then:
+            - turnTo: 71
+        - text: Visit the temple of Sig
+          then:
+            - turnTo: 235
+        - text: Visit the temple of Elnir
+          then:
+            - turnTo: 568
+        - text: Visit the market
+          then:
+            - turnTo: 396
+        - text: Visit the harbourmaster
+          then:
+            - turnTo: 142
+        - text: Go to the merchants’ guild
+          then:
+            - turnTo: 571
+        - text: Explore the city
+          then:
+            - turnTo: 138
+        # Box is not checked yet
+        - text: Visit your town house ! (if box ticked)
+          then:
+            - turnTo: 434
+        - text: Visit the House of Priests
+          then:
+            - turnTo: 535
+        - text: Visit the general’s palace
+          then:
+            - turnTo: 601
+        - text: Travel east towards Trefoille
+          then:
+            - turnTo: 377
+        - text: Head south-east towards the Shadar Tor
+          then:
+            - turnTo: 166
+        - text: Follow the River Grimm north
+          then:
+            - turnTo: 99
+        - text: Journey north into the Curstmoor
+          then:
+            - turnTo: 175
+        - text: Head west to the River Grimm delta
+          then:
+            - turnTo: 579
+# cannot be implemented yet: blessing has not been implemented yet
+- number: 107
+  content:
+    - text: |
+        If you are an initiate it costs only 10 Shards to purchase Tyrnai’s
+        blessing. A non-initiate must pay 25 Shards. Cross off the money
+        and mark COMBAT in the Blessings box on your Adventure
+        Sheet.
+        The blessing works by allowing you to try again when fail a
+        COMBAT roll. It is good for only one reroll. When you use the
+        blessing, cross it off your Adventure Sheet. You can only have
+        one COMBAT blessing at any one time. Once it is used up, you
+        can return to any branch of the temple of Tyrnai to buy a new
+        one.
+    - choice:
+        - text: When you are finished
+          then:
+            - turnTo: 282
+# not yet finished: no blessings possible as well fighting system
+- number: 105
+  content:
+    - text: |
+        You will have to fight it.
+        Scorpion Shaman, COMBAT 5, Defence 8, Stamina 9
+    - choice:
+        - text: If you win
+          then:
+            - turnTo: 532
+        - text: If you lose, your adventures are over unless you have a resurrection deal.
+          then:
+            - turnTo: 1
+# box view with sum is not possible yet
+- number: 104
+  content:
+    - text: |
+        Lose the codewords Almanac, Brush and Eldritch if you have
+        them. You can invest money in multiples of 100 Shards. The
+        guild will sell and buy commodities on your behalf using this
+        money until you return to collect it.
+        ‘Don’t forget that you can lose money as well,’ mutters a
+        sullen merchant who leaves the guild penniless.
+        Write the sum you are investing in the box here – or
+        withdraw a sum invested previously.
+    - choice:
+        - text: Then
+          then:
+            - turnTo: 571
+- number: 102
+  content:
+    - if:
+        hasKeyword: Defend
+      then:
+        - turnTo: 655
+      else:
+        - text:
+            If not, read on.  
+            ‘What are you doing back here,’ asks Grieve Marlock,
+            angrily. ‘You should be defending the citadel! You know, that
+            castle in the Pass of Eagles, up north! Get back there and talk to
+            Orin Telana!’
+        - if:
+            hasPossession: missive
+          then:
+            - turnTo: 677
+          else:
+            - text: Otherwise, you are shown out in short order.
+              then:
+                - turnTo: 100
+# not complete because fighting is not possible
+- number: 96
+  content:
+    - text: |
+        One of the militiamen kicks over a table, blocking your escape.
+        You set your back to a corner of the room and grimly prepare to
+        fight for your life. Fight them one at a time:
+        First Militiaman, COMBAT 4, Defence 7, Stamina 5
+        Second Militiaman, COMBAT 4, Defence 7, Stamina 4
+        Third Militiaman, COMBAT 4, Defence 7, Stamina 5
+    - choice:
+        - text: If you win,
+          then:
+            - turnTo: 432
+        - text: If you surrender,
+          then:
+            - turnTo: 218
+# aquire keyword not possible yet in yaml? not implemented because of missing time
+- section: 92
+  content:
+    - text: |
+        He falls dead at your feet. Searching him, you find 25 Shards
+        you can take if you wish. Then you flip up his eyepatch.
+        Nestling in the eye-socket is a sparkling gem, a flame opal. You
+        pluck it free. Note the flame opal eye on your Adventure
+        Sheet and lose the codeword Barnacle.
+    - choice:
+        - text: You hurry off, before a patrol arrives.
+          then:
+            - turnTo: 400
