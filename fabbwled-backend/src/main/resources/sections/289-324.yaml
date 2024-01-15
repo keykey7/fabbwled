@@ -1,7 +1,121 @@
+- number: 289
+  content:
+    - text: |
+        There is a pause, as if you are both waiting for something to happen. You realize the gods have not heard your prayer, as does your enemy. It snarls triumphantly, and slashes you across the chest. Lose 2 Stamina. If you still live, you have no choice but to fight it.
+    - turnTo: 617
+- number: 290
+  content:
+    - choice:
+        - text: If you have the codeword Cutlass
+          then:
+            - turnTo: 403
+        - text: If not, but you have the codeword Amcha
+          then:
+            - turnTo: 512
+        - text: |
+            Otherwise read on. The guildmaster, a tall gaunt man, welcomes you. ‘The guild, in Golnir and Sokara, is plagued by privateers on the high seas. Amcha One-eye is the worst of these lawless dogs – he has cost us thousands
+- number: 291
+  content:
+    - text: |
+        Becoming an initiate of Elnir gives you the benefit of paying less for blessings and other services the temple can offer. It costs 60 Shards to become an initiate. You cannot become an initiate of Elnir if you are already an initiate of another temple. If you choose to become an initiate, write Elnir in the God box on your Adventure Sheet – and remember to cross off the 60 Shards.
+    - turnTo: 316
+- number: 292
+  content:
+    - text: |
+        The local market is very small – only two commodities are available for trade.
+        Item To buy To sell
+        Smoulder fish 60 Shards 55 Shards
+        Silver nugget 165 Shards 150 Shards
+    - turnTo: 135
+- number: 293
+  content:
+    - text: |
+        The merchantman has suffered a lot of damage, and the
+        remaining crewmen are half dead with thirst. You give them
+        water, and help to repair the ship. The captain, a woman dressed
+        in multi-coloured feather robes, and an ornate head-dress, is
+        most grateful. She tells you her name is Moon of Evening and
+        that she comes from Smogmaw, the city at the Misty Estuary, in
+        far-off Ankon-Konu. She tells you to visit her, if you are ever in
+        Smogmaw, so that she can repay the debt.
+    - turnTo: 559
+- number: 294
+  content:
+    - text: |
+        Becoming an initiate of Alvir and Valmir gives you the benefit
+        of paying less for blessings and other services the temple can
+        offer. It costs 40 Shards to become an initiate. You cannot do
+        this if you are already an initiate of another temple. If you
+        choose to become an initiate, write Alvir and Valmir in the God
+        box on your Adventure Sheet – and remember to cross off the
+        40 Shards. Once you have finished here, turn to 220.
+    - choice:
+        - text: Become an initiate of Alvir and Valmir
+          then:
+            - turnTo: 220
+        - text: Do not become an initiate
+          then:
+            - turnTo: 220
 - number: 295
   content:
-    - text: The scorpion men cannot keep up with you, and you leg it all the way back to the road. Maybe you can come back and try again later.
+    - text: |
+        The scorpion men cannot keep up with you, 
+        and you leg it all the way back to the road. Maybe you can come back and try again later.
     - turnTo: 492
+- number: 296
+  content:
+    - text: Make a MAGIC roll at Difficulty 9.
+    - choice:
+        - text: Successful MAGIC roll
+          then:
+            - turnTo: 494
+        - text: Failed MAGIC roll
+          then:
+            - turnTo: 352
+- number: 297
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 19
+- number: 298
+  content:
+    - text: |
+        The amulet of protection dissolves in a flash of smoke – cross
+        it off your Adventure Sheet.
+        It does protect you, however, and you are obscured by the
+        smoke long enough to get into hiding. The amulet leaves a
+        residue of yellow powder, which the dragon thinks is all that is
+        left of you. He scoops it up and puts it into a bottle, beside the
+        others on his rocky shelf.
+    - turnTo: 16
+- number: 299
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 20
+- number: 300
+  content:
+    - text: |
+        You can leave possessions and money here to save having to
+        carry them around with you. You can also rest here safely, and
+        recover any Stamina points you have lost. Record in the box
+        anything you wish to leave. Each time you return, roll two dice:
+          Score 2-9 Your possessions are safe
+          Score 10-11 A thief. All the money left here has gone
+          Score 12 Burglars! Lose all the possessions you have left
+        here
+    - turnTo: 10
+- number: 301
+  content:
+    - text: |
+        A barque, heading for the Isle of Druids to buy furs, is prepared
+        to take you. Cross off 15 Shards. The journey, across the Sea of
+        Whispers, is uneventful, and you dock at the Trading Post on
+        the island a week or so later.
+    - spendShards: -15
+    - turnTo: 195
 - number: 302
   content:
     - text: You can explore
@@ -15,6 +129,105 @@
         - text: The palace
           then:
             - turnTo: 277
+- number: 303
+  content:
+    - text: |
+        Cross the salt and iron filings from your Adventure Sheet. 
+        As fast as you can, you lay out a line of powder in front of you. 
+        The ghoul gives a moaning wail and shrinks back, unable to cross the line of salt and iron filings. 
+        Quickly you run around the ghoul, encircling it with the powder. 
+        The creature lunges for you but it cannot cross the line – you keep it at bay at every turn. 
+        Soon it is completely trapped. Casually, you sit on a tombstone and wait for sunrise. 
+        When it comes, the ghoul is burnt to a crisp. You take the rotting, 
+        charred head and make your way back into town.
+      then:
+        - turnTo: 100
+- number: 304
+  content:
+    - text: |
+        He spots you before you can get the jump on him. 
+        ‘Stinking assassin!’ he yells, drawing his sword. 
+        You must fight him."
+    - choice:
+        - text: If you win, turn to 92.
+          then:
+            - turnTo: 92
+        - text: |
+            If you lose, he kills you, and your adventuring days are over, 
+            unless you have a resurrection deal.
+          then:
+            - turnTo: 1
+- number: 305
+  content:
+    - if:
+        isTickBoxDone: true
+      then:
+        - turnTo: 367
+      else:
+        - text: |
+            If not, put a tick there now, and read on.
+            Make a MAGIC roll at Difficulty 11.
+        - choice:
+            - text: Successful MAGIC roll
+              then:
+                - turnTo: 609
+            - text: Failed MAGIC roll
+              then:
+                - turnTo: 528
+- number: 306
+  content:
+    - text: |
+        Something doesn’t feel right about the pearls. You realize a minor enchantment has been put on them – they are in fact tiny pebbles, made to look like pearls. You squeeze them in the palm of your hand, and they revert to their natural state.
+        ‘By the twin gods!’ exclaims the young man. ‘Look at that! They were pebbles all along!’
+        You stare at him for a long while, fingering your weapon. The Sea Gypsy shifts uneasily from foot to foot, coughing nervously and hands you another bag of pearls. This time you are sure they are real. Note the bag of pearls on your Adventure Sheet.
+        You take your leave, and resume your journey.
+      then:
+        - turnTo: 85
+- number: 307
+  content:
+    - text: |
+        It feels like you are playing the flute for an eternity. But at last
+        they tire of your music...
+        You wake up with a scream. You realize you are not aboard
+        your ship! You find out that you are in the temple of Alvir and
+        Valmir in Yellowport. A priest tells you that your crew brought
+        you here three months ago because they could not wake you
+        from your sleep.
+        Your ship and crew are long gone now – note that you no
+        longer own a ship. The priests, however, have been looking
+        after all your possessions. Among them is a silver flute
+        (CHARISMA +2). While you have the flute, it adds 2 to your
+        CHARISMA. Note that it is worth 500 Shards, and that you can
+        sell it at any market, if you like.
+        You leave the temple.
+      then:
+        - turnTo: 10
+- number: 308
+  content:
+    - text: |
+        The ratmen beat you into unconsciousness, and then toss you
+        down an underground sewer outlet. You are washed up on the
+        beaches outside Yellowport, where you come to. You have 1
+        Stamina point left, and the ratmen have taken all the items and
+        money that you were carrying. Cross them off your Adventure
+        Sheet. Groggily, you make your way back into the city.
+      then:
+        - turnTo: 10
+- number: 309
+  content:
+    - text: |
+        As you move closer to the sarcophagus, your foot crosses the
+        edge of the pentacle by a few millimetres – it is enough. The lid
+        of the sarcophagus explodes into the air with a deafening crash,
+        and a pillar of black smoke erupts from the stone coffin! The
+        smoke hurtles towards you, like a miniature tornado.
+      then:
+        - text: You must fight the tomb guardian. If you have a weapon with a +1 COMBAT bonus or greater,
+          then:
+            - turnTo: 43
+        - text: Otherwise,
+          then:
+            - turnTo: 260
 - number: 310
   content:
     - text: If there is a tick in the box
@@ -25,6 +238,24 @@
       else:
         - text: If not, read on. The Stinking River has cut its way through the high ground here. On the edge of the chasm that overlooks the river lies the village of High Therys. The locals are behaving very oddly. You watch the villagers lay out a fine feast on the village green. A pig is set roasting on a spit, loaves of freshly baked bread are piled beside bowls overflowing with fruits, butter and cheese. Lastly, the richest merchants of the village bring coffers full of silver which they set beside the table. To your amazement, instead of sitting down to dine, the villagers then scurry home and start closing the shutters on their windows.
         - turnTo: 283
+- number: 311
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 335
+- number: 312
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 507
+- number: 313
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 400
 - number: 314
   content:
     - text: The runes mean nothing to you.
@@ -38,6 +269,12 @@
         - text: Take the road to Marlock City
           then:
             - turnTo: 166
+- number: 315
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 510
 - number: 316
   content:
     - text: The temple of Elnir is an imposing edifice of grey stone, inlaid with yellow marbling. Elnir is the god of the sky and of kingship. He is the ruler of the gods. ‘His dreams are the clouds before a storm,’ says a passing priest.
@@ -58,6 +295,18 @@
   content:
     - text: It is the same craft you got the magic spear from, with the silver-skinned demon inside – still dead you presume. You examine it again, but there is nothing else of interest on board. The figure still lies there unmoving. You sail on.
     - turnTo: 85
+- number: 318
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 657
+- number: 319
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 195
 - number: 320
   content:
     - text: You learn from their conversations that they are from the jungles of distant Ankon-Konu, the Feathered Lands, and that they have come here to find new sacrifices for their god, and new members for their cult. The chef pronounces the cauldron is ready, and they remove the net that holds you.
@@ -71,6 +320,12 @@
         - text: Join their cult
           then:
             - turnTo: 61
+- number: 321
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 417
 - number: 322
   content:
     - text: The repulsive one recognizes you from your last undersea trip!
@@ -79,3 +334,9 @@
   content:
     - text: A few locals are discussing recent events – it seems some hideous beast has made its lair in a cave on the hill that overlooks the village. ‘It’s a gorlock,’ says a farmer. ‘And it’s amassed quite a bit of treasure by all accounts – lifted from its victims. A brave adventurer like yourself could get rich it you killed it. You’d be doing us a favour as well.’ You ask what a gorlock looks like, but no one knows. ‘Nobody’s come back to tell the tale!’ says the innkeeper. You leave the tavern.
     - turnTo: 510
+- number: 324
+  content:
+    - text: Nothing here yet
+    - choice:
+        - text: Next Section
+        - turnTo: 607
