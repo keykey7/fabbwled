@@ -6,6 +6,7 @@ import ch.bbw.fabbwled.lands.book.SectionNode;
 import ch.bbw.fabbwled.lands.character.PlayerDto;
 import org.springframework.stereotype.Component;
 
+/* Tick-box does not exist here */
 @Component
 public class Section635 implements SectionHandler {
 
