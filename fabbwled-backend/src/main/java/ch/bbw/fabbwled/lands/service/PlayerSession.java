@@ -52,6 +52,6 @@ public class PlayerSession {
         // just convenience for now to always have a player...
         // can be dropped once we always start with the character-creation step
         player = PlayerDto.empty()
-                .withCurrentSection(SectionId.book1(44));
+                .withCurrentSection(SectionId.book1(1));
     }
 }
