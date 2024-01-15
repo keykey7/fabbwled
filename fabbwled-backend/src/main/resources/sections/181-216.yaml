@@ -63,8 +63,8 @@
               hasKeyword: Ambuscade
             then:
               - turnTo: 375
-        else:
-          - turnTo: 10
+            else:
+              - turnTo: 10
 - number: 192
   content:
     - text: |
